@@ -47,7 +47,6 @@ export default function AdminPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
       <h1 className="text-2xl font-semibold">Admin — Bookings</h1>
-      <p className="text-sm text-neutral-600 mt-1">Temporal (sin auth).</p>
 
       {err && <p className="text-sm text-red-600 mt-3">{err}</p>}
       {loading && <p className="mt-4 text-neutral-600">Cargando…</p>}
