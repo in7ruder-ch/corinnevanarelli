@@ -1,78 +1,118 @@
-import { supabaseServer } from "@/lib/supabase";
-import { paypalAccessToken, paypalBaseUrl } from "@/lib/paypal";
-import { sendBookingPaidEmail } from "@/lib/mailer";
+export const runtime = "nodejs";
 
-export const dynamic = "force-dynamic";
+import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
-/**
- * POST /api/paypal/capture-order
- * Body: { orderID: string }
- * Captura en PayPal y pasa booking a PAID + envía mail de confirmación.
- */
+const PAYPAL_ENV = process.env.NEXT_PUBLIC_PAYPAL_ENV || "sandbox";
+const PAYPAL_BASE =
+  PAYPAL_ENV === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
+
+const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+const PAYPAL_SECRET = process.env.PAYPAL_SECRET;
+
+const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY; // opcional
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY; // fallback
+
+const UUID_RX =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+async function getPaypalAccessToken() {
+  if (!PAYPAL_CLIENT_ID || !PAYPAL_SECRET) {
+    throw new Error("Faltan credenciales PayPal (CLIENT_ID o SECRET)");
+  }
+  const creds = Buffer.from(`${PAYPAL_CLIENT_ID}:${PAYPAL_SECRET}`).toString("base64");
+  const r = await fetch(`${PAYPAL_BASE}/v1/oauth2/token`, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${creds}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: "grant_type=client_credentials",
+    cache: "no-store",
+  });
+  if (!r.ok) {
+    const t = await r.text().catch(() => "");
+    throw new Error(`[paypal token] ${r.status} ${t}`);
+  }
+  const j = await r.json();
+  return j.access_token;
+}
+
 export async function POST(req) {
   try {
-    const { orderID } = await req.json();
-    if (!orderID) return Response.json({ error: "Missing orderID" }, { status: 400 });
+    const { orderId, bookingId } = await req.json();
+    const _orderId = String(orderId || "").trim();
+    const _bookingId = String(bookingId || "").trim();
 
-    const token = await paypalAccessToken();
+    if (!_orderId || !_bookingId) {
+      return NextResponse.json({ error: "orderId y bookingId requeridos" }, { status: 400 });
+    }
+    if (!UUID_RX.test(_bookingId)) {
+      return NextResponse.json({ error: "bookingId no es UUID válido" }, { status: 400 });
+    }
+    if (!SUPABASE_URL) {
+      return NextResponse.json({ error: "SUPABASE_URL ausente" }, { status: 500 });
+    }
+    if (!SUPABASE_ANON_KEY && !SUPABASE_SERVICE_ROLE_KEY) {
+      return NextResponse.json(
+        { error: "Falta clave de Supabase (ANON o SERVICE_ROLE)" },
+        { status: 500 }
+      );
+    }
 
-    // Importante: PayPal quiere JSON (aunque sea vacío)
-    const captureRes = await fetch(`${paypalBaseUrl()}/v2/checkout/orders/${orderID}/capture`, {
+    const supabase = createClient(
+      SUPABASE_URL,
+      SUPABASE_SERVICE_ROLE_KEY || SUPABASE_ANON_KEY
+    );
+
+    // 1) Capturar en PayPal
+    const accessToken = await getPaypalAccessToken();
+    const r = await fetch(`${PAYPAL_BASE}/v2/checkout/orders/${_orderId}/capture`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
+      headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+      cache: "no-store",
     });
-    const captureJson = await captureRes.json();
-
-    if (!captureRes.ok) {
-      const debugId = captureJson?.debug_id;
-      return Response.json({ error: captureJson || "PayPal capture error", debugId }, { status: 500 });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      console.error("[paypal capture-order] resp:", j);
+      return NextResponse.json({ error: "No se pudo capturar la orden" }, { status: 502 });
     }
 
-    // Datos de captura (si disponibles)
-    const captureId =
-      captureJson?.purchase_units?.[0]?.payments?.captures?.[0]?.id || null;
-    const status =
-      captureJson?.status ||
-      captureJson?.purchase_units?.[0]?.payments?.captures?.[0]?.status;
+    const unit = j?.purchase_units?.[0];
+    const cap = unit?.payments?.captures?.[0];
+    const status = j?.status;
+    const captureId = cap?.id;
 
-    const supabase = supabaseServer();
+    if (status !== "COMPLETED" || !captureId) {
+      return NextResponse.json(
+        { error: "Pago no completado", status, details: j },
+        { status: 409 }
+      );
+    }
 
-    // Actualizamos booking -> PAID por paypal_order_id
-    const { data: updated, error: updErr } = await supabase
+    // 2) Update booking (columnas reales)
+    const { error: upErr } = await supabase
       .from("bookings")
-      .update({ status: "PAID", paypal_capture_id: captureId })
-      .eq("paypal_order_id", orderID)
-      .select("id, service_id, start_at, customer_name, customer_email")
-      .maybeSingle();
+      .update({
+        status: "PAID",
+        paypal_order_id: _orderId,
+        paypal_capture_id: captureId,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", _bookingId);
 
-    if (updErr) throw updErr;
-    if (!updated) return Response.json({ error: "Booking not found for order" }, { status: 404 });
-
-    // Traemos el servicio para el email
-    const { data: svc, error: svcErr } = await supabase
-      .from("services")
-      .select("id, title_de, duration_min, price_chf")
-      .eq("id", updated.service_id)
-      .maybeSingle();
-
-    if (svcErr) throw svcErr;
-
-    // Enviar email de confirmación (no bloquear respuesta si falla)
-    let emailPreview = null;
-    try {
-      const { previewUrl } = await sendBookingPaidEmail({ booking: updated, service: svc || {} });
-      emailPreview = previewUrl || null;
-    } catch (e) {
-      console.error("Email send error:", e);
+    if (upErr) {
+      console.warn("[paypal capture-order] No se pudo actualizar booking:", upErr.message);
+      // no rompemos: el pago ya está capturado en PayPal
     }
 
-    return Response.json({ ok: true, status, captureId, emailPreview });
+    return NextResponse.json(
+      { ok: true, orderId: _orderId, captureId, status },
+      { status: 200 }
+    );
   } catch (e) {
-    console.error(e);
-    return Response.json({ error: "Server error" }, { status: 500 });
+    console.error("[paypal/capture-order] unhandled:", e);
+    return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });
   }
 }

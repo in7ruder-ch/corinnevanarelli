@@ -1,64 +1,231 @@
-// src/components/booking/Summary.jsx
 "use client";
+import PayPalButton from "./PayPalButton";
+import { useState } from "react";
 
-import { useMemo } from "react";
+function PayPalSection({ holdInfo }) {
+  const [paid, setPaid] = useState(null);
+
+  if (!holdInfo?.bookingId) {
+    return <p className="mt-2 text-sm text-neutral-600">Fehlende Buchung-ID.</p>;
+  }
+  if (paid?.ok) {
+    return (
+      <div className="mt-3 rounded bg-green-50 border border-green-200 p-3 text-green-800">
+        Zahlung erhalten ✅ — Wir sehen uns zum Termin!
+      </div>
+    );
+  }
+  return <PayPalButton bookingId={holdInfo.bookingId} onPaid={setPaid} />;
+}
 
 export default function Summary({ service, datetime }) {
-  // datetime: { date: Date|null, timeISO: string|null }
-  const whenLabel = useMemo(() => {
-    if (!datetime?.date || !datetime?.timeISO) return null;
+  const [loading, setLoading] = useState(false);
+  const [holdInfo, setHoldInfo] = useState(null); // { bookingId, hold_until } | { error }
+  const [form, setForm] = useState({ name: "", email: "" });
+  const [confirmState, setConfirmState] = useState(null); // { ok, error }
+
+  const hasAll = Boolean(service && datetime?.timeISO);
+  const hasHold = Boolean(holdInfo?.bookingId);
+
+  async function createHold() {
+    if (!hasAll || loading) return;
     try {
-      // timeISO viene como string ISO (ej: "2025-09-15T13:00:00.000Z")
-      const d = new Date(datetime.timeISO);
-      // Mostrar en zona local del navegador; el sitio está pensado para CH (Europe/Zurich)
-      const fmt = new Intl.DateTimeFormat("de-CH", {
-        weekday: "short",
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
+      setLoading(true);
+      setHoldInfo(null);
+      setConfirmState(null);
+
+      const serviceId =
+        service?.id ?? service?._id ?? service?.value ?? service;
+
+      const res = await fetch("/api/bookings/hold", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          serviceId,
+          startISO: datetime.timeISO
+        })
       });
-      return fmt.format(d);
-    } catch {
-      return null;
+
+      if (res.status === 409) {
+        setHoldInfo({
+          error:
+            "Dieser Termin wurde gerade belegt. Bitte wähle eine andere Uhrzeit."
+        });
+        return;
+      }
+      if (!res.ok) {
+        const t = await res.text().catch(() => "");
+        console.error("HOLD error:", t);
+        setHoldInfo({ error: "Fehler beim Reservieren. Versuche es erneut." });
+        return;
+      }
+
+      const json = await res.json();
+      setHoldInfo({
+        bookingId: json.bookingId,
+        hold_until: json.hold_until
+      });
+    } finally {
+      setLoading(false);
     }
-  }, [datetime]);
+  }
+
+  async function confirmPending(e) {
+    e?.preventDefault?.();
+    if (!holdInfo?.bookingId || loading) return;
+
+    if (!form.name.trim() || !/.+@.+\..+/.test(form.email)) {
+      setConfirmState({
+        error: "Bitte Name und eine gültige E-Mail eingeben."
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setConfirmState(null);
+
+      const res = await fetch("/api/bookings/confirm", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          bookingId: holdInfo.bookingId,
+          name: form.name.trim(),
+          email: form.email.trim()
+        })
+      });
+
+      if (res.status === 410) {
+        setConfirmState({
+          error:
+            "Die Reservierung (HOLD) ist abgelaufen. Bitte wähle erneut."
+        });
+        return;
+      }
+      if (!res.ok) {
+        const t = await res.text().catch(() => "");
+        console.error("CONFIRM error:", t);
+        setConfirmState({
+          error: "Bestätigung fehlgeschlagen. Versuche es erneut."
+        });
+        return;
+      }
+
+      const json = await res.json();
+      if (json.ok) {
+        setConfirmState({ ok: true });
+      } else {
+        setConfirmState({
+          error: "Unerwartete Antwort. Versuche es erneut."
+        });
+      }
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
-    <div className="rounded-2xl border p-5 lg:p-6">
-      <h3 className="text-lg font-semibold">Zusammenfassung</h3>
+    <div className="rounded-xl border p-4 bg-neutral-50">
+      <div className="font-semibold mb-2">Zusammenfassung</div>
 
-      {!service ? (
-        <p className="mt-3 text-sm text-neutral-600">
-          Bitte wähle zuerst einen Service.
+      {!hasAll && (
+        <p className="text-sm text-neutral-600">
+          Wähle Service, Datum & Uhrzeit.
         </p>
-      ) : (
-        <div className="mt-4 space-y-3 text-sm">
-          <div>
-            <div className="text-neutral-500">Service</div>
-            <div className="font-medium">{service.title}</div>
-            {/* Subinfo con el mismo estilo que en las cards */}
-            <div className="text-neutral-600">
-              {service.modality ? service.modality : null}
-              {service.modality && service.durationLabel ? " | " : null}
-              {service.durationLabel}
+      )}
+
+      {service && (
+        <p className="text-sm">
+          <span className="font-medium">Service:</span> {service.title} —{" "}
+          {service.durationMin} Min • CHF {service.price}
+        </p>
+      )}
+
+      {datetime?.timeISO && (
+        <p className="text-sm mt-1">
+          <span className="font-medium">Termin:</span>{" "}
+          {new Date(datetime.timeISO).toLocaleString([], {
+            dateStyle: "medium",
+            timeStyle: "short"
+          })}
+        </p>
+      )}
+
+      {holdInfo?.error && (
+        <p className="mt-3 text-sm text-red-600">{holdInfo.error}</p>
+      )}
+
+      {/* STEP 1: CTA Weiter → crea HOLD */}
+      {!hasHold && (
+        <button
+          type="button"
+          disabled={!hasAll || loading}
+          className={`mt-4 px-4 py-2 rounded-lg text-white ${
+            hasAll
+              ? "bg-black hover:opacity-90"
+              : "bg-neutral-400 cursor-not-allowed"
+          }`}
+          onClick={createHold}
+        >
+          {loading ? "Bitte warten…" : "Weiter"}
+        </button>
+      )}
+
+      {/* STEP 2: Formulario Kunde (mientras HOLD activo, antes del pago) */}
+      {hasHold && !confirmState?.ok && (
+        <div className="mt-4">
+          <div className="text-sm text-green-700">
+            Slot für dich reserviert (HOLD). Bitte in den nächsten Minuten
+            fortfahren.
+            <div className="mt-1 opacity-80">
+              HOLD bis:{" "}
+              {new Date(holdInfo.hold_until).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit"
+              })}
             </div>
           </div>
 
-          <div>
-            <div className="text-neutral-500">Datum & Uhrzeit</div>
-            <div className="font-medium">
-              {whenLabel || "Bitte Datum & Uhrzeit wählen"}
-            </div>
-          </div>
+          <form className="mt-4 space-y-3" onSubmit={confirmPending}>
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full border rounded-lg px-3 py-2"
+              value={form.name}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, name: e.target.value }))
+              }
+            />
+            <input
+              type="email"
+              placeholder="E-Mail"
+              className="w-full border rounded-lg px-3 py-2"
+              value={form.email}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, email: e.target.value }))
+              }
+            />
+            {confirmState?.error && (
+              <p className="text-sm text-red-600">{confirmState.error}</p>
+            )}
+            <button
+              type="submit"
+              disabled={loading}
+              className="px-4 py-2 rounded-lg bg-black text-white hover:opacity-90"
+            >
+              {loading ? "Sende…" : "Bestätigen"}
+            </button>
+          </form>
+        </div>
+      )}
 
-          <div>
-            <div className="text-neutral-500">Preis</div>
-            <div className="font-medium">
-              {service.priceLabel ?? "—"}
-            </div>
-          </div>
+      {/* STEP 3: Pago (PayPal) */}
+      {confirmState?.ok && (
+        <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
+          <div className="font-medium">Bestätigt (PENDING) ✔</div>
+          <p className="mt-1">Bitte fahre mit der Bezahlung fort.</p>
+
+          <PayPalSection holdInfo={holdInfo} />
         </div>
       )}
     </div>
