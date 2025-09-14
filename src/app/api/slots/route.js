@@ -1,96 +1,63 @@
-import { supabaseServer } from "@/lib/supabase";
-export const dynamic = "force-dynamic";
+// src/app/api/slots/route.js
+import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
-function toISODate(date) {
-  return date.toISOString().slice(0, 10);
+function getSupabase() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anon = process.env.SUPABASE_ANON_KEY;
+  if (!url || !anon) throw new Error("Faltan NEXT_PUBLIC_SUPABASE_URL o SUPABASE_ANON_KEY.");
+  return createClient(url, anon, { auth: { persistSession: false } });
+}
+
+const UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function isValidDateYYYYMMDD(s) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  const d = new Date(`${s}T00:00:00Z`);
+  return !isNaN(d.getTime());
 }
 
 export async function GET(req) {
-  const { searchParams } = new URL(req.url);
-  const dateStr = searchParams.get("date"); // YYYY-MM-DD
-
-  if (!dateStr) {
-    return Response.json({ error: "Missing date param (YYYY-MM-DD)" }, { status: 400 });
-  }
-
-  const day = new Date(dateStr + "T00:00:00");
-  const weekday = day.getDay();
-
   try {
-    const supabase = supabaseServer();
+    const { searchParams } = new URL(req.url);
+    const date = searchParams.get("date");        // YYYY-MM-DD
+    const serviceId = searchParams.get("serviceId"); // uuid
 
-    // 0) Excepción del día (cerrado)
-    const { data: ex } = await supabase
-      .from("exceptions")
-      .select("is_closed")
-      .eq("date", dateStr)
-      .maybeSingle();
-
-    if (ex?.is_closed) {
-      return Response.json({ slots: [] });
+    if (!date || !isValidDateYYYYMMDD(date)) {
+      return NextResponse.json({ error: "MALFORMED_DATE", message: "date=YYYY-MM-DD requerido." }, { status: 400 });
+    }
+    if (!serviceId || !UUID_RE.test(serviceId)) {
+      return NextResponse.json({ error: "MALFORMED_SERVICE_ID", message: "serviceId (uuid) requerido." }, { status: 400 });
     }
 
-    // 1) Regla para ese weekday
-    const { data: rule, error: ruleErr } = await supabase
-      .from("availability_rules")
-      .select("start_time, end_time, step_min, active")
-      .eq("weekday", weekday)
-      .eq("active", true)
-      .maybeSingle();
+    const supabase = getSupabase();
 
-    if (ruleErr) throw ruleErr;
-    if (!rule) return Response.json({ slots: [] });
+    // El RPC devuelve filas { start_at: timestamptz }
+    const { data, error } = await supabase.rpc("get_available_slots", {
+      p_date: date,
+      p_service_id: serviceId,
+    });
 
-    // 2) Construir slots base
-    const start = new Date(day);
-    const [sh, sm] = String(rule.start_time).split(":").map(Number);
-    start.setHours(sh, sm || 0, 0, 0);
-
-    const end = new Date(day);
-    const [eh, em] = String(rule.end_time).split(":").map(Number);
-    end.setHours(eh, em || 0, 0, 0);
-
-    const stepMin = rule.step_min || 30;
-
-    const now = new Date();
-    const todayISO = toISODate(now);
-    const base = [];
-    for (let t = new Date(start); t < end; t = new Date(t.getTime() + stepMin * 60000)) {
-      if (toISODate(t) === todayISO && t <= now) continue; // evitar pasados de hoy
-      base.push(t);
+    if (error) {
+      console.error("[/api/slots] supabase.rpc error:", error);
+      return NextResponse.json({ error: "DB_ERROR" }, { status: 500 });
     }
 
-    // 3) Traer bookings activos del día (HOLD vigente, PENDING, PAID)
-    const dayStartISO = new Date(day);
-    const dayEndISO = new Date(day);
-    dayEndISO.setHours(23, 59, 59, 999);
+    const slots = (Array.isArray(data) ? data : [])
+      .map((row) => {
+        const v = row?.start_at ?? row; // por si llega como string en algunos drivers
+        const d = new Date(v);
+        return isNaN(d.getTime()) ? null : d.toISOString();
+      })
+      .filter(Boolean);
 
-    const { data: bks, error: bkErr } = await supabase
-      .from("bookings")
-      .select("start_at, status, hold_until")
-      .gte("start_at", dayStartISO.toISOString())
-      .lte("start_at", dayEndISO.toISOString());
-
-    if (bkErr) throw bkErr;
-
-    const blocked = new Set(
-      (bks || [])
-        .filter(b => {
-          if (b.status === "PAID" || b.status === "PENDING") return true;
-          if (b.status === "HOLD" && b.hold_until && new Date(b.hold_until) > new Date()) return true;
-          return false;
-        })
-        .map(b => new Date(b.start_at).getTime())
+    return NextResponse.json(
+      { date, serviceId, slots },
+      { status: 200, headers: { "Cache-Control": "no-store" } }
     );
-
-    // 4) Filtrar slots bloqueados
-    const available = base
-      .filter(dt => !blocked.has(dt.getTime()))
-      .map(dt => dt.toISOString());
-
-    return Response.json({ slots: available });
   } catch (e) {
-    console.error(e);
-    return Response.json({ slots: [] });
+    console.error("[/api/slots] fatal:", e);
+    return NextResponse.json({ error: "SERVER_ERROR" }, { status: 500 });
   }
 }
