@@ -1,7 +1,18 @@
-export default function Section({ id, className = "", children }) {
+// src/components/Section.jsx
+export default function Section({
+  id,
+  className = "",
+  containerClass,   // ⬅️ NUEVO
+  children,
+}) {
+  
+  const defaultContainer = "mx-auto max-w-5xl px-4 sm:px-6"; 
+
   return (
-    <section id={id} className={`py-16 md:py-24 ${className}`}>
-      <div className="mx-auto max-w-6xl px-4">{children}</div>
+    <section id={id} className={className}>
+      <div className={containerClass ?? defaultContainer}>
+        {children}
+      </div>
     </section>
   );
 }

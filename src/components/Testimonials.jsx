@@ -8,8 +8,12 @@ const items = [
 
 export default function Testimonials() {
   return (
-    <Section id="stimmen" className="bg-neutral-50">
-      <h2 className="text-2xl md:text-3xl font-semibold">Stimmen</h2>
+    <Section
+      id="stimmen"
+      className="pt-16 pb-16 md:pb-24"
+      containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]" 
+    >
+      <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900">Stimmen</h2>
       <div className="mt-8 grid md:grid-cols-3 gap-6">
         {items.map((t, i) => (
           <div key={i} className="rounded-2xl border bg-white p-6">

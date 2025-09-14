@@ -16,7 +16,7 @@ export default function Services() {
         setLoading(true);
         const res = await fetch("/api/services", { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json(); // { services: [...] }
+        const json = await res.json();
         if (!active) return;
         setServices(Array.isArray(json?.services) ? json.services : []);
       } catch {
@@ -32,22 +32,26 @@ export default function Services() {
   }, []);
 
   return (
-    <Section id="angebote">
-      <h2 className="text-2xl md:text-3xl font-semibold">Angebote</h2>
+    <Section
+      id="angebote"
+      className="pt-16 pb-16 md:pb-24"  
+      containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
+    >
+      <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900">Angebote</h2>
 
       {loading ? (
         <div className="mt-6 text-sm text-neutral-600">Lade Services…</div>
       ) : (
-        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch auto-rows-fr">
           {services.map((s) => (
             <ServiceCard
               key={String(s.id)}
               serviceId={s.id}
               title={s.title}
               modality={s.modality}
-              durationLabel={s.durationLabel}  // ⬅️ nuevo
+              durationLabel={s.durationLabel}
               notes={s.notes}
-              priceLabel={s.priceLabel}        // ⬅️ nuevo ("Gratis" o "CHF N")
+              priceLabel={s.priceLabel}
               bullets={[]}
             />
           ))}

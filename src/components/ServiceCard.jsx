@@ -14,7 +14,7 @@ export default function ServiceCard({
     : ctaHref;
 
   return (
-    <div className="rounded-2xl border p-6 flex flex-col">
+    <div className="rounded-2xl border p-6 flex flex-col h-full">
       <h3 className="text-xl font-semibold">{title}</h3>
 
       {/* Subinfo: modalidad | duración */}
@@ -29,12 +29,7 @@ export default function ServiceCard({
         <p className="mt-2 text-sm text-neutral-700">• {notes}</p>
       ) : null}
 
-      {/* Precio al final */}
-      {priceLabel ? (
-        <p className="mt-3 text-sm font-medium text-neutral-900">{priceLabel}</p>
-      ) : null}
-
-      {/* Bullets opcionales */}
+      {/* Bullets opcionales (si los usás, quedan arriba del footer para no mover el CTA) */}
       {bullets?.length ? (
         <ul className="mt-4 space-y-2 list-disc list-inside text-neutral-700">
           {bullets.map((b, i) => (
@@ -43,12 +38,19 @@ export default function ServiceCard({
         </ul>
       ) : null}
 
-      <a
-        href={href}
-        className="mt-6 inline-block px-4 py-2 rounded-lg bg-black text-white text-center hover:opacity-90"
-      >
-        Jetzt buchen
-      </a>
+      {/* Footer fijo abajo: precio + CTA */}
+      <div className="mt-auto pt-6">
+        {priceLabel ? (
+          <p className="text-sm font-medium text-neutral-900">{priceLabel}</p>
+        ) : null}
+
+        <a
+          href={href}
+          className="mt-3 inline-block px-4 py-2 rounded-lg bg-black text-white text-center hover:opacity-90"
+        >
+          Jetzt buchen
+        </a>
+      </div>
     </div>
   );
 }

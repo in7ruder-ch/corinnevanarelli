@@ -1,31 +1,35 @@
-import Section from "./Section";
+import Image from 'next/image';
 
-export default function Hero() {
+export default function Hero({
+  title = 'Coaching & Energiearbeit\nfür Heilung, Selbstfindung\nund Klarheit',
+  imageSrc = '/img/Banner-Home-Mobile.webp',
+  imageAlt = 'Natur & Ruhe — Hero'
+}) {
   return (
-    <Section className="pt-20 md:pt-28">
-      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div>
-          <p className="text-sm uppercase tracking-widest text-neutral-500">Soulcoaching • Heilung • Klarheit</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight">
-            Dein Weg zurück zu dir.
-          </h1>
-          <p className="mt-4 text-neutral-700">
-            Tiefe statt Smalltalk. Räume, in denen du dich erinnerst, wer du bist.
-          </p>
-          <div className="mt-6 flex gap-3">
-            <a href="/book" className="px-5 py-3 rounded-lg bg-black text-white">Jetzt buchen</a>
-            <a href="#angebote" className="px-5 py-3 rounded-lg border">Angebote ansehen</a>
-          </div>
-        </div>
-        <div className="aspect-[4/3] w-full rounded-2xl bg-neutral-100 overflow-hidden">
-          {/* Placeholder imagen */}
-          <img
-            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
-            alt="Ruhiger Raum"
-            className="w-full h-full object-cover"
-          />
-        </div>
+    <section
+      aria-label="Hero"
+      // usar svh para evitar el bug del viewport; fallback a vh
+      className="relative w-full h-[calc(100svh-8rem)] md:h-[calc(100vh-8rem)]"
+    >
+      {/* Fondo */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
-    </Section>
+
+      {/* Center–center real con grid */}
+      <div className="grid place-items-center h-full w-full px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="whitespace-pre-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+          {title}
+        </h1>
+      </div>
+    </section>
   );
 }
