@@ -11,8 +11,8 @@ export default function AltSection({
   ctaLabel = 'Mehr erfahren',
   ctaVariant = 'button',     // 'button' | 'link'
   showCta = true,
-  padTop = true,             // ⬅️ controla padding superior de la sección
-  padBottom = true,          // ⬅️ controla padding inferior de la sección
+  padTop = true,
+  padBottom = true,
   id
 }) {
   const sectionPadY = [
@@ -23,18 +23,19 @@ export default function AltSection({
   return (
     <section id={id} className={`bg-[#ffffff] ${sectionPadY}`}>
       <div className="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]">
-        {/* Mobile: gap vertical; Desktop: sin gap horizontal, alturas iguales */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-y-10 md:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-y-0 md:gap-0">
           {/* TEXTO */}
           <div
             className={[
-              'order-1',                              // mobile: primero
+              'order-1',
               mediaLeft ? 'md:order-2' : 'md:order-1',
               'md:self-stretch flex flex-col',
-              'py-20 md:px-12 lg:px-16', 'bg-[#f5f5f5]'               // aire interno
+              // 👇 Padding horizontal también en mobile
+              'py-20 px-6 sm:px-8 md:px-12 lg:px-16',
+              'bg-[#f5f5f5]'
             ].join(' ')}
           >
-            <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-normal text-neutral-900">
+            <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-normal text-neutral-900 [text-wrap:balance] break-words">
               {title}
             </h2>
 
@@ -54,8 +55,6 @@ export default function AltSection({
                   <a
                     href={ctaHref}
                     className="inline-block align-middle font-semibold italic underline decoration-neutral-800 transition-transform duration-100 ease-out hover:scale-105 transform-gpu py-1.5 -my-1.5"
-
-
                   >
                     {ctaLabel}
                   </a>
