@@ -99,8 +99,6 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
 
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium">Service</label>
-
       <div className="grid sm:grid-cols-3 gap-3">
         {services.map((s) => {
           const active = String(selected) === String(s.id);

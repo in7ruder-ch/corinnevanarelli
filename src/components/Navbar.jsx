@@ -13,7 +13,6 @@ function NavLink({ href, children, onClick }) {
       href={href}
       onClick={onClick}
       className={[
-        // antes: 'text-sm md:text-base ...'
         'text-[1.2rem] md:text-[1.2rem] font-medium transition-colors',
         isActive ? 'text-[#6d8f5e]' : 'text-neutral-700 hover:text-neutral-900'
       ].join(' ')}
@@ -27,6 +26,7 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [offersOpen, setOffersOpen] = useState(false); // ⬅️ controla el dropdown de “Angebote”
   const lastY = useRef(0);
   const ticking = useRef(false);
 
@@ -76,7 +76,7 @@ export default function Navbar() {
         ].join(' ')}
       >
         {/* Logo izquierda */}
-        <Link href="/" className="shrink-0 flex items-center gap-3">
+        <Link href="/" className="shrink-0 flex items-center gap-3" onClick={() => setOffersOpen(false)}>
           <Image
             src="/img/Corinne Vanarelli Logo.png"
             alt="Corinne Vanarelli — Soulcoaching"
@@ -88,36 +88,37 @@ export default function Navbar() {
 
         {/* Menú desktop (alineado a la derecha) */}
         <ul className="hidden md:flex items-center gap-10 ml-auto">
-          <li><NavLink href="/">Home</NavLink></li>
-          <li><NavLink href="/ueber-mich">Über mich</NavLink></li>
+          <li><NavLink href="/" onClick={() => setOffersOpen(false)}>Home</NavLink></li>
+          <li><NavLink href="/ueber-mich" onClick={() => setOffersOpen(false)}>Über mich</NavLink></li>
 
-          {/* Dropdown: Angebote (sin landing propia) */}
-          <li className="relative group">
-            {/* Trigger sin link (no hay landing de /angebote) */}
-            <span className="{[
-        // antes: 'text-sm md:text-base ...'
-        'text-[1.2rem] md:text-[1.2rem] font-medium transition-colors',
-        isActive ? 'text-[#6d8f5e]' : 'text-neutral-700 hover:text-neutral-900'
-      ].join(' ')}">
-              Angebote <span aria-hidden>▾</span>
-            </span>
+          {/* Dropdown: Angebote (linkea a /book, controlado por estado) */}
+          <li
+            className="relative"
+            onMouseEnter={() => setOffersOpen(true)}
+            onMouseLeave={() => setOffersOpen(false)}
+          >
+            <NavLink href="/book" onClick={() => setOffersOpen(false)}>
+              <span className="inline-flex items-center gap-1">
+                Angebote <span aria-hidden>▾</span>
+              </span>
+            </NavLink>
 
-            {/* Submenú: usamos pt-3 (no mt-3) para que no haya hueco y no se pierda el hover */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block group-focus-within:block">
+            {/* Submenú con “puente” de hover (pt-3). Visible según estado */}
+            <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 ${offersOpen ? 'block' : 'hidden'}`}>
               <div className="min-w-[240px] rounded-xl border bg-white shadow-lg p-2">
                 <Link
                   href="/angebote/ontologisches-coaching"
                   className="block px-3 py-2 rounded-md hover:bg-neutral-100"
+                  onClick={() => setOffersOpen(false)}
                 >
                   Ontologisches Coaching
                 </Link>
-                {/* Aquí agregaremos los demás items más adelante */}
+                {/* Agregaremos los demás items más adelante */}
               </div>
             </div>
           </li>
 
-
-          <li><NavLink href="/kontakt">Kontakt</NavLink></li>
+          <li><NavLink href="/kontakt" onClick={() => setOffersOpen(false)}>Kontakt</NavLink></li>
         </ul>
 
         {/* Botón hamburguesa móvil */}
@@ -126,7 +127,7 @@ export default function Navbar() {
           className="md:hidden ml-auto inline-flex items-center justify-center rounded-md p-2 ring-1 ring-neutral-300"
           aria-label="Menü öffnen"
           aria-expanded={mobileOpen ? 'true' : 'false'}
-          onClick={() => setMobileOpen(o => !o)}
+          onClick={() => { setMobileOpen(o => !o); setOffersOpen(false); }}
         >
           <svg
             className={`h-5 w-5 transition-transform ${mobileOpen ? 'rotate-90' : ''}`}
@@ -148,7 +149,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Panel móvil */}
+      {/* Panel móvil (único) */}
       <div
         className={[
           'md:hidden w-full overflow-hidden transition-[max-height] duration-300 ease-in-out',
@@ -160,8 +161,8 @@ export default function Navbar() {
           <li><NavLink href="/" onClick={() => setMobileOpen(false)}>Home</NavLink></li>
           <li><NavLink href="/ueber-mich" onClick={() => setMobileOpen(false)}>Über mich</NavLink></li>
 
-          {/* Submenú simple en móvil */}
-          <li className="text-sm font-medium text-neutral-700">Angebote</li>
+          {/* “Angebote” apunta a /book en móvil */}
+          <li><NavLink href="/book" onClick={() => setMobileOpen(false)}>Angebote</NavLink></li>
           <li className="pl-4">
             <Link
               href="/angebote/ontologisches-coaching"
