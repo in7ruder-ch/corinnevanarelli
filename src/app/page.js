@@ -94,7 +94,7 @@ export default function HomePage() {
             <p><strong>Spüre, wie es sich anfühlt, wieder ganz bei dir zu sein.</strong></p>
           </>
         }
-        imageSrc="/img/Chakra Clearing Dudingen.webp" 
+        imageSrc="/img/Chakra clearing Dudingen.webp" 
         imageAlt="Corinne Vanarelli"
         mediaLeft={true}
         ctaHref="/angebote/chakra-clearing"
