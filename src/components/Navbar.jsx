@@ -13,7 +13,8 @@ function NavLink({ href, children, onClick }) {
       href={href}
       onClick={onClick}
       className={[
-        'text-sm md:text-base font-medium transition-colors',
+        // antes: 'text-sm md:text-base ...'
+        'text-[1.2rem] md:text-[1.2rem] font-medium transition-colors',
         isActive ? 'text-[#6d8f5e]' : 'text-neutral-700 hover:text-neutral-900'
       ].join(' ')}
     >
@@ -51,7 +52,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Cerrar el menú móvil al cambiar el tamaño a desktop
     const onResize = () => {
       if (window.innerWidth >= 768 && mobileOpen) setMobileOpen(false);
     };
@@ -90,7 +90,33 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-10 ml-auto">
           <li><NavLink href="/">Home</NavLink></li>
           <li><NavLink href="/ueber-mich">Über mich</NavLink></li>
-          <li><NavLink href="/angebote">Angebote</NavLink></li>
+
+          {/* Dropdown: Angebote (sin landing propia) */}
+          <li className="relative group">
+            {/* Trigger sin link (no hay landing de /angebote) */}
+            <span className="{[
+        // antes: 'text-sm md:text-base ...'
+        'text-[1.2rem] md:text-[1.2rem] font-medium transition-colors',
+        isActive ? 'text-[#6d8f5e]' : 'text-neutral-700 hover:text-neutral-900'
+      ].join(' ')}">
+              Angebote <span aria-hidden>▾</span>
+            </span>
+
+            {/* Submenú: usamos pt-3 (no mt-3) para que no haya hueco y no se pierda el hover */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block group-focus-within:block">
+              <div className="min-w-[240px] rounded-xl border bg-white shadow-lg p-2">
+                <Link
+                  href="/angebote/ontologisches-coaching"
+                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
+                >
+                  Ontologisches Coaching
+                </Link>
+                {/* Aquí agregaremos los demás items más adelante */}
+              </div>
+            </div>
+          </li>
+
+
           <li><NavLink href="/kontakt">Kontakt</NavLink></li>
         </ul>
 
@@ -126,14 +152,26 @@ export default function Navbar() {
       <div
         className={[
           'md:hidden w-full overflow-hidden transition-[max-height] duration-300 ease-in-out',
-          mobileOpen ? 'max-h-72' : 'max-h-0',
+          mobileOpen ? 'max-h-96' : 'max-h-0',
           atTop ? 'bg-white' : 'bg-white/90 backdrop-blur'
         ].join(' ')}
       >
         <ul className="px-6 pb-6 pt-2 flex flex-col gap-4 border-t border-neutral-200">
           <li><NavLink href="/" onClick={() => setMobileOpen(false)}>Home</NavLink></li>
           <li><NavLink href="/ueber-mich" onClick={() => setMobileOpen(false)}>Über mich</NavLink></li>
-          <li><NavLink href="/angebote" onClick={() => setMobileOpen(false)}>Angebote</NavLink></li>
+
+          {/* Submenú simple en móvil */}
+          <li className="text-sm font-medium text-neutral-700">Angebote</li>
+          <li className="pl-4">
+            <Link
+              href="/angebote/ontologisches-coaching"
+              onClick={() => setMobileOpen(false)}
+              className="text-sm text-neutral-700 hover:text-neutral-900"
+            >
+              Ontologisches Coaching
+            </Link>
+          </li>
+
           <li><NavLink href="/kontakt" onClick={() => setMobileOpen(false)}>Kontakt</NavLink></li>
         </ul>
       </div>

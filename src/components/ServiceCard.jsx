@@ -14,7 +14,7 @@ export default function ServiceCard({
     : ctaHref;
 
   return (
-    <div className="rounded-2xl border p-6 flex flex-col h-full">
+    <div className="bg-[#ffffff] rounded-2xl border p-6 flex flex-col h-full">
       <h3 className="text-xl font-semibold">{title}</h3>
 
       {/* Subinfo: modalidad | duración */}

@@ -34,7 +34,7 @@ export default function Services() {
   return (
     <Section
       id="angebote"
-      className="pt-16 pb-16 md:pb-24"  
+      className="pt-16 pb-16 md:pb-24 bg-[#f5f5f5]"  
       containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
     >
       <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900">Angebote</h2>

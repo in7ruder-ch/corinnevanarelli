@@ -2,7 +2,7 @@
 
 export default function ContactForm() {
   return (
-    <section id="kontakt" className="py-16 md:py-24">
+    <section id="kontakt" className="bg-[#f5f5f5] py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900 text-center">
           Kontakt
