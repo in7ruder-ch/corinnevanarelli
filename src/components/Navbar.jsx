@@ -113,7 +113,14 @@ export default function Navbar() {
                 >
                   Ontologisches Coaching
                 </Link>
-                {/* Agregaremos los demás items más adelante */}
+                {/* NUEVO: Akasha Chronik Lesung */}
+                <Link
+                  href="/angebote/akasha-chronik-lesung"
+                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
+                  onClick={() => setOffersOpen(false)}
+                >
+                  Akasha Chronik Lesung
+                </Link>
               </div>
             </div>
           </li>
@@ -170,6 +177,16 @@ export default function Navbar() {
               className="text-sm text-neutral-700 hover:text-neutral-900"
             >
               Ontologisches Coaching
+            </Link>
+          </li>
+          {/* NUEVO: Akasha Chronik Lesung (mobile) */}
+          <li className="pl-4">
+            <Link
+              href="/angebote/akasha-chronik-lesung"
+              onClick={() => setMobileOpen(false)}
+              className="text-sm text-neutral-700 hover:text-neutral-900"
+            >
+              Akasha Chronik Lesung
             </Link>
           </li>
 

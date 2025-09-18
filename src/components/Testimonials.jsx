@@ -39,7 +39,7 @@ export default function Testimonials() {
       containerClass="relative mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
     >
       {/* Cita centrada */}
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center min-h-[30rem] sm:min-h-[30rem] md:min-h-[25rem] lg:min-h-[25rem] flex flex-col justify-center">
         <div className="text-5xl md:text-6xl text-neutral-900">“</div>
         <p
           className="font-bold mt-6 text-xl md:text-2xl lg:text-[28px] leading-relaxed text-neutral-800 [text-wrap:balance]"
@@ -65,12 +65,12 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Flechas izquierda/derecha */}
+      {/* Flechas izquierda/derecha (ocultas en mobile) */}
       <button
         type="button"
         onClick={handleUserNav(prev)}
         aria-label="Vorheriges Testimonial"
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
+        className="hidden md:block absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M15 18l-6-6 6-6" />
@@ -81,7 +81,7 @@ export default function Testimonials() {
         type="button"
         onClick={handleUserNav(next)}
         aria-label="Nächstes Testimonial"
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
+        className="hidden md:block absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M9 18l6-6-6-6" />

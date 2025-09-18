@@ -40,9 +40,6 @@ export default function OntologischesCoachingPage() {
         imageSrc="/img/Coaching.jpg"
         imageAlt="Coaching Raum"
         mediaLeft={false}                      // ← imagen a la derecha
-        ctaHref={`/book?serviceId=${encodeURIComponent(COACHING_SERVICE_ID)}`}
-        ctaLabel="Jetzt buchen"
-        ctaVariant="link"
       />
 
       {/* 2) Imagen izquierda / Texto derecha */}
@@ -65,9 +62,6 @@ export default function OntologischesCoachingPage() {
         imageSrc="/img/Ontologisches Coaching.jpg"
         imageAlt="Gemeinsamer Weg"
         mediaLeft={true}                       // ← imagen a la izquierda
-        ctaHref={`/book?serviceId=${encodeURIComponent(COACHING_SERVICE_ID)}`}
-        ctaLabel="Jetzt buchen"
-        ctaVariant="link"
         padTop={false}                         // evita doble padding con la sección anterior
       />
 

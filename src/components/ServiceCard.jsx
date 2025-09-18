@@ -26,7 +26,7 @@ export default function ServiceCard({
 
       {/* Notas adicionales con bullet */}
       {notes ? (
-        <p className="mt-2 text-sm text-neutral-700">• {notes}</p>
+        <p className="mt-2 text-sm text-neutral-700">{notes}</p>
       ) : null}
 
       {/* Bullets opcionales (si los usás, quedan arriba del footer para no mover el CTA) */}
