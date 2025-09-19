@@ -61,7 +61,7 @@ export default function HomePage() {
         imageSrc="/img/Akasha Lesung.jpg" 
         imageAlt="Corinne Vanarelli"
         mediaLeft={true}
-        ctaHref="/angebote/akasha-lesung"
+        ctaHref="/angebote/akasha-chronik-lesung"
         ctaLabel="Mehr erfahren"
         ctaVariant="link"
         padTop={false}       

@@ -41,10 +41,34 @@ export default function StepsTriptych({
                 </span>
               </div>
 
-              <h3 className="font-semibold text-neutral-900">{s.title}</h3>
-              <p className="mt-4 text-neutral-700 text-sm leading-relaxed">
-                {s.body}
-              </p>
+              <h3 className="text-[1.5rem] sm:text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] font-semibold text-neutral-900">{s.title}</h3>
+
+              {typeof s.body === 'string' ? (
+                // Caso actual (string): DOM y clases idénticas a lo que ya tenías
+                <p className="mt-4 text-neutral-700 text-sm leading-relaxed">
+                  {s.body}
+                </p>
+              ) : (
+                // Caso JSX: evita <p> dentro de <p> y normaliza márgenes internos
+                <div className="mt-4 text-neutral-700 text-sm leading-relaxed
+                  [&>p+ul]:mt-3
+                  [&_ul]:list-disc
+                  [&_ul]:pl-5
+                  [&_ul]:text-left
+                  [&_ul>li]:mt-2
+                ">
+                  {s.body}
+                </div>
+              )}
+
+              {Array.isArray(s.points) && s.points.length > 0 && (
+                <ul className="mt-3 list-disc pl-5 space-y-2 marker:text-neutral-900 text-neutral-700 text-sm leading-relaxed">
+                  {s.points.map((pt, idx) => (
+                    <li key={idx}>{pt}</li>
+                  ))}
+                </ul>
+              )}
+
             </div>
           ))}
         </div>

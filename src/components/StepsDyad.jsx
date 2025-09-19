@@ -45,7 +45,7 @@ export default function StepsDyad({ title = 'Ablauf einer Lesung', subtitle, ste
               {i + 1}
             </div>
 
-            <h3 className="text-base font-semibold text-neutral-900">{s.title}</h3>
+            <h3 className="text-[1.5rem] sm:text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] font-semibold text-neutral-900">{s.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-neutral-700">
               {s.body}
             </p>

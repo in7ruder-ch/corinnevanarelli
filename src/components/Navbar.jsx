@@ -26,7 +26,7 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [offersOpen, setOffersOpen] = useState(false); // ⬅️ controla el dropdown de “Angebote”
+  const [offersOpen, setOffersOpen] = useState(false);
   const lastY = useRef(0);
   const ticking = useRef(false);
 
@@ -91,7 +91,7 @@ export default function Navbar() {
           <li><NavLink href="/" onClick={() => setOffersOpen(false)}>Home</NavLink></li>
           <li><NavLink href="/ueber-mich" onClick={() => setOffersOpen(false)}>Über mich</NavLink></li>
 
-          {/* Dropdown: Angebote (linkea a /book, controlado por estado) */}
+          {/* Dropdown: Angebote */}
           <li
             className="relative"
             onMouseEnter={() => setOffersOpen(true)}
@@ -103,23 +103,27 @@ export default function Navbar() {
               </span>
             </NavLink>
 
-            {/* Submenú con “puente” de hover (pt-3). Visible según estado */}
+            {/* Submenú con “puente” */}
             <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 ${offersOpen ? 'block' : 'hidden'}`}>
               <div className="min-w-[240px] rounded-xl border bg-white shadow-lg p-2">
-                <Link
-                  href="/angebote/ontologisches-coaching"
-                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
-                  onClick={() => setOffersOpen(false)}
-                >
+                <Link href="/angebote/ontologisches-coaching" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
                   Ontologisches Coaching
                 </Link>
-                {/* NUEVO: Akasha Chronik Lesung */}
-                <Link
-                  href="/angebote/akasha-chronik-lesung"
-                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
-                  onClick={() => setOffersOpen(false)}
-                >
+                <Link href="/angebote/akasha-chronik-lesung" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
                   Akasha Chronik Lesung
+                </Link>
+                <Link href="/angebote/hopi-herzheilung" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
+                  Hopi Herzheilung
+                </Link>
+                <Link href="/angebote/chakra-clearing" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
+                  Chakra Clearing
+                </Link>
+                {/* NUEVOS */}
+                <Link href="/angebote/gwa" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
+                  Geistige Wirbelsäulenaufrichtung
+                </Link>
+                <Link href="/angebote/doterra-aromatouch" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
+                  doTERRA AromaTouch
                 </Link>
               </div>
             </div>
@@ -170,23 +174,36 @@ export default function Navbar() {
 
           {/* “Angebote” apunta a /book en móvil */}
           <li><NavLink href="/book" onClick={() => setMobileOpen(false)}>Angebote</NavLink></li>
+
           <li className="pl-4">
-            <Link
-              href="/angebote/ontologisches-coaching"
-              onClick={() => setMobileOpen(false)}
-              className="text-sm text-neutral-700 hover:text-neutral-900"
-            >
+            <Link href="/angebote/ontologisches-coaching" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
               Ontologisches Coaching
             </Link>
           </li>
-          {/* NUEVO: Akasha Chronik Lesung (mobile) */}
           <li className="pl-4">
-            <Link
-              href="/angebote/akasha-chronik-lesung"
-              onClick={() => setMobileOpen(false)}
-              className="text-sm text-neutral-700 hover:text-neutral-900"
-            >
+            <Link href="/angebote/akasha-chronik-lesung" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
               Akasha Chronik Lesung
+            </Link>
+          </li>
+          <li className="pl-4">
+            <Link href="/angebote/hopi-herzheilung" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
+              Hopi Herzheilung
+            </Link>
+          </li>
+          <li className="pl-4">
+            <Link href="/angebote/chakra-clearing" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
+              Chakra Clearing
+            </Link>
+          </li>
+          {/* NUEVOS (mobile) */}
+          <li className="pl-4">
+            <Link href="/angebote/gwa" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
+              Geistige Wirbelsäulenaufrichtung
+            </Link>
+          </li>
+          <li className="pl-4">
+            <Link href="/angebote/doterra-aromatouch" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
+              doTERRA AromaTouch
             </Link>
           </li>
 
