@@ -118,7 +118,6 @@ export default function Navbar() {
                 <Link href="/angebote/chakra-clearing" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
                   Chakra Clearing
                 </Link>
-                {/* NUEVOS */}
                 <Link href="/angebote/gwa" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setOffersOpen(false)}>
                   Geistige Wirbelsäulenaufrichtung
                 </Link>
@@ -129,7 +128,8 @@ export default function Navbar() {
             </div>
           </li>
 
-          <li><NavLink href="/kontakt" onClick={() => setOffersOpen(false)}>Kontakt</NavLink></li>
+          {/* Kontakt → sección #kontakt en Home */}
+          <li><NavLink href="/#kontakt" onClick={() => setOffersOpen(false)}>Kontakt</NavLink></li>
         </ul>
 
         {/* Botón hamburguesa móvil */}
@@ -195,7 +195,6 @@ export default function Navbar() {
               Chakra Clearing
             </Link>
           </li>
-          {/* NUEVOS (mobile) */}
           <li className="pl-4">
             <Link href="/angebote/gwa" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
               Geistige Wirbelsäulenaufrichtung
@@ -207,7 +206,8 @@ export default function Navbar() {
             </Link>
           </li>
 
-          <li><NavLink href="/kontakt" onClick={() => setMobileOpen(false)}>Kontakt</NavLink></li>
+          {/* Kontakt → #kontakt en Home */}
+          <li><NavLink href="/#kontakt" onClick={() => setMobileOpen(false)}>Kontakt</NavLink></li>
         </ul>
       </div>
     </nav>
