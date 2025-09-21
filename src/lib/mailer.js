@@ -1,27 +1,31 @@
 import nodemailer from "nodemailer";
 
 function hasSmtpEnv() {
-  return !!process.env.SMTP_HOST && !!process.env.SMTP_USER && !!process.env.SMTP_PASS;
+  return (
+    !!process.env.EMAIL_HOST &&
+    !!process.env.EMAIL_USER &&
+    !!process.env.EMAIL_PASS
+  );
 }
 
-async function getTransport() {
-  if (hasSmtpEnv()) {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: String(process.env.SMTP_SECURE || "false") === "true",
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-    });
-    return { transporter, isEthereal: false };
+export async function getTransport() {
+  if (!hasSmtpEnv()) {
+    throw new Error(
+      "Faltan variables de entorno EMAIL_HOST / EMAIL_USER / EMAIL_PASS"
+    );
   }
-  const testAccount = await nodemailer.createTestAccount();
+
   const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
-    auth: { user: testAccount.user, pass: testAccount.pass },
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT || 465),
+    secure: String(process.env.EMAIL_SECURE || "true") === "true",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
   });
-  return { transporter, isEthereal: true };
+
+  return { transporter, isEthereal: false };
 }
 
 function formatDateCH(iso) {
@@ -59,10 +63,9 @@ function buildIcs({ booking, service }) {
     `Service: ${service.title_de || booking.service_id}`,
     `Datum/Zeit (CH): ${formatDateCH(booking.start_at)}`,
     `Dauer: ${durationMin} Min`,
-    `Betrag: CHF ${Number(service.price_chf || 0).toFixed(2)}`
+    `Betrag: CHF ${Number(service.price_chf || 0).toFixed(2)}`,
   ].join("\\n");
 
-  // Si tenés dirección física, podés completar LOCATION:
   const location = process.env.MAIL_LOCATION || "";
 
   return [
@@ -79,26 +82,30 @@ function buildIcs({ booking, service }) {
     `SUMMARY:${summary}`,
     `DESCRIPTION:${description}`,
     location ? `LOCATION:${location}` : null,
-    // Opcional: Attendee y Organizer
-    `ORGANIZER;CN=Corinne Vanarelli:mailto:no-reply@corinnevanarelli.ch`,
+    `ORGANIZER;CN=Corinne Vanarelli:mailto:${process.env.EMAIL_FROM}`,
     booking.customer_email
       ? `ATTENDEE;CN=${booking.customer_name || "Gast"};RSVP=TRUE:mailto:${booking.customer_email}`
       : null,
     "END:VEVENT",
-    "END:VCALENDAR"
-  ].filter(Boolean).join("\r\n");
+    "END:VCALENDAR",
+  ]
+    .filter(Boolean)
+    .join("\r\n");
 }
 
 export async function sendBookingPaidEmail({ booking, service }) {
-  const { transporter, isEthereal } = await getTransport();
+  const { transporter } = await getTransport();
 
   const from =
-    process.env.MAIL_FROM || "Corinne Vanarelli <no-reply@corinnevanarelli.ch>";
+    process.env.EMAIL_FROM ||
+    "Corinne Vanarelli <noreply@corinnevanarelli.ch>";
   const to = booking.customer_email;
   const bcc = process.env.MAIL_BCC || undefined;
 
   const when = formatDateCH(booking.start_at);
-  const subject = `Buchungsbestätigung – ${service.title_de || booking.service_id} am ${when}`;
+  const subject = `Buchungsbestätigung – ${
+    service.title_de || booking.service_id
+  } am ${when}`;
 
   const text = [
     `Liebe/r ${booking.customer_name || ""}`.trim(),
@@ -133,20 +140,20 @@ export async function sendBookingPaidEmail({ booking, service }) {
   const icsContent = buildIcs({ booking, service });
 
   const info = await transporter.sendMail({
-    from, to, bcc, subject, text, html,
+    from,
+    to,
+    bcc,
+    subject,
+    text,
+    html,
     attachments: [
       {
         filename: "booking.ics",
         content: icsContent,
         contentType: "text/calendar; charset=UTF-8; method=REQUEST",
-      }
-    ]
+      },
+    ],
   });
 
-  let previewUrl = null;
-  if (isEthereal) {
-    previewUrl = nodemailer.getTestMessageUrl(info);
-    console.log("📧 Ethereal preview:", previewUrl);
-  }
-  return { messageId: info.messageId, previewUrl };
+  return { messageId: info.messageId };
 }

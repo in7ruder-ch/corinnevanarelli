@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 // Proteger /admin y las APIs de bookings
 export const config = {
-  matcher: ["/admin", "/admin/:path*", "/api/bookings/:path*"],
+  matcher: ["/admin", "/admin/:path*"],
 };
 
 export function middleware(req) {

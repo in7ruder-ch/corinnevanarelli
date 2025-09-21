@@ -8,21 +8,27 @@ import { de } from "date-fns/locale";
 function formatTime(dt) {
   return dt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
-function formatDateISO(d) {
-  return d.toISOString().slice(0, 10);
-}
 function parseISODate(iso) {
   const [y, m, d] = iso.split("-").map(Number);
-  return new Date(y, m - 1, d, 0, 0, 0, 0);
+  return new Date(y, m - 1, d, 0, 0, 0, 0); // fecha local (no UTC)
 }
 function toISODate(d) {
-  return d.toISOString().slice(0, 10);
+  // YYYY-MM-DD en LOCAL (sin UTC)
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 const DE_FORMAT = { weekday: "short", day: "2-digit", month: "long", year: "numeric" };
 
 export default function DateTimePicker({ onChange, service }) {
-  const today = new Date();
-  const todayISO = formatDateISO(today);
+  // Hoy a medianoche LOCAL
+  const todayLocal = (() => {
+    const t = new Date();
+    t.setHours(0, 0, 0, 0);
+    return t;
+  })();
+  const todayISO = toISODate(todayLocal);
 
   const [date, setDate] = useState(todayISO);
   const [time, setTime] = useState(null);
@@ -38,10 +44,9 @@ export default function DateTimePicker({ onChange, service }) {
     top: 0,
     left: 0,
     width: 320,
-    placement: "bottom", // "bottom" | "top"
+    placement: "bottom",
   });
 
-  // Calcula y aplica la mejor posición (arriba/abajo y clamped a viewport)
   const positionPopover = () => {
     const anchor = anchorRef.current;
     if (!anchor) return;
@@ -50,44 +55,33 @@ export default function DateTimePicker({ onChange, service }) {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     const panelW = 320;
-
-    // Medir alto real del panel si existe; si no, estimar 360
     const panelH =
       (panelRef.current && panelRef.current.getBoundingClientRect().height) || 360;
 
     let left = Math.max(8, Math.min(rect.left, vw - panelW - 8));
-    // Intento 1: abajo
     let top = rect.bottom + gap;
     let placement = "bottom";
 
-    // Si se sale por abajo, abrir hacia arriba
     if (top + panelH > vh - 8) {
-      const topAlternative = rect.top - gap - panelH;
-      if (topAlternative >= 8) {
-        top = topAlternative;
+      const topAlt = rect.top - gap - panelH;
+      if (topAlt >= 8) {
+        top = topAlt;
         placement = "top";
       } else {
-        // Si tampoco entra arriba, clampa para que se vea completo dentro del viewport
-        // y permitimos scroll interno del panel (en CSS)
         top = Math.max(8, Math.min(top, vh - panelH - 8));
       }
     }
-
     setPopPos({ top, left, width: panelW, placement });
   };
 
-  // Reposicionar al abrir y en resize/scroll
   useLayoutEffect(() => {
     if (!openCal) return;
     positionPopover();
 
     const onResize = () => positionPopover();
     const onScroll = () => positionPopover();
-    const onKey = (e) => {
-      if (e.key === "Escape") setOpenCal(false);
-    };
+    const onKey = (e) => e.key === "Escape" && setOpenCal(false);
     const onClick = (e) => {
-      // Cerrar con click-outside (panel está en portal)
       if (anchorRef.current && !anchorRef.current.contains(e.target)) {
         if (!(e.target?.closest && e.target.closest("[data-calpanel='true']"))) {
           setOpenCal(false);
@@ -96,7 +90,7 @@ export default function DateTimePicker({ onChange, service }) {
     };
 
     window.addEventListener("resize", onResize);
-    window.addEventListener("scroll", onScroll); // no capture
+    window.addEventListener("scroll", onScroll);
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onClick);
 
@@ -121,6 +115,13 @@ export default function DateTimePicker({ onChange, service }) {
     let mounted = true;
 
     if (!service?.id) {
+      setSlots([]);
+      setLoading(false);
+      return;
+    }
+
+    // ⛔ No pedir slots si la fecha es pasada
+    if (date < todayISO) {
       setSlots([]);
       setLoading(false);
       return;
@@ -179,7 +180,7 @@ export default function DateTimePicker({ onChange, service }) {
             aria-haspopup="dialog"
             aria-expanded={openCal}
           >
-            {new Date(date).toLocaleDateString("de-CH", DE_FORMAT)}
+            {parseISODate(date).toLocaleDateString("de-CH", DE_FORMAT)}
           </button>
         </div>
 
@@ -232,7 +233,7 @@ export default function DateTimePicker({ onChange, service }) {
               top: popPos.top,
               left: popPos.left,
               width: popPos.width,
-              maxHeight: "min(80vh, 520px)", // no tapa footer; scrollea dentro
+              maxHeight: "min(80vh, 520px)",
             }}
             role="dialog"
             aria-label="Datum auswählen"
@@ -247,15 +248,13 @@ export default function DateTimePicker({ onChange, service }) {
                 setDate(iso);
                 setOpenCal(false);
               }}
-              fromDate={today}
+              fromDate={todayLocal} // navegación mínima
               weekStartsOn={1}
               fixedWeeks
               showOutsideDays
-              disabled={[{ dayOfWeek: [0, 1, 6] }]} // Dom(0), Lun(1), Sáb(6)
-              onMonthChange={() => {
-                // Reposicionar si cambia el alto al cambiar de mes
-                requestAnimationFrame(positionPopover);
-              }}
+              // ⛔ Deshabilitar Dom/Lun/Sáb + TODAS las fechas anteriores a hoy
+              disabled={[{ dayOfWeek: [0, 1, 6] }, { before: todayLocal }]}
+              onMonthChange={() => requestAnimationFrame(positionPopover)}
             />
           </div>,
           document.body
