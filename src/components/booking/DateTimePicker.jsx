@@ -1,6 +1,9 @@
 // src/components/booking/DateTimePicker.jsx
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { DayPicker } from "react-day-picker";
+import { de } from "date-fns/locale";
 
 function formatTime(dt) {
   return dt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -8,13 +11,103 @@ function formatTime(dt) {
 function formatDateISO(d) {
   return d.toISOString().slice(0, 10);
 }
+function parseISODate(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d, 0, 0, 0, 0);
+}
+function toISODate(d) {
+  return d.toISOString().slice(0, 10);
+}
+const DE_FORMAT = { weekday: "short", day: "2-digit", month: "long", year: "numeric" };
 
 export default function DateTimePicker({ onChange, service }) {
-  const todayISO = formatDateISO(new Date());
+  const today = new Date();
+  const todayISO = formatDateISO(today);
+
   const [date, setDate] = useState(todayISO);
   const [time, setTime] = useState(null);
   const [slots, setSlots] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [openCal, setOpenCal] = useState(false);
+  const anchorRef = useRef(null);
+  const panelRef = useRef(null);
+
+  // Posición del popover (fixed con portal)
+  const [popPos, setPopPos] = useState({
+    top: 0,
+    left: 0,
+    width: 320,
+    placement: "bottom", // "bottom" | "top"
+  });
+
+  // Calcula y aplica la mejor posición (arriba/abajo y clamped a viewport)
+  const positionPopover = () => {
+    const anchor = anchorRef.current;
+    if (!anchor) return;
+    const rect = anchor.getBoundingClientRect();
+    const gap = 8;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const panelW = 320;
+
+    // Medir alto real del panel si existe; si no, estimar 360
+    const panelH =
+      (panelRef.current && panelRef.current.getBoundingClientRect().height) || 360;
+
+    let left = Math.max(8, Math.min(rect.left, vw - panelW - 8));
+    // Intento 1: abajo
+    let top = rect.bottom + gap;
+    let placement = "bottom";
+
+    // Si se sale por abajo, abrir hacia arriba
+    if (top + panelH > vh - 8) {
+      const topAlternative = rect.top - gap - panelH;
+      if (topAlternative >= 8) {
+        top = topAlternative;
+        placement = "top";
+      } else {
+        // Si tampoco entra arriba, clampa para que se vea completo dentro del viewport
+        // y permitimos scroll interno del panel (en CSS)
+        top = Math.max(8, Math.min(top, vh - panelH - 8));
+      }
+    }
+
+    setPopPos({ top, left, width: panelW, placement });
+  };
+
+  // Reposicionar al abrir y en resize/scroll
+  useLayoutEffect(() => {
+    if (!openCal) return;
+    positionPopover();
+
+    const onResize = () => positionPopover();
+    const onScroll = () => positionPopover();
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpenCal(false);
+    };
+    const onClick = (e) => {
+      // Cerrar con click-outside (panel está en portal)
+      if (anchorRef.current && !anchorRef.current.contains(e.target)) {
+        if (!(e.target?.closest && e.target.closest("[data-calpanel='true']"))) {
+          setOpenCal(false);
+        }
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    window.addEventListener("scroll", onScroll); // no capture
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openCal]);
 
   // Resetear hora seleccionada si cambia el servicio
   useEffect(() => {
@@ -23,11 +116,10 @@ export default function DateTimePicker({ onChange, service }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [service?.id]);
 
-  // Cargar slots cuando cambia la fecha o el servicio (usa serviceId requerido por la API)
+  // Cargar slots cuando cambia la fecha o el servicio
   useEffect(() => {
     let mounted = true;
 
-    // Si no hay servicio seleccionado aún, no pedimos slots
     if (!service?.id) {
       setSlots([]);
       setLoading(false);
@@ -39,7 +131,7 @@ export default function DateTimePicker({ onChange, service }) {
         setLoading(true);
         const url = new URL("/api/slots", window.location.origin);
         url.searchParams.set("date", date);
-        url.searchParams.set("serviceId", String(service.id)); // ⬅️ clave: la API requiere serviceId (uuid)
+        url.searchParams.set("serviceId", String(service.id));
         const res = await fetch(url.toString(), { cache: "no-store" });
         const json = await res.json();
         if (!mounted) return;
@@ -47,7 +139,6 @@ export default function DateTimePicker({ onChange, service }) {
         const isoList = Array.isArray(json?.slots) ? json.slots : [];
         setSlots(isoList);
 
-        // Si la hora actual no está en la nueva lista, reseteamos
         if (time && !isoList.includes(time)) {
           setTime(null);
           onChange?.({ date, timeISO: null });
@@ -63,8 +154,8 @@ export default function DateTimePicker({ onChange, service }) {
     return () => {
       mounted = false;
     };
-    // Dependencias: fecha y servicio seleccionado
-  }, [date, service?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date, service?.id]);
 
   function handleSelect(iso) {
     setTime(iso);
@@ -75,17 +166,22 @@ export default function DateTimePicker({ onChange, service }) {
 
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium">Datum & Uhrzeit</label>
+      <label className="text-sm font-medium">Datum &amp; Uhrzeit</label>
+
       <div className="grid gap-3 sm:grid-cols-[240px,1fr]">
-        <input
-          type="date"
-          value={date}
-          min={todayISO}
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
-          className="border rounded-lg px-3 py-2"
-        />
+        {/* Botón que abre/cierra el calendario (popover en portal; no empuja layout) */}
+        <div>
+          <button
+            ref={anchorRef}
+            type="button"
+            onClick={() => setOpenCal((v) => !v)}
+            className="w-full rounded-lg border px-3 py-2 text-left hover:bg-neutral-50"
+            aria-haspopup="dialog"
+            aria-expanded={openCal}
+          >
+            {new Date(date).toLocaleDateString("de-CH", DE_FORMAT)}
+          </button>
+        </div>
 
         {!serviceSelected ? (
           <div className="text-sm text-neutral-600 self-center">
@@ -94,9 +190,7 @@ export default function DateTimePicker({ onChange, service }) {
         ) : (
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {loading && (
-              <div className="col-span-full text-sm text-neutral-500">
-                Laden…
-              </div>
+              <div className="col-span-full text-sm text-neutral-500">Laden…</div>
             )}
             {!loading && slots.length === 0 && (
               <div className="col-span-full text-sm text-neutral-500">
@@ -125,6 +219,47 @@ export default function DateTimePicker({ onChange, service }) {
           </div>
         )}
       </div>
+
+      {/* POPUP en portal: fijo, con clamp y scroll interno si hace falta */}
+      {openCal &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            data-calpanel="true"
+            ref={panelRef}
+            className="fixed z-[1000] rounded-lg border bg-white p-2 shadow-xl overflow-auto"
+            style={{
+              top: popPos.top,
+              left: popPos.left,
+              width: popPos.width,
+              maxHeight: "min(80vh, 520px)", // no tapa footer; scrollea dentro
+            }}
+            role="dialog"
+            aria-label="Datum auswählen"
+          >
+            <DayPicker
+              mode="single"
+              locale={de}
+              selected={parseISODate(date)}
+              onSelect={(d) => {
+                if (!d) return;
+                const iso = toISODate(d);
+                setDate(iso);
+                setOpenCal(false);
+              }}
+              fromDate={today}
+              weekStartsOn={1}
+              fixedWeeks
+              showOutsideDays
+              disabled={[{ dayOfWeek: [0, 1, 6] }]} // Dom(0), Lun(1), Sáb(6)
+              onMonthChange={() => {
+                // Reposicionar si cambia el alto al cambiar de mes
+                requestAnimationFrame(positionPopover);
+              }}
+            />
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
