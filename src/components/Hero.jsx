@@ -26,7 +26,7 @@ export default function Hero({
 
       {/* Center–center real con grid */}
       <div className="grid place-items-center h-full w-full px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="whitespace-pre-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+        <h1 className="mt-20 whitespace-pre-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
           {title}
         </h1>
       </div>
