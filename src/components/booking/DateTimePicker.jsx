@@ -194,7 +194,7 @@ export default function DateTimePicker({ onChange, service }) {
               <div className="col-span-full text-sm text-neutral-500">Laden…</div>
             )}
             {!loading && slots.length === 0 && (
-              <div className="col-span-full text-sm text-neutral-500">
+              <div className="md:mt-3 col-span-full text-sm text-neutral-500">
                 Kein Termin verfügbar für dieses Datum.
               </div>
             )}
