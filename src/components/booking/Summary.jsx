@@ -1,9 +1,12 @@
 "use client";
 import PayPalButton from "./PayPalButton";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-function PayPalSection({ holdInfo }) {
+function PayPalSection({ holdInfo, isFree }) {
   const [paid, setPaid] = useState(null);
+
+  // Servicios gratis no muestran PayPal en ningún caso
+  if (isFree) return null;
 
   if (!holdInfo?.bookingId) {
     return <p className="mt-2 text-sm text-neutral-600">Fehlende Buchung-ID.</p>;
@@ -15,7 +18,13 @@ function PayPalSection({ holdInfo }) {
       </div>
     );
   }
-  return <PayPalButton bookingId={holdInfo.bookingId} onPaid={setPaid} />;
+  return (
+    <PayPalButton
+      bookingId={holdInfo.bookingId}
+      onPaid={setPaid}
+      isFree={isFree}
+    />
+  );
 }
 
 export default function Summary({ service, datetime }) {
@@ -26,6 +35,24 @@ export default function Summary({ service, datetime }) {
 
   const hasAll = Boolean(service && datetime?.timeISO);
   const hasHold = Boolean(holdInfo?.bookingId);
+
+  // ✅ Calcular si el servicio es gratis (UI). El server valida de verdad.
+  const isFree = useMemo(() => {
+    const price =
+      service?.price ??
+      service?.price_chf ??
+      service?.priceChf ??
+      service?.priceCHF ??
+      0;
+    const n = Number(price);
+    return Number.isFinite(n) && n === 0;
+  }, [service]);
+
+  // ✅ Si cambio de servicio, limpio estados de hold/confirm para evitar inconsistencias
+  useEffect(() => {
+    setHoldInfo(null);
+    setConfirmState(null);
+  }, [service?.id]);
 
   async function createHold() {
     if (!hasAll || loading) return;
@@ -42,14 +69,14 @@ export default function Summary({ service, datetime }) {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           serviceId,
-          startISO: datetime.timeISO
-        })
+          startISO: datetime.timeISO,
+        }),
       });
 
       if (res.status === 409) {
         setHoldInfo({
           error:
-            "Dieser Termin wurde gerade belegt. Bitte wähle eine andere Uhrzeit."
+            "Dieser Termin wurde gerade belegt. Bitte wähle eine andere Uhrzeit.",
         });
         return;
       }
@@ -63,7 +90,7 @@ export default function Summary({ service, datetime }) {
       const json = await res.json();
       setHoldInfo({
         bookingId: json.bookingId,
-        hold_until: json.hold_until
+        hold_until: json.hold_until,
       });
     } finally {
       setLoading(false);
@@ -76,7 +103,7 @@ export default function Summary({ service, datetime }) {
 
     if (!form.name.trim() || !/.+@.+\..+/.test(form.email)) {
       setConfirmState({
-        error: "Bitte Name und eine gültige E-Mail eingeben."
+        error: "Bitte Name und eine gültige E-Mail eingeben.",
       });
       return;
     }
@@ -91,14 +118,14 @@ export default function Summary({ service, datetime }) {
         body: JSON.stringify({
           bookingId: holdInfo.bookingId,
           name: form.name.trim(),
-          email: form.email.trim()
-        })
+          email: form.email.trim(),
+        }),
       });
 
       if (res.status === 410) {
         setConfirmState({
           error:
-            "Die Reservierung (HOLD) ist abgelaufen. Bitte wähle erneut."
+            "Die Reservierung (HOLD) ist abgelaufen. Bitte wähle erneut.",
         });
         return;
       }
@@ -106,7 +133,7 @@ export default function Summary({ service, datetime }) {
         const t = await res.text().catch(() => "");
         console.error("CONFIRM error:", t);
         setConfirmState({
-          error: "Bestätigung fehlgeschlagen. Versuche es erneut."
+          error: "Bestätigung fehlgeschlagen. Versuche es erneut.",
         });
         return;
       }
@@ -116,7 +143,7 @@ export default function Summary({ service, datetime }) {
         setConfirmState({ ok: true });
       } else {
         setConfirmState({
-          error: "Unerwartete Antwort. Versuche es erneut."
+          error: "Unerwartete Antwort. Versuche es erneut.",
         });
       }
     } finally {
@@ -137,7 +164,12 @@ export default function Summary({ service, datetime }) {
       {service && (
         <p className="text-sm">
           <span className="font-medium">Service:</span> {service.title} —{" "}
-          {service.durationMin} Min • CHF {service.price}
+          {service.durationMin} Min • CHF{" "}
+          {service.price ??
+            service.price_chf ??
+            service.priceChf ??
+            service.priceCHF ??
+            0}
         </p>
       )}
 
@@ -146,7 +178,7 @@ export default function Summary({ service, datetime }) {
           <span className="font-medium">Termin:</span>{" "}
           {new Date(datetime.timeISO).toLocaleString([], {
             dateStyle: "medium",
-            timeStyle: "short"
+            timeStyle: "short",
           })}
         </p>
       )}
@@ -171,7 +203,7 @@ export default function Summary({ service, datetime }) {
         </button>
       )}
 
-      {/* STEP 2: Formulario Kunde (mientras HOLD activo, antes del pago) */}
+      {/* STEP 2: Datos cliente (antes de pago o confirmación si es gratis) */}
       {hasHold && !confirmState?.ok && (
         <div className="mt-4">
           <div className="text-sm text-green-700">
@@ -181,7 +213,7 @@ export default function Summary({ service, datetime }) {
               HOLD bis:{" "}
               {new Date(holdInfo.hold_until).toLocaleTimeString([], {
                 hour: "2-digit",
-                minute: "2-digit"
+                minute: "2-digit",
               })}
             </div>
           </div>
@@ -213,19 +245,33 @@ export default function Summary({ service, datetime }) {
               disabled={loading}
               className="px-4 py-2 rounded-lg bg-black text-white hover:opacity-90"
             >
-              {loading ? "Sende…" : "Bestätigen"}
+              {loading
+                ? "Sende…"
+                : isFree
+                ? "Kostenlos reservieren"
+                : "Bestätigen"}
             </button>
           </form>
         </div>
       )}
 
-      {/* STEP 3: Pago (PayPal) */}
-      {confirmState?.ok && (
+      {/* STEP 3A: Éxito directo si es gratis (sin PayPal) */}
+      {confirmState?.ok && isFree && (
+        <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
+          <div className="font-medium">Termin bestätigt ✔</div>
+          <p className="mt-1">
+            Deine Buchung ist bestätigt. Eine Bestätigung wurde per E-Mail
+            versendet. Wir sehen uns zum Termin!
+          </p>
+        </div>
+      )}
+
+      {/* STEP 3B: Pago (PayPal) solo si NO es gratis */}
+      {confirmState?.ok && !isFree && (
         <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
           <div className="font-medium">Bestätigt (PENDING) ✔</div>
           <p className="mt-1">Bitte fahre mit der Bezahlung fort.</p>
-
-          <PayPalSection holdInfo={holdInfo} />
+          <PayPalSection holdInfo={holdInfo} isFree={isFree} />
         </div>
       )}
     </div>

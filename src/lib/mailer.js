@@ -1,33 +1,45 @@
 import nodemailer from "nodemailer";
 
+/** ===========================
+ *  ENV helpers (SMTP o EMAIL)
+ *  =========================== */
+function getEnv(keyA, keyB) {
+  return process.env[keyA] ?? process.env[keyB] ?? undefined;
+}
+
 function hasSmtpEnv() {
-  return (
-    !!process.env.EMAIL_HOST &&
-    !!process.env.EMAIL_USER &&
-    !!process.env.EMAIL_PASS
-  );
+  const host = getEnv("EMAIL_HOST", "SMTP_HOST");
+  const user = getEnv("EMAIL_USER", "SMTP_USER");
+  const pass = getEnv("EMAIL_PASS", "SMTP_PASS");
+  return !!(host && user && pass);
 }
 
 export async function getTransport() {
   if (!hasSmtpEnv()) {
     throw new Error(
-      "Faltan variables de entorno EMAIL_HOST / EMAIL_USER / EMAIL_PASS"
+      "Faltan variables de entorno SMTP/EMAIL: (EMAIL_HOST|SMTP_HOST), (EMAIL_USER|SMTP_USER), (EMAIL_PASS|SMTP_PASS)"
     );
   }
 
+  const host = getEnv("EMAIL_HOST", "SMTP_HOST");
+  const port = Number(getEnv("EMAIL_PORT", "SMTP_PORT") || 465);
+  const secure = String(getEnv("EMAIL_SECURE", "SMTP_SECURE") ?? "true") === "true";
+  const user = getEnv("EMAIL_USER", "SMTP_USER");
+  const pass = getEnv("EMAIL_PASS", "SMTP_PASS");
+
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: Number(process.env.EMAIL_PORT || 465),
-    secure: String(process.env.EMAIL_SECURE || "true") === "true",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
+    host,
+    port,
+    secure,
+    auth: { user, pass },
   });
 
   return { transporter, isEthereal: false };
 }
 
+/** ===========================
+ *  Formatting helpers
+ *  =========================== */
 function formatDateCH(iso) {
   const dt = new Date(iso);
   return dt.toLocaleString("de-CH", {
@@ -37,7 +49,7 @@ function formatDateCH(iso) {
   });
 }
 
-// Helpers ICS (usamos UTC para máxima compatibilidad)
+// ICS en UTC para compatibilidad
 function toIcsUtc(dt) {
   const y = dt.getUTCFullYear();
   const m = String(dt.getUTCMonth() + 1).padStart(2, "0");
@@ -82,7 +94,7 @@ function buildIcs({ booking, service }) {
     `SUMMARY:${summary}`,
     `DESCRIPTION:${description}`,
     location ? `LOCATION:${location}` : null,
-    `ORGANIZER;CN=Corinne Vanarelli:mailto:${process.env.EMAIL_FROM}`,
+    `ORGANIZER;CN=Corinne Vanarelli:mailto:${getEnv("EMAIL_FROM","MAIL_FROM") || "kontakt@corinnevanarelli.ch"}`,
     booking.customer_email
       ? `ATTENDEE;CN=${booking.customer_name || "Gast"};RSVP=TRUE:mailto:${booking.customer_email}`
       : null,
@@ -93,14 +105,22 @@ function buildIcs({ booking, service }) {
     .join("\r\n");
 }
 
+/** ===========================
+ *  Email principal (cliente + BCC admin)
+ *  =========================== */
 export async function sendBookingPaidEmail({ booking, service }) {
   const { transporter } = await getTransport();
 
   const from =
-    process.env.EMAIL_FROM ||
-    "Corinne Vanarelli <noreply@corinnevanarelli.ch>";
+    getEnv("EMAIL_FROM", "MAIL_FROM") ||
+    "Corinne Vanarelli <kontakt@corinnevanarelli.ch>";
+
   const to = booking.customer_email;
-  const bcc = process.env.MAIL_BCC || undefined;
+
+  const bcc =
+    process.env.MAIL_BCC ||
+    process.env.EMAIL_BCC ||
+    "kontakt@corinnevanarelli.ch";
 
   const when = formatDateCH(booking.start_at);
   const subject = `Buchungsbestätigung – ${

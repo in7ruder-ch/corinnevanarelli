@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
  * - onPaid: fn({ ok: true, orderId, captureId }) (opcional)
  */
 export default function PayPalButton({ bookingId, onPaid }) {
+  // Guard: si el servicio es gratis, no renderizamos nada ni cargamos el SDK
+  if (isFree) return null;
   const containerRef = useRef(null);
   const renderedOnceRef = useRef(false); // evita doble render en Strict Mode
   const [sdkError, setSdkError] = useState(null);

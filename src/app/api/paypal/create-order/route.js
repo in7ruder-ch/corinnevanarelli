@@ -94,17 +94,16 @@ export async function POST(req) {
     }
 
     const status = String(booking.status || "").toUpperCase();
-    if (!["PENDING", "HOLD"].includes(status)) {
+
+    // En el flujo actual, después de /confirm el estado debe ser PENDING
+    if (status !== "PENDING") {
       return NextResponse.json(
-        { error: `Estado inválido: ${booking.status}` },
+        { error: `Estado inválido para pagar: ${booking.status}` },
         { status: 409 }
       );
     }
-    if (booking.hold_until && new Date(booking.hold_until) < new Date()) {
-      return NextResponse.json({ error: "Hold expirado" }, { status: 410 });
-    }
 
-    // 2) Traer precio desde services (price_chf) y opcionalmente validar active
+    // 2) Traer precio desde services (price_chf) y validar activo
     const { data: svc, error: se } = await supabase
       .from("services")
       .select("price_chf, active")
@@ -128,9 +127,11 @@ export async function POST(req) {
 
     const amount = Number(svc.price_chf || 0);
     const currency = DEFAULT_CURRENCY; // CHF por diseño actual
+
+    // 🚫 Guard para servicios gratis: bloquear desde server
     if (!amount || amount <= 0) {
       return NextResponse.json(
-        { error: "Monto inválido (services.price_chf)" },
+        { error: "Este servicio es gratis y no requiere pago." },
         { status: 400 }
       );
     }
@@ -173,7 +174,8 @@ export async function POST(req) {
       );
     }
 
-    return NextResponse.json({ id: j.id }, { status: 200 });
+    // 🔄 Alinear con el frontend: devolver { orderId }
+    return NextResponse.json({ orderId: j.id }, { status: 200 });
   } catch (e) {
     console.error("[paypal/create-order] unhandled:", e);
     return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });

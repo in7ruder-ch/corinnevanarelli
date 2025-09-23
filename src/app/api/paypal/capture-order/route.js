@@ -2,6 +2,7 @@ export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { sendBookingPaidEmail } from "@/lib/mailer";
 
 const PAYPAL_ENV = process.env.NEXT_PUBLIC_PAYPAL_ENV || "sandbox";
 const PAYPAL_BASE =
@@ -66,6 +67,49 @@ export async function POST(req) {
       SUPABASE_SERVICE_ROLE_KEY || SUPABASE_ANON_KEY
     );
 
+    // 0) Validar booking + servicio
+    const { data: bk, error: be } = await supabase
+      .from("bookings")
+      .select("id, status, service_id, paypal_order_id, start_at, end_at, customer_name, customer_email")
+      .eq("id", _bookingId)
+      .maybeSingle();
+
+    if (be) {
+      console.error("[capture-order] supabase select bookings error:", be);
+      return NextResponse.json({ error: "DB error (bookings)" }, { status: 500 });
+    }
+    if (!bk) {
+      return NextResponse.json({ error: "Booking no encontrada" }, { status: 404 });
+    }
+    if (String(bk.status || "").toUpperCase() !== "PENDING") {
+      return NextResponse.json(
+        { error: `Estado inválido para capturar: ${bk.status}` },
+        { status: 409 }
+      );
+    }
+
+    const { data: svc, error: se } = await supabase
+      .from("services")
+      .select("id, title_de, price_chf, duration_min, active")
+      .eq("id", bk.service_id)
+      .maybeSingle();
+
+    if (se) {
+      console.error("[capture-order] supabase select services error:", se);
+      return NextResponse.json({ error: "DB error (services)" }, { status: 500 });
+    }
+    if (!svc) {
+      return NextResponse.json({ error: "Servicio no encontrado" }, { status: 404 });
+    }
+
+    const amount = Number(svc.price_chf || 0);
+    if (!amount || amount <= 0) {
+      return NextResponse.json(
+        { error: "Este servicio es gratis y no requiere captura." },
+        { status: 400 }
+      );
+    }
+
     // 1) Capturar en PayPal
     const accessToken = await getPaypalAccessToken();
     const r = await fetch(`${PAYPAL_BASE}/v2/checkout/orders/${_orderId}/capture`, {
@@ -91,8 +135,8 @@ export async function POST(req) {
       );
     }
 
-    // 2) Update booking (columnas reales)
-    const { error: upErr } = await supabase
+    // 2) Update booking
+    const { data: upd, error: upErr } = await supabase
       .from("bookings")
       .update({
         status: "PAID",
@@ -100,11 +144,33 @@ export async function POST(req) {
         paypal_capture_id: captureId,
         updated_at: new Date().toISOString(),
       })
-      .eq("id", _bookingId);
+      .eq("id", _bookingId)
+      .select("id, status")
+      .single();
 
     if (upErr) {
       console.warn("[paypal capture-order] No se pudo actualizar booking:", upErr.message);
-      // no rompemos: el pago ya está capturado en PayPal
+    }
+
+    // 3) Enviar email de confirmación
+    try {
+      await sendBookingPaidEmail({
+        booking: {
+          id: bk.id,
+          customer_name: bk.customer_name,
+          customer_email: bk.customer_email,
+          start_at: bk.start_at,
+          end_at: bk.end_at,
+        },
+        service: {
+          id: svc.id,
+          title_de: svc.title_de,
+          price_chf: svc.price_chf,
+          duration_min: svc.duration_min,
+        },
+      });
+    } catch (mailErr) {
+      console.warn("[capture-order] Mailer error:", mailErr?.message || mailErr);
     }
 
     return NextResponse.json(
