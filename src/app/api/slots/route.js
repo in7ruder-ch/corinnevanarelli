@@ -1,19 +1,20 @@
 // src/app/api/slots/route.js
+export const runtime = "nodejs"; // asegura acceso a las envs del server (no Edge)
+
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-function getSupabase() {
-  // Preferimos Service Role si está disponible (lecturas sobre vistas/RPC con RLS)
-  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const service = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const anon = process.env.SUPABASE_ANON_KEY;
-
-  if (!url) throw new Error("Falta SUPABASE_URL o NEXT_PUBLIC_SUPABASE_URL.");
-  if (service) {
-    return createClient(url, service, { auth: { persistSession: false } });
-  }
-  if (!anon) throw new Error("Falta SUPABASE_ANON_KEY.");
-  return createClient(url, anon, { auth: { persistSession: false } });
+/**
+ * Cliente con SERVICE ROLE para ejecutar en servidor y bypass de RLS.
+ * IMPORTANTE: Nunca usar esto en componentes "use client".
+ */
+function getSupabaseService() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRole =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE; // fallback
+  if (!url) throw new Error("Falta NEXT_PUBLIC_SUPABASE_URL");
+  if (!serviceRole) throw new Error("Falta SUPABASE_SERVICE_ROLE_KEY (service role)");
+  return createClient(url, serviceRole, { auth: { persistSession: false } });
 }
 
 const UUID_RE =
@@ -33,7 +34,7 @@ function todayISOInTZ(timeZone = "Europe/Zurich") {
     month: "2-digit",
     day: "2-digit",
   });
-  // en-CA da "YYYY-MM-DD"
+  // en-CA con year/month/day devuelve "YYYY-MM-DD"
   return fmt.format(new Date());
 }
 
@@ -65,9 +66,9 @@ export async function GET(req) {
       );
     }
 
-    const supabase = getSupabase();
+    const supabase = getSupabaseService();
 
-    // El RPC devuelve filas { start_at: timestamptz }
+    // El RPC devuelve filas { start_at: timestamptz } (o un array simple de timestamptz)
     const { data, error } = await supabase.rpc("get_available_slots", {
       p_date: date,
       p_service_id: serviceId,

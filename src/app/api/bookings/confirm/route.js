@@ -1,14 +1,18 @@
-import { supabaseServer } from "@/lib/supabase";
-import { createClient } from "@supabase/supabase-js";
-import { sendBookingPaidEmail } from "@/lib/mailer";
-
+// src/app/api/bookings/confirm/route.js
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** Usa Service Role si está disponible; si no, cae a tu cliente server actual */
+import { createClient } from "@supabase/supabase-js";
+import { supabaseServer } from "@/lib/supabase";
+import { sendBookingPaidEmail } from "@/lib/mailer";
+
+/** Cliente con SERVICE ROLE (bypassa RLS) con fallback a supabaseServer() si no hay service key */
 function getSupabase() {
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (url && serviceKey) {
+  const serviceKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE;
+  if (!url) throw new Error("Falta SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL");
+  if (serviceKey) {
     return createClient(url, serviceKey, { auth: { persistSession: false } });
   }
   return supabaseServer();
@@ -90,7 +94,7 @@ export async function POST(req) {
 
       if (updErr) throw updErr;
 
-      // Enviar email de confirmación al cliente + BCC admin (no rompemos si falla)
+      // Enviar email de confirmación (no romper si falla)
       try {
         await sendBookingPaidEmail({
           booking: {

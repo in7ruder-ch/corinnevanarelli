@@ -1,7 +1,7 @@
 // src/app/admin/page.js
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 
 const STATUS_OPTIONS = [
   { value: "", label: "Alle" },
@@ -76,8 +76,7 @@ function useAdminBookings(initialFrom, initialTo) {
 
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status, from, to]);
+  }, [status, from, to]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     status,
@@ -91,6 +90,7 @@ function useAdminBookings(initialFrom, initialTo) {
     loading,
     err,
     refresh: fetchData,
+    setItems,
   };
 }
 
@@ -99,7 +99,7 @@ function formatDateISO(d) {
 }
 
 export default function AdminPage() {
-  // Rango por defecto: hoy → +14 días
+  // Standard-Zeitraum: heute → +14 Tage
   const todayISO = formatDateISO(new Date());
   const inTwoWeeksISO = formatDateISO(new Date(Date.now() + 14 * 24 * 60 * 60 * 1000));
 
@@ -115,13 +115,68 @@ export default function AdminPage() {
     loading,
     err,
     refresh,
+    setItems,
   } = useAdminBookings(todayISO, inTwoWeeksISO);
+
+  const [actingId, setActingId] = useState(null);
 
   const paidSum = useMemo(() => {
     return items
       .filter((i) => i.status === "PAID")
       .reduce((acc, i) => acc + (Number(i?.service?.price || 0) || 0), 0);
   }, [items]);
+
+  const cancelBooking = useCallback(
+    async (bookingId) => {
+      if (!bookingId) return;
+      if (!window.confirm("Buchung stornieren?\n\nDies markiert die Buchung als CANCELED.")) return;
+      try {
+        setActingId(bookingId);
+        const res = await fetch("/api/bookings/cancel", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ bookingId }),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json?.ok) throw new Error(json?.error || "Fehler beim Stornieren");
+        await refresh();
+      } catch (e) {
+        console.error("[/admin] cancel error:", e);
+        alert("Die Buchung konnte nicht storniert werden.");
+      } finally {
+        setActingId(null);
+      }
+    },
+    [refresh]
+  );
+
+  const deleteBooking = useCallback(
+    async (bookingId) => {
+      if (!bookingId) return;
+      if (
+        !window.confirm(
+          "Buchung löschen?\n\nDiese Aktion ist DAUERHAFT und entfernt die Buchung aus der Datenbank."
+        )
+      )
+        return;
+      try {
+        setActingId(bookingId);
+        const res = await fetch(`/api/admin/bookings/${bookingId}`, {
+          method: "DELETE",
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json?.ok) throw new Error(json?.error || "Fehler beim Löschen");
+        // schnelle Aktualisierung ohne kompletten Re-Fetch
+        setItems((prev) => prev.filter((x) => x.id !== bookingId));
+      } catch (e) {
+        console.error("[/admin] delete error:", e);
+        alert("Die Buchung konnte nicht gelöscht werden.");
+      } finally {
+        setActingId(null);
+      }
+    },
+    [setItems]
+  );
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 md:py-10">
@@ -135,7 +190,7 @@ export default function AdminPage() {
         </button>
       </div>
 
-      {/* Filtros */}
+      {/* Filter */}
       <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
         <div className="space-y-1">
           <label className="text-xs text-neutral-500">Status</label>
@@ -183,7 +238,7 @@ export default function AdminPage() {
         </div>
       </div>
 
-      {/* Tabla */}
+      {/* Tabelle */}
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead>
@@ -194,26 +249,27 @@ export default function AdminPage() {
               <th className="text-left font-medium px-3 py-2">Status</th>
               <th className="text-left font-medium px-3 py-2">Preis</th>
               <th className="text-left font-medium px-3 py-2">IDs</th>
+              <th className="text-left font-medium px-3 py-2">Aktionen</th>
             </tr>
           </thead>
           <tbody>
             {loading && (
               <tr>
-                <td colSpan={6} className="px-3 py-6 text-center text-neutral-500">
+                <td colSpan={7} className="px-3 py-6 text-center text-neutral-500">
                   Laden…
                 </td>
               </tr>
             )}
             {!loading && err && (
               <tr>
-                <td colSpan={6} className="px-3 py-6 text-center text-red-600">
+                <td colSpan={7} className="px-3 py-6 text-center text-red-600">
                   {err}
                 </td>
               </tr>
             )}
             {!loading && !err && items.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-3 py-6 text-center text-neutral-600">
+                <td colSpan={7} className="px-3 py-6 text-center text-neutral-600">
                   Keine Einträge gefunden.
                 </td>
               </tr>
@@ -222,13 +278,13 @@ export default function AdminPage() {
               !err &&
               items.map((b) => {
                 const s = b.service || {};
+                const isCancelDisabled = b.status === "CANCELED";
+                const busy = actingId === b.id;
                 return (
                   <tr key={b.id} className="border-b hover:bg-neutral-50/50">
                     <td className="px-3 py-3 align-top">
                       <div className="font-medium">{formatDateTime(b.startAt)}</div>
-                      <div className="text-neutral-500">
-                        bis {formatDateTime(b.endAt)}
-                      </div>
+                      <div className="text-neutral-500">bis {formatDateTime(b.endAt)}</div>
                       {b.holdUntil ? (
                         <div className="text-xs text-neutral-500 mt-1">
                           Hold bis: {formatDateTime(b.holdUntil)}
@@ -246,12 +302,8 @@ export default function AdminPage() {
                     </td>
 
                     <td className="px-3 py-3 align-top">
-                      <div className="font-medium">
-                        {b.customerName || "—"}
-                      </div>
-                      <div className="text-neutral-600">
-                        {b.customerEmail || "—"}
-                      </div>
+                      <div className="font-medium">{b.customerName || "—"}</div>
+                      <div className="text-neutral-600">{b.customerEmail || "—"}</div>
                     </td>
 
                     <td className="px-3 py-3 align-top">
@@ -263,10 +315,37 @@ export default function AdminPage() {
                     </td>
 
                     <td className="px-3 py-3 align-top text-xs text-neutral-600">
-                      <div>Booking: {b.id}</div>
+                      <div>Buchung: {b.id}</div>
                       {s.id ? <div>Service: {s.id}</div> : null}
                       {b.paypalOrderId ? <div>PayPal Order: {b.paypalOrderId}</div> : null}
                       {b.paypalCaptureId ? <div>PayPal Capture: {b.paypalCaptureId}</div> : null}
+                    </td>
+
+                    <td className="px-3 py-3 align-top">
+                      <div className="flex gap-2">
+                        <button
+                          disabled={isCancelDisabled || busy}
+                          onClick={() => cancelBooking(b.id)}
+                          className={`px-3 py-1.5 text-xs rounded-lg border ${
+                            isCancelDisabled || busy
+                              ? "opacity-50 cursor-not-allowed"
+                              : "hover:bg-neutral-50"
+                          }`}
+                          title={isCancelDisabled ? "Bereits storniert" : "Stornieren (Status=CANCELED)"}
+                        >
+                          {busy ? "…" : "Stornieren"}
+                        </button>
+                        <button
+                          disabled={busy}
+                          onClick={() => deleteBooking(b.id)}
+                          className={`px-3 py-1.5 text-xs rounded-lg border border-red-600 text-red-700 ${
+                            busy ? "opacity-50 cursor-not-allowed" : "hover:bg-red-50"
+                          }`}
+                          title="Endgültig löschen"
+                        >
+                          {busy ? "…" : "Löschen"}
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );

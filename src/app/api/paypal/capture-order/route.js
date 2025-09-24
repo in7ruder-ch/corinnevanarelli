@@ -1,3 +1,4 @@
+// src/app/api/paypal/capture-order/route.js
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
@@ -12,11 +13,24 @@ const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
 const PAYPAL_SECRET = process.env.PAYPAL_SECRET;
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY; // opcional
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY; // fallback
+const SERVICE_ROLE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE; // fallback
 
 const UUID_RX =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function json(payload, init = {}) {
+  const res = NextResponse.json(payload, init);
+  res.headers.set("Cache-Control", "no-store");
+  return res;
+}
+
+function getSupabaseService() {
+  if (!SUPABASE_URL) throw new Error("SUPABASE_URL ausente");
+  if (!SERVICE_ROLE_KEY)
+    throw new Error("Falta SUPABASE_SERVICE_ROLE_KEY (o SUPABASE_SERVICE_ROLE)");
+  return createClient(SUPABASE_URL, SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+}
 
 async function getPaypalAccessToken() {
   if (!PAYPAL_CLIENT_ID || !PAYPAL_SECRET) {
@@ -46,26 +60,10 @@ export async function POST(req) {
     const _orderId = String(orderId || "").trim();
     const _bookingId = String(bookingId || "").trim();
 
-    if (!_orderId || !_bookingId) {
-      return NextResponse.json({ error: "orderId y bookingId requeridos" }, { status: 400 });
-    }
-    if (!UUID_RX.test(_bookingId)) {
-      return NextResponse.json({ error: "bookingId no es UUID válido" }, { status: 400 });
-    }
-    if (!SUPABASE_URL) {
-      return NextResponse.json({ error: "SUPABASE_URL ausente" }, { status: 500 });
-    }
-    if (!SUPABASE_ANON_KEY && !SUPABASE_SERVICE_ROLE_KEY) {
-      return NextResponse.json(
-        { error: "Falta clave de Supabase (ANON o SERVICE_ROLE)" },
-        { status: 500 }
-      );
-    }
+    if (!_orderId || !_bookingId) return json({ error: "orderId y bookingId requeridos" }, { status: 400 });
+    if (!UUID_RX.test(_bookingId)) return json({ error: "bookingId no es UUID válido" }, { status: 400 });
 
-    const supabase = createClient(
-      SUPABASE_URL,
-      SUPABASE_SERVICE_ROLE_KEY || SUPABASE_ANON_KEY
-    );
+    const supabase = getSupabaseService();
 
     // 0) Validar booking + servicio
     const { data: bk, error: be } = await supabase
@@ -76,16 +74,11 @@ export async function POST(req) {
 
     if (be) {
       console.error("[capture-order] supabase select bookings error:", be);
-      return NextResponse.json({ error: "DB error (bookings)" }, { status: 500 });
+      return json({ error: "DB error (bookings)", code: be.code, message: be.message }, { status: 500 });
     }
-    if (!bk) {
-      return NextResponse.json({ error: "Booking no encontrada" }, { status: 404 });
-    }
+    if (!bk) return json({ error: "Booking no encontrada" }, { status: 404 });
     if (String(bk.status || "").toUpperCase() !== "PENDING") {
-      return NextResponse.json(
-        { error: `Estado inválido para capturar: ${bk.status}` },
-        { status: 409 }
-      );
+      return json({ error: `Estado inválido para capturar: ${bk.status}` }, { status: 409 });
     }
 
     const { data: svc, error: se } = await supabase
@@ -96,18 +89,14 @@ export async function POST(req) {
 
     if (se) {
       console.error("[capture-order] supabase select services error:", se);
-      return NextResponse.json({ error: "DB error (services)" }, { status: 500 });
+      return json({ error: "DB error (services)", code: se.code, message: se.message }, { status: 500 });
     }
-    if (!svc) {
-      return NextResponse.json({ error: "Servicio no encontrado" }, { status: 404 });
-    }
+    if (!svc) return json({ error: "Servicio no encontrado" }, { status: 404 });
+    if (svc.active === false) return json({ error: "Servicio inactivo" }, { status: 409 });
 
     const amount = Number(svc.price_chf || 0);
     if (!amount || amount <= 0) {
-      return NextResponse.json(
-        { error: "Este servicio es gratis y no requiere captura." },
-        { status: 400 }
-      );
+      return json({ error: "Este servicio es gratis y no requiere captura." }, { status: 400 });
     }
 
     // 1) Capturar en PayPal
@@ -120,7 +109,7 @@ export async function POST(req) {
     const j = await r.json().catch(() => ({}));
     if (!r.ok) {
       console.error("[paypal capture-order] resp:", j);
-      return NextResponse.json({ error: "No se pudo capturar la orden" }, { status: 502 });
+      return json({ error: "No se pudo capturar la orden" }, { status: 502 });
     }
 
     const unit = j?.purchase_units?.[0];
@@ -129,10 +118,7 @@ export async function POST(req) {
     const captureId = cap?.id;
 
     if (status !== "COMPLETED" || !captureId) {
-      return NextResponse.json(
-        { error: "Pago no completado", status, details: j },
-        { status: 409 }
-      );
+      return json({ error: "Pago no completado", status, details: j }, { status: 409 });
     }
 
     // 2) Update booking
@@ -152,7 +138,7 @@ export async function POST(req) {
       console.warn("[paypal capture-order] No se pudo actualizar booking:", upErr.message);
     }
 
-    // 3) Enviar email de confirmación
+    // 3) Enviar email de confirmación (no romper si falla)
     try {
       await sendBookingPaidEmail({
         booking: {
@@ -173,12 +159,9 @@ export async function POST(req) {
       console.warn("[capture-order] Mailer error:", mailErr?.message || mailErr);
     }
 
-    return NextResponse.json(
-      { ok: true, orderId: _orderId, captureId, status },
-      { status: 200 }
-    );
+    return json({ ok: true, orderId: _orderId, captureId, status }, { status: 200 });
   } catch (e) {
     console.error("[paypal/capture-order] unhandled:", e);
-    return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });
+    return json({ error: String(e?.message || e) }, { status: 500 });
   }
 }

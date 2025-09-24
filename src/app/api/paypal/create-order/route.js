@@ -1,3 +1,4 @@
+// src/app/api/paypal/create-order/route.js
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
@@ -10,18 +11,30 @@ const PAYPAL_BASE =
 const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID; // público (SDK)
 const PAYPAL_SECRET = process.env.PAYPAL_SECRET; // privado (server)
 
-const DEFAULT_CURRENCY =
-  (process.env.NEXT_PUBLIC_PAYPAL_CURRENCY || "CHF").toUpperCase();
+const DEFAULT_CURRENCY = (process.env.NEXT_PUBLIC_PAYPAL_CURRENCY || "CHF").toUpperCase();
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY; // opcional
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY; // fallback
+const SERVICE_ROLE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE; // <- fallback
 
 const UUID_RX =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 function fmtAmount(n) {
   return (Math.round(Number(n) * 100) / 100).toFixed(2);
+}
+
+function json(payload, init = {}) {
+  const res = NextResponse.json(payload, init);
+  res.headers.set("Cache-Control", "no-store");
+  return res;
+}
+
+function getSupabaseService() {
+  if (!SUPABASE_URL) throw new Error("SUPABASE_URL ausente");
+  if (!SERVICE_ROLE_KEY)
+    throw new Error("Falta SUPABASE_SERVICE_ROLE_KEY (o SUPABASE_SERVICE_ROLE)");
+  return createClient(SUPABASE_URL, SERVICE_ROLE_KEY, { auth: { persistSession: false } });
 }
 
 async function getPaypalAccessToken() {
@@ -51,28 +64,12 @@ export async function POST(req) {
     const { bookingId } = await req.json();
     const _bookingId = String(bookingId || "").trim();
 
-    if (!_bookingId) {
-      return NextResponse.json({ error: "bookingId requerido" }, { status: 400 });
-    }
-    if (!UUID_RX.test(_bookingId)) {
-      return NextResponse.json({ error: "bookingId no es UUID válido" }, { status: 400 });
-    }
-    if (!SUPABASE_URL) {
-      return NextResponse.json({ error: "SUPABASE_URL ausente" }, { status: 500 });
-    }
-    if (!SUPABASE_ANON_KEY && !SUPABASE_SERVICE_ROLE_KEY) {
-      return NextResponse.json(
-        { error: "Falta clave de Supabase (ANON o SERVICE_ROLE)" },
-        { status: 500 }
-      );
-    }
+    if (!_bookingId) return json({ error: "bookingId requerido" }, { status: 400 });
+    if (!UUID_RX.test(_bookingId)) return json({ error: "bookingId no es UUID válido" }, { status: 400 });
 
-    const supabase = createClient(
-      SUPABASE_URL,
-      SUPABASE_SERVICE_ROLE_KEY || SUPABASE_ANON_KEY
-    );
+    const supabase = getSupabaseService();
 
-    // 1) Traer booking (columnas reales)
+    // 1) Traer booking
     const { data: booking, error: be } = await supabase
       .from("bookings")
       .select("id, status, hold_until, service_id")
@@ -81,29 +78,16 @@ export async function POST(req) {
 
     if (be) {
       console.error("[create-order] supabase select bookings error:", be);
-      return NextResponse.json(
-        { error: "DB error (bookings)", code: be.code, message: be.message },
-        { status: 500 }
-      );
+      return json({ error: "DB error (bookings)", code: be.code, message: be.message }, { status: 500 });
     }
-    if (!booking) {
-      return NextResponse.json(
-        { error: "Booking no encontrada", bookingId: _bookingId },
-        { status: 404 }
-      );
-    }
+    if (!booking) return json({ error: "Booking no encontrada", bookingId: _bookingId }, { status: 404 });
 
     const status = String(booking.status || "").toUpperCase();
-
-    // En el flujo actual, después de /confirm el estado debe ser PENDING
     if (status !== "PENDING") {
-      return NextResponse.json(
-        { error: `Estado inválido para pagar: ${booking.status}` },
-        { status: 409 }
-      );
+      return json({ error: `Estado inválido para pagar: ${booking.status}` }, { status: 409 });
     }
 
-    // 2) Traer precio desde services (price_chf) y validar activo
+    // 2) Traer precio desde services
     const { data: svc, error: se } = await supabase
       .from("services")
       .select("price_chf, active")
@@ -112,28 +96,17 @@ export async function POST(req) {
 
     if (se) {
       console.error("[create-order] supabase select services error:", se);
-      return NextResponse.json(
-        { error: "DB error (services)", code: se.code, message: se.message },
-        { status: 500 }
-      );
+      return json({ error: "DB error (services)", code: se.code, message: se.message }, { status: 500 });
     }
-
-    if (!svc) {
-      return NextResponse.json({ error: "Servicio no encontrado" }, { status: 404 });
-    }
-    if (svc.active === false) {
-      return NextResponse.json({ error: "Servicio inactivo" }, { status: 409 });
-    }
+    if (!svc) return json({ error: "Servicio no encontrado" }, { status: 404 });
+    if (svc.active === false) return json({ error: "Servicio inactivo" }, { status: 409 });
 
     const amount = Number(svc.price_chf || 0);
-    const currency = DEFAULT_CURRENCY; // CHF por diseño actual
+    const currency = DEFAULT_CURRENCY;
 
-    // 🚫 Guard para servicios gratis: bloquear desde server
+    // Gratis -> no crear orden
     if (!amount || amount <= 0) {
-      return NextResponse.json(
-        { error: "Este servicio es gratis y no requiere pago." },
-        { status: 400 }
-      );
+      return json({ error: "Este servicio es gratis y no requiere pago." }, { status: 400 });
     }
 
     // 3) Crear orden PayPal
@@ -158,26 +131,23 @@ export async function POST(req) {
     const j = await r.json().catch(() => ({}));
     if (!r.ok || !j?.id) {
       console.error("[paypal create-order] resp:", j);
-      return NextResponse.json({ error: "No se pudo crear la orden" }, { status: 502 });
+      return json({ error: "No se pudo crear la orden" }, { status: 502 });
     }
 
-    // 4) Guardar paypal_order_id (columnas reales)
+    // 4) Guardar paypal_order_id
     const { error: upErr } = await supabase
       .from("bookings")
       .update({ paypal_order_id: j.id, updated_at: new Date().toISOString() })
       .eq("id", _bookingId);
 
     if (upErr) {
-      console.warn(
-        "[paypal create-order] No se pudo guardar paypal_order_id:",
-        upErr.message
-      );
+      console.warn("[paypal create-order] No se pudo guardar paypal_order_id:", upErr.message);
     }
 
-    // 🔄 Alinear con el frontend (PayPalButton espera 'json.id')
-    return NextResponse.json({ id: j.id }, { status: 200 });
+    // Front espera { id }
+    return json({ id: j.id }, { status: 200 });
   } catch (e) {
     console.error("[paypal/create-order] unhandled:", e);
-    return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });
+    return json({ error: String(e?.message || e) }, { status: 500 });
   }
 }

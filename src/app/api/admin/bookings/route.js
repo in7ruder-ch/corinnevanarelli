@@ -1,47 +1,63 @@
 // src/app/api/admin/bookings/route.js
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { createClient } from "@supabase/supabase-js";
 
-function getSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anon = process.env.SUPABASE_ANON_KEY;
-  if (!url || !anon) {
-    throw new Error("Faltan NEXT_PUBLIC_SUPABASE_URL o SUPABASE_ANON_KEY.");
-  }
-  return createClient(url, anon, { auth: { persistSession: false } });
+async function isAdmin() {
+  const c = await cookies();
+  return c.get("admin_auth")?.value === "ok";
 }
 
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-const STATUS = new Set(["HOLD", "PENDING", "PAID", "CANCELED"]);
+function json(payload, init = {}) {
+  const res = NextResponse.json(payload, init);
+  res.headers.set("Cache-Control", "no-store");
+  return res;
+}
+
+function getSupabaseService() {
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE;
+  if (!url) throw new Error("Falta SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL");
+  if (!key) throw new Error("Falta SUPABASE_SERVICE_ROLE_KEY (o SUPABASE_SERVICE_ROLE)");
+  return createClient(url, key, { auth: { persistSession: false } });
+}
+
+function startOfDayISO(dStr) {
+  return new Date(`${dStr}T00:00:00.000Z`).toISOString();
+}
+function endOfDayISO(dStr) {
+  return new Date(`${dStr}T23:59:59.999Z`).toISOString();
+}
 
 export async function GET(req) {
   try {
-    const supabase = getSupabase();
+    if (!(await isAdmin())) return json({ ok: false, error: "Unauthorized" }, { status: 401 });
+
     const { searchParams } = new URL(req.url);
+    const status = (searchParams.get("status") || "").toUpperCase();
+    const from = searchParams.get("from");
+    const to = searchParams.get("to");
+    const limit = Math.min(parseInt(searchParams.get("limit") || "500", 10), 1000);
 
-    const status = searchParams.get("status"); // opcional
-    const from = searchParams.get("from");     // YYYY-MM-DD opcional
-    const to = searchParams.get("to");         // YYYY-MM-DD opcional
-    const limitParam = parseInt(searchParams.get("limit") || "200", 10);
-    const limit = Number.isFinite(limitParam) ? Math.max(1, Math.min(limitParam, 1000)) : 200;
+    const supabase = getSupabaseService();
 
-    // base query
     let query = supabase
       .from("bookings")
       .select(
         `
         id,
-        service_id,
+        status,
         start_at,
         end_at,
         hold_until,
-        status,
         customer_name,
         customer_email,
         paypal_order_id,
         paypal_capture_id,
-        created_at,
-        updated_at,
+        service_id,
         services:service_id (
           id,
           title_de,
@@ -50,60 +66,49 @@ export async function GET(req) {
           duration_min,
           price_chf
         )
-        `
+      `,
+        { count: "exact" }
       )
-      .order("start_at", { ascending: false })
+      .order("start_at", { ascending: true })
       .limit(limit);
 
-    if (status && STATUS.has(status)) {
-      query = query.eq("status", status);
-    }
-    // filtros de fecha sobre start_at (en UTC de la DB)
-    if (from && DATE_RE.test(from)) {
-      query = query.gte("start_at", `${from}T00:00:00Z`);
-    }
-    if (to && DATE_RE.test(to)) {
-      // exclusivo al final del día
-      query = query.lt("start_at", `${to}T23:59:59Z`);
-    }
+    if (status) query = query.eq("status", status);
+    if (from) query = query.gte("start_at", startOfDayISO(from));
+    if (to) query = query.lte("start_at", endOfDayISO(to));
 
-    const { data, error } = await query;
+    const { data, error, count } = await query;
 
     if (error) {
-      console.error("[/api/admin/bookings] Supabase error:", error);
-      return NextResponse.json({ error: "DB_ERROR" }, { status: 500 });
+      console.error("[/api/admin/bookings] supabase error:", error);
+      return json({ ok: false, error: error.message }, { status: 500 });
     }
 
-    const items = (data || []).map((row) => {
-      const svc = row.services || {};
-      const price = Number(svc.price_chf ?? 0);
+    const items = (data || []).map((b) => {
+      const s = b.services || {};
       return {
-        id: row.id,
-        status: row.status,
-        startAt: row.start_at,
-        endAt: row.end_at,
-        holdUntil: row.hold_until,
-        customerName: row.customer_name,
-        customerEmail: row.customer_email,
-        paypalOrderId: row.paypal_order_id,
-        paypalCaptureId: row.paypal_capture_id,
-        createdAt: row.created_at,
-        updatedAt: row.updated_at,
+        id: b.id,
+        status: b.status,
+        startAt: b.start_at,
+        endAt: b.end_at,
+        holdUntil: b.hold_until,
+        customerName: b.customer_name,
+        customerEmail: b.customer_email,
+        paypalOrderId: b.paypal_order_id,
+        paypalCaptureId: b.paypal_capture_id,
         service: {
-          id: svc.id,
-          title: svc.title_de,
-          modality: svc.modality_de,
-          durationLabel: svc.duration_label_de,
-          durationMin: svc.duration_min,
-          price,
-          priceLabel: price === 0 ? "Gratis" : `CHF ${price}`,
+          id: s.id,
+          title: s.title_de,
+          modality: s.modality_de || null,
+          durationLabel: s.duration_label_de || null,
+          durationMin: s.duration_min ?? null,
+          price: s.price_chf ?? null,
         },
       };
     });
 
-    return NextResponse.json({ items, count: items.length }, { status: 200 });
+    return json({ ok: true, items, count: count ?? items.length });
   } catch (e) {
-    console.error("[/api/admin/bookings] Fatal:", e);
-    return NextResponse.json({ error: "SERVER_ERROR" }, { status: 500 });
+    console.error("[/api/admin/bookings] fatal:", e);
+    return json({ ok: false, error: e?.message || "Internal error" }, { status: 500 });
   }
 }

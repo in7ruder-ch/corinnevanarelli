@@ -1,21 +1,25 @@
-import { supabaseServer } from "@/lib/supabase";
-import { createClient } from "@supabase/supabase-js";
-
+// src/app/api/bookings/hold/route.js
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+import { createClient } from "@supabase/supabase-js";
+import { supabaseServer } from "@/lib/supabase";
 
 /**
  * POST /api/bookings/hold
  * Body JSON: { serviceId: string, startISO: string, holdMinutes?: number, name?: string, email?: string }
  */
 
-// Usa Service Role si está disponible; si no, cae a supabaseServer() tal como lo tenías.
+// Cliente con SERVICE ROLE (bypassa RLS) con fallback a supabaseServer() si no hay service key
 function getSupabase() {
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (url && serviceKey) {
+  const serviceKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE;
+  if (!url) throw new Error("Falta SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL");
+  if (serviceKey) {
     return createClient(url, serviceKey, { auth: { persistSession: false } });
   }
-  // fallback a tu cliente actual (ANON) si no hay service role configurado
+  // Fallback (no recomendado con RLS activo)
   return supabaseServer();
 }
 
@@ -71,11 +75,13 @@ export async function POST(req) {
       .select("id, start_at, hold_until")
       .single();
 
-    // Conflicto por índice único (slot ya tomado)
-    if (insErr && String(insErr.code) === "23505") {
-      return Response.json({ error: "Slot already taken" }, { status: 409 });
+    if (insErr) {
+      // 23505 = unique_violation (slot ya tomado)
+      if (String(insErr.code) === "23505") {
+        return Response.json({ error: "Slot already taken" }, { status: 409 });
+      }
+      throw insErr;
     }
-    if (insErr) throw insErr;
 
     return Response.json({
       bookingId: inserted.id,
@@ -83,7 +89,7 @@ export async function POST(req) {
       hold_until: inserted.hold_until,
     });
   } catch (e) {
-    console.error(e);
+    console.error("[/api/bookings/hold] fatal:", e);
     return Response.json({ error: "Server error" }, { status: 500 });
   }
 }
