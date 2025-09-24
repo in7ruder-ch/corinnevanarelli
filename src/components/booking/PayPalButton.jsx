@@ -5,10 +5,12 @@ import { useEffect, useRef, useState } from "react";
  * Props:
  * - bookingId: string (requerido)
  * - onPaid: fn({ ok: true, orderId, captureId }) (opcional)
+ * - isFree: boolean (opcional; default false) -> si true, no renderiza nada
  */
-export default function PayPalButton({ bookingId, onPaid }) {
+export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
   // Guard: si el servicio es gratis, no renderizamos nada ni cargamos el SDK
   if (isFree) return null;
+
   const containerRef = useRef(null);
   const renderedOnceRef = useRef(false); // evita doble render en Strict Mode
   const [sdkError, setSdkError] = useState(null);
@@ -45,7 +47,7 @@ export default function PayPalButton({ bookingId, onPaid }) {
           script.type = "text/javascript";
           script.async = true;
           script.onload = () => resolve();
-          script.onerror = (e) => reject(new Error("PayPal SDK load error"));
+          script.onerror = () => reject(new Error("PayPal SDK load error"));
           document.body.appendChild(script);
         } else {
           // Si ya existe, esperamos un tick a que esté disponible window.paypal

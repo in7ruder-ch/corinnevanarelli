@@ -1,4 +1,5 @@
 import { supabaseServer } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
 
@@ -6,6 +7,18 @@ export const dynamic = "force-dynamic";
  * POST /api/bookings/hold
  * Body JSON: { serviceId: string, startISO: string, holdMinutes?: number, name?: string, email?: string }
  */
+
+// Usa Service Role si está disponible; si no, cae a supabaseServer() tal como lo tenías.
+function getSupabase() {
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (url && serviceKey) {
+    return createClient(url, serviceKey, { auth: { persistSession: false } });
+  }
+  // fallback a tu cliente actual (ANON) si no hay service role configurado
+  return supabaseServer();
+}
+
 export async function POST(req) {
   try {
     const { serviceId, startISO, holdMinutes = 10, name, email } = await req.json();
@@ -19,7 +32,7 @@ export async function POST(req) {
       return Response.json({ error: "Invalid startISO" }, { status: 400 });
     }
 
-    const supabase = supabaseServer();
+    const supabase = getSupabase();
 
     // 0) Limpieza de HOLDs vencidos (evita conflictos con el índice parcial)
     await supabase
@@ -53,7 +66,7 @@ export async function POST(req) {
         status: "HOLD",
         hold_until: holdUntil,
         customer_name: name || null,
-        customer_email: email || null
+        customer_email: email || null,
       })
       .select("id, start_at, hold_until")
       .single();
@@ -67,7 +80,7 @@ export async function POST(req) {
     return Response.json({
       bookingId: inserted.id,
       start_at: inserted.start_at,
-      hold_until: inserted.hold_until
+      hold_until: inserted.hold_until,
     });
   } catch (e) {
     console.error(e);

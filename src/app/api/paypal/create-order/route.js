@@ -174,8 +174,8 @@ export async function POST(req) {
       );
     }
 
-    // 🔄 Alinear con el frontend: devolver { orderId }
-    return NextResponse.json({ orderId: j.id }, { status: 200 });
+    // 🔄 Alinear con el frontend (PayPalButton espera 'json.id')
+    return NextResponse.json({ id: j.id }, { status: 200 });
   } catch (e) {
     console.error("[paypal/create-order] unhandled:", e);
     return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });

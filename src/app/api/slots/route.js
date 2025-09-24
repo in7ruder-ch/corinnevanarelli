@@ -3,9 +3,16 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
 function getSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  // Preferimos Service Role si está disponible (lecturas sobre vistas/RPC con RLS)
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const service = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const anon = process.env.SUPABASE_ANON_KEY;
-  if (!url || !anon) throw new Error("Faltan NEXT_PUBLIC_SUPABASE_URL o SUPABASE_ANON_KEY.");
+
+  if (!url) throw new Error("Falta SUPABASE_URL o NEXT_PUBLIC_SUPABASE_URL.");
+  if (service) {
+    return createClient(url, service, { auth: { persistSession: false } });
+  }
+  if (!anon) throw new Error("Falta SUPABASE_ANON_KEY.");
   return createClient(url, anon, { auth: { persistSession: false } });
 }
 
@@ -33,14 +40,20 @@ function todayISOInTZ(timeZone = "Europe/Zurich") {
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
-    const date = searchParams.get("date");        // YYYY-MM-DD
+    const date = searchParams.get("date"); // YYYY-MM-DD
     const serviceId = searchParams.get("serviceId"); // uuid
 
     if (!date || !isValidDateYYYYMMDD(date)) {
-      return NextResponse.json({ error: "MALFORMED_DATE", message: "date=YYYY-MM-DD requerido." }, { status: 400 });
+      return NextResponse.json(
+        { error: "MALFORMED_DATE", message: "date=YYYY-MM-DD requerido." },
+        { status: 400 }
+      );
     }
     if (!serviceId || !UUID_RE.test(serviceId)) {
-      return NextResponse.json({ error: "MALFORMED_SERVICE_ID", message: "serviceId (uuid) requerido." }, { status: 400 });
+      return NextResponse.json(
+        { error: "MALFORMED_SERVICE_ID", message: "serviceId (uuid) requerido." },
+        { status: 400 }
+      );
     }
 
     // ⛔ Si es fecha pasada según Europe/Zurich, no devolvemos slots
