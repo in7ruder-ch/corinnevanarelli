@@ -1,32 +1,25 @@
 // src/app/admin/layout.jsx
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import {
+  createAdminSession,
+  validateAdminSession,
+  setAdminCookie,
+  rateLimitAdminLogin,
+  recordLoginAttempt,
+} from "@/lib/adminSession";
 
 export const metadata = {
-  robots: {
-    index: false,
-    follow: false,
-    nocache: true,
-    googleBot: {
-      index: false,
-      follow: false,
-      noimageindex: true,
-    },
-  },
+  robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false, noimageindex: true } },
 };
 
-// Layout del segmento /admin con gate por cookie
-export default function AdminLayout({ children }) {
-  const cookieStore = cookies();
-  const authed = cookieStore.get("admin_auth")?.value === "ok";
-  if (authed) return <>{children}</>;
+export default async function AdminLayout({ children }) {
+  const session = await validateAdminSession();
+  if (session) return <>{children}</>;
   return <GateForm />;
 }
 
-// Server Action para autenticar con ADMIN_USER/ADMIN_PASS o ADMIN_KEY
 async function authenticate(formData) {
   "use server";
-
   const user = (formData.get("user") || "").toString().trim();
   const pass = (formData.get("pass") || "").toString();
   const key  = (formData.get("key")  || "").toString();
@@ -35,83 +28,51 @@ async function authenticate(formData) {
   const ADMIN_PASS = process.env.ADMIN_PASS || "";
   const ADMIN_KEY  = process.env.ADMIN_KEY  || "";
 
-  // Prioridad: si hay USER+PASS configurados, se requiere ese esquema.
+  const { allowed } = await rateLimitAdminLogin({ user_name: ADMIN_USER ? user : null });
+  if (!allowed) {
+    await recordLoginAttempt({ user_name: ADMIN_USER ? user : null, ok: false });
+    redirect("/admin?blocked=1");
+  }
+
   let ok = false;
+  let loggedAs = "admin";
+
   if (ADMIN_USER && ADMIN_PASS) {
     ok = user === ADMIN_USER && pass === ADMIN_PASS;
+    loggedAs = user || "admin";
   } else if (ADMIN_KEY) {
-    // Modo "clave única": acepta que la escriban en pass o en key.
     ok = key === ADMIN_KEY || pass === ADMIN_KEY;
   }
 
-  const cookieStore = cookies();
+  await recordLoginAttempt({ user_name: ADMIN_USER ? user : null, ok });
+
   if (ok) {
-    cookieStore.set("admin_auth", "ok", {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 30, // 30 días
-    });
+    const { token, expiresAt } = await createAdminSession({ user_name: loggedAs });
+    await setAdminCookie(token, expiresAt); // ⬅️ ahora async
   }
 
-  // Redirige siempre para no filtrar estado
   redirect("/admin");
 }
 
 function GateForm() {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center p-6">
-      <form
-        action={authenticate}
-        className="w-full max-w-sm rounded-2xl border p-6 shadow-sm space-y-4"
-      >
+    <div className="mt-32 min-h-[60vh] flex items-center justify-center p-6">
+      <form action={authenticate} className="w-full max-w-sm rounded-2xl border p-6 shadow-sm space-y-4">
         <h1 className="text-xl font-semibold text-center">Admin Zugang</h1>
-
-        {/* Usuario + Password */}
         <div className="space-y-1">
           <label className="block text-sm font-medium">Benutzername</label>
-          <input
-            name="user"
-            type="text"
-            autoComplete="username"
-            className="w-full rounded-xl border px-3 py-2 outline-none"
-            placeholder="admin"
-          />
+          <input name="user" type="text" autoComplete="username" className="w-full rounded-xl border px-3 py-2" placeholder="admin" />
         </div>
-
         <div className="space-y-1">
           <label className="block text-sm font-medium">Passwort</label>
-          <input
-            name="pass"
-            type="password"
-            autoComplete="current-password"
-            className="w-full rounded-xl border px-3 py-2 outline-none"
-            placeholder="••••••••••••"
-          />
+          <input name="pass" type="password" autoComplete="current-password" className="w-full rounded-xl border px-3 py-2" placeholder="••••••••••••" />
         </div>
-
-        {/* Clave única (fallback si usas ADMIN_KEY) */}
         <div className="space-y-1">
           <label className="block text-sm font-medium">Key (optional)</label>
-          <input
-            name="key"
-            type="password"
-            className="w-full rounded-xl border px-3 py-2 outline-none"
-            placeholder="Nur falls du einen Key verwendest"
-          />
+          <input name="key" type="password" className="w-full rounded-xl border px-3 py-2" placeholder="Nur falls du einen Key verwendest" />
         </div>
-
-        <button
-          type="submit"
-          className="w-full rounded-xl bg-black text-white py-2 font-medium"
-        >
-          Enter
-        </button>
-
-        <p className="text-xs text-center opacity-60">
-          Zugriff nur für autorisierte Personen.
-        </p>
+        <button type="submit" className="w-full rounded-xl bg-black text-white py-2 font-medium">Enter</button>
+        <p className="text-xs text-center opacity-60">Zugriff nur für autorisierte Personen.</p>
       </form>
     </div>
   );

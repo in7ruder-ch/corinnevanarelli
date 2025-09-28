@@ -10,4 +10,4 @@ Disallow: /book/
 Disallow: /*?*
 Disallow: /*&*
 
-Sitemap: https://www.tudominio.com/sitemap.xml
+Sitemap: https://www.corinnevanarelli.ch/sitemap.xml
