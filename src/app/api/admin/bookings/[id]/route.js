@@ -2,14 +2,9 @@
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-
-async function isAdmin() {
-  const c = await cookies(); // 👈 importante
-  return c.get("admin_auth")?.value === "ok";
-}
+import { validateAdminSession } from "@/lib/adminSession";
 
 function getSupabaseService() {
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -22,24 +17,34 @@ function getSupabaseService() {
 
 export async function DELETE(_req, ctx) {
   try {
-    if (!(await isAdmin())) {
+    // 🔐 Guardia: requiere sesión admin válida (cookie admin_auth_token)
+    const session = await validateAdminSession();
+    if (!session) {
       return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
     }
 
-    // En Dynamic I/O, ctx.params puede ser async
+    // En Dynamic I/O, ctx.params puede venir como promesa
     const p = (ctx?.params && typeof ctx.params.then === "function")
       ? await ctx.params
       : ctx.params;
+
     const id = p?.id;
     if (!id) {
       return NextResponse.json({ ok: false, error: "Missing booking id" }, { status: 400 });
     }
 
     const supabase = getSupabaseService();
-    const { error } = await supabase.from("bookings").delete().eq("id", id).limit(1);
+
+    // Borrado defensivo: limit(1)
+    const { error } = await supabase
+      .from("bookings")
+      .delete()
+      .eq("id", id)
+      .limit(1);
+
     if (error) {
       console.error("[admin/bookings DELETE] supabase error:", error);
-      return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+      return NextResponse.json({ ok: false, error: "Delete failed" }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });
