@@ -12,8 +12,35 @@ const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65"
 
 export const metadata = {
   title: "Ontologisches Coaching | Corinne Vanarelli",
-  description: "Veränderung beginnt im Sein. 1:1 Begleitung für Klarheit & Selbstermächtigung.",
+  description:
+    "Klarheit, Fokus und echte Umsetzung: Coaching auf Augenhöhe für berufliche & persönliche Themen – in Zürich & online.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching" },
+  openGraph: {
+    title: "Ontologisches Coaching | Corinne Vanarelli",
+    description:
+      "Von der Erkenntnis in die Handlung: Perspektiven weiten, Entscheidungen treffen, ins Tun kommen.",
+    url: "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ontologisches Coaching"
+      }
+    ],
+    locale: "de_DE",
+    type: "article"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ontologisches Coaching | Corinne Vanarelli",
+    description:
+      "Klarheit schaffen, Prioritäten setzen, ins Handeln kommen.",
+    images: ["https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg"]
+  }
 };
+
 
 export default function OntologischesCoachingPage() {
   return (

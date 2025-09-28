@@ -9,9 +9,36 @@ import Footer from "@/components/Footer";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65"
 
 export const metadata = {
+  title: "doTERRA AromaTouch | Corinne Vanarelli",
+  description:
+    "AromaTouch-Technik: achtsame Anwendung mit ätherischen Ölen zur Entspannung, Regeneration und Balance des Nervensystems.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/angebote/doterra-aromatouch" },
+  openGraph: {
     title: "doTERRA AromaTouch | Corinne Vanarelli",
-    description: "AromaTouch-Technik – eine achtsame Anwendung für Körper und Sinne",
+    description:
+      "Wohltuende Auszeit für Körper, Geist und Sinne – sanft, tief, ausgleichend.",
+    url: "https://www.corinnevanarelli.ch/angebote/doterra-aromatouch",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Doterra Aromatouch Technik.jpg",
+        width: 1200,
+        height: 630,
+        alt: "doTERRA AromaTouch"
+      }
+    ],
+    locale: "de_DE",
+    type: "article"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "doTERRA AromaTouch | Corinne Vanarelli",
+    description:
+      "Entspannen, regenerieren, ins Gleichgewicht kommen.",
+    images: ["https://www.corinnevanarelli.ch/img/Doterra Aromatouch Technik.jpg"]
+  }
 };
+
 
 export default function DoterraAromaTouchPage() {
     return (

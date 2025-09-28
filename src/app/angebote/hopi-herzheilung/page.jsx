@@ -8,9 +8,36 @@ import Footer from "@/components/Footer";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65"
 
 export const metadata = {
+  title: "Hopi Herzheilung | Corinne Vanarelli",
+  description:
+    "Sanfte Herzheilung für innere Ruhe, Verbundenheit und emotionale Klarheit – in Zürich & online.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung" },
+  openGraph: {
     title: "Hopi Herzheilung | Corinne Vanarelli",
-    description: "Hopi Herzheilung - dein Herz kennt dein Weg.",
+    description:
+      "Das Herz öffnen, das Nervensystem beruhigen, wieder bei dir ankommen.",
+    url: "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp",
+        width: 1200,
+        height: 630,
+        alt: "Hopi Herzheilung"
+      }
+    ],
+    locale: "de_DE",
+    type: "article"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hopi Herzheilung | Corinne Vanarelli",
+    description:
+      "Mehr Ruhe, Liebe und Klarheit – aus dem Herzen heraus.",
+    images: ["https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp"]
+  }
 };
+
 
 export default function HopiHerzHeilungPage() {
     return (

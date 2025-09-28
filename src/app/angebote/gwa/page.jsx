@@ -9,9 +9,36 @@ import Footer from "@/components/Footer";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65"
 
 export const metadata = {
+  title: "Geistige Wirbelsäulenaufrichtung | Corinne Vanarelli",
+  description:
+    "Energetische Aufrichtung: Blockaden lösen, Ausrichtung finden und mehr Leichtigkeit & Energie im Alltag erfahren.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/angebote/gwa" },
+  openGraph: {
     title: "Geistige Wirbelsäulenaufrichtung | Corinne Vanarelli",
-    description: "Wirbelsäulenaufrichtung –Dein Weg zu mehr Energie, Freiheit und innerem Gleichgewicht",
+    description:
+      "Körper, Geist und Seele ins Gleichgewicht bringen – sanft und ganzheitlich.",
+    url: "https://www.corinnevanarelli.ch/angebote/gwa",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp",
+        width: 1200,
+        height: 630,
+        alt: "Geistige Wirbelsäulenaufrichtung"
+      }
+    ],
+    locale: "de_DE",
+    type: "article"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Geistige Wirbelsäulenaufrichtung | Corinne Vanarelli",
+    description:
+      "Aufrichtung & Balance – für mehr Freiheit im Körper und im Leben.",
+    images: ["https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp"]
+  }
 };
+
 
 export default function GWAPage() {
     return (

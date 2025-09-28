@@ -7,8 +7,34 @@ import ContactForm from "@/components/ContactForm";
 export const metadata = {
   title: "Über mich | Corinne Vanarelli",
   description:
-    "Über mich – Corinne Vanarelli (Coco). Sozialarbeiterin, Coach und Energiearbeiterin. Ausbildung & Werdegang.",
+    "Mein Weg, meine Werte, meine Arbeit: Sozialarbeiterin & Coach – warum ich Menschen auf ihrem Weg zu Klarheit, Heilung und Selbstermächtigung begleite.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/ueber-mich" },
+  openGraph: {
+    title: "Über mich | Corinne Vanarelli",
+    description:
+      "Werdegang & Haltung: Herzheilung, Coaching und Akasha-Chronik – menschlich, klar, authentisch.",
+    url: "https://www.corinnevanarelli.ch/ueber-mich",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Corinne Vanarelli"
+      }
+    ],
+    locale: "de_DE",
+    type: "profile"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Über mich | Corinne Vanarelli",
+    description:
+      "Wer ich bin und wie ich arbeite – in Tiefe und Verbundenheit.",
+    images: ["https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg"]
+  }
 };
+
 
 export default function UeberMichPage() {
   return (

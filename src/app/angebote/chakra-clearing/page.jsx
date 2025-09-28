@@ -8,9 +8,36 @@ import Footer from "@/components/Footer";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65"
 
 export const metadata = {
+  title: "Chakra Clearing | Corinne Vanarelli",
+  description:
+    "Energiezentren reinigen & harmonisieren: mehr Klarheit, Balance und Lebenskraft – als Session in Zürich oder online.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/angebote/chakra-clearing" },
+  openGraph: {
     title: "Chakra Clearing | Corinne Vanarelli",
-    description: "Chakra Clearing – Klarheit, Balance & neue Lebenskraft",
+    description:
+      "Blockaden lösen, Energie ins Fließen bringen, innere Mitte finden.",
+    url: "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Chakra Clearing Sitzung.webp",
+        width: 1200,
+        height: 630,
+        alt: "Chakra Clearing"
+      }
+    ],
+    locale: "de_DE",
+    type: "article"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chakra Clearing | Corinne Vanarelli",
+    description:
+      "Mehr Klarheit, Balance und Lebenskraft – Chakra für Chakra.",
+    images: ["https://www.corinnevanarelli.ch/img/Chakra Clearing Sitzung.webp"]
+  }
 };
+
 
 export default function ChakraClearingPage() {
     return (

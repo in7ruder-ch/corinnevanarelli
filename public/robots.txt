@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Bloquear rutas que no deben indexarse
+Disallow: /api/
+Disallow: /admin/
+Disallow: /book/
+
+# (Opcional) bloquear parámetros de búsqueda/tracking comunes
+Disallow: /*?*
+Disallow: /*&*
+
+Sitemap: https://www.tudominio.com/sitemap.xml

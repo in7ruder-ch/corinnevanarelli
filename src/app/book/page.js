@@ -1,6 +1,19 @@
 import Footer from "../../components/Footer";
 import BookClient from "../../components/BookClient";
 
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true
+    }
+  }
+};
+
 export default async function BookPage({ searchParams }) {
   const sp = await searchParams;
   const initialSelectedId =

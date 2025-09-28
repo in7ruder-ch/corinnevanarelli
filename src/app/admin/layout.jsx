@@ -2,8 +2,22 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  robots: { index: false, follow: false }, // noindex en /admin
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true
+    }
+  }
 };
+
+export default function AdminLayout({ children }) {
+  return <>{children}</>;
+}
+
 
 export default async function AdminLayout({ children }) {
   const cookieStore = await cookies(); // ⬅️ ahora se await-ea

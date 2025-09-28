@@ -5,6 +5,38 @@ import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "Akasha Chronik Lesung, Herzheilung & Coaching | Corinne Vanarelli",
+  description:
+    "Zurück zu dir: Herzheilung, ontologisches Coaching und Akasha-Chronik Lesungen – einfühlsam, klar und auf Augenhöhe in Zürich & online.",
+  alternates: { canonical: "https://www.corinnevanarelli.ch/" },
+  openGraph: {
+    title: "Akasha Chronik Lesung, Herzheilung & Coaching | Corinne Vanarelli",
+    description:
+      "Begleitung mit Tiefgang: Herzheilung, Coaching und Akasha-Chronik für Klarheit, Balance und echte Veränderung.",
+    url: "https://www.corinnevanarelli.ch/",
+    siteName: "Corinne Vanarelli",
+    images: [
+      {
+        url: "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp",
+        width: 1200,
+        height: 630,
+        alt: "Corinne Vanarelli – Soulcoaching"
+      }
+    ],
+    locale: "de_DE",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Akasha Chronik Lesung, Herzheilung & Coaching | Corinne Vanarelli",
+    description:
+      "Herzheilung, Coaching & Akasha-Chronik in Zürich & online.",
+    images: ["https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"]
+  }
+};
+
+
 export default function HomePage() {
   return (
     <>
