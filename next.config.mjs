@@ -12,30 +12,28 @@ const nextConfig = {
     const supabaseHost = supabaseUrl ? new URL(supabaseUrl).origin : "";
     const vercelInsights = "https://vitals.vercel-insights.com";
 
-    // ====== CSP BASE (PRODUCCIÓN) — estricto ======
-    let scriptSrc = `${self} ${vercelInsights}`;
+    // ===== BASE (prod por defecto) =====
+    // En producción necesitamos permitir inline scripts que Next inyecta para hidratar.
+    let scriptSrc = `${self} 'unsafe-inline' ${vercelInsights}`;
     let styleSrc = `${self} 'unsafe-inline'`;
     let imgSrc = `${self} https: data: blob:`;
     let fontSrc = `${self} https: data:`;
     let connectSrc = `${self} ${supabaseHost || ""} https://*.supabase.co`;
     let frameSrc = `${self}`;
 
-    // PayPal sólo si pagos ON
     if (paymentsEnabled) {
       frameSrc += " https://www.paypal.com https://www.sandbox.paypal.com";
       scriptSrc += " https://www.paypal.com https://www.sandbox.paypal.com";
       connectSrc += " https://www.paypal.com https://www.sandbox.paypal.com";
     }
 
-    // ====== AFINES PARA DESARROLLO ======
+    // ===== AFINES DEV =====
     if (!isProd) {
-      // Next dev HMR: inline scripts, eval y websockets + localhost
-      scriptSrc += " 'unsafe-inline' 'unsafe-eval'";
+      // Next dev HMR necesita eval + websockets y localhost
+      scriptSrc += " 'unsafe-eval'";
       connectSrc += " ws: http://localhost:* https://localhost:*";
-      // algunas herramientas insertan imágenes/recursos locales
       imgSrc += " http://localhost:* https://localhost:*";
       fontSrc += " http://localhost:* https://localhost:*";
-      styleSrc += ""; // ya permite 'unsafe-inline'
       frameSrc += " http://localhost:* https://localhost:*";
     }
 
@@ -52,7 +50,6 @@ const nextConfig = {
       `form-action ${self}`,
       `frame-ancestors 'none'`,
       `upgrade-insecure-requests`,
-      // opcionalmente podrías añadir: `script-src-attr 'none'`
     ].join("; ");
 
     const securityHeaders = [
