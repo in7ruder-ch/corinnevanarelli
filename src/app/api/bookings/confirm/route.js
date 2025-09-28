@@ -24,12 +24,16 @@ function json(payload, init = {}) {
   return res;
 }
 
+// Flag server-side: si es false, confirmamos TODO como PAID (+email)
+const PAYMENTS_ENABLED =
+  (process.env.PAYMENTS_ENABLED ?? "").toString().trim().toLowerCase() === "true";
+
 /**
  * POST /api/bookings/confirm
  * Body: { bookingId: string, name: string, email: string }
  *
- * Gratis  -> status 'PAID' (confirmado sin pago) + email al cliente (BCC admin)
- * Pago    -> status 'PENDING' (seguirá PayPal); no enviamos email aún
+ * Modo pagos OFF (PAYMENTS_ENABLED=false) -> status 'PAID' SIEMPRE + email con .ics
+ * Modo pagos ON  (true)                  -> gratis = 'PAID' + email, pago = 'PENDING' (seguirá PayPal)
  */
 export async function POST(req) {
   try {
@@ -78,8 +82,11 @@ export async function POST(req) {
     const price = Number(svc.price_chf ?? 0);
     const isFree = Number.isFinite(price) && price === 0;
 
-    // 4A) Gratis => marcamos como 'PAID' (equivale a confirmado en tu esquema actual)
-    if (isFree) {
+    // 4) Decisión de estado según flag + precio
+    const shouldForcePaid = !PAYMENTS_ENABLED;
+    const willBePaid = shouldForcePaid || isFree;
+
+    if (willBePaid) {
       const { data: upd, error: updErr } = await supabase
         .from("bookings")
         .update({
@@ -94,7 +101,7 @@ export async function POST(req) {
 
       if (updErr) throw updErr;
 
-      // Enviar email de confirmación (no romper si falla)
+      // Enviar email de confirmación (best-effort)
       try {
         await sendBookingPaidEmail({
           booking: {
@@ -118,7 +125,7 @@ export async function POST(req) {
       return json({ ok: true, bookingId: upd.id, status: upd.status });
     }
 
-    // 4B) Pago requerido => 'PENDING' (seguirá PayPal)
+    // Pagos ON y servicio con precio > 0 => queda PENDING (seguirá PayPal)
     const { data: upd, error: updErr } = await supabase
       .from("bookings")
       .update({

@@ -11,6 +11,10 @@ const STATUS_OPTIONS = [
   { value: "CANCELED", label: "CANCELED" },
 ];
 
+// Flag cliente: controla si mostramos info de PayPal en el admin
+const PAYMENTS_ENABLED =
+  (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED ?? "").toString().trim() === "true";
+
 function formatDateTime(iso) {
   if (!iso) return "—";
   const d = new Date(iso);
@@ -317,8 +321,13 @@ export default function AdminPage() {
                     <td className="px-3 py-3 align-top text-xs text-neutral-600">
                       <div>Buchung: {b.id}</div>
                       {s.id ? <div>Service: {s.id}</div> : null}
-                      {b.paypalOrderId ? <div>PayPal Order: {b.paypalOrderId}</div> : null}
-                      {b.paypalCaptureId ? <div>PayPal Capture: {b.paypalCaptureId}</div> : null}
+                      {/* Ocultar completamente referencias PayPal si pagos OFF */}
+                      {PAYMENTS_ENABLED && b.paypalOrderId ? (
+                        <div>PayPal Order: {b.paypalOrderId}</div>
+                      ) : null}
+                      {PAYMENTS_ENABLED && b.paypalCaptureId ? (
+                        <div>PayPal Capture: {b.paypalCaptureId}</div>
+                      ) : null}
                     </td>
 
                     <td className="px-3 py-3 align-top">

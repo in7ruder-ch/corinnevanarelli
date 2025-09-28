@@ -2,11 +2,15 @@
 import PayPalButton from "./PayPalButton";
 import { useEffect, useMemo, useState } from "react";
 
-function PayPalSection({ holdInfo, isFree }) {
+// Flag de build-time (cliente). false => pagos apagados.
+const PAYMENTS_ENABLED =
+  (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED ?? "").toString().trim() === "true";
+
+function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
   const [paid, setPaid] = useState(null);
 
-  // Servicios gratis no muestran PayPal en ningún caso
-  if (isFree) return null;
+  // Servicios gratis o pagos apagados: no mostrar PayPal
+  if (isFree || !paymentsEnabled) return null;
 
   if (!holdInfo?.bookingId) {
     return <p className="mt-2 text-sm text-neutral-600">Fehlende Buchung-ID.</p>;
@@ -47,6 +51,9 @@ export default function Summary({ service, datetime }) {
     const n = Number(price);
     return Number.isFinite(n) && n === 0;
   }, [service]);
+
+  // ✅ Si pagos están apagados, tratamos todo como "gratis" a nivel de UI
+  const isFreeOrNoPay = isFree || !PAYMENTS_ENABLED;
 
   // ✅ Si cambio de servicio, limpio estados de hold/confirm para evitar inconsistencias
   useEffect(() => {
@@ -203,7 +210,7 @@ export default function Summary({ service, datetime }) {
         </button>
       )}
 
-      {/* STEP 2: Datos cliente (antes de pago o confirmación si es gratis) */}
+      {/* STEP 2: Datos cliente (antes de confirmación o pago) */}
       {hasHold && !confirmState?.ok && (
         <div className="mt-4">
           <div className="text-sm text-green-700">
@@ -247,7 +254,7 @@ export default function Summary({ service, datetime }) {
             >
               {loading
                 ? "Sende…"
-                : isFree
+                : isFreeOrNoPay
                 ? "Kostenlos reservieren"
                 : "Bestätigen"}
             </button>
@@ -255,8 +262,8 @@ export default function Summary({ service, datetime }) {
         </div>
       )}
 
-      {/* STEP 3A: Éxito directo si es gratis (sin PayPal) */}
-      {confirmState?.ok && isFree && (
+      {/* STEP 3A: Éxito directo si es gratis O pagos apagados */}
+      {confirmState?.ok && isFreeOrNoPay && (
         <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
           <div className="font-medium">Termin bestätigt ✔</div>
           <p className="mt-1">
@@ -266,12 +273,16 @@ export default function Summary({ service, datetime }) {
         </div>
       )}
 
-      {/* STEP 3B: Pago (PayPal) solo si NO es gratis */}
-      {confirmState?.ok && !isFree && (
+      {/* STEP 3B: Pago (PayPal) solo si NO es gratis y pagos están activos */}
+      {confirmState?.ok && !isFreeOrNoPay && (
         <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
           <div className="font-medium">Bestätigt (PENDING) ✔</div>
           <p className="mt-1">Bitte fahre mit der Bezahlung fort.</p>
-          <PayPalSection holdInfo={holdInfo} isFree={isFree} />
+          <PayPalSection
+            holdInfo={holdInfo}
+            isFree={isFree}
+            paymentsEnabled={PAYMENTS_ENABLED}
+          />
         </div>
       )}
     </div>

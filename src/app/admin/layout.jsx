@@ -1,3 +1,4 @@
+// src/app/admin/layout.jsx
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -9,32 +10,27 @@ export const metadata = {
     googleBot: {
       index: false,
       follow: false,
-      noimageindex: true
-    }
-  }
+      noimageindex: true,
+    },
+  },
 };
 
+// Layout del segmento /admin con gate simple por cookie
 export default function AdminLayout({ children }) {
-  return <>{children}</>;
-}
-
-
-export default async function AdminLayout({ children }) {
-  const cookieStore = await cookies(); // ⬅️ ahora se await-ea
+  const cookieStore = cookies();
   const authed = cookieStore.get("admin_auth")?.value === "ok";
   if (authed) return <>{children}</>;
   return <GateForm />;
 }
 
+// Server Action para autenticar con ADMIN_KEY y setear cookie
 async function authenticate(formData) {
   "use server";
   const key = formData.get("key");
   const ADMIN_KEY = process.env.ADMIN_KEY;
-
   const ok = ADMIN_KEY && key === ADMIN_KEY;
 
-  // Set de cookie debe usar await cookies()
-  const cookieStore = await cookies(); // ⬅️ await aquí también
+  const cookieStore = cookies();
   if (ok) {
     cookieStore.set("admin_auth", "ok", {
       httpOnly: true,
@@ -44,7 +40,8 @@ async function authenticate(formData) {
       maxAge: 60 * 60 * 24 * 30, // 30 días
     });
   }
-  // Redirige siempre (para no filtrar estado)
+
+  // Redirige siempre para no filtrar estado
   redirect("/admin");
 }
 
