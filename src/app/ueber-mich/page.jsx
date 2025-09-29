@@ -3,40 +3,66 @@ import Image from "next/image";
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = {
-  title: "Über mich | Corinne Vanarelli",
-  description:
-    "Mein Weg, meine Werte, meine Arbeit: Sozialarbeiterin & Coach – warum ich Menschen auf ihrem Weg zu Klarheit, Heilung und Selbstermächtigung begleite.",
-  alternates: { canonical: "https://www.corinnevanarelli.ch/ueber-mich" },
-  openGraph: {
-    title: "Über mich | Corinne Vanarelli",
-    description:
-      "Werdegang & Haltung: Herzheilung, Coaching und Akasha-Chronik – menschlich, klar, authentisch.",
-    url: "https://www.corinnevanarelli.ch/ueber-mich",
-    siteName: "Corinne Vanarelli",
-    images: [
-      {
-        url: "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Corinne Vanarelli"
-      }
-    ],
-    locale: "de_DE",
-    type: "profile"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Über mich | Corinne Vanarelli",
-    description:
-      "Wer ich bin und wie ich arbeite – in Tiefe und Verbundenheit.",
-    images: ["https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg"]
-  }
-};
+// Metadata i18n
+export async function generateMetadata() {
+  const t = await getTranslations("About.meta");
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: { canonical: t("canonical") },
+    openGraph: {
+      title: t("og.title"),
+      description: t("og.description"),
+      url: t("og.url"),
+      siteName: t("og.siteName"),
+      images: [
+        {
+          url: t("og.images.0.url"),
+          width: 1200,
+          height: 630,
+          alt: t("og.images.0.alt"),
+        },
+      ],
+      locale: t("og.locale"),
+      type: t("og.type"),
+    },
+    twitter: {
+      card: t("twitter.card"),
+      title: t("twitter.title"),
+      description: t("twitter.description"),
+      images: [t("twitter.images.0")],
+    },
+  };
+}
 
+export default async function UeberMichPage() {
+  const t = await getTranslations("About");
 
-export default function UeberMichPage() {
+  const rows = [
+    {
+      year: t("education.rows.0.year"),
+      left: [t("education.rows.0.left.0"), t("education.rows.0.left.1")],
+      right: [t("education.rows.0.right.0")],
+    },
+    {
+      year: t("education.rows.1.year"),
+      left: [t("education.rows.1.left.0"), t("education.rows.1.left.1")],
+      right: [t("education.rows.1.right.0"), t("education.rows.1.right.1")],
+    },
+    {
+      year: t("education.rows.2.year"),
+      left: [t("education.rows.2.left.0")],
+      right: [t("education.rows.2.right.0")],
+    },
+    {
+      year: t("education.rows.3.year"),
+      left: [t("education.rows.3.left.0"), t("education.rows.3.left.1")],
+      right: [t("education.rows.3.right.0")],
+    },
+  ];
+
   return (
     <>
       {/* Intro: texto izq / imagen der */}
@@ -49,45 +75,19 @@ export default function UeberMichPage() {
           <div className="md:col-span-7">
             <div className="h-full bg-[#efefef] p-6 sm:p-8 md:p-12">
               <h1 className="text-[2.25rem] md:text-[3rem] leading-tight font-bold text-neutral-900">
-                Über mich
+                {t("intro.title")}
               </h1>
               <p className="mt-3 text-xl text-neutral-800">
-                Corinne Vanarelli<span className="text-neutral-500">- </span>
-                <em className="italic">Coco</em>
+                {/* contiene <em> */}
+                {t.rich("intro.nameLine", {
+                  em: (chunks) => <em className="italic">{chunks}</em>,
+                })}
               </p>
 
               <div className="mt-8 space-y-5 leading-relaxed text-neutral-800">
-                <p>
-                  Schon früh habe ich mich für den menschlichen Geist und
-                  gesellschaftliche Ungleichheiten interessiert. Dieses
-                  Interesse führte mich dazu, Soziale Arbeit zu studieren – mit
-                  dem Wunsch, Menschen besser zu verstehen und sie auf ihrem Weg
-                  zu mehr Gerechtigkeit und Selbstbestimmung zu unterstützen.
-                  Als Sozialarbeiterin habe ich unter anderem mit unbegleiteten
-                  minderjährigen Geflüchteten und Erwachsenen im Asylbereich,
-                  mit suchtmittelabhängigen Menschen (Therapie sowie
-                  Schadensminderung und Prävention) sowie mit Frauen, Kindern
-                  und Jugendlichen in herausfordernden Lebensphasen gearbeitet.
-                </p>
-                <p>
-                  Ich durfte viele Höhen und Tiefen erleben – persönliche Krisen,
-                  Neubeginn, Entwicklungsschritte. Besonders prägend war meine
-                  Zeit in Lateinamerika, wo ich fast acht Jahre lebte und
-                  arbeitete. Diese Jahre haben mich als Mensch wie auch als
-                  Fachkraft tief verändert. Mit der Zeit habe ich erkannt, dass
-                  jeder Wunsch nach Veränderung im Aussen zuerst bei uns selbst
-                  beginnt. Der Weg zur Selbsterkenntnis ist oft
-                  herausfordernd – aber genau hier traten Coaching und
-                  Energiearbeit in mein Leben. Sie wurden zu kraftvollen
-                  Begleitern auf meiner eigenen inneren Reise. All diese
-                  Erfahrungen fliessen heute in meine Arbeit ein: im Coaching,
-                  Energiearbeiten und als Wegbegleiterin.
-                </p>
-                <p className="font-semibold">
-                  Ich bin überzeugt: Jeder Mensch trägt die Kraft zur
-                  Veränderung in sich – manchmal braucht es nur den richtigen
-                  Raum, um sie zu entfalten.
-                </p>
+                <p>{t("intro.p1")}</p>
+                <p>{t("intro.p2")}</p>
+                <p className="font-semibold">{t("intro.p3")}</p>
 
                 {/* Instagram (opcional) */}
                 <div className="pt-4">
@@ -120,10 +120,10 @@ export default function UeberMichPage() {
           </div>
 
           {/* Imagen derecha */}
-          <div className="md:col-span-5  overflow-hidden">
+          <div className="md:col-span-5 overflow-hidden">
             <Image
               src="/img/Corinne Vanarelli - About me.jpg"
-              alt="Corinne Vanarelli im Grünen"
+              alt={t("intro.imageAlt")}
               width={1200}
               height={1500}
               className="h-full w-full object-cover"
@@ -139,35 +139,10 @@ export default function UeberMichPage() {
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <h2 className="text-[2rem] md:text-[2.5rem] leading-tight font-semibold text-neutral-900">
-          Ausbildung
+          {t("education.title")}
         </h2>
 
-        {/* Datos en filas: izquierda ↔ derecha */}
-        {[
-          {
-            year: '2025',
-            left: ['doTERRA AromaTouch®', 'Online, Schweiz'],
-            right: ['doTERRA AromaTouch® Methode'],
-          },
-          {
-            year: '2024-2025',
-            left: ['Lebensmagie', 'Bern, Schweiz'],
-            right: [
-              'Energetische Heilarbeit',
-              'Ausbildung: Hopi Herzheilung, Akasha Chronik Reading, Geistige Wirbelsäulenaufrichtung, Chakra Cleaning',
-            ],
-          },
-          {
-            year: '2022-2024',
-            left: ['Escuela de Formación de Líderes, Buenos Aires, Argentina'],
-            right: ['Ontologisches Coaching (International Coaching Federation)'],
-          },
-          {
-            year: '2011-2015',
-            left: ['Fachhochschule Soziale Arbeit', 'Bern, Schweiz'],
-            right: ['Bachelor Soziale Arbeit'],
-          },
-        ].map((row, idx) => (
+        {rows.map((row, idx) => (
           <div key={idx} className="mt-10 first:mt-10">
             <div className="grid md:grid-cols-2 gap-y-3 items-start">
               {/* Columna izquierda */}
@@ -192,6 +167,7 @@ export default function UeberMichPage() {
           </div>
         ))}
       </Section>
+
       <ContactForm />
       <Footer />
     </>

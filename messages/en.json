@@ -106,7 +106,6 @@
       "title": "Akashic Reading, Heart Healing & Coaching | Corinne Vanarelli",
       "description": "Heart Healing, Coaching & Akashic Records in Zurich & online."
     },
-
     "s1": {
       "title": "Welcome to your journey <strong><em>back to yourself</em></strong>",
       "kicker": "I accompany you on your path to inner clarity and self-empowerment",
@@ -117,7 +116,6 @@
       "p5": "You are welcome - exactly as you are. And perhaps your journey <em>back to yourself</em> begins right here.",
       "imageAlt": "Corinne Vanarelli"
     },
-
     "s2": {
       "title": "<strong>Ontological Coaching - back to your true self</strong>",
       "p1": "Ontological coaching goes deeper than classic coaching:",
@@ -127,7 +125,6 @@
       "p5": "<strong>Change doesn’t start outside - it starts within you.</strong>",
       "imageAlt": "Practice room"
     },
-
     "s3": {
       "title": "<strong>Akashic Reading - messages from your soul</strong>",
       "p1": "Sometimes we reach a turning point in life and feel: clarity is needed. An Akashic reading opens a space to understand more deeply who you are and what your soul truly wants.",
@@ -136,7 +133,6 @@
       "p4": "<strong>The soul reading offers orientation, awareness and trust - for your path, your decision, yourself.</strong>",
       "imageAlt": "Corinne Vanarelli"
     },
-
     "s4": {
       "title": "<strong>Hopi Heart Healing - your heart knows the way</strong>",
       "p1": "Hopi Heart Healing is a powerful yet gentle form of energy work rooted in the wisdom of the Hopi people. Old experiences, disappointments or deep emotional wounds can keep us from being connected to ourselves.",
@@ -144,7 +140,6 @@
       "p3": "<strong>This heart work opens spaces - for healing, connection and trust - and for your very own way.</strong>",
       "imageAlt": "Practice room"
     },
-
     "s5": {
       "title": "<strong>Chakra Clearing - bring your energy into balance</strong>",
       "p1": "Your seven chakras are the energy centers of your body - they influence how you feel, think and perceive yourself. Stress, old emotions or inner restlessness can block these centers.",
@@ -152,7 +147,6 @@
       "p3": "<strong>Feel what it’s like to be fully with yourself again.</strong>",
       "imageAlt": "Corinne Vanarelli"
     },
-
     "s6": {
       "title": "<strong>Spiritual Spine Alignment - back to your center, back to your power</strong>",
       "p1": "Return to your natural alignment - for balance in body, mind and soul. Spiritual spine alignment supports you in coming into your full strength - physically, emotionally and energetically.",
@@ -160,13 +154,763 @@
       "p3": "<strong>This method sets your energy in motion again - gentle, holistic and deeply effective. Experience alignment, clarity and inner healing.</strong>",
       "imageAlt": "Practice room"
     },
-
     "s7": {
       "title": "<strong>doTERRA AromaTouch® - deep relaxation with essential oils</strong>",
       "p1": "Gentle touch meets the power of pure plant essences. doTERRA AromaTouch® combines mindful touch with 100% pure essential oils from doTERRA.",
       "p2": "Specific areas of the body are stimulated to reduce stress, support the immune system and restore inner balance. The method works physically and emotionally - bringing you into a deeply relaxed state.",
       "p3": "<strong>A nourishing experience for body, mind and soul. Let go. Recharge. Arrive - in yourself.</strong>",
       "imageAlt": "Corinne Vanarelli"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "About me",
+      "description": "My path, my values, my work: social worker & coach - why I accompany people on their way to clarity, healing and self-empowerment.",
+      "canonical": "https://www.corinnevanarelli.ch/ueber-mich",
+      "og": {
+        "title": "About me | Corinne Vanarelli",
+        "description": "Background & stance: heart healing, coaching and Akashic Records - human, clear, authentic.",
+        "url": "https://www.corinnevanarelli.ch/ueber-mich",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg",
+            "alt": "Corinne Vanarelli"
+          }
+        ],
+        "locale": "en_US",
+        "type": "profile"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "About me | Corinne Vanarelli",
+        "description": "Who I am and how I work - with depth and connection.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg"
+        ]
+      }
+    },
+    "intro": {
+      "title": "About me",
+      "nameLine": "Corinne Vanarelli- <em>Coco</em>",
+      "p1": "From early on, I was fascinated by the human mind and social inequalities. This led me to study social work - with the desire to better understand people and support them on their path toward justice and self-determination. As a social worker, I have worked with unaccompanied minor refugees and adults in the asylum sector, with people affected by substance use (therapy as well as harm reduction and prevention), and with women, children and adolescents in challenging life phases.",
+      "p2": "I have experienced many highs and lows - personal crises, new beginnings, growth steps. A formative time was my years in Latin America, where I lived and worked for almost eight years. These years profoundly changed me as a person and as a professional. Over time, I realized that every wish for change on the outside begins within ourselves. The path to self-knowledge is often challenging - and that is exactly where coaching and energy work entered my life. They became powerful companions on my own inner journey. All these experiences now flow into my work: in coaching, energy work and as a companion on the path.",
+      "p3": "I am convinced: every person carries the power for change within - sometimes it simply needs the right space to unfold.",
+      "imageAlt": "Corinne Vanarelli in nature"
+    },
+    "education": {
+      "title": "Education & Training",
+      "rows": [
+        {
+          "year": "2025",
+          "left": [
+            "doTERRA AromaTouch®",
+            "Online, Switzerland"
+          ],
+          "right": [
+            "doTERRA AromaTouch® Method"
+          ]
+        },
+        {
+          "year": "2024-2025",
+          "left": [
+            "Lebensmagie",
+            "Bern, Switzerland"
+          ],
+          "right": [
+            "Energetic healing work",
+            "Training: Heart healing, Akashic Records reading, Spiritual Spinal Alignment, Chakra Clearing"
+          ]
+        },
+        {
+          "year": "2022-2024",
+          "left": [
+            "Escuela de Formación de Líderes, Buenos Aires, Argentina"
+          ],
+          "right": [
+            "Ontological coaching (International Coaching Federation)"
+          ]
+        },
+        {
+          "year": "2011-2015",
+          "left": [
+            "University of Applied Sciences Social Work",
+            "Bern, Switzerland"
+          ],
+          "right": [
+            "Bachelor in Social Work"
+          ]
+        }
+      ]
+    }
+  },
+  "Book": {
+    "title": "Booking",
+    "lead": "Choose your service, date and time."
+  },
+  "Coaching": {
+    "meta": {
+      "title": "Ontological Coaching | Corinne Vanarelli",
+      "description": "Clarity, focus and real implementation: coaching at eye level for professional & personal topics - in Zurich & online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
+      "og": {
+        "title": "Ontological Coaching | Corinne Vanarelli",
+        "description": "From insight to action: broaden perspectives, make decisions, move into action.",
+        "url": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg",
+            "alt": "Ontological Coaching"
+          }
+        ],
+        "locale": "en_US",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Ontological Coaching | Corinne Vanarelli",
+        "description": "Create clarity, set priorities, move into action.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Ontological Coaching",
+      "imageAlt": "Ontological Coaching - banner"
+    },
+    "alt1": {
+      "title": "Ontological Coaching - change begins in being",
+      "body": "<p>Ontological coaching accompanies you on a deeper level - not only in what you do, but in who you are at your core. The focus is not on quickly solving problems, but on the honest question:</p><p>Who am I - and how do I shape my life from this inner truth?</p><p>Instead of working on the surface, we look together at your being:</p><p>How you think, speak, feel - and how you perceive the world. This is where the key to real, sustainable change lies.</p><p>Ontological coaching is not a \"quick program\". It is a conscious journey back to yourself - at your pace, at your depth, in your own rhythm. It opens new perspectives, clarity and access to what lies within you, but may still be hidden.</p><p><strong>For clarity. For connection. For your authentic life.</strong></p>",
+      "imageAlt": "Coaching space"
+    },
+    "alt2": {
+      "title": "Coaching as companionship on your path back to yourself:",
+      "items": [
+        "gain clarity about your own path",
+        "discover your strengths and values",
+        "dissolve personal blocks and develop action strategies",
+        "create sustainable change",
+        "resolve inner and outer conflicts",
+        "strengthen your coping strategies",
+        "unfold your personal potential"
+      ],
+      "imageAlt": "Shared path"
+    },
+    "centered": {
+      "title": "Coaching with clarity - for real change",
+      "body": "<p>My coaching is based on deep trust - in your abilities, your inner wisdom and your very own path. I am convinced: every person carries the potential within to grow and shape life consciously.</p><p>In my work, I combine effective emotional and mental methods from various approaches - mindful, individual and solution-oriented. This creates space for new perspectives, clear thinking and conscious action. A path that brings you closer to yourself.</p><p>The coaching process is as unique as you are - tailor-made and aligned with your needs. Together we look at what blocks you from within and develop ways for you to gain clarity and step into your power again. Often it only takes a new perspective to see further.</p><p>Through targeted questions we bring light to your topic - especially where you may be too close to recognize answers clearly. I accompany you with heart, clarity and a safe space for real change.</p><p>The only prerequisite: the willingness to let go of the old - and allow the new.</p>"
+    },
+    "steps": {
+      "title": "The coaching process - what to expect",
+      "subtitle": "Change begins with a first step. Here is how my coaching process works:",
+      "items": [
+        {
+          "title": "Free initial call",
+          "body": "In the first conversation we get to know each other (approx. 20 minutes). You tell me what moves you - and we clarify how I can best support you. This get-to-know-you is non-binding and free of charge."
+        },
+        {
+          "title": "Individual coaching sessions",
+          "body": "In the sessions we work specifically on your topics. We develop solutions and strategies that fit you - and take you step by step toward your goals."
+        },
+        {
+          "title": "Reflection & further development",
+          "body": "At the end we look back together: what has changed? What carries you forward? And how can you stay connected with yourself on your path?"
+        }
+      ],
+      "footer": "<p>This path can be emotionally moving - and that is exactly where its power lies:</p><p><strong>In the end, a deep feeling of clarity, lightness and new energy often emerges.</strong></p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    }
+  },
+  "Akasha": {
+    "meta": {
+      "title": "Akashic Records Reading",
+      "description": "Clarity on blocks, patterns and next steps: compassionate Akashic Records readings in Zurich & online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
+      "og": {
+        "title": "Akashic Records Reading | Corinne Vanarelli",
+        "description": "Answers with depth: Akashic Records reading for orientation, healing and inner alignment.",
+        "url": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Akasha Chronik Lesung.jpg",
+            "alt": "Akashic Records reading"
+          }
+        ],
+        "locale": "en_US",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Akashic Records Reading | Corinne Vanarelli",
+        "description": "See the connections, dissolve blocks, find your path.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Akasha Chronik Lesung.jpg"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Akashic Records Reading",
+      "imageAlt": "Akashic Records - banner"
+    },
+    "alt1": {
+      "title": "Akashic Records - clarity about your path and your blocks",
+      "body": "<p>The Akashic Records are a subtle, energetic field - often referred to as the \"universal memory\". It holds everything a soul has ever experienced, felt and learned - across space and time. In many spiritual traditions, the Akashic Records are considered a source of deep wisdom, clarity and healing. When we connect with them, we gain access to higher knowledge - beyond the mind.</p><p>The messages from the Akasha are always loving, precise and supportive. They help us understand patterns, dissolve blocks and reconnect with our inner truth.</p><p><strong>The Akashic Records remind you who you truly are - on a soul level.</strong></p>",
+      "imageAlt": "Akashic reading"
+    },
+    "alt2": {
+      "title": "Insights that remind you - and move you forward",
+      "bodyIntro": "<p>An Akashic reading can offer deep insights and new perspectives - exactly where you are in life right now. It opens a space where you may recognize and understand yourself on a soul level. You can:</p>",
+      "items": [
+        "gain a deeper understanding of your current life feeling",
+        "see your life task and soul path more clearly",
+        "understand and dissolve recurring patterns",
+        "gently transform entanglements, blocks or fears",
+        "develop new perspectives on inner and outer challenges",
+        "find more inner clarity and energetic alignment",
+        "strengthen the connection to your soul and trust it again"
+      ],
+      "bodyOutro": "For people who feel: there is more - and I am ready to see it.",
+      "imageAlt": "Akashic Records reading"
+    },
+    "topics": {
+      "title": "Possible topics in an Akashic reading",
+      "subtitle": "Here are some topics that can be addressed in a reading:",
+      "columns": [
+        {
+          "title": "Love & partnership",
+          "items": [
+            "Recognize and dissolve karmic entanglements",
+            "Understand causes and patterns in relationship conflicts",
+            "Clarify foreign influences",
+            "Recognize shared soul goals",
+            "Strengthen trust and respect in partnership",
+            "Recognize soulmates"
+          ]
+        },
+        {
+          "title": "Career & vocation",
+          "items": [
+            "Find your vocation",
+            "See and reach goals more clearly",
+            "Recognize karmic patterns in the work environment",
+            "Uncover blocking influences from the environment",
+            "Make decisions with inner clarity"
+          ]
+        },
+        {
+          "title": "Family & ancestors",
+          "items": [
+            "Recognize ancestral themes and intergenerational patterns",
+            "Dissolve entanglements with parents or children",
+            "Understand learning tasks within the family",
+            "Recognize and set boundaries against foreign influences"
+          ]
+        },
+        {
+          "title": "Health & body awareness",
+          "items": [
+            "Attune to the body's messages",
+            "Emotional and energetic causes",
+            "Recognize physical complaints",
+            "Dissolve foreign influences energetically"
+          ]
+        },
+        {
+          "title": "Finances & abundance",
+          "items": [
+            "Understand karmic themes related to money and success",
+            "Recognize causes of financial blocks",
+            "Consciously activate energetic abundance"
+          ]
+        },
+        {
+          "title": "Spirituality & soul connection",
+          "items": [
+            "Recognize spiritual abilities and potentials",
+            "Deepen connection to spiritual guides",
+            "Strengthen intuitive perception"
+          ]
+        }
+      ]
+    },
+    "steps": {
+      "title": "How an Akashic reading works",
+      "subtitle": "Each reading is unique - just like you. Here's how I work and what to expect:",
+      "items": [
+        {
+          "title": "Preparation for the reading",
+          "body": "Before each reading, I attune through a meditative connection to your soul and energetic field. I connect with your soul energy and your spiritual companions - always in alignment with your highest good."
+        },
+        {
+          "title": "Receiving the messages",
+          "body": "During the reading, I receive intuitive, spiritual messages from your Akashic Records. These reveal deeper connections in your life path and provide answers that help you see more clearly and follow your way with more trust."
+        }
+      ],
+      "footer": "<p>Your soul brings exactly the topics to light that matter now. I act as the messenger - clear, mindful and attentive. This creates a space for insight, healing and deep connection with yourself.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    }
+  },
+  "Hopi": {
+    "meta": {
+      "title": "Hopi Heart Healing",
+      "description": "Gentle heart healing for inner calm, connection and emotional clarity - in Zurich & online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
+      "og": {
+        "title": "Hopi Heart Healing | Corinne Vanarelli",
+        "description": "Open the heart, calm the nervous system, come back to yourself.",
+        "url": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp",
+            "alt": "Hopi Heart Healing"
+          }
+        ],
+        "locale": "en_US",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Hopi Heart Healing | Corinne Vanarelli",
+        "description": "More calm, love and clarity - from the heart.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Hopi Heart Healing",
+      "imageAlt": "Hopi Heart Healing - banner"
+    },
+    "alt1": {
+      "title": "Hopi Heart Healing - your heart knows your way",
+      "body": "<p>Hopi heart healing is a gentle yet deeply effective method from the ancient knowledge of the Hopi. It touches your heart - and with it the level of your soul and subtle body. This is where the deepest wounds, but also your greatest inner strength, often reside - and where heart healing begins.</p><p>Step by step, you may reopen your heart - free from old wounds, fears or blocks that unconsciously keep you from allowing love, abundance and genuine connection into your life.</p><p>This energetic work supports you in releasing emotional burdens - not only your own, but also inherited patterns from your ancestral line.</p><p><strong>This creates space for clarity, lightness and true heart connection - with yourself and with others.</strong></p>",
+      "imageAlt": "Hopi Heart Healing"
+    },
+    "alt2": {
+      "title": "When your heart calls for healing",
+      "bodyIntro": "<p>This healing work is for everyone who wishes to be touched and supported on a heart level - especially in times of change, inner restlessness or emotional strain. It is especially suitable for people who:</p>",
+      "items": [
+        "feel inwardly blocked or emotionally exhausted",
+        "wish to lovingly release old wounds, grief or fears",
+        "want to reconnect with their heart energy",
+        "seek peace with themselves and their past",
+        "long for emotional healing and inner peace",
+        "want to clarify attachment issues, relationship pain or old wounds",
+        "wish for a deeper connection with themselves and others",
+        "suffer from burnout, depression, grief or unexplained complaints",
+        "are in a phase of change, crisis or reorientation",
+        "as a child (or for their child) want to strengthen emotional safety - e.g., after parents' separation"
+      ],
+      "imageAlt": "Heart Healing"
+    },
+    "steps": {
+      "title": "How a Hopi heart healing unfolds",
+      "items": [
+        {
+          "title": "Arriving & attuning",
+          "body": "At the beginning you take time to come to rest at your own pace and arrive within yourself. In a short conversation we look together at what is moving you right now - emotionally, spiritually or physically. This creates a mindful space where everything may be present."
+        },
+        {
+          "title": "Heart work & energetic guidance",
+          "body": "You may lie down or sit comfortably - and simply receive. I connect with the source of Hopi energy and work intuitively through your heart center. The energy flows exactly where it is needed - lovingly, clearly and often deeply touching. Old wounds, blocks or inherited patterns may gently dissolve."
+        },
+        {
+          "title": "After the session",
+          "body": "After the session you have space to feel in peace - with yourself, without hurry. In a mindful exchange we reflect on what has shown up. You receive impulses on how to integrate the experience into your everyday life and carry the effect of the heart healing further. The energy often continues to work for days - quietly yet deeply. Many people then feel more inner peace, a wide, open heart connection and more loving feelings toward themselves."
+        }
+      ],
+      "footer": "<p><strong>Give yourself time.</strong> Drink enough water, allow yourself rest and listen to your body.</p><p>Healing does not happen under pressure - it unfolds when you give it space.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    }
+  },
+  "Chakra": {
+    "meta": {
+      "title": "Chakra Clearing",
+      "description": "Cleanse and harmonize energy centers: more clarity, balance and vitality - as a session in Zurich or online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
+      "og": {
+        "title": "Chakra Clearing",
+        "description": "Dissolve blocks, get energy flowing, find your center.",
+        "url": "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Chakra Clearing Sitzung.webp",
+            "alt": "Chakra Clearing"
+          }
+        ],
+        "locale": "en_US",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Chakra Clearing",
+        "description": "More clarity, balance and vitality - chakra by chakra.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Chakra Clearing Sitzung.webp"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Chakra Clearing",
+      "imageAlt": "Chakra Clearing - banner"
+    },
+    "alt1": {
+      "title": "Chakra Clearing - clarity, balance & new vitality",
+      "body": "<p>Our seven main chakras are subtle energy centers along the spine. They influence our physical, emotional and mental well-being.</p><p>When these chakras fall out of balance - due to stress, emotional strain or external influences - it can lead to restlessness, exhaustion or a sense of inner emptiness.</p><p>A chakra clearing can strengthen you on all levels - energetically, emotionally and spiritually. You come back to yourself and feel what is truly alive within you.</p><p><strong>Your energy is the key. Chakra clearing helps you let it flow freely again.</strong></p>",
+      "imageAlt": "Chakra Clearing"
+    },
+    "alt2": {
+      "title": "Chakra clearing gently brings your energy back into flow",
+      "items": [
+        "find more inner calm and balance",
+        "experience a clear, powerful sense of energy",
+        "strengthen your intuition and self-perception",
+        "release emotional strain",
+        "bring more lightness into everyday life",
+        "deepen body and soul awareness"
+      ],
+      "imageAlt": "Chakra Clearing in Düdingen"
+    },
+    "steps": {
+      "title": "Chakra clearing process",
+      "items": [
+        {
+          "title": "Preparation",
+          "body": "Before we begin, you take time to arrive within yourself. In a short conversation we look together at what is moving you and which topic wants space. You may open inwardly to what wants to be seen, felt and released - in your tempo, in your way. Everything is welcome. Nothing must."
+        },
+        {
+          "title": "During the session",
+          "intro": "In a quiet, protected space, you may come to rest - sitting or lying down, as feels right for you. I work mindfully along your seven main chakras and support the flow of energy through intuitive perception and gentle energetic impulses. This may:",
+          "list": [
+            "recognize and dissolve energetic blocks",
+            "bring your chakras into balance",
+            "gently relieve emotional, mental and physical tension"
+          ],
+          "outro": "This application offers new clarity, inner spaciousness and a palpable sense of connection with yourself. You may feel warmth, tingling, inner images or deep calm - every person experiences the session differently."
+        },
+        {
+          "title": "After the session",
+          "body": "Many people report more lightness, inner clarity and a deep sense of connection with themselves. After the chakra clearing, the energy continues to work - gently and in your own tempo. Energy work often sets deeper processes in motion that may unfold in the following days."
+        }
+      ],
+      "footer": "<p><strong>Give yourself time.</strong> Drink enough water, allow rest and listen to your body.</p><p>Healing does not happen under pressure - it unfolds when you give it space.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    }
+  },
+  "GWA": {
+    "meta": {
+      "title": "Spiritual Spinal Alignment",
+      "description": "Energetic alignment: dissolve blocks, find orientation and experience more lightness & energy in everyday life.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/gwa",
+      "og": {
+        "title": "Spiritual Spinal Alignment",
+        "description": "Bring body, mind and soul into balance - gently and holistically.",
+        "url": "https://www.corinnevanarelli.ch/angebote/gwa",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp",
+            "alt": "Spiritual Spinal Alignment"
+          }
+        ],
+        "locale": "en_US",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Spiritual Spinal Alignment",
+        "description": "Alignment & balance - for more freedom in body and life.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Spiritual Spinal Alignment",
+      "imageAlt": "Spiritual Spinal Alignment - banner"
+    },
+    "alt1": {
+      "title": "Spiritual spinal alignment - change begins in being",
+      "body": "<p>Spiritual spinal alignment is a gentle yet deeply effective method that brings body, mind and soul back into harmony.</p><p>It is based on the understanding that our physical body and our energy system are inseparably connected.</p><p>Our spine is far more than the physical center of our upright being - it is a central energy channel, an inner tree of life through which strength, stability and alignment flow.</p><p>In spiritual alignment, your energy system is consciously brought into balance.</p><p>Blocks may release and the spine returns to its natural order - and with it your entire system.</p>",
+      "imageAlt": "Spiritual Spinal Alignment"
+    },
+    "alt2": {
+      "title": "Your spine as a key to inner alignment",
+      "items": [
+        "suffer from physical complaints or chronic tension",
+        "wish to dissolve emotional blocks or old patterns",
+        "long for inner balance and lightness",
+        "want to feel energy, vitality and joy of life again",
+        "seek a holistic method addressing body, mind and soul"
+      ],
+      "outro": "Inner alignment frees new life energy - it acts not only on your spine but on every single cell of your body.",
+      "imageAlt": "Spinal alignment"
+    },
+    "steps": {
+      "title": "Session process - spiritual spinal alignment",
+      "subtitle": "Each session takes place in a protected, mindful space - focused on your physical, emotional and energetic balance.",
+      "items": [
+        {
+          "title": "Arriving & pre-talk",
+          "body": "At the beginning you take time to arrive within yourself. In a short conversation we clarify what is currently moving you and whether there are specific topics or complaints to include in the session."
+        },
+        {
+          "title": "Attunement & energetic alignment",
+          "body": "You lie down or sit comfortably while I connect with your energy system. Intuitively and without touch, I work along your spine and guide energy where blocks are felt. Your system responds gently - alignment happens through consciousness, not physical manipulation."
+        },
+        {
+          "title": "After the session",
+          "body": "We take time for a conscious close. You can feel what has moved - and we discuss how to gently integrate the experience into everyday life. The energy often accompanies you for a while - gently yet sustainably."
+        }
+      ],
+      "footer": "<p><strong>Give yourself time.</strong> Drink enough water, gift yourself rest and listen to your body.</p><p>Healing does not happen under pressure - it unfolds when you give it space.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    }
+  },
+  "Aroma": {
+    "meta": {
+      "title": "doTERRA AromaTouch",
+      "description": "AromaTouch technique: mindful application with essential oils for relaxation, regeneration and nervous system balance.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/doterra-aromatouch",
+      "og": {
+        "title": "doTERRA AromaTouch",
+        "description": "A soothing time-out for body, mind and senses - gentle, deep, balancing.",
+        "url": "https://www.corinnevanarelli.ch/angebote/doterra-aromatouch",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Doterra Aromatouch Technik.jpg",
+            "alt": "doTERRA AromaTouch"
+          }
+        ],
+        "locale": "en_US",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doTERRA AromaTouch",
+        "description": "Relax, regenerate, come into balance.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Doterra Aromatouch Technik.jpg"
+        ]
+      }
+    },
+    "banner": {
+      "title": "doTERRA AromaTouch",
+      "imageAlt": "doTERRA AromaTouch - banner"
+    },
+    "alt1": {
+      "title": "AromaTouch technique - a mindful application for body and senses",
+      "body": "<p>The doTERRA AromaTouch™ technique works holistically - on physical, emotional and energetic levels. Combining high-quality essential oils with mindful touch brings your whole system into a state of deep regeneration.</p><p>It was developed to relax, regenerate and bring body, mind and soul into balance in a natural way.</p><p>During the application, eight specifically selected doTERRA essential oils are gently applied along the spine and on the foot reflex zones. With targeted touch, the oils are worked into the system - to reduce stress, support the immune system and promote emotional balance.</p><p><strong>A soothing time-out for your nervous system - deeply relaxing, strengthening and harmonizing.</strong></p>",
+      "imageAlt": "AromaTouch technique"
+    },
+    "alt2": {
+      "title": "Back into balance - with the power of essential oils",
+      "items": [
+        "balance of the autonomic nervous system",
+        "support of the immune system",
+        "prevention or reduction of inflammatory responses in the body",
+        "regeneration through mental and physical deep relaxation",
+        "brings body, mind and soul back into balance"
+      ],
+      "strong": "Many find the treatment deeply relaxing, clarifying and at the same time energizing.",
+      "imageAlt": "Shared path"
+    },
+    "centered": {
+      "title": "AromaTouch technique - how it works",
+      "bodyIntro": "<p>The application takes place in a quiet, protected setting. You remain clothed; only the back and feet are gently uncovered. In a fixed sequence, eight selected doTERRA oils are gently applied along the spine and on the foot reflex zones. Oils used include:</p>",
+      "oils": [
+        "Balance - grounding and inner stability",
+        "Lavender - calming and relaxing",
+        "Melaleuca (tea tree) - cleansing and strengthening",
+        "On Guard - supportive for your immune system",
+        "Aromatouch - relaxing for muscles and mind",
+        "Deep Blue - relieving for tensions",
+        "Wild Orange - uplifting and invigorating",
+        "Peppermint - clarifying and refreshing"
+      ],
+      "bodyOutro": "The only prerequisite: the willingness to let go of the old - and allow the new."
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    }
+  },
+  "ServicesIndex": {
+    "__common": {
+      "ctaLabel": "Learn more"
+    },
+    "freeConsult": {
+      "title": "1:1 Free call for clarity",
+      "subtitle": "Curious but unsure? I invite you to a free get-to-know call.",
+      "duration": "20 min",
+      "price": "Free",
+      "ctaLabel": "Request booking"
+    },
+    "coaching": {
+      "title": "Ontological Coaching",
+      "teaser": "Clarity, focus and action - for professional and personal topics.",
+      "image": "/img/Ontologisches Coaching.jpg",
+      "imageAlt": "Coaching space",
+      "slug": "ontologisches-coaching"
+    },
+    "akasha": {
+      "title": "Akashic Reading",
+      "teaser": "Answers with depth - orientation, healing and inner alignment.",
+      "image": "/img/Akasha Chronik Lesung.jpg",
+      "imageAlt": "Akashic reading",
+      "slug": "akasha-chronik-lesung"
+    },
+    "hopi": {
+      "title": "Hopi Heart Healing",
+      "teaser": "Gentle heart healing - calms the nervous system and opens connection.",
+      "image": "/img/Hopi Herzheilung 2.webp",
+      "imageAlt": "Hopi heart healing",
+      "slug": "hopi-herzheilung"
+    },
+    "chakra": {
+      "title": "Chakra Clearing",
+      "teaser": "Get energy flowing - clarity, balance and vitality.",
+      "image": "/img/Chakra Clearing Sitzung.webp",
+      "imageAlt": "Chakra clearing session",
+      "slug": "chakra-clearing"
+    },
+    "gwa": {
+      "title": "Spiritual Spinal Alignment",
+      "teaser": "Holistic alignment - inner balance and new energy.",
+      "image": "/img/Geistige Wirbelsaulenaufrichtung.webp",
+      "imageAlt": "Spinal alignment",
+      "slug": "gwa"
+    },
+    "aroma": {
+      "title": "doTERRA AromaTouch",
+      "teaser": "Essential oils - deep relaxation, regeneration and balance.",
+      "image": "/img/Doterra Aromatouch Technik.jpg",
+      "imageAlt": "AromaTouch technique",
+      "slug": "doterra-aromatouch"
+    },
+    "akasha-kurz": {
+      "title": "Akashic Reading - short",
+      "teaser": "Short reading - clarity on one specific topic.",
+      "image": "/img/Akasha Chronik Lesung.jpg",
+      "imageAlt": "Akashic reading",
+      "slug": "akasha-chronik-lesung-kurz"
+    },
+    "__map": {
+      "1:1 Kostenloses Gespräch für Klarheit": "freeConsult",
+      "Ontologisches Coaching": "coaching",
+      "Akasha Chronik Lesung": "akasha",
+      "Akasha Chronik Lesung - kurz": "akasha-kurz",
+      "Hopi Herzheilung": "hopi",
+      "Chakra Clearing": "chakra",
+      "Geistige Wirbelsäulenaufrichtung": "gwa",
+      "doTERRA AromaTouch": "aroma"
+    }
+  },
+  "Booking": {
+    "DateTimePicker": {
+      "label": "Date & time",
+      "selectServiceFirst": "Please select a service first.",
+      "loading": "Loading...",
+      "noSlots": "No time slots available for this date.",
+      "aria": {
+        "calendar": "Choose a date"
+      }
+    },
+    "PayPalButton": {
+      "missingBookingId": "Missing booking ID.",
+      "errorDuring": "A PayPal error occurred. Please try again.",
+      "initFail": "Could not initialize PayPal."
+    },
+    "ServicePicker": {
+      "label": "Service",
+      "loading": "Loading...",
+      "empty": "No services are available at the moment.",
+      "selected": "Selected:",
+      "durationFmt": "approx. {min} min"
+    },
+    "Summary": {
+      "title": "Summary",
+      "hintSelect": "Choose service, date & time.",
+      "labels": {
+        "service": "Service:",
+        "appointment": "Appointment:",
+        "min": "min"
+      },
+      "btn": {
+        "next": "Next",
+        "wait": "Please wait…",
+        "sending": "Sending…",
+        "reserveFree": "Reserve for free",
+        "confirm": "Confirm"
+      },
+      "hold": {
+        "info": "Time slot reserved for you (HOLD). Please continue within the next minutes.",
+        "until": "HOLD until:"
+      },
+      "form": {
+        "name": "Name",
+        "email": "Email"
+      },
+      "errors": {
+        "slotTaken": "This time has just been taken. Please choose another one.",
+        "holdFail": "Error reserving the slot. Please try again.",
+        "invalidForm": "Please enter your name and a valid email.",
+        "holdExpired": "The reservation (HOLD) has expired. Please choose again.",
+        "confirmFail": "Confirmation failed. Please try again.",
+        "unexpected": "Unexpected response. Please try again."
+      },
+      "success": {
+        "title": "Appointment confirmed ✔",
+        "body": "Your booking is confirmed. A confirmation email has been sent. See you soon!"
+      },
+      "payPending": {
+        "title": "Confirmed (PENDING) ✔",
+        "body": "Please proceed with the payment."
+      },
+      "paypal": {
+        "missingId": "Missing booking ID.",
+        "paid": "Payment received",
+        "seeYou": "See you at the appointment!"
+      }
     }
   }
 }

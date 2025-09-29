@@ -1,5 +1,7 @@
+// src/components/booking/PayPalButton.jsx
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 /**
  * Props:
@@ -8,6 +10,8 @@ import { useEffect, useRef, useState } from "react";
  * - isFree: boolean (opcional; default false) -> si true, no renderiza nada
  */
 export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
+  const t = useTranslations("Booking.PayPalButton");
+
   // Guard: si el servicio es gratis, no renderizamos nada ni cargamos el SDK
   if (isFree) return null;
 
@@ -34,11 +38,11 @@ export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
     )}&components=buttons&currency=${encodeURIComponent(
       currency
     )}&intent=${encodeURIComponent(intent)}&commit=true`;
+
     let script = document.querySelector(
       'script[src^="https://www.paypal.com/sdk/js"]'
     );
 
-    // Reutiliza una promesa global para evitar cargas múltiples
     if (!window.__paypal_sdk_promise__) {
       window.__paypal_sdk_promise__ = new Promise((resolve, reject) => {
         if (!script) {
@@ -50,7 +54,6 @@ export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
           script.onerror = () => reject(new Error("PayPal SDK load error"));
           document.body.appendChild(script);
         } else {
-          // Si ya existe, esperamos un tick a que esté disponible window.paypal
           const check = () => {
             if (window.paypal?.Buttons) resolve();
             else setTimeout(check, 20);
@@ -86,7 +89,7 @@ export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
             const res = await fetch("/api/paypal/create-order", {
               method: "POST",
               headers: { "content-type": "application/json" },
-              body: JSON.stringify({ bookingId }),
+              body: JSON.stringify({ bookingId })
             });
             if (!res.ok) {
               const txt = await res.text().catch(() => "");
@@ -108,8 +111,8 @@ export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
                   orderId: data.orderID,
-                  bookingId,
-                }),
+                  bookingId
+                })
               });
               if (!res.ok) {
                 const txt = await res.text().catch(() => "");
@@ -120,7 +123,7 @@ export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
               onPaid?.({
                 ok: !!json?.ok,
                 orderId: data.orderID,
-                captureId: json?.captureId,
+                captureId: json?.captureId
               });
             } catch (e) {
               console.error("onApprove error:", e);
@@ -129,35 +132,27 @@ export default function PayPalButton({ bookingId, onPaid, isFree = false }) {
 
           onError: (err) => {
             console.error("PayPal Buttons onError:", err);
-            setSdkError(
-              "Ein Fehler ist mit PayPal aufgetreten. Bitte versuche es erneut."
-            );
-          },
+            setSdkError(t("errorDuring"));
+          }
         });
 
-        // Render directo al contenedor (sin limpiar/agitar el DOM antes)
         await Buttons.render(containerRef.current);
       } catch (e) {
         console.error("PayPal init/render error:", e);
-        setSdkError(
-          e?.message || "PayPal konnte nicht initialisiert werden."
-        );
+        setSdkError(t("initFail"));
       }
     }
 
     mountButtons();
 
-    // Importante: NO destruimos el SDK global al desmontar
     return () => {
       cancelled = true;
-      // No llamamos a destroy global (evita "zoid destroyed all components")
-      // Tampoco removemos el script; queda cacheado para próximos montajes
     };
-  }, [bookingId]);
+  }, [bookingId, t]);
 
   if (!bookingId) {
     return (
-      <div className="text-sm text-neutral-600">Fehlende Buchung-ID.</div>
+      <div className="text-sm text-neutral-600">{t("missingBookingId")}</div>
     );
   }
 
