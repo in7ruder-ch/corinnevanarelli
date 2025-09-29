@@ -1,16 +1,21 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import Section from "./Section";
 
-const items = [
-  { name: "Nina N.", text: "Die Akasha Chronik öffnet für mich ein Tor: zu tiefem spirituellem Wissen und zu den Erfahrungen vergangener Leben. Sie ist zugleich etwas Geheimnisvolles und doch ganz greifbar – ein Spiegel meiner Seele. Für mich die vollkommene Balance zwischen Tiefe und Klarheit." },
-  { name: "Nicolas M.", text: "Die Herzheilung war sanft und zugleich unglaublich kraftvoll. Schon nach einer Sitzung fühlte ich eine tiefe Veränderung – als hätte sich in mir etwas geöffnet. Ich habe Klarheit und Verbundenheit gespürt, wie lange nicht mehr.  Der Raum, den Coco schafft, ist voller Wärme und Intuition. Er hat mir den Mut gegeben, tiefer zu gehen und meinem wahren Selbst zu begegnen." },
-  { name: "Michelle H.", text: "Du verbindest weltliche und spirituelle Aspekte auf wunderbare Weise – klar, geerdet und lichtvoll.  In deiner achtsamen, liebevollen Präsenz entsteht ein Raum, in dem echte Heilung geschehen darf.  Deine Arbeit hat mich auf meinem Weg spürbar weitergebracht.  Fachlich wie menschlich bist du eine echte Bereicherung." },
-  { name: "Simone P.", text: "Bei der Herzheilung spürte ich eine Wärme wie eine Hand auf meinem Herzen – Tränen, Ruhe, tiefes Ankommen. Nach der Session kamen klare, starke Gefühle und Erkenntnisse – echte Transformation.  Es ist die intensivste und effektivste Form der Heilung, die ich je erlebt habe. Ich fühle mich bei Coco gesehen, vertrauensvoll begleitet und völlig wertfrei behandelt." }
-];
+export default function Testimonials({ items: itemsProp }) {
+  const t = useTranslations("Testimonials");
 
-export default function Testimonials() {
+  // Si no pasan items por props, usamos i18n (4 ítems como en tu versión)
+  const fallbackItems = [
+    { name: t("items.0.name"), text: t("items.0.text") },
+    { name: t("items.1.name"), text: t("items.1.text") },
+    { name: t("items.2.name"), text: t("items.2.text") },
+    { name: t("items.3.name"), text: t("items.3.text") },
+  ];
+  const items = itemsProp?.length ? itemsProp : fallbackItems;
+
   const [i, setI] = useState(0);
   const timerRef = useRef(null);
 
@@ -18,19 +23,17 @@ export default function Testimonials() {
   const prev = () => setI((p) => (p - 1 + items.length) % items.length);
 
   useEffect(() => {
-    // autoplay cada 6s
     timerRef.current = setInterval(next, 6000);
     return () => clearInterval(timerRef.current);
   }, []);
 
-  // reiniciar autoplay cuando el usuario navega manualmente
   const handleUserNav = (fn) => () => {
     clearInterval(timerRef.current);
     fn();
-    timerRef.current = setInterval(next, 4000);
+    timerRef.current = setInterval(next, 6000);
   };
 
-  const t = items[i];
+  const tItem = items[i];
 
   return (
     <Section
@@ -45,9 +48,9 @@ export default function Testimonials() {
           className="font-bold mt-6 text-xl md:text-2xl lg:text-[28px] leading-relaxed text-neutral-800 [text-wrap:balance]"
           aria-live="polite"
         >
-          {t.text}
+          {tItem.text}
         </p>
-        <p className="mt-6 text-sm text-neutral-600">— {t.name}</p>
+        <p className="mt-6 text-sm text-neutral-600">— {tItem.name}</p>
 
         {/* Puntos */}
         <div className="mt-8 flex items-center justify-center gap-2">
@@ -55,7 +58,7 @@ export default function Testimonials() {
             <button
               key={idx}
               onClick={handleUserNav(() => setI(idx))}
-              aria-label={`Testimonial ${idx + 1}`}
+              aria-label={t("dotAria", { index: idx + 1 })}
               className={[
                 "h-2 w-2 rounded-full transition-opacity",
                 i === idx ? "opacity-100 bg-neutral-800" : "opacity-40 bg-neutral-500 hover:opacity-70"
@@ -69,7 +72,7 @@ export default function Testimonials() {
       <button
         type="button"
         onClick={handleUserNav(prev)}
-        aria-label="Vorheriges Testimonial"
+        aria-label={t("prevAria")}
         className="hidden md:block absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -80,7 +83,7 @@ export default function Testimonials() {
       <button
         type="button"
         onClick={handleUserNav(next)}
-        aria-label="Nächstes Testimonial"
+        aria-label={t("nextAria")}
         className="hidden md:block absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

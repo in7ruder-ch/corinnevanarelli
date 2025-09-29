@@ -1,0 +1,172 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "Über mich",
+    "offers": "Angebote",
+    "contact": "Kontakt",
+    "ontologicalCoaching": "Ontologisches Coaching",
+    "akashaReading": "Akasha Chronik Lesung",
+    "hopiHeartHealing": "Hopi Herzheilung",
+    "chakraClearing": "Chakra Clearing",
+    "spinalAlignment": "Geistige Wirbelsäulenaufrichtung",
+    "aromatouch": "doTERRA AromaTouch"
+  },
+  "AltSection": {
+    "ctaLabel": "Mehr erfahren"
+  },
+  "ContactForm": {
+    "title": "Kontakt",
+    "fields": {
+      "vorname": "Vorname",
+      "name": "Name",
+      "email": "E-Mail",
+      "nachricht": "Nachricht"
+    },
+    "actions": {
+      "send": "Senden",
+      "sending": "Senden…"
+    },
+    "feedback": {
+      "success": "Danke, wir haben deine Nachricht erhalten.",
+      "error": "Fehler beim Senden."
+    },
+    "errors": {
+      "unknown": "Unbekannter Fehler"
+    },
+    "footer": {
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "address": "Adresse"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Corinne Vanarelli. Alle Rechte vorbehalten."
+  },
+  "FreeConsultCallout": {
+    "title": "1:1 Kostenloses Gespräch für Klarheit",
+    "subtitle": "Du bist neugierig, aber unsicher? Dann lade ich dich zu einem kostenlosen Kennenlerngespräch ein.",
+    "duration": "20 Min.",
+    "price": "Kostenlos",
+    "ctaLabel": "Buchung anfragen"
+  },
+   "Hero": {
+    "ariaLabel": "Hero",
+    "title": "Coaching & Energiearbeit\nfür Heilung, Selbstfindung\nund Klarheit",
+    "imageAlt": "Natur & Ruhe — Hero"
+  },
+  "ServiceBanner": {
+    "ariaLabel": "Service Banner",
+    "title": "Ontologisches Coaching",
+    "imageAlt": "Service Banner"
+  },
+   "ServiceCard": {
+    "ctaLabel": "Jetzt buchen"
+  },
+  "Services": {
+    "title": "Angebote",
+    "loading": "Lade Services…",
+    "empty": "Zurzeit sind keine Services verfügbar."
+  },
+  "StepsDyad": {
+    "title": "Ablauf einer Lesung"
+  },
+  "Testimonials": {
+    "prevAria": "Vorheriges Testimonial",
+    "nextAria": "Nächstes Testimonial",
+    "dotAria": "Testimonial {index}",
+    "items": {
+      "0": {
+        "name": "Nina N.",
+        "text": "Die Akasha Chronik öffnet für mich ein Tor: zu tiefem spirituellem Wissen und zu den Erfahrungen vergangener Leben. Sie ist zugleich etwas Geheimnisvolles und doch ganz greifbar – ein Spiegel meiner Seele. Für mich die vollkommene Balance zwischen Tiefe und Klarheit."
+      },
+      "1": {
+        "name": "Nicolas M.",
+        "text": "Die Herzheilung war sanft und zugleich unglaublich kraftvoll. Schon nach einer Sitzung fühlte ich eine tiefe Veränderung – als hätte sich in mir etwas geöffnet. Ich habe Klarheit und Verbundenheit gespürt, wie lange nicht mehr.  Der Raum, den Coco schafft, ist voller Wärme und Intuition. Er hat mir den Mut gegeben, tiefer zu gehen und meinem wahren Selbst zu begegnen."
+      },
+      "2": {
+        "name": "Michelle H.",
+        "text": "Du verbindest weltliche und spirituelle Aspekte auf wunderbare Weise – klar, geerdet und lichtvoll.  In deiner achtsamen, liebevollen Präsenz entsteht ein Raum, in dem echte Heilung geschehen darf.  Deine Arbeit hat mich auf meinem Weg spürbar weitergebracht.  Fachlich wie menschlich bist du eine echte Bereicherung."
+      },
+      "3": {
+        "name": "Simone P.",
+        "text": "Bei der Herzheilung spürte ich eine Wärme wie eine Hand auf meinem Herzen – Tränen, Ruhe, tiefes Ankommen. Nach der Session kamen klare, starke Gefühle und Erkenntnisse – echte Transformation.  Es ist die intensivste und effektivste Form der Heilung, die ich je erlebt habe. Ich fühle mich bei Coco gesehen, vertrauensvoll begleitet und völlig wertfrei behandelt."
+      }
+    }
+  },
+  "Home": {
+    "meta": {
+      "title": "Akasha Chronik Lesung, Herzheilung & Coaching | Corinne Vanarelli",
+      "description": "Zurück zu dir: Herzheilung, ontologisches Coaching und Akasha-Chronik Lesungen – einfühlsam, klar und auf Augenhöhe in Zürich & online."
+    },
+    "og": {
+      "title": "Akasha Chronik Lesung, Herzheilung & Coaching | Corinne Vanarelli",
+      "description": "Begleitung mit Tiefgang: Herzheilung, Coaching und Akasha-Chronik für Klarheit, Balance und echte Veränderung."
+    },
+    "twitter": {
+      "title": "Akasha Chronik Lesung, Herzheilung & Coaching | Corinne Vanarelli",
+      "description": "Herzheilung, Coaching & Akasha-Chronik in Zürich & online."
+    },
+
+    "s1": {
+      "title": "Willkommen auf deiner Reise <strong><em>zurück zu dir</em></strong>",
+      "kicker": "Ich begleite dich auf deinem Weg zu innerer Klarheit und Selbstermächtigung",
+      "p1": "Vielleicht spürst du schon lange diese leise Sehnsucht in dir. Die Sehnsucht nach Klarheit. Nach Ankommen. Nach dir selbst.",
+      "p2": "Ich begleite dich auf deiner inneren Reise – mit ontologischem Coaching und Energiearbeit. Gemeinsam lösen wir Blockaden, klären alte Muster und schaffen Raum für Veränderung, Heilung und neue Möglichkeiten. Für mehr Klarheit, innere Stärke und ein Leben im Einklang mit deiner Essenz.",
+      "p3": "In meiner Arbeit geht es nicht um höher, schneller, weiter – sondern um Tiefe, Echtheit und Bewusstsein. In deinem Tempo, auf deine Weise.",
+      "p4": "Ich unterstütze dich dabei, inneren Ballast loszulassen, Vertrauen in dich selbst zurückzugewinnen und deine eigene Wahrheit zu leben.",
+      "p5": "Du bist willkommen. Genau so, wie du bist. Und vielleicht beginnt genau hier deine Reise <em>zurück zu dir</em>.",
+      "imageAlt": "Corinne Vanarelli"
+    },
+
+    "s2": {
+      "title": "<strong>Ontologisches Coaching – zurück zu deinem wahren Sein</strong>",
+      "p1": "Ontologisches Coaching geht tiefer als klassisches Coaching:",
+      "p2": "Es stellt nicht nur die Frage: „Was will ich tun?“, sondern „Wer bin ich – und wie will ich leben?“",
+      "p3": "Im Mittelpunkt steht dein Sein: deine innere Haltung, deine Sprache, dein Denken und Fühlen.",
+      "p4": "Denn echte Veränderung entsteht nicht durch mehr Tun – sondern durch Bewusstheit.",
+      "p5": "<strong>Veränderung beginnt nicht im Aussen – sondern in dir</strong>.",
+      "imageAlt": "Praxisraum"
+    },
+
+    "s3": {
+      "title": "<strong>Akasha Reading – Botschaften deiner Seele</strong>",
+      "p1": "Manchmal stehen wir im Leben an einem Wendepunkt – und spüren: Es braucht Klarheit. Eine Akasha-Lesung öffnet dir den Raum, tiefer zu verstehen, wer du bist und was deine Seele wirklich will.",
+      "p2": "Du erhältst Einblicke in die Ursprünge deiner Ängste, Muster und Blockaden – und erkennst, warum bestimmte Erfahrungen in deinem Leben geschehen.",
+      "p3": "So wird sichtbar, was dich wirklich bewegt – und was dich jetzt in deine Kraft bringen kann.",
+      "p4": "<strong>Die Seelenlesung schenkt dir Orientierung, Bewusstsein und Vertrauen. Für deinen Weg. Für deine Entscheidung. Für dich.</strong>",
+      "imageAlt": "Corinne Vanarelli"
+    },
+
+    "s4": {
+      "title": "<strong>Hopi Herzheilung – Dein Herz kennt den Weg</strong>",
+      "p1": "Die Hopi Herzheilung ist eine kraftvolle und zugleich sehr sanfte Form der Energiearbeit, die aus der Weisheit der Hopi-Indianer stammt. Alte Erfahrungen, Enttäuschungen oder tiefe seelische Wunden können uns daran hindern, in Verbindung mit uns selbst zu sein.",
+      "p2": "Du kommst wieder in Kontakt mit deinem inneren Frieden, deiner Selbstliebe und deiner Herzenskraft. Diese tiefe Verbindung ermöglicht dir einen Neuanfang – in dir selbst, mit dir selbst.",
+      "p3": "<strong>Diese Herzarbeit öffnet Räume: für Heilung, für Verbindung, für Vertrauen – und für deinen ganz eigenen Weg.</strong>",
+      "imageAlt": "Praxisraum"
+    },
+
+    "s5": {
+      "title": "<strong>Chakra Clearing – bring deine Energie ins Gleichgewicht</strong>",
+      "p1": "Deine sieben Chakren sind die Energiezentren deines Körpers – sie beeinflussen, wie du fühlst, denkst und dich erlebst. Stress, alte Emotionen oder innere Unruhe können diese Zentren blockieren.",
+      "p2": "Beim Chakra Cleaning werden deine Chakren sanft gereinigt, aktiviert und wieder ins Gleichgewicht gebracht. So kann deine Energie wieder frei fliessen – für mehr Klarheit, Leichtigkeit und innere Harmonie.",
+      "p3": "<strong>Spüre, wie es sich anfühlt, wieder ganz bei dir zu sein.</strong>",
+      "imageAlt": "Corinne Vanarelli"
+    },
+
+    "s6": {
+      "title": "<strong>Geistige Wirbelsäulenaufrichtung – zurück in deine Mitte, zurück in deine Kraft</strong>",
+      "p1": "Finde zurück in deine natürliche Ausrichtung – für Balance in Körper, Geist und Seele. Die geistige Wirbelsäulenaufrichtung unterstützt dich dabei, in deine volle Kraft zu kommen – körperlich, emotional und energetisch.",
+      "p2": "Deine Wirbelsäule ist das Zentrum deines Seins – sie trägt dich, richtet dich aus und lässt deine Lebensenergie fliessen. Wenn dieser Energiefluss blockiert ist, können Beschwerden auf körperlicher und seelischer Ebene entstehen.",
+      "p3": "<strong>Diese Methode bringt deine Energie wieder in Fluss – sanft, ganzheitlich und tief wirksam. Erlebe Aufrichtung, Klarheit und innere Heilung.</strong>",
+      "imageAlt": "Praxisraum"
+    },
+
+    "s7": {
+      "title": "<strong>doTERRA AromaTouch® – Tiefenentspannung mit ätherischen Ölen</strong>",
+      "p1": "Sanfte Berührung trifft auf die Kraft reiner Pflanzenessenzen. Die doTERRA AromaTouch® kombiniert achtsame Berührungen mit 100 % reinen ätherischen Ölen von doTERRA.",
+      "p2": "Dabei werden gezielt Körperzonen stimuliert, um Stress abzubauen, das Immunsystem zu stärken und das innere Gleichgewicht wiederherzustellen. Diese Methode wirkt nicht nur körperlich, sondern auch emotional – und bringt dich spürbar in eine tiefe Entspannung.",
+      "p3": "<strong>Ein wohltuendes Erlebnis für Körper, Geist und Seele. Loslassen. Auftanken. Ankommen – bei dir selbst.</strong>",
+      "imageAlt": "Corinne Vanarelli"
+    }
+  }
+}

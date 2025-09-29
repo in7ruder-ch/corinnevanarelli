@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ContactForm() {
+  const t = useTranslations('ContactForm');
+
   const [form, setForm] = useState({
     vorname: '',
     name: '',
@@ -71,15 +74,15 @@ export default function ContactForm() {
 
       const json = await res.json();
       if (!res.ok || !json.ok) {
-        throw new Error(json.error || 'Unbekannter Fehler');
+        throw new Error(json.error || t('errors.unknown'));
       }
 
       setStatus('success');
-      setMessage('Danke, wir haben deine Nachricht erhalten.');
+      setMessage(t('feedback.success'));
       setForm({ vorname: '', name: '', email: '', nachricht: '' });
     } catch (err) {
       setStatus('error');
-      setMessage(err.message || 'Fehler beim Senden.');
+      setMessage(err.message || t('feedback.error'));
     }
   }
 
@@ -90,7 +93,7 @@ export default function ContactForm() {
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900 text-center">
-          Kontakt
+          {t('title')}
         </h2>
 
         {/* Tarjeta / formulario */}
@@ -104,7 +107,7 @@ export default function ContactForm() {
             {/* Vorname */}
             <div>
               <label className="block text-sm text-neutral-700 mb-2">
-                Vorname *
+                {t('fields.vorname')} *
               </label>
               <input
                 type="text"
@@ -120,7 +123,7 @@ export default function ContactForm() {
             {/* Name */}
             <div>
               <label className="block text-sm text-neutral-700 mb-2">
-                Name *
+                {t('fields.name')} *
               </label>
               <input
                 type="text"
@@ -136,7 +139,7 @@ export default function ContactForm() {
             {/* Email */}
             <div>
               <label className="block text-sm text-neutral-700 mb-2">
-                Email *
+                {t('fields.email')} *
               </label>
               <input
                 type="email"
@@ -152,7 +155,7 @@ export default function ContactForm() {
             {/* Nachricht */}
             <div>
               <label className="block text-sm text-neutral-700 mb-2">
-                Nachricht *
+                {t('fields.nachricht')} *
               </label>
               <textarea
                 rows={4}
@@ -172,7 +175,7 @@ export default function ContactForm() {
                 disabled={status === 'loading'}
                 className="px-5 py-2 rounded-lg bg-neutral-800 text-white hover:bg-neutral-900 disabled:opacity-50"
               >
-                {status === 'loading' ? 'Senden…' : 'Senden'}
+                {status === 'loading' ? t('actions.sending') : t('actions.send')}
               </button>
 
               {status !== 'idle' && (
@@ -197,7 +200,7 @@ export default function ContactForm() {
           <div className="mx-auto max-w-5xl">
             <ul className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-900 text-center">
               <li className="py-6 px-6">
-                <div className="text-sm text-neutral-600">Telefon</div>
+                <div className="text-sm text-neutral-600">{t('footer.phone')}</div>
                 <a
                   href="tel:+41797167212"
                   className="mt-2 inline-block underline hover:no-underline"
@@ -206,7 +209,7 @@ export default function ContactForm() {
                 </a>
               </li>
               <li className="py-6 px-6">
-                <div className="text-sm text-neutral-600">E-mail</div>
+                <div className="text-sm text-neutral-600">{t('footer.email')}</div>
                 <a
                   href="mailto:kontakt@corinnevanarelli.ch"
                   className="mt-2 inline-block underline hover:no-underline break-all"
@@ -215,7 +218,7 @@ export default function ContactForm() {
                 </a>
               </li>
               <li className="py-6 px-6">
-                <div className="text-sm text-neutral-600">Adresse</div>
+                <div className="text-sm text-neutral-600">{t('footer.address')}</div>
                 <div className="mt-2">
                   Gänsebergstrasse 12, 3186 Düdingen (FR)
                 </div>

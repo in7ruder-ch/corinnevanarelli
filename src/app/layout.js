@@ -2,6 +2,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
+// [i18n-add]
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "@/lib/i18n";
+import { getLocale } from "next-intl/server";
+
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
@@ -24,14 +29,18 @@ export const metadata = {
   twitter: { card: "summary_large_image" }
 };
 
+// [i18n-add] async para obtener locale + messages
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();                 // 'de' por defecto hoy
+  const messages = await getMessages(locale);       // carga segura con fallback
 
-export default function RootLayout({ children }) {
   return (
-    <html lang="de" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {/* navbar fija de 8rem -> padding top 8rem */}
-        <main className="">{children}</main>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          <main className="">{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

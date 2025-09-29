@@ -1,5 +1,9 @@
 // next.config.mjs
 /** @type {import('next').NextConfig} */
+
+// [i18n-add]
+import createNextIntlPlugin from "next-intl/plugin";
+
 const nextConfig = {
   reactStrictMode: true,
 
@@ -66,4 +70,8 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// [i18n-add] lee la config desde la raíz (JS, no TS)
+const withNextIntl = createNextIntlPlugin("./i18n.js");
+
+// [i18n-add] exporta el config envuelto
+export default withNextIntl(nextConfig);

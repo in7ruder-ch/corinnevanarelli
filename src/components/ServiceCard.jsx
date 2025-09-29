@@ -1,4 +1,6 @@
 // src/components/ServiceCard.jsx
+import { useTranslations } from 'next-intl';
+
 export default function ServiceCard({
   title,
   durationLabel,
@@ -8,10 +10,15 @@ export default function ServiceCard({
   bullets = [],
   ctaHref = "/book",
   serviceId,
+  ctaLabel,            // opcional: si viene, tiene prioridad sobre i18n
 }) {
+  const t = useTranslations('ServiceCard');
+
   const href = serviceId
     ? `${ctaHref}?serviceId=${encodeURIComponent(String(serviceId))}`
     : ctaHref;
+
+  const _ctaLabel = ctaLabel ?? t('ctaLabel'); // <- i18n por defecto
 
   return (
     <div className="bg-[#ffffff] rounded-2xl border p-6 flex flex-col h-full">
@@ -29,7 +36,7 @@ export default function ServiceCard({
         <p className="mt-2 text-sm text-neutral-700">{notes}</p>
       ) : null}
 
-      {/* Bullets opcionales (si los usás, quedan arriba del footer para no mover el CTA) */}
+      {/* Bullets opcionales */}
       {bullets?.length ? (
         <ul className="mt-4 space-y-2 list-disc list-inside text-neutral-700">
           {bullets.map((b, i) => (
@@ -48,7 +55,7 @@ export default function ServiceCard({
           href={href}
           className="mt-3 inline-block px-4 py-2 rounded-lg bg-black text-white text-center hover:opacity-90"
         >
-          Jetzt buchen
+          {_ctaLabel}
         </a>
       </div>
     </div>
