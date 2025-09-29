@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function AltSection({
   title,
@@ -8,17 +9,21 @@ export default function AltSection({
   imageAlt = '',
   mediaLeft = true,
   ctaHref,
-  ctaLabel = 'Mehr erfahren',
-  ctaVariant = 'button',     // 'button' | 'link'
+  ctaLabel,                 // sin default literal
+  ctaVariant = 'button',    // 'button' | 'link'
   showCta = true,
   padTop = true,
   padBottom = true,
   id
 }) {
+  const t = useTranslations('AltSection');
+
   const sectionPadY = [
     padTop ? 'pt-16 md:pt-24' : 'pt-0',
     padBottom ? 'pb-16 md:pb-24' : 'pb-0',
   ].join(' ');
+
+  const resolvedCtaLabel = ctaLabel ?? t('ctaLabel');
 
   return (
     <section id={id} className={`bg-[#ffffff] ${sectionPadY}`}>
@@ -30,7 +35,6 @@ export default function AltSection({
               'order-1',
               mediaLeft ? 'md:order-2' : 'md:order-1',
               'md:self-stretch flex flex-col',
-              // 👇 Padding horizontal también en mobile
               'py-20 px-6 sm:px-8 md:px-12 lg:px-16',
               'bg-[#f5f5f5]'
             ].join(' ')}
@@ -56,7 +60,7 @@ export default function AltSection({
                     href={ctaHref}
                     className="inline-block align-middle font-semibold italic underline decoration-neutral-800 transition-transform duration-100 ease-out hover:scale-105 transform-gpu py-1.5 -my-1.5"
                   >
-                    {ctaLabel}
+                    {resolvedCtaLabel}
                   </a>
                 </p>
               ) : (
@@ -64,7 +68,7 @@ export default function AltSection({
                   href={ctaHref}
                   className="inline-block mt-6 px-6 py-3 rounded-lg bg-black text-white hover:bg-neutral-800 transition"
                 >
-                  {ctaLabel}
+                  {resolvedCtaLabel}
                 </a>
               )
             ) : null}

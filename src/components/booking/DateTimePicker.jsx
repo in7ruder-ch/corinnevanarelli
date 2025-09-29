@@ -1,9 +1,10 @@
 // src/components/booking/DateTimePicker.jsx
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { DayPicker } from "react-day-picker";
-import { de } from "date-fns/locale";
+import { de as dfde, enGB as dfen, es as dfes } from "date-fns/locale";
+import { useTranslations, useLocale } from "next-intl";
 
 function formatTime(dt) {
   return dt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -19,15 +20,25 @@ function toISODate(d) {
   const day = String(d.getDate()).padStart(2, "0");
   return `${y}-${m}-${day}`;
 }
-const DE_FORMAT = { weekday: "short", day: "2-digit", month: "long", year: "numeric" };
+const DATE_FORMAT = { weekday: "short", day: "2-digit", month: "long", year: "numeric" };
 
 export default function DateTimePicker({ onChange, service }) {
+  const t = useTranslations("Booking.DateTimePicker");
+  const locale = useLocale();
+
+  // Mapa de locale para date-fns y Intl
+  const dfLocale = useMemo(() => {
+    if (locale.startsWith("en")) return dfen;
+    if (locale.startsWith("es")) return dfes;
+    return dfde; // default de
+  }, [locale]);
+
   // Hoy a medianoche LOCAL
-  const todayLocal = (() => {
+  const todayLocal = useMemo(() => {
     const t = new Date();
     t.setHours(0, 0, 0, 0);
     return t;
-  })();
+  }, []);
   const todayISO = toISODate(todayLocal);
 
   const [date, setDate] = useState(todayISO);
@@ -44,7 +55,7 @@ export default function DateTimePicker({ onChange, service }) {
     top: 0,
     left: 0,
     width: 320,
-    placement: "bottom",
+    placement: "bottom"
   });
 
   const positionPopover = () => {
@@ -167,7 +178,7 @@ export default function DateTimePicker({ onChange, service }) {
 
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium">Datum &amp; Uhrzeit</label>
+      <label className="text-sm font-medium">{t("label")}</label>
 
       <div className="grid gap-3 sm:grid-cols-[240px,1fr]">
         {/* Botón que abre/cierra el calendario (popover en portal; no empuja layout) */}
@@ -180,22 +191,24 @@ export default function DateTimePicker({ onChange, service }) {
             aria-haspopup="dialog"
             aria-expanded={openCal}
           >
-            {parseISODate(date).toLocaleDateString("de-CH", DE_FORMAT)}
+            {new Intl.DateTimeFormat(locale, DATE_FORMAT).format(parseISODate(date))}
           </button>
         </div>
 
         {!serviceSelected ? (
           <div className="text-sm text-neutral-600 self-center">
-            Bitte zuerst einen Service wählen.
+            {t("selectServiceFirst")}
           </div>
         ) : (
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {loading && (
-              <div className="col-span-full text-sm text-neutral-500">Laden…</div>
+              <div className="col-span-full text-sm text-neutral-500">
+                {t("loading")}
+              </div>
             )}
             {!loading && slots.length === 0 && (
               <div className="md:mt-3 col-span-full text-sm text-neutral-500">
-                Kein Termin verfügbar für dieses Datum.
+                {t("noSlots")}
               </div>
             )}
             {!loading &&
@@ -233,14 +246,14 @@ export default function DateTimePicker({ onChange, service }) {
               top: popPos.top,
               left: popPos.left,
               width: popPos.width,
-              maxHeight: "min(80vh, 520px)",
+              maxHeight: "min(80vh, 520px)"
             }}
             role="dialog"
-            aria-label="Datum auswählen"
+            aria-label={t("aria.calendar")}
           >
             <DayPicker
               mode="single"
-              locale={de}
+              locale={dfLocale}
               selected={parseISODate(date)}
               onSelect={(d) => {
                 if (!d) return;

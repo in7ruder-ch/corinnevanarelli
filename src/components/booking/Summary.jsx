@@ -1,24 +1,27 @@
+// src/components/booking/Summary.jsx
 "use client";
 import PayPalButton from "./PayPalButton";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 // Flag de build-time (cliente). false => pagos apagados.
 const PAYMENTS_ENABLED =
   (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED ?? "").toString().trim() === "true";
 
 function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
+  const t = useTranslations("Booking.Summary.paypal");
   const [paid, setPaid] = useState(null);
 
   // Servicios gratis o pagos apagados: no mostrar PayPal
   if (isFree || !paymentsEnabled) return null;
 
   if (!holdInfo?.bookingId) {
-    return <p className="mt-2 text-sm text-neutral-600">Fehlende Buchung-ID.</p>;
+    return <p className="mt-2 text-sm text-neutral-600">{t("missingId")}</p>;
   }
   if (paid?.ok) {
     return (
       <div className="mt-3 rounded bg-green-50 border border-green-200 p-3 text-green-800">
-        Zahlung erhalten ✅ — Wir sehen uns zum Termin!
+        {t("paid")} ✅ — {t("seeYou")}
       </div>
     );
   }
@@ -32,6 +35,9 @@ function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
 }
 
 export default function Summary({ service, datetime }) {
+  const t = useTranslations("Booking.Summary");
+  const locale = useLocale();
+
   const [loading, setLoading] = useState(false);
   const [holdInfo, setHoldInfo] = useState(null); // { bookingId, hold_until } | { error }
   const [form, setForm] = useState({ name: "", email: "" });
@@ -61,6 +67,27 @@ export default function Summary({ service, datetime }) {
     setConfirmState(null);
   }, [service?.id]);
 
+  const priceNumber =
+    Number(
+      service?.price ??
+        service?.price_chf ??
+        service?.priceChf ??
+        service?.priceCHF ??
+        0
+    ) || 0;
+
+  const priceFormatted = useMemo(() => {
+    try {
+      return new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: "CHF",
+        minimumFractionDigits: 0
+      }).format(priceNumber);
+    } catch {
+      return `CHF ${priceNumber}`;
+    }
+  }, [locale, priceNumber]);
+
   async function createHold() {
     if (!hasAll || loading) return;
     try {
@@ -76,28 +103,27 @@ export default function Summary({ service, datetime }) {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           serviceId,
-          startISO: datetime.timeISO,
-        }),
+          startISO: datetime.timeISO
+        })
       });
 
       if (res.status === 409) {
         setHoldInfo({
-          error:
-            "Dieser Termin wurde gerade belegt. Bitte wähle eine andere Uhrzeit.",
+          error: t("errors.slotTaken")
         });
         return;
       }
       if (!res.ok) {
-        const t = await res.text().catch(() => "");
-        console.error("HOLD error:", t);
-        setHoldInfo({ error: "Fehler beim Reservieren. Versuche es erneut." });
+        const txt = await res.text().catch(() => "");
+        console.error("HOLD error:", txt);
+        setHoldInfo({ error: t("errors.holdFail") });
         return;
       }
 
       const json = await res.json();
       setHoldInfo({
         bookingId: json.bookingId,
-        hold_until: json.hold_until,
+        hold_until: json.hold_until
       });
     } finally {
       setLoading(false);
@@ -110,7 +136,7 @@ export default function Summary({ service, datetime }) {
 
     if (!form.name.trim() || !/.+@.+\..+/.test(form.email)) {
       setConfirmState({
-        error: "Bitte Name und eine gültige E-Mail eingeben.",
+        error: t("errors.invalidForm")
       });
       return;
     }
@@ -125,22 +151,21 @@ export default function Summary({ service, datetime }) {
         body: JSON.stringify({
           bookingId: holdInfo.bookingId,
           name: form.name.trim(),
-          email: form.email.trim(),
-        }),
+          email: form.email.trim()
+        })
       });
 
       if (res.status === 410) {
         setConfirmState({
-          error:
-            "Die Reservierung (HOLD) ist abgelaufen. Bitte wähle erneut.",
+          error: t("errors.holdExpired")
         });
         return;
       }
       if (!res.ok) {
-        const t = await res.text().catch(() => "");
-        console.error("CONFIRM error:", t);
+        const txt = await res.text().catch(() => "");
+        console.error("CONFIRM error:", txt);
         setConfirmState({
-          error: "Bestätigung fehlgeschlagen. Versuche es erneut.",
+          error: t("errors.confirmFail")
         });
         return;
       }
@@ -150,7 +175,7 @@ export default function Summary({ service, datetime }) {
         setConfirmState({ ok: true });
       } else {
         setConfirmState({
-          error: "Unerwartete Antwort. Versuche es erneut.",
+          error: t("errors.unexpected")
         });
       }
     } finally {
@@ -160,33 +185,27 @@ export default function Summary({ service, datetime }) {
 
   return (
     <div className="rounded-xl border p-4 bg-neutral-50">
-      <div className="font-semibold mb-2">Zusammenfassung</div>
+      <div className="font-semibold mb-2">{t("title")}</div>
 
       {!hasAll && (
-        <p className="text-sm text-neutral-600">
-          Wähle Service, Datum & Uhrzeit.
-        </p>
+        <p className="text-sm text-neutral-600">{t("hintSelect")}</p>
       )}
 
       {service && (
         <p className="text-sm">
-          <span className="font-medium">Service:</span> {service.title} —{" "}
-          {service.durationMin} Min • CHF{" "}
-          {service.price ??
-            service.price_chf ??
-            service.priceChf ??
-            service.priceCHF ??
-            0}
+          <span className="font-medium">{t("labels.service")}</span>{" "}
+          {service.title} — {service.durationMin} {t("labels.min")} •{" "}
+          {priceFormatted}
         </p>
       )}
 
       {datetime?.timeISO && (
         <p className="text-sm mt-1">
-          <span className="font-medium">Termin:</span>{" "}
-          {new Date(datetime.timeISO).toLocaleString([], {
+          <span className="font-medium">{t("labels.appointment")}</span>{" "}
+          {new Intl.DateTimeFormat(locale, {
             dateStyle: "medium",
-            timeStyle: "short",
-          })}
+            timeStyle: "short"
+          }).format(new Date(datetime.timeISO))}
         </p>
       )}
 
@@ -206,7 +225,7 @@ export default function Summary({ service, datetime }) {
           }`}
           onClick={createHold}
         >
-          {loading ? "Bitte warten…" : "Weiter"}
+          {loading ? t("btn.wait") : t("btn.next")}
         </button>
       )}
 
@@ -214,21 +233,20 @@ export default function Summary({ service, datetime }) {
       {hasHold && !confirmState?.ok && (
         <div className="mt-4">
           <div className="text-sm text-green-700">
-            Slot für dich reserviert (HOLD). Bitte in den nächsten Minuten
-            fortfahren.
+            {t("hold.info")}
             <div className="mt-1 opacity-80">
-              HOLD bis:{" "}
-              {new Date(holdInfo.hold_until).toLocaleTimeString([], {
+              {t("hold.until")}{" "}
+              {new Intl.DateTimeFormat(locale, {
                 hour: "2-digit",
-                minute: "2-digit",
-              })}
+                minute: "2-digit"
+              }).format(new Date(holdInfo.hold_until))}
             </div>
           </div>
 
           <form className="mt-4 space-y-3" onSubmit={confirmPending}>
             <input
               type="text"
-              placeholder="Name"
+              placeholder={t("form.name")}
               className="w-full border rounded-lg px-3 py-2"
               value={form.name}
               onChange={(e) =>
@@ -237,7 +255,7 @@ export default function Summary({ service, datetime }) {
             />
             <input
               type="email"
-              placeholder="E-Mail"
+              placeholder={t("form.email")}
               className="w-full border rounded-lg px-3 py-2"
               value={form.email}
               onChange={(e) =>
@@ -253,10 +271,10 @@ export default function Summary({ service, datetime }) {
               className="px-4 py-2 rounded-lg bg-black text-white hover:opacity-90"
             >
               {loading
-                ? "Sende…"
+                ? t("btn.sending")
                 : isFreeOrNoPay
-                ? "Kostenlos reservieren"
-                : "Bestätigen"}
+                ? t("btn.reserveFree")
+                : t("btn.confirm")}
             </button>
           </form>
         </div>
@@ -265,19 +283,16 @@ export default function Summary({ service, datetime }) {
       {/* STEP 3A: Éxito directo si es gratis O pagos apagados */}
       {confirmState?.ok && isFreeOrNoPay && (
         <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
-          <div className="font-medium">Termin bestätigt ✔</div>
-          <p className="mt-1">
-            Deine Buchung ist bestätigt. Eine Bestätigung wurde per E-Mail
-            versendet. Wir sehen uns zum Termin!
-          </p>
+          <div className="font-medium">{t("success.title")}</div>
+          <p className="mt-1">{t("success.body")}</p>
         </div>
       )}
 
       {/* STEP 3B: Pago (PayPal) solo si NO es gratis y pagos están activos */}
       {confirmState?.ok && !isFreeOrNoPay && (
         <div className="mt-4 rounded-lg border bg-white p-3 text-sm">
-          <div className="font-medium">Bestätigt (PENDING) ✔</div>
-          <p className="mt-1">Bitte fahre mit der Bezahlung fort.</p>
+          <div className="font-medium">{t("payPending.title")}</div>
+          <p className="mt-1">{t("payPending.body")}</p>
           <PayPalSection
             holdInfo={holdInfo}
             isFree={isFree}

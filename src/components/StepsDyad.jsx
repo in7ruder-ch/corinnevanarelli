@@ -1,8 +1,12 @@
 'use client';
 
 import Section from '@/components/Section';
+import { useTranslations } from 'next-intl';
 
-export default function StepsDyad({ title = 'Ablauf einer Lesung', subtitle, steps, footer }) {
+export default function StepsDyad({ title, subtitle, steps, footer }) {
+  const t = useTranslations('StepsDyad');
+  const _title = title ?? t('title');
+
   return (
     <Section
       className="bg-[#f5f5f5] py-16 md:py-20 md:pb-24"
@@ -10,7 +14,7 @@ export default function StepsDyad({ title = 'Ablauf einer Lesung', subtitle, ste
     >
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-normal text-neutral-900 [text-wrap:balance] break-words">
-          {title}
+          {_title}
         </h2>
         {subtitle && <p className="mt-2 text-neutral-600">{subtitle}</p>}
       </div>
@@ -19,7 +23,6 @@ export default function StepsDyad({ title = 'Ablauf einer Lesung', subtitle, ste
       <div
         className="
           mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8
-          /* En lg: columnas del ancho exacto de la card y grid centrado */
           lg:[grid-template-columns:repeat(2,420px)] lg:justify-center
         "
       >
@@ -28,12 +31,10 @@ export default function StepsDyad({ title = 'Ablauf einer Lesung', subtitle, ste
             key={i}
             className="
               relative rounded-2xl bg-white shadow-sm ring-1 ring-black/5 px-6 pt-10 pb-8 text-center
-              /* En md la card ocupa toda la columna (reduce gap visual).
-                 En lg fijamos el mismo ancho que Triptych. */
               w-full lg:w-[420px]
             "
           >
-            {/* Badge número (igual que Triptych: fondo blanco + borde) */}
+            {/* Badge número */}
             <div
               className="
                 absolute -top-6 left-1/2 -translate-x-1/2
@@ -45,7 +46,7 @@ export default function StepsDyad({ title = 'Ablauf einer Lesung', subtitle, ste
               {i + 1}
             </div>
 
-            <h3 className="text-[1.5rem] sm:text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] font-semibold text-neutral-900">{s.title}</h3>
+            <h3 className="text-[1.5rem] font-semibold text-neutral-900">{s.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-neutral-700">
               {s.body}
             </p>

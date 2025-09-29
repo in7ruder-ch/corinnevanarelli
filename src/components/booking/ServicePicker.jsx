@@ -2,19 +2,23 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function ServicePicker({ value, initialSelectedId, onChange }) {
+  const t = useTranslations("Booking.ServicePicker");
+  const locale = useLocale();
+
   const [services, setServices] = useState([]);
   const [selected, setSelected] = useState(value ?? null);
   const [loading, setLoading] = useState(true);
 
-  // Carga desde la API (Supabase)
+  // Carga desde la API (con locale para i18n)
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
         setLoading(true);
-        const res = await fetch("/api/services", { cache: "no-store" });
+        const res = await fetch(`/api/services?locale=${locale}`, { cache: "no-store" });
         const json = await res.json(); // { services: [...] }
         if (!mounted) return;
         const list = Array.isArray(json?.services) ? json.services : [];
@@ -29,7 +33,7 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [locale]);
 
   // Selección inicial una vez que hay datos
   useEffect(() => {
@@ -79,11 +83,17 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
     onChange?.(svc);
   };
 
+  const formatDuration = (s) => {
+    const n = Number(s?.durationMin);
+    if (Number.isFinite(n) && n > 0) return t("durationFmt", { min: n });
+    // fallback a lo que viene de DB si no hay durationMin
+    return s?.durationLabel || "";
+  };
+
   if (loading) {
     return (
       <div className="space-y-3">
-        <label className="text-sm font-medium">Service</label>
-        <div className="text-sm text-neutral-500">Laden…</div>
+        <div className="text-sm text-neutral-500">{t("loading")}</div>
       </div>
     );
   }
@@ -91,8 +101,7 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
   if (!services.length) {
     return (
       <div className="space-y-3">
-        <label className="text-sm font-medium">Service</label>
-        <div className="text-sm text-neutral-500">Zurzeit sind keine Services verfügbar.</div>
+        <div className="text-sm text-neutral-500">{t("empty")}</div>
       </div>
     );
   }
@@ -102,6 +111,10 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
       <div className="grid sm:grid-cols-3 gap-3">
         {services.map((s) => {
           const active = String(selected) === String(s.id);
+          const durText = formatDuration(s);
+          const hasMod = Boolean(s.modality);
+          const hasDur = Boolean(durText);
+
           return (
             <button
               key={s.id}
@@ -114,13 +127,14 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
             >
               <div className="font-semibold">{s.title}</div>
 
-              {/* Subinfo: modalidad | duración */}
-              <div className={`text-sm mt-1 ${active ? "opacity-90" : "text-neutral-600"}`}>
-                {s.modality ? s.modality : null}
-                {s.modality && s.durationLabel ? " | " : null}
-                {s.durationLabel}
-              </div>
-
+              {/* Subinfo: modalidad | duración (i18n) */}
+              {(hasMod || hasDur) && (
+                <div className={`text-sm mt-1 ${active ? "opacity-90" : "text-neutral-600"}`}>
+                  {hasMod ? s.modality : null}
+                  {hasMod && hasDur ? " | " : null}
+                  {hasDur ? durText : null}
+                </div>
+              )}
 
               {/* Precio al final */}
               {s.priceLabel ? (
@@ -136,7 +150,7 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
       {/* Resumen de selección (opcional) */}
       {selectedService ? (
         <div className="text-sm">
-          Ausgewählt: <strong>{selectedService.title}</strong>
+          {t("selected")} <strong>{selectedService.title}</strong>
         </div>
       ) : null}
     </div>

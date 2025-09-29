@@ -1,0 +1,916 @@
+{
+  "Navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "offers": "Servicios",
+    "contact": "Contacto",
+    "ontologicalCoaching": "Coaching Ontológico",
+    "akashaReading": "Lectura de Registros Akáshicos",
+    "hopiHeartHealing": "Sanación de Corazón",
+    "chakraClearing": "Limpieza de Chakras",
+    "spinalAlignment": "Alineación Espiritual",
+    "aromatouch": "doTERRA AromaTouch"
+  },
+  "AltSection": {
+    "ctaLabel": "Más información"
+  },
+  "ContactForm": {
+    "title": "Contacto",
+    "fields": {
+      "vorname": "Nombre",
+      "name": "Apellido",
+      "email": "Correo electrónico",
+      "nachricht": "Mensaje"
+    },
+    "actions": {
+      "send": "Enviar",
+      "sending": "Enviando…"
+    },
+    "feedback": {
+      "success": "Gracias, hemos recibido tu mensaje.",
+      "error": "Error al enviar."
+    },
+    "errors": {
+      "unknown": "Error desconocido"
+    },
+    "footer": {
+      "phone": "Teléfono",
+      "email": "E-mail",
+      "address": "Dirección"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Corinne Vanarelli. Todos los derechos reservados."
+  },
+  "FreeConsultCallout": {
+    "title": "Llamada 1:1 gratuita de claridad",
+    "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada de presentación gratuita.",
+    "duration": "20 min",
+    "price": "Gratis",
+    "ctaLabel": "Solicitar reserva"
+  },
+  "Hero": {
+    "ariaLabel": "Hero",
+    "title": "Coaching y Trabajo Energético\npara Sanación, Autoconocimiento\ny Claridad",
+    "imageAlt": "Naturaleza y calma - hero"
+  },
+  "ServiceBanner": {
+    "ariaLabel": "Banner de servicio",
+    "title": "Coaching Ontológico",
+    "imageAlt": "Banner de servicio"
+  },
+  "ServiceCard": {
+    "ctaLabel": "Reservar ahora"
+  },
+  "Services": {
+    "title": "Servicios",
+    "loading": "Cargando servicios…",
+    "empty": "No hay servicios disponibles por el momento."
+  },
+  "StepsDyad": {
+    "title": "How a Reading Works"
+  },
+  "Testimonials": {
+    "prevAria": "Testimonio anterior",
+    "nextAria": "Siguiente testimonio",
+    "dotAria": "Testimonio {index}",
+    "items": {
+      "0": {
+        "name": "Nina N.",
+        "text": "La Crónica Akáshica me abre una puerta: a una sabiduría espiritual profunda y a experiencias de vidas pasadas. Es misteriosa y, al mismo tiempo, totalmente tangible: un espejo de mi alma. Para mí, el equilibrio perfecto entre profundidad y claridad."
+      },
+      "1": {
+        "name": "Nicolás M.",
+        "text": "La sanación del corazón fue suave e increíblemente poderosa. Después de una sola sesión sentí un cambio profundo, como si algo se hubiese abierto dentro de mí. Volví a sentir claridad y conexión como hace mucho no sentía. El espacio que crea Coco está lleno de calidez e intuición; me dio el coraje para ir más profundo y encontrarme con mi verdadero ser."
+      },
+      "2": {
+        "name": "Michelle H.",
+        "text": "Unís lo terrenal y lo espiritual de una manera maravillosa: clara, con los pies en la tierra y luminosa. En tu presencia atenta y amorosa, surge un espacio donde la sanación auténtica puede suceder. Tu trabajo me ha impulsado realmente en mi camino. Profesional y humanamente, sos una verdadera contribución."
+      },
+      "3": {
+        "name": "Simone P.",
+        "text": "Durante la sanación del corazón sentí un calor como una mano sobre mi pecho: lágrimas, calma, un llegar profundo. Después de la sesión vinieron sentimientos e insights muy claros: verdadera transformación. Es la forma de sanación más intensa y efectiva que he vivido. Con Coco me siento vista, acompañada con confianza y sin ningún juicio."
+      }
+    }
+  },
+  "Home": {
+    "meta": {
+      "title": "Lectura Akáshica, Sanación del Corazón y Coaching | Corinne Vanarelli",
+      "description": "De vuelta a ti: Sanación del corazón, coaching ontológico y lecturas de Registros Akáshicos - con empatía, claridad y a tu ritmo, en Zúrich y online."
+    },
+    "og": {
+      "title": "Lectura Akáshica, Sanación del Corazón y Coaching | Corinne Vanarelli",
+      "description": "Acompañamiento con profundidad: Sanación del corazón, coaching y Registros Akáshicos para claridad, equilibrio y cambio real."
+    },
+    "twitter": {
+      "title": "Lectura Akáshica, Sanación del Corazón y Coaching | Corinne Vanarelli",
+      "description": "Sanación del corazón, coaching y Registros Akáshicos en Zúrich y online."
+    },
+    "s1": {
+      "title": "Bienvenida a tu viaje <strong><em>de vuelta a ti</em></strong>",
+      "kicker": "Te acompaño en tu camino hacia la claridad interior y el empoderamiento",
+      "p1": "Tal vez hace tiempo sientas un anhelo silencioso dentro de ti: anhelo de claridad, de llegar, de ti misma.",
+      "p2": "Te acompaño en tu viaje interior - con coaching ontológico y trabajo energético. Juntas disolvemos bloqueos, aclaramos patrones antiguos y creamos espacio para el cambio, la sanación y nuevas posibilidades. Para más claridad, fuerza interior y una vida en sintonía con tu esencia.",
+      "p3": "Mi trabajo no se trata de más alto, más rápido, más lejos, sino de profundidad, autenticidad y conciencia. A tu ritmo, a tu manera.",
+      "p4": "Te apoyo a soltar cargas internas, recuperar la confianza en vos misma y vivir tu propia verdad.",
+      "p5": "Sos bienvenida tal como sos. Y quizás aquí empiece tu viaje <em>de vuelta a ti</em>.",
+      "imageAlt": "Corinne Vanarelli"
+    },
+    "s2": {
+      "title": "<strong>Coaching Ontológico - de vuelta a tu verdadero ser</strong>",
+      "p1": "El coaching ontológico va más profundo que el coaching clásico:",
+      "p2": "No solo pregunta: “¿Qué quiero hacer?”, sino “¿Quién soy - y cómo quiero vivir?”",
+      "p3": "El centro es tu ser: tu postura interior, tu lenguaje, tu pensamiento y tu sentir.",
+      "p4": "El cambio real no surge de hacer más, sino de la conciencia.",
+      "p5": "<strong>El cambio no empieza afuera - empieza en vos.</strong>",
+      "imageAlt": "Sala de práctica"
+    },
+    "s3": {
+      "title": "<strong>Lectura Akáshica - mensajes de tu alma</strong>",
+      "p1": "A veces llegamos a un punto de inflexión y sentimos que necesitamos claridad. Una lectura akáshica abre un espacio para comprender más profundamente quién sos y qué quiere realmente tu alma.",
+      "p2": "Recibís claridad sobre el origen de tus miedos, patrones y bloqueos - y reconocés por qué ciertas experiencias ocurren en tu vida.",
+      "p3": "Se hace visible lo que verdaderamente te mueve - y lo que ahora puede devolverte tu poder.",
+      "p4": "<strong>La lectura del alma te regala orientación, conciencia y confianza. Para tu camino. Para tu decisión. Para vos.</strong>",
+      "imageAlt": "Corinne Vanarelli"
+    },
+    "s4": {
+      "title": "<strong>Sanación del Corazón Hopi - tu corazón conoce el camino</strong>",
+      "p1": "La sanación del corazón Hopi es una forma poderosa y a la vez muy suave de trabajo energético, nacida de la sabiduría del pueblo Hopi. Experiencias pasadas, desilusiones o heridas profundas pueden alejarnos de nosotras mismas.",
+      "p2": "Volvés a conectar con tu paz interior, tu amor propio y la fuerza de tu corazón. Esta conexión profunda permite un nuevo comienzo - en vos y con vos.",
+      "p3": "<strong>Este trabajo del corazón abre espacios: para la sanación, la conexión y la confianza - y para tu camino propio.</strong>",
+      "imageAlt": "Sala de práctica"
+    },
+    "s5": {
+      "title": "<strong>Chakra Clearing - equilibrá tu energía</strong>",
+      "p1": "Tus siete chakras son los centros de energía de tu cuerpo - influyen en cómo sentís, pensás y te percibís. El estrés, emociones antiguas o la inquietud interna pueden bloquearlos.",
+      "p2": "En el Chakra Clearing, tus chakras se limpian suavemente, se activan y vuelven al equilibrio. Así tu energía vuelve a fluir - para más claridad, liviandad y armonía interior.",
+      "p3": "<strong>Sentí lo que es volver a estar plenamente con vos.</strong>",
+      "imageAlt": "Corinne Vanarelli"
+    },
+    "s6": {
+      "title": "<strong>Alineación Espiritual de la Columna - a tu centro, a tu fuerza</strong>",
+      "p1": "Volvé a tu alineación natural - para el equilibrio de cuerpo, mente y alma. La alineación espiritual de la columna te sostiene para volver a tu plena potencia - física, emocional y energéticamente.",
+      "p2": "Tu columna es el centro de tu ser - te sostiene, te alinea y permite que circule tu energía vital. Cuando ese flujo se bloquea, pueden aparecer síntomas en lo físico y en lo emocional.",
+      "p3": "<strong>Este método vuelve a poner tu energía en movimiento - suave, integral y profundamente efectivo. Viví alineación, claridad y sanación interior.</strong>",
+      "imageAlt": "Sala de práctica"
+    },
+    "s7": {
+      "title": "<strong>doTERRA AromaTouch® - relajación profunda con aceites esenciales</strong>",
+      "p1": "El toque suave se encuentra con la fuerza de las esencias puras de plantas. doTERRA AromaTouch® combina toques conscientes con aceites esenciales 100% puros de doTERRA.",
+      "p2": "Se estimulan zonas específicas para reducir el estrés, fortalecer el sistema inmune y restaurar el equilibrio interno. Esta técnica actúa en lo físico y en lo emocional - y te lleva a una relajación profunda.",
+      "p3": "<strong>Una experiencia reconfortante para cuerpo, mente y alma. Soltar. Recargar. Llegar - a vos misma.</strong>",
+      "imageAlt": "Corinne Vanarelli"
+    }
+  },
+  "About": {
+    "meta": {
+      "title": "Sobre mí",
+      "description": "Mi camino, mis valores, mi trabajo: trabajadora social y coach - por qué acompaño a las personas en su camino hacia la claridad, la sanación y el empoderamiento.",
+      "canonical": "https://www.corinnevanarelli.ch/ueber-mich",
+      "og": {
+        "title": "Sobre mí | Corinne Vanarelli",
+        "description": "Trayectoria y postura: sanación del corazón, coaching y Registros Akáshicos - humano, claro, auténtico.",
+        "url": "https://www.corinnevanarelli.ch/ueber-mich",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg",
+            "alt": "Corinne Vanarelli"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "profile"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Sobre mí | Corinne Vanarelli",
+        "description": "Quién soy y cómo trabajo - con profundidad y conexión.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg"
+        ]
+      }
+    },
+    "intro": {
+      "title": "Sobre mí",
+      "nameLine": "Corinne Vanarelli- <em>Coco</em>",
+      "p1": "Desde muy temprano me interesaron la mente humana y las desigualdades sociales. Eso me llevó a estudiar Trabajo Social - con el deseo de comprender mejor a las personas y acompañarlas en su camino hacia la justicia y la autodeterminación. Como trabajadora social, he trabajado con menores no acompañados y adultos en el ámbito de asilo, con personas con consumo problemático de sustancias (terapia así como reducción de daños y prevención), y con mujeres, niños y adolescentes en etapas de vida desafiantes.",
+      "p2": "Viví muchas subidas y bajadas - crisis personales, nuevos comienzos, etapas de desarrollo. Mi tiempo en Latinoamérica fue especialmente formativo, donde viví y trabajé casi ocho años. Esos años me transformaron profundamente como persona y como profesional. Con el tiempo comprendí que todo deseo de cambio afuera comienza primero en nosotrxs. El camino hacia el autoconocimiento suele ser desafiante - y justamente allí el coaching y el trabajo energético llegaron a mi vida. Se convirtieron en acompañantes poderosos de mi viaje interior. Todas estas experiencias hoy fluyen en mi trabajo: en coaching, trabajos energéticos y como acompañante de procesos.",
+      "p3": "Estoy convencida: cada persona lleva en sí la fuerza del cambio - a veces solo hace falta el espacio adecuado para desplegarla.",
+      "imageAlt": "Corinne Vanarelli en la naturaleza"
+    },
+    "education": {
+      "title": "Formación",
+      "rows": [
+        {
+          "year": "2025",
+          "left": [
+            "doTERRA AromaTouch®",
+            "Online, Suiza"
+          ],
+          "right": [
+            "Método doTERRA AromaTouch®"
+          ]
+        },
+        {
+          "year": "2024-2025",
+          "left": [
+            "Lebensmagie",
+            "Berna, Suiza"
+          ],
+          "right": [
+            "Trabajo energético de sanación",
+            "Formación: Sanación del corazón, Lectura de Registros Akáshicos, Alineación espiritual, Limpieza de chakras"
+          ]
+        },
+        {
+          "year": "2022-2024",
+          "left": [
+            "Escuela de Formación de Líderes, Buenos Aires, Argentina"
+          ],
+          "right": [
+            "Coaching ontológico (International Coaching Federation)"
+          ]
+        },
+        {
+          "year": "2011-2015",
+          "left": [
+            "Universidad de Ciencias Aplicadas Trabajo Social",
+            "Berna, Suiza"
+          ],
+          "right": [
+            "Licenciatura en Trabajo Social"
+          ]
+        }
+      ]
+    }
+  },
+  "Book": {
+    "title": "Reserva",
+    "lead": "Elige tu servicio, fecha y hora."
+  },
+  "Coaching": {
+    "meta": {
+      "title": "Coaching ontológico | Corinne Vanarelli",
+      "description": "Claridad, foco y verdadera implementación: coaching de igual a igual para temas profesionales y personales - en Zúrich y online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
+      "og": {
+        "title": "Coaching ontológico | Corinne Vanarelli",
+        "description": "De la comprensión a la acción: ampliar perspectivas, decidir y pasar al hacer.",
+        "url": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg",
+            "alt": "Coaching ontológico"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Coaching ontológico | Corinne Vanarelli",
+        "description": "Crear claridad, fijar prioridades, pasar a la acción.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Coaching ontológico",
+      "imageAlt": "Coaching ontológico - banner"
+    },
+    "alt1": {
+      "title": "Coaching ontológico - el cambio comienza en el ser",
+      "body": "<p>El coaching ontológico te acompaña a un nivel más profundo - no solo en lo que haces, sino en quién eres en tu núcleo. El foco no está en resolver problemas rápido, sino en la pregunta honesta:</p><p>¿Quién soy - y cómo diseño mi vida desde esa verdad interior?</p><p>En lugar de trabajar en la superficie, miramos juntxs tu ser:</p><p>Cómo piensas, hablas, sientes - y cómo percibes el mundo. Allí está la clave del cambio real y sostenible.</p><p>El coaching ontológico no es un \"programa rápido\". Es un viaje consciente de regreso a ti - a tu ritmo, a tu profundidad, en tu propio compás. Abre nuevas perspectivas, claridad y acceso a lo que ya está en ti, aunque quizá aún oculto.</p><p><strong>Por claridad. Por conexión. Por tu vida auténtica.</strong></p>",
+      "imageAlt": "Espacio de coaching"
+    },
+    "alt2": {
+      "title": "Coaching como acompañamiento en tu camino de vuelta a ti:",
+      "items": [
+        "ganar claridad sobre tu propio camino",
+        "descubrir tus fortalezas y valores",
+        "liberar bloqueos personales y desarrollar estrategias de acción",
+        "generar cambios sostenibles",
+        "resolver conflictos internos y externos",
+        "fortalecer tus estrategias de afrontamiento",
+        "desplegar tu potencial personal"
+      ],
+      "imageAlt": "Camino compartido"
+    },
+    "centered": {
+      "title": "Coaching con claridad - para un cambio real",
+      "body": "<p>Mi coaching se basa en una confianza profunda - en tus capacidades, tu sabiduría interior y tu propio camino. Estoy convencida: cada persona lleva dentro el potencial para crecer y diseñar su vida de forma consciente.</p><p>En mi trabajo combino métodos emocionales y mentales efectivos de diversos enfoques - con atención plena, de manera individual y orientada a soluciones. Así se crea espacio para nuevas perspectivas, pensamiento claro y acción consciente. Un camino que te acerca a ti.</p><p>El proceso de coaching es tan único como tú - hecho a medida y alineado con tus necesidades. Juntxs miramos aquello que te bloquea por dentro y desarrollamos caminos para que recuperes claridad y vuelvas a tu fuerza. Muchas veces solo hace falta una nueva mirada para ver más allá.</p><p>Con preguntas precisas traemos luz a tu tema - especialmente donde quizá estés demasiado cerca como para reconocer con claridad las respuestas. Te acompaño con corazón, claridad y un espacio seguro para el cambio real.</p><p>La única condición: la disposición a soltar lo viejo - y permitir lo nuevo.</p>"
+    },
+    "steps": {
+      "title": "El proceso de coaching - qué esperar",
+      "subtitle": "El cambio empieza con un primer paso. Así funciona mi proceso de coaching:",
+      "items": [
+        {
+          "title": "Llamada inicial gratuita",
+          "body": "En la primera conversación nos conocemos (aprox. 20 minutos). Me cuentas qué te mueve - y aclaramos cómo puedo apoyarte de la mejor manera. Este primer encuentro no tiene compromiso y es gratuito."
+        },
+        {
+          "title": "Sesiones de coaching individuales",
+          "body": "En las sesiones trabajamos específicamente tus temas. Desarrollamos soluciones y estrategias que encajan contigo - y te llevan paso a paso hacia tus objetivos."
+        },
+        {
+          "title": "Reflexión y desarrollo continuo",
+          "body": "Al final miramos juntos hacia atrás: ¿qué cambió? ¿qué te sostiene? ¿y cómo puedes seguir en conexión contigo en tu camino?"
+        }
+      ],
+      "footer": "<p>Este camino puede ser emocionalmente movilizador - y justamente allí reside su fuerza:</p><p><strong>Al final suele aparecer una sensación profunda de claridad, ligereza y nueva energía.</strong></p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    }
+  },
+  "Akasha": {
+    "meta": {
+      "title": "Lectura de Registros Akáshicos",
+      "description": "Claridad sobre bloqueos, patrones y próximos pasos: lecturas compasivas de Registros Akáshicos en Zúrich y online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
+      "og": {
+        "title": "Lectura de Registros Akáshicos | Corinne Vanarelli",
+        "description": "Respuestas con profundidad: lectura de Registros Akáshicos para orientación, sanación y alineación interior.",
+        "url": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Akasha Chronik Lesung.jpg",
+            "alt": "Lectura de Registros Akáshicos"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Lectura de Registros Akáshicos | Corinne Vanarelli",
+        "description": "Reconoce los patrones, suelta bloqueos y encuentra tu camino.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Akasha Chronik Lesung.jpg"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Lectura de Registros Akáshicos",
+      "imageAlt": "Registros Akáshicos - banner"
+    },
+    "alt1": {
+      "title": "Registros Akáshicos - claridad sobre tu camino y tus bloqueos",
+      "body": "<p>Los Registros Akáshicos son un campo sutil y energético - a menudo llamado la \"memoria universal\". Allí está guardado todo lo que un alma ha vivido, sentido y aprendido - a través del tiempo y el espacio. En muchas tradiciones espirituales se consideran fuente de sabiduría profunda, claridad y sanación. Al conectar con ellos, accedemos a un conocimiento más alto - más allá de la mente.</p><p>Los mensajes del Akasha son siempre amorosos, precisos y de apoyo. Nos ayudan a entender patrones, disolver bloqueos y volver a contactar con nuestra verdad interior.</p><p><strong>Los Registros Akáshicos te recuerdan quién eres realmente - a nivel del alma.</strong></p>",
+      "imageAlt": "Lectura akáshica"
+    },
+    "alt2": {
+      "title": "Insights que te recuerdan - y te hacen avanzar",
+      "bodyIntro": "<p>Una lectura akáshica puede darte insights profundos y nuevas perspectivas - exactamente donde estás ahora en tu vida. Abre un espacio para reconocerte y comprenderte a nivel de alma. Puedes:</p>",
+      "items": [
+        "comprender más profundamente cómo te sientes en esta etapa",
+        "ver con más claridad tu misión de vida y camino del alma",
+        "entender y disolver patrones recurrentes",
+        "transformar suavemente enredos, bloqueos o miedos",
+        "desarrollar nuevas miradas sobre desafíos internos y externos",
+        "encontrar mayor claridad interna y alineación energética",
+        "fortalecer la conexión con tu alma y volver a confiar en ella"
+      ],
+      "bodyOutro": "Para quienes sienten: hay más - y estoy lista/o para verlo.",
+      "imageAlt": "Lectura de Registros Akáshicos"
+    },
+    "topics": {
+      "title": "Posibles temas en una lectura akáshica",
+      "subtitle": "Aquí algunos temas que pueden abordarse en una lectura:",
+      "columns": [
+        {
+          "title": "Amor y pareja",
+          "items": [
+            "Reconocer y disolver enredos kármicos",
+            "Comprender causas y patrones en conflictos de pareja",
+            "Aclarar influencias externas",
+            "Reconocer metas del alma compartidas",
+            "Fortalecer confianza y respeto en la relación",
+            "Reconocer almas compañeras"
+          ]
+        },
+        {
+          "title": "Trabajo y vocación",
+          "items": [
+            "Encontrar tu vocación",
+            "Ver y alcanzar metas con mayor claridad",
+            "Reconocer patrones kármicos en el entorno laboral",
+            "Descubrir influencias bloqueantes del entorno",
+            "Tomar decisiones con claridad interior"
+          ]
+        },
+        {
+          "title": "Familia y linaje",
+          "items": [
+            "Reconocer temas de linaje y patrones intergeneracionales",
+            "Disolver enredos con madres/padres o hijxs",
+            "Comprender tareas de aprendizaje familiares",
+            "Reconocer y poner límites a influencias externas"
+          ]
+        },
+        {
+          "title": "Salud y conciencia corporal",
+          "items": [
+            "Sintonizar con los mensajes del cuerpo",
+            "Causas emocionales y energéticas",
+            "Reconocer molestias físicas",
+            "Disolver influencias externas energéticamente"
+          ]
+        },
+        {
+          "title": "Finanzas y abundancia",
+          "items": [
+            "Comprender temas kármicos respecto al dinero y el éxito",
+            "Reconocer causas de bloqueos financieros",
+            "Activar conscientemente la abundancia energética"
+          ]
+        },
+        {
+          "title": "Espiritualidad y conexión del alma",
+          "items": [
+            "Reconocer habilidades y potenciales espirituales",
+            "Profundizar la conexión con guías espirituales",
+            "Fortalecer la percepción intuitiva"
+          ]
+        }
+      ]
+    },
+    "steps": {
+      "title": "Cómo es una lectura akáshica",
+      "subtitle": "Cada lectura es única - como tú. Así trabajo y esto puedes esperar:",
+      "items": [
+        {
+          "title": "Preparación de la lectura",
+          "body": "Antes de cada lectura me sintonizo a través de una conexión meditativa con tu alma y tu campo energético. Me conecto con tu energía del alma y con tus acompañantes espirituales - siempre en coherencia con tu mayor bien."
+        },
+        {
+          "title": "Recepción de los mensajes",
+          "body": "Durante la lectura recibo mensajes intuitivos y espirituales de tus Registros Akáshicos. Revelan conexiones profundas en tu camino de vida y te brindan respuestas para ver con mayor claridad y seguir tu camino con más confianza."
+        }
+      ],
+      "footer": "<p>Tu alma trae a la luz exactamente los temas que ahora importan. Yo soy la mensajera - clara, atenta y presente. Así se crea un espacio de comprensión, sanación y conexión profunda contigo.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita de conocimiento.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    }
+  },
+  "Hopi": {
+    "meta": {
+      "title": "Sanación de Corazón",
+      "description": "Sanación suave del corazón para calma interior, conexión y claridad emocional - en Zúrich y online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
+      "og": {
+        "title": "Sanación de Corazón | Corinne Vanarelli",
+        "description": "Abrir el corazón, calmar el sistema nervioso, volver a ti.",
+        "url": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp",
+            "alt": "Sanación de Corazón"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Sanación de Corazón | Corinne Vanarelli",
+        "description": "Más calma, amor y claridad - desde el corazón.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Sanación de Corazón",
+      "imageAlt": "Sanación de Corazón - banner"
+    },
+    "alt1": {
+      "title": "Sanación de Corazón - tu corazón conoce tu camino",
+      "body": "<p>La Sanación de Corazón es un método suave y a la vez profundo del antiguo conocimiento Hopi. Toca tu corazón - y con ello el nivel de tu alma y tu cuerpo sutil. Allí donde a menudo habitan las heridas más profundas, pero también la mayor fuerza interior, es donde actúa la sanación del corazón.</p><p>Paso a paso puedes volver a abrir tu corazón - libre de viejas heridas, miedos o bloqueos que inconscientemente te impiden permitir amor, abundancia y conexión genuina en tu vida.</p><p>Este trabajo energético te ayuda a liberar cargas emocionales - no solo las propias, sino también patrones heredados de tu linaje.</p><p><strong>Así se crea espacio para claridad, ligereza y una verdadera conexión del corazón - contigo y con otros.</strong></p>",
+      "imageAlt": "Sanación de Corazón"
+    },
+    "alt2": {
+      "title": "Cuando tu corazón pide sanar",
+      "bodyIntro": "<p>Este trabajo de sanación es para quien desea ser acompañado y tocado a nivel del corazón - especialmente en tiempos de cambio, inquietud interior o carga emocional. Es especialmente adecuado para personas que:</p>",
+      "items": [
+        "se sienten bloqueadas por dentro o emocionalmente agotadas",
+        "quieren soltar con amor viejas heridas, duelos o miedos",
+        "quieren reconectar con su energía del corazón",
+        "buscan paz consigo mismas y con su pasado",
+        "anhelan sanación emocional y paz interior",
+        "quieren aclarar temas de apego, dolor en la relación o heridas antiguas",
+        "desean una conexión más profunda consigo y con otros",
+        "padecen burnout, depresión, duelo o molestias inexplicables",
+        "están en una fase de cambio, crisis o reorientación",
+        "como niñx (o para su hijx) quieren fortalecer la seguridad emocional - p. ej., tras la separación de los padres"
+      ],
+      "imageAlt": "Sanación del corazón"
+    },
+    "steps": {
+      "title": "Cómo se desarrolla una Sanación de Corazón",
+      "items": [
+        {
+          "title": "Llegar y sintonizar",
+          "body": "Al inicio te das tiempo para aquietarte a tu ritmo y llegar a ti. En una breve charla vemos juntxs lo que te mueve ahora - emocional, espiritual o físicamente. Así se crea un espacio atento donde todo puede estar."
+        },
+        {
+          "title": "Trabajo de corazón y acompañamiento energético",
+          "body": "Puedes recostarte o sentarte cómodamente - y simplemente recibir. Me conecto con la fuente de la energía Hopi y trabajo de forma intuitiva a través de tu centro del corazón. La energía fluye exactamente donde se necesita - amorosa, clara y a menudo profundamente movilizadora. Viejas heridas, bloqueos o patrones heredados pueden disolverse suavemente."
+        },
+        {
+          "title": "Después de la sesión",
+          "body": "Tras la sesión tienes espacio para sentir en calma - contigo, sin prisa. En un intercambio atento reflexionamos lo que se mostró. Recibes impulsos para integrar lo vivido en tu día a día y prolongar el efecto de la sanación. La energía suele seguir actuando días después - suave pero profunda. Mucha gente siente luego más paz interior, una conexión del corazón amplia y abierta, y una mirada más amorosa hacia sí."
+        }
+      ],
+      "footer": "<p><strong>Date tiempo.</strong> Bebe suficiente agua, permítete descanso y escucha tu cuerpo.</p><p>La sanación no ocurre bajo presión - se despliega cuando le das espacio.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    }
+  },
+  "Chakra": {
+    "meta": {
+      "title": "Chakra Clearing",
+      "description": "Limpiar y armonizar centros de energía: más claridad, equilibrio y vitalidad - sesión en Zúrich u online.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
+      "og": {
+        "title": "Chakra Clearing",
+        "description": "Soltar bloqueos, poner la energía en flujo, encontrar tu centro.",
+        "url": "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Chakra Clearing Sitzung.webp",
+            "alt": "Chakra Clearing"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Chakra Clearing",
+        "description": "Más claridad, equilibrio y vitalidad - chakra por chakra.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Chakra Clearing Sitzung.webp"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Chakra Clearing",
+      "imageAlt": "Chakra Clearing - banner"
+    },
+    "alt1": {
+      "title": "Chakra Clearing - claridad, equilibrio y nueva vitalidad",
+      "body": "<p>Nuestros siete chakras principales son centros sutiles de energía a lo largo de la columna. Influyen en nuestro bienestar físico, emocional y mental.</p><p>Cuando estos chakras se desequilibran - por estrés, carga emocional o influencias externas - puede aparecer inquietud, agotamiento o sensación de vacío interior.</p><p>Un chakra clearing puede fortalecerte en todos los niveles - energético, emocional y espiritual. Vuelves a ti y sientes lo que está vivo dentro de ti.</p><p><strong>Tu energía es la clave. Chakra clearing te ayuda a dejarla fluir libremente otra vez.</strong></p>",
+      "imageAlt": "Chakra Clearing"
+    },
+    "alt2": {
+      "title": "Chakra clearing devuelve tu energía al flujo con suavidad",
+      "items": [
+        "encontrar más calma y equilibrio interior",
+        "experimentar una sensación clara y poderosa de energía",
+        "fortalecer intuición y autopercepción",
+        "soltar cargas emocionales",
+        "llevar más ligereza a tu día a día",
+        "profundizar la conciencia del cuerpo y del alma"
+      ],
+      "imageAlt": "Chakra Clearing en Düdingen"
+    },
+    "steps": {
+      "title": "Proceso de chakra clearing",
+      "items": [
+        {
+          "title": "Preparación",
+          "body": "Antes de comenzar, te das tiempo para llegar a ti. En una breve charla vemos juntxs qué te mueve ahora y qué tema quiere tener espacio. Puedes abrirte internamente a lo que quiere ser visto, sentido y liberado - a tu ritmo y a tu manera. Todo es bienvenido. Nada es obligatorio."
+        },
+        {
+          "title": "Durante la sesión",
+          "intro": "En un espacio tranquilo y protegido puedes aquietarte - sentado o recostado, como te resulte correcto. Trabajo con atención a lo largo de tus siete chakras principales y apoyo el flujo de energía mediante percepción intuitiva e impulsos energéticos suaves. Con esto puede:",
+          "list": [
+            "reconocerse y disolverse bloqueos energéticos",
+            "equilibrarse tus chakras",
+            "aliviarse suavemente tensiones emocionales, mentales y físicas"
+          ],
+          "outro": "Esta aplicación te regala nueva claridad, amplitud interior y una sensación palpable de conexión contigo. Puedes sentir calor, cosquilleo, imágenes internas o calma profunda - cada persona vive la sesión de forma distinta."
+        },
+        {
+          "title": "Después de la sesión",
+          "body": "Muchas personas reportan más ligereza, claridad interna y una profunda sensación de conexión consigo. Tras el chakra clearing, la energía sigue actuando - suave y a tu propio ritmo. El trabajo energético suele poner en marcha procesos más profundos que pueden mostrarse en los días siguientes."
+        }
+      ],
+      "footer": "<p><strong>Date tiempo.</strong> Bebe suficiente agua, permítete descanso y escucha tu cuerpo.</p><p>La sanación no ocurre bajo presión - se despliega cuando le das espacio.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    }
+  },
+  "GWA": {
+    "meta": {
+      "title": "Alineación Espiritual de la Columna",
+      "description": "Alineación energética: disolver bloqueos, encontrar orientación y experimentar más ligereza y energía en el día a día.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/gwa",
+      "og": {
+        "title": "Alineación Espiritual de la Columna",
+        "description": "Equilibrar cuerpo, mente y alma - de forma suave e integral.",
+        "url": "https://www.corinnevanarelli.ch/angebote/gwa",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp",
+            "alt": "Alineación Espiritual de la Columna"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Alineación Espiritual de la Columna",
+        "description": "Alineación y equilibrio - para más libertad en el cuerpo y en la vida.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp"
+        ]
+      }
+    },
+    "banner": {
+      "title": "Alineación Espiritual de la Columna",
+      "imageAlt": "Alineación Espiritual de la Columna - banner"
+    },
+    "alt1": {
+      "title": "Alineación espiritual de la columna - el cambio comienza en el ser",
+      "body": "<p>La alineación espiritual de la columna es un método suave y a la vez profundo que devuelve a armonía cuerpo, mente y alma.</p><p>Se basa en el entendimiento de que nuestro cuerpo físico y nuestro sistema energético están inseparablemente conectados.</p><p>Nuestra columna es mucho más que el centro físico del estar erguidxs - es un canal energético central, un árbol de vida interno por el que fluyen fuerza, estabilidad y alineación.</p><p>En la alineación espiritual, tu sistema energético se lleva conscientemente al equilibrio.</p><p>Los bloqueos pueden liberarse y la columna volver a su orden natural - y con ella, todo tu sistema.</p>",
+      "imageAlt": "Alineación Espiritual de la Columna"
+    },
+    "alt2": {
+      "title": "Tu columna como llave para la alineación interior",
+      "items": [
+        "padecen molestias físicas o tensión crónica",
+        "quieren disolver bloqueos emocionales o patrones antiguos",
+        "anhelan equilibrio interior y ligereza",
+        "quieren volver a sentir energía, vitalidad y alegría de vivir",
+        "buscan un método holístico que aborde cuerpo, mente y alma"
+      ],
+      "outro": "La alineación interior libera nueva energía vital - actúa no solo sobre tu columna, sino sobre cada célula de tu cuerpo.",
+      "imageAlt": "Alineación de la columna"
+    },
+    "steps": {
+      "title": "Proceso de una sesión - alineación espiritual de la columna",
+      "subtitle": "Cada sesión se da en un espacio protegido y atento - con foco en tu equilibrio físico, anímico y energético.",
+      "items": [
+        {
+          "title": "Llegar y pre-charla",
+          "body": "Al inicio te das tiempo para llegar a ti. En una breve conversación aclaramos qué te ocupa ahora y si hay temas o molestias específicas que integrar en la sesión."
+        },
+        {
+          "title": "Sintonización y alineación energética",
+          "body": "Te recuestas o te sientas cómodamente mientras me conecto con tu sistema energético. Trabajo de forma intuitiva y sin contacto a lo largo de tu columna, guiando la energía hacia donde se perciben bloqueos. Tu sistema responde de manera suave - la alineación sucede a través de la conciencia, no por manipulación física."
+        },
+        {
+          "title": "Después de la sesión",
+          "body": "Nos tomamos tiempo para un cierre consciente. Puedes sentir lo que se movió - y vemos cómo integrar lo vivido en tu día a día con cuidado. La energía suele acompañarte un tiempo - suave pero de forma sostenible."
+        }
+      ],
+      "footer": "<p><strong>Date tiempo.</strong> Bebe suficiente agua, permítete descanso y escucha tu cuerpo.</p><p>La sanación no ocurre bajo presión - se despliega cuando le das espacio.</p>"
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    }
+  },
+  "Aroma": {
+    "meta": {
+      "title": "doTERRA AromaTouch",
+      "description": "Técnica AromaTouch: aplicación atenta con aceites esenciales para relajación, regeneración y equilibrio del sistema nervioso.",
+      "canonical": "https://www.corinnevanarelli.ch/angebote/doterra-aromatouch",
+      "og": {
+        "title": "doTERRA AromaTouch",
+        "description": "Una pausa reconfortante para cuerpo, mente y sentidos - suave, profunda, equilibrante.",
+        "url": "https://www.corinnevanarelli.ch/angebote/doterra-aromatouch",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Doterra Aromatouch Technik.jpg",
+            "alt": "doTERRA AromaTouch"
+          }
+        ],
+        "locale": "es_ES",
+        "type": "article"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doTERRA AromaTouch",
+        "description": "Relajar, regenerar, entrar en equilibrio.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Doterra Aromatouch Technik.jpg"
+        ]
+      }
+    },
+    "banner": {
+      "title": "doTERRA AromaTouch",
+      "imageAlt": "doTERRA AromaTouch - banner"
+    },
+    "alt1": {
+      "title": "Técnica AromaTouch - una aplicación atenta para cuerpo y sentidos",
+      "body": "<p>La técnica doTERRA AromaTouch™ actúa de manera holística - a nivel físico, emocional y energético. La combinación de aceites esenciales de alta calidad con un toque atento lleva a tu sistema a un estado de regeneración profunda.</p><p>Fue diseñada para relajar, regenerar y llevar a equilibrio cuerpo, mente y alma de forma natural.</p><p>En la aplicación, ocho aceites esenciales doTERRA especialmente seleccionados se aplican suavemente a lo largo de la columna y en zonas reflejas de los pies. Con toques precisos se integran los aceites en el sistema - para reducir el estrés, fortalecer el sistema inmunitario y promover el equilibrio emocional.</p><p><strong>Un respiro reparador para tu sistema nervioso - profundamente relajante, fortalecedor y armonizante.</strong></p>",
+      "imageAlt": "Técnica AromaTouch"
+    },
+    "alt2": {
+      "title": "De vuelta a tu equilibrio - con el poder de los aceites esenciales",
+      "items": [
+        "equilibrio del sistema nervioso autónomo",
+        "apoyo al sistema inmunitario",
+        "prevención o reducción de respuestas inflamatorias en el cuerpo",
+        "regeneración mediante relajación mental y física profunda",
+        "vuelve a equilibrar cuerpo, mente y alma"
+      ],
+      "strong": "Muchxs perciben el tratamiento como profundamente relajante, clarificador y a la vez energizante.",
+      "imageAlt": "Camino compartido"
+    },
+    "centered": {
+      "title": "Técnica AromaTouch - cómo funciona",
+      "bodyIntro": "<p>La aplicación se realiza en un entorno tranquilo y protegido. Permaneces vestida/o; solo se descubren suavemente la espalda y los pies. En una secuencia fija, ocho aceites doTERRA seleccionados se aplican suavemente a lo largo de la columna y en las zonas reflejas de los pies. Entre ellos:</p>",
+      "oils": [
+        "Balance - enraizamiento y estabilidad interior",
+        "Lavanda - calmante y relajante",
+        "Melaleuca (árbol de té) - limpiadora y fortalecedora",
+        "On Guard - apoyo para tu sistema inmunitario",
+        "Aromatouch - relajante para músculos y mente",
+        "Deep Blue - alivia tensiones",
+        "Wild Orange - vitalizante y elevador del ánimo",
+        "Peppermint - clarificante y refrescante"
+      ],
+      "bodyOutro": "La única condición: la disposición a soltar lo viejo - y permitir lo nuevo."
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    }
+  },
+  "ServicesIndex": {
+    "__common": {
+      "ctaLabel": "Ver más"
+    },
+    "freeConsult": {
+      "title": "1:1 Llamada gratuita para claridad",
+      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
+      "duration": "20 min",
+      "price": "Gratis",
+      "ctaLabel": "Solicitar reserva"
+    },
+    "coaching": {
+      "title": "Coaching ontológico",
+      "teaser": "Claridad, foco y acción - para temas profesionales y personales.",
+      "image": "/img/Ontologisches Coaching.jpg",
+      "imageAlt": "Espacio de coaching",
+      "slug": "ontologisches-coaching"
+    },
+    "akasha": {
+      "title": "Lectura akáshica",
+      "teaser": "Respuestas con profundidad - orientación, sanación y alineación interior.",
+      "image": "/img/Akasha Chronik Lesung.jpg",
+      "imageAlt": "Lectura akáshica",
+      "slug": "akasha-chronik-lesung"
+    },
+    "hopi": {
+      "title": "Sanación de corazón",
+      "teaser": "Sanación suave - calma el sistema nervioso y abre conexión.",
+      "image": "/img/Hopi Herzheilung 2.webp",
+      "imageAlt": "Sanación del corazón",
+      "slug": "hopi-herzheilung"
+    },
+    "chakra": {
+      "title": "Limpieza de Chakras",
+      "teaser": "Poner la energía en flujo - claridad, equilibrio y vitalidad.",
+      "image": "/img/Chakra Clearing Sitzung.webp",
+      "imageAlt": "Sesión de chakra clearing",
+      "slug": "chakra-clearing"
+    },
+    "gwa": {
+      "title": "Alineación espiritual",
+      "teaser": "Alineación holística - balance interior y nueva energía.",
+      "image": "/img/Geistige Wirbelsaulenaufrichtung.webp",
+      "imageAlt": "Alineación de columna",
+      "slug": "gwa"
+    },
+    "aroma": {
+      "title": "doTERRA AromaTouch",
+      "teaser": "Aceites esenciales - relajación profunda, regeneración y equilibrio.",
+      "image": "/img/Doterra Aromatouch Technik.jpg",
+      "imageAlt": "Técnica AromaTouch",
+      "slug": "doterra-aromatouch"
+    },
+    "akasha-kurz": {
+      "title": "Lectura akáshica corta",
+      "teaser": "Lectura breve - para un primer contacto con los Registros Akáshicos.",
+      "image": "/img/Akasha Chronik Lesung.jpg",
+      "imageAlt": "Lectura akáshica",
+      "slug": "akasha-chronik-lesung-kurz"
+    },
+    "__map": {
+      "1:1 Kostenloses Gespräch für Klarheit": "freeConsult",
+      "Ontologisches Coaching": "coaching",
+      "Akasha Chronik Lesung": "akasha",
+      "Akasha Chronik Lesung Kurz": "akasha-kurz",
+      "Hopi Herzheilung": "hopi",
+      "Chakra Clearing": "chakra",
+      "Geistige Wirbelsäulenaufrichtung": "gwa",
+      "doTERRA AromaTouch": "aroma"
+    }
+  },
+  "Booking": {
+    "DateTimePicker": {
+      "label": "Fecha y hora",
+      "selectServiceFirst": "Primero elegí un servicio.",
+      "loading": "Cargando...",
+      "noSlots": "No hay turnos disponibles para esta fecha.",
+      "aria": {
+        "calendar": "Elegir fecha"
+      }
+    },
+    "PayPalButton": {
+      "missingBookingId": "Falta el ID de la reserva.",
+      "errorDuring": "Ocurrió un error con PayPal. Por favor, intentá de nuevo.",
+      "initFail": "No se pudo inicializar PayPal."
+    },
+    "ServicePicker": {
+      "label": "Servicio",
+      "loading": "Cargando...",
+      "empty": "Por el momento no hay servicios disponibles.",
+      "selected": "Seleccionado:",
+      "durationFmt": "aprox. {min} min"
+    },
+    "Summary": {
+      "title": "Resumen",
+      "hintSelect": "Elegí servicio, fecha y hora.",
+      "labels": {
+        "service": "Servicio:",
+        "appointment": "Turno:",
+        "min": "min"
+      },
+      "btn": {
+        "next": "Siguiente",
+        "wait": "Por favor, esperá…",
+        "sending": "Enviando…",
+        "reserveFree": "Reservar gratis",
+        "confirm": "Confirmar"
+      },
+      "hold": {
+        "info": "Turno reservado para vos (HOLD). Por favor continuá en los próximos minutos.",
+        "until": "HOLD hasta:"
+      },
+      "form": {
+        "name": "Nombre",
+        "email": "Email"
+      },
+      "errors": {
+        "slotTaken": "Ese horario se acaba de ocupar. Elegí otro, por favor.",
+        "holdFail": "Error al reservar el turno. Intentá de nuevo.",
+        "invalidForm": "Ingresá nombre y un email válido.",
+        "holdExpired": "La reserva (HOLD) venció. Elegí nuevamente.",
+        "confirmFail": "La confirmación falló. Intentá de nuevo.",
+        "unexpected": "Respuesta inesperada. Intentá de nuevo."
+      },
+      "success": {
+        "title": "Turno confirmado ✔",
+        "body": "Tu reserva fue confirmada. Te enviamos un email de confirmación. ¡Nos vemos en el turno!"
+      },
+      "payPending": {
+        "title": "Confirmado (PENDING) ✔",
+        "body": "Por favor, continuá con el pago."
+      },
+      "paypal": {
+        "missingId": "Falta el ID de la reserva.",
+        "paid": "Pago recibido",
+        "seeYou": "¡Nos vemos en el turno!"
+      }
+    }
+  }
+}

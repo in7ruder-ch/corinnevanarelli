@@ -2,10 +2,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import Section from "./Section";
 import ServiceCard from "./ServiceCard";
 
 export default function Services() {
+  const t = useTranslations("Services");
+
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,13 +37,15 @@ export default function Services() {
   return (
     <Section
       id="angebote"
-      className="pt-16 pb-16 md:pb-24 bg-[#f5f5f5]"  
+      className="pt-16 pb-16 md:pb-24 bg-[#f5f5f5]"
       containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
     >
-      <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900">Angebote</h2>
+      <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900">
+        {t("title")}
+      </h2>
 
       {loading ? (
-        <div className="mt-6 text-sm text-neutral-600">Lade Services…</div>
+        <div className="mt-6 text-sm text-neutral-600">{t("loading")}</div>
       ) : (
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch auto-rows-fr">
           {services.map((s) => (
@@ -58,7 +63,7 @@ export default function Services() {
 
           {!services.length && (
             <div className="col-span-full text-sm text-neutral-600">
-              Zurzeit sind keine Services verfügbar.
+              {t("empty")}
             </div>
           )}
         </div>
