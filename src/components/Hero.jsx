@@ -2,13 +2,15 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Hero({
-  title,                               // si no viene, usamos i18n
+  title,
+  subtitle,                               // si no viene, usamos i18n
   imageSrc = '/img/Banner-Home-Mobile.webp',
   imageAlt                              // si no viene, i18n
 }) {
   const t = useTranslations('Hero');
 
   const _title = title ?? t('title');
+  const _subtitle = subtitle ?? t('subtitle');
   const _imageAlt = imageAlt ?? t('imageAlt');
 
   return (
@@ -30,12 +32,16 @@ export default function Hero({
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Center–center real con grid */}
-      <div className="grid place-items-center h-full w-full px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="mt-20 whitespace-pre-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+      {/* Center–center real */}
+      <div className="grid h-full w-full place-content-center px-4 sm:px-6 lg:px-8 text-center gap-4">
+        <h1 className="whitespace-pre-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
           {_title}
         </h1>
+        <h2 className="text-white text-xl italic sm:text-2xl md:text-3xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+          {_subtitle}
+        </h2>
       </div>
+
     </section>
   );
 }
