@@ -108,58 +108,50 @@
       "description": "Sanación del corazón, coaching y Registros Akáshicos en Zúrich y online."
     },
     "s1": {
-      "title": "Bienvenida a tu viaje <strong><em>de vuelta a ti</em></strong>",
-      "kicker": "Te acompaño en tu camino hacia la claridad interior y el empoderamiento",
-      "p1": "Tal vez hace tiempo sientas un anhelo silencioso dentro de ti: anhelo de claridad, de llegar, de ti misma.",
-      "p2": "Te acompaño en tu viaje interior - con coaching ontológico y trabajo energético. Juntas disolvemos bloqueos, aclaramos patrones antiguos y creamos espacio para el cambio, la sanación y nuevas posibilidades. Para más claridad, fuerza interior y una vida en sintonía con tu esencia.",
-      "p3": "Mi trabajo no se trata de más alto, más rápido, más lejos, sino de profundidad, autenticidad y conciencia. A tu ritmo, a tu manera.",
-      "p4": "Te apoyo a soltar cargas internas, recuperar la confianza en vos misma y vivir tu propia verdad.",
-      "p5": "Sos bienvenida tal como sos. Y quizás aquí empiece tu viaje <em>de vuelta a ti</em>.",
+      "title": "Volver a vos.",
+      "kicker": "Para más claridad, fuerza interior y una vida en sintonía con tu esencia",
+      "p1": "A veces sentís que algo dentro tuyo llama al cambio\nNo fuerte\nPero constante",
+      "p2": "Tal vez sea la sensación de estar estancada\nO el deseo de volver a ver con más claridad, sentirte más en calma por dentro y tomar decisiones desde vos en lugar de hacerlo desde la adaptación, la presión o el miedo",
+      "p3": "Juntas ponemos la mirada en lo que te frena por dentro. Soltamos patrones que ya no sirven\ny creamos espacio para una nueva claridad, estabilidad interna y un cambio sostenible.",
+      "p4": "Esto no es auto-optimización\nNo es más alto, más rápido, más\nEs reconexión, conciencia y trabajo interno honesto",
+      "p5": "Te acompaño a soltar peso interno, recuperar la confianza en vos y\nvolver a seguir tu propia brújula.\nPodés recordar quién sos.",
+      "p6": "<strong>Si sentís que este camino te llama, te invito a dar el próximo paso</strong>",
       "imageAlt": "Corinne Vanarelli"
     },
     "s2": {
-      "title": "<strong>Coaching Ontológico - de vuelta a tu verdadero ser</strong>",
-      "p1": "El coaching ontológico va más profundo que el coaching clásico:",
-      "p2": "No solo pregunta: “¿Qué quiero hacer?”, sino “¿Quién soy - y cómo quiero vivir?”",
-      "p3": "El centro es tu ser: tu postura interior, tu lenguaje, tu pensamiento y tu sentir.",
-      "p4": "El cambio real no surge de hacer más, sino de la conciencia.",
-      "p5": "<strong>El cambio no empieza afuera - empieza en vos.</strong>",
-      "imageAlt": "Sala de práctica"
+      "title": "<strong>Coaching ontológico</strong>",
+      "p1": "<strong>El cambio no comienza afuera – comienza dentro de vos</strong>",
+      "p2": "Acompañamiento consciente para claridad, alineación interna y cambio sostenible.",
+      "imageAlt": "Espacio de trabajo"
     },
     "s3": {
-      "title": "<strong>Lectura Akáshica - mensajes de tu alma</strong>",
-      "p1": "A veces llegamos a un punto de inflexión y sentimos que necesitamos claridad. Una lectura akáshica abre un espacio para comprender más profundamente quién sos y qué quiere realmente tu alma.",
-      "p2": "Recibís claridad sobre el origen de tus miedos, patrones y bloqueos - y reconocés por qué ciertas experiencias ocurren en tu vida.",
-      "p3": "Se hace visible lo que verdaderamente te mueve - y lo que ahora puede devolverte tu poder.",
-      "p4": "<strong>La lectura del alma te regala orientación, conciencia y confianza. Para tu camino. Para tu decisión. Para vos.</strong>",
+      "title": "<strong>Lectura Akáshica</strong>",
+      "p1": "<strong>Mensajes de tu alma</strong>",
+      "p2": "Mensajes del alma para claridad, orientación y decisiones conscientes.",
       "imageAlt": "Corinne Vanarelli"
     },
     "s4": {
-      "title": "<strong>Sanación del Corazón Hopi - tu corazón conoce el camino</strong>",
-      "p1": "La sanación del corazón Hopi es una forma poderosa y a la vez muy suave de trabajo energético, nacida de la sabiduría del pueblo Hopi. Experiencias pasadas, desilusiones o heridas profundas pueden alejarnos de nosotras mismas.",
-      "p2": "Volvés a conectar con tu paz interior, tu amor propio y la fuerza de tu corazón. Esta conexión profunda permite un nuevo comienzo - en vos y con vos.",
-      "p3": "<strong>Este trabajo del corazón abre espacios: para la sanación, la conexión y la confianza - y para tu camino propio.</strong>",
-      "imageAlt": "Sala de práctica"
+      "title": "<strong>Sanación del Corazón Hopi</strong>",
+      "p1": "<strong>Tu corazón conoce el camino</strong>",
+      "p2": "Trabajo suave con el corazón para liberar tensiones internas y reconectar con la confianza y el amor propio.",
+      "imageAlt": "Espacio de trabajo"
     },
     "s5": {
-      "title": "<strong>Chakra Clearing - equilibrá tu energía</strong>",
-      "p1": "Tus siete chakras son los centros de energía de tu cuerpo - influyen en cómo sentís, pensás y te percibís. El estrés, emociones antiguas o la inquietud interna pueden bloquearlos.",
-      "p2": "En el Chakra Clearing, tus chakras se limpian suavemente, se activan y vuelven al equilibrio. Así tu energía vuelve a fluir - para más claridad, liviandad y armonía interior.",
-      "p3": "<strong>Sentí lo que es volver a estar plenamente con vos.</strong>",
+      "title": "<strong>Limpieza de Chakras</strong>",
+      "p1": "<strong>Devolvé el equilibrio a tu energía</strong>",
+      "p2": "Trabajo energético suave para equilibrio, claridad y la sensación de volver a estar plenamente en vos.",
       "imageAlt": "Corinne Vanarelli"
     },
     "s6": {
-      "title": "<strong>Alineación Espiritual de la Columna - a tu centro, a tu fuerza</strong>",
-      "p1": "Volvé a tu alineación natural - para el equilibrio de cuerpo, mente y alma. La alineación espiritual de la columna te sostiene para volver a tu plena potencia - física, emocional y energéticamente.",
-      "p2": "Tu columna es el centro de tu ser - te sostiene, te alinea y permite que circule tu energía vital. Cuando ese flujo se bloquea, pueden aparecer síntomas en lo físico y en lo emocional.",
-      "p3": "<strong>Este método vuelve a poner tu energía en movimiento - suave, integral y profundamente efectivo. Viví alineación, claridad y sanación interior.</strong>",
-      "imageAlt": "Sala de práctica"
+      "title": "<strong>Alineación Energética de la Columna</strong>",
+      "p1": "<strong>Volvé a tu alineación interior</strong>",
+      "p2": "Alineación energética para estabilidad, nueva fuerza y claridad interna.",
+      "imageAlt": "Espacio de trabajo"
     },
     "s7": {
-      "title": "<strong>doTERRA AromaTouch® - relajación profunda con aceites esenciales</strong>",
-      "p1": "El toque suave se encuentra con la fuerza de las esencias puras de plantas. doTERRA AromaTouch® combina toques conscientes con aceites esenciales 100% puros de doTERRA.",
-      "p2": "Se estimulan zonas específicas para reducir el estrés, fortalecer el sistema inmune y restaurar el equilibrio interno. Esta técnica actúa en lo físico y en lo emocional - y te lleva a una relajación profunda.",
-      "p3": "<strong>Una experiencia reconfortante para cuerpo, mente y alma. Soltar. Recargar. Llegar - a vos misma.</strong>",
+      "title": "<strong>doTERRA AromaTouch</strong>",
+      "p1": "<strong>Relajación profunda para cuerpo y sentidos</strong>",
+      "p2": "Aplicación consciente con aceites esenciales para calmar el sistema nervioso y favorecer la regeneración integral.",
       "imageAlt": "Corinne Vanarelli"
     }
   },

@@ -65,11 +65,12 @@ export default async function HomePage() {
         kicker={t('s1.kicker')}
         body={
           <>
-            <p>{rich('s1.p1')}</p>
-            <p>{rich('s1.p2')}</p>
-            <p>{rich('s1.p3')}</p>
-            <p>{rich('s1.p4')}</p>
-            <p>{rich('s1.p5')}</p>
+            <p className="whitespace-pre-line">{rich('s1.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s1.p2')}</p>
+            <p className="whitespace-pre-line">{rich('s1.p3')}</p>
+            <p className="whitespace-pre-line">{rich('s1.p4')}</p>
+            <p className="whitespace-pre-line">{rich('s1.p5')}</p>
+            <p className="whitespace-pre-line">{rich('s1.p6')}</p>
           </>
         }
         imageSrc="/img/Ontologisches Coach.webp"
@@ -84,11 +85,8 @@ export default async function HomePage() {
         title={mkStrong('s2.title')}
         body={
           <>
-            <p>{rich('s2.p1')}</p>
-            <p>{rich('s2.p2')}</p>
-            <p>{rich('s2.p3')}</p>
-            <p>{rich('s2.p4')}</p>
-            <p>{rich('s2.p5')}</p>
+            <p className="whitespace-pre-line">{rich('s2.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s2.p2')}</p>
           </>
         }
         imageSrc="/img/Ontologisches Coaching.jpg"
@@ -104,13 +102,11 @@ export default async function HomePage() {
         title={mkStrong('s3.title')}
         body={
           <>
-            <p>{rich('s3.p1')}</p>
-            <p>{rich('s3.p2')}</p>
-            <p>{rich('s3.p3')}</p>
-            <p>{rich('s3.p4')}</p>
+            <p className="whitespace-pre-line">{rich('s3.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s3.p2')}</p>
           </>
         }
-        imageSrc="/img/Akasha Lesung.jpg"
+        imageSrc="/img/akasha.webp"
         imageAlt={t('s3.imageAlt')}
         mediaLeft={true}
         ctaHref="/angebote/akasha-chronik-lesung"
@@ -123,12 +119,11 @@ export default async function HomePage() {
         title={mkStrong('s4.title')}
         body={
           <>
-            <p>{rich('s4.p1')}</p>
-            <p>{rich('s4.p2')}</p>
-            <p>{rich('s4.p3')}</p>
+            <p className="whitespace-pre-line">{rich('s4.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s4.p2')}</p>
           </>
         }
-        imageSrc="/img/Hopi.jpeg"
+        imageSrc="/img/hopi.webp"
         imageAlt={t('s4.imageAlt')}
         mediaLeft={false}
         ctaHref="/angebote/hopi-herzheilung"
@@ -141,9 +136,8 @@ export default async function HomePage() {
         title={mkStrong('s5.title')}
         body={
           <>
-            <p>{rich('s5.p1')}</p>
-            <p>{rich('s5.p2')}</p>
-            <p>{rich('s5.p3')}</p>
+            <p className="whitespace-pre-line">{rich('s5.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s5.p2')}</p>
           </>
         }
         imageSrc="/img/Chakra clearing Dudingen.webp"
@@ -159,9 +153,8 @@ export default async function HomePage() {
         title={mkStrong('s6.title')}
         body={
           <>
-            <p>{rich('s6.p1')}</p>
-            <p>{rich('s6.p2')}</p>
-            <p>{rich('s6.p3')}</p>
+            <p className="whitespace-pre-line">{rich('s6.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s6.p2')}</p>
           </>
         }
         imageSrc="/img/Geistige.webp"
@@ -177,9 +170,8 @@ export default async function HomePage() {
         title={mkStrong('s7.title')}
         body={
           <>
-            <p>{rich('s7.p1')}</p>
-            <p>{rich('s7.p2')}</p>
-            <p>{rich('s7.p3')}</p>
+            <p className="whitespace-pre-line">{rich('s7.p1')}</p>
+            <p className="whitespace-pre-line">{rich('s7.p2')}</p>
           </>
         }
         imageSrc="/img/DoTerra Aromatouch.webp"

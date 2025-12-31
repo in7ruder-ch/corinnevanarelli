@@ -108,58 +108,50 @@
       "description": "Heart Healing, Coaching & Akashic Records in Zurich & online."
     },
     "s1": {
-      "title": "Welcome to your journey <strong><em>back to yourself</em></strong>",
-      "kicker": "I accompany you on your path to inner clarity and self-empowerment",
-      "p1": "You may have felt a quiet longing within you for a long time - a longing for clarity, for arriving, for yourself.",
-      "p2": "I accompany you on your inner journey - with ontological coaching and energy work. Together we dissolve blockages, clarify old patterns and create space for change, healing and new possibilities. For more clarity, inner strength and a life aligned with your essence.",
-      "p3": "My work is not about higher, faster, further - but about depth, authenticity and awareness. In your pace, in your way.",
-      "p4": "I support you in letting go of inner weight, regaining trust in yourself and living your own truth.",
-      "p5": "You are welcome - exactly as you are. And perhaps your journey <em>back to yourself</em> begins right here.",
+      "title": "Back to you.",
+      "kicker": "For more clarity, inner strength and a life aligned with your essence",
+      "p1": "Sometimes you feel that something inside you is calling for change\nNot loudly\nBut steadily",
+      "p2": "Maybe it’s the feeling of being stuck\nOr the desire to see more clearly again, to feel calmer inside and to make decisions from within yourself instead of from adaptation, pressure or fear",
+      "p3": "Together we look at what is holding you back internally. We release outdated patterns\nand create space for new clarity, inner stability and sustainable change.",
+      "p4": "This is not about self-optimization\nNot about higher, faster, more\nBut about reconnection, awareness and honest inner work",
+      "p5": "I support you in letting go of inner weight, rebuilding trust in yourself and\nfollowing your own inner compass again.\nYou are allowed to remember who you are.",
+      "p6": "<strong>If you feel this path calling you, I invite you to take the next step</strong>",
       "imageAlt": "Corinne Vanarelli"
     },
     "s2": {
-      "title": "<strong>Ontological Coaching - back to your true self</strong>",
-      "p1": "Ontological coaching goes deeper than classic coaching:",
-      "p2": "It doesn’t just ask: “What do I want to do?”, but “Who am I - and how do I want to live?”",
-      "p3": "At the center is your being: your inner stance, your language, your thinking and feeling.",
-      "p4": "Real change doesn’t arise from doing more - but from awareness.",
-      "p5": "<strong>Change doesn’t start outside - it starts within you.</strong>",
+      "title": "<strong>Ontological Coaching</strong>",
+      "p1": "<strong>Change does not begin on the outside – it begins within you</strong>",
+      "p2": "Conscious guidance for clarity, inner alignment and sustainable change.",
       "imageAlt": "Practice room"
     },
     "s3": {
-      "title": "<strong>Akashic Reading - messages from your soul</strong>",
-      "p1": "Sometimes we reach a turning point in life and feel: clarity is needed. An Akashic reading opens a space to understand more deeply who you are and what your soul truly wants.",
-      "p2": "You receive insights into the origins of your fears, patterns and blockages - and recognize why certain experiences happen in your life.",
-      "p3": "What truly moves you becomes visible - and what can bring you into your power now.",
-      "p4": "<strong>The soul reading offers orientation, awareness and trust - for your path, your decision, yourself.</strong>",
+      "title": "<strong>Akasha Reading</strong>",
+      "p1": "<strong>Messages from your soul</strong>",
+      "p2": "Soul insights for clarity, orientation and conscious decisions.",
       "imageAlt": "Corinne Vanarelli"
     },
     "s4": {
-      "title": "<strong>Hopi Heart Healing - your heart knows the way</strong>",
-      "p1": "Hopi Heart Healing is a powerful yet gentle form of energy work rooted in the wisdom of the Hopi people. Old experiences, disappointments or deep emotional wounds can keep us from being connected to ourselves.",
-      "p2": "You reconnect with inner peace, self-love and heart power. This deep connection enables a fresh start - within yourself, with yourself.",
-      "p3": "<strong>This heart work opens spaces - for healing, connection and trust - and for your very own way.</strong>",
+      "title": "<strong>Hopi Heart Healing</strong>",
+      "p1": "<strong>Your heart knows the way</strong>",
+      "p2": "Gentle heart-centered work to release inner tension and reconnect with trust and self-love.",
       "imageAlt": "Practice room"
     },
     "s5": {
-      "title": "<strong>Chakra Clearing - bring your energy into balance</strong>",
-      "p1": "Your seven chakras are the energy centers of your body - they influence how you feel, think and perceive yourself. Stress, old emotions or inner restlessness can block these centers.",
-      "p2": "During Chakra Clearing your chakras are gently cleansed, activated and brought back into balance. Your energy can flow freely again - for more clarity, ease and inner harmony.",
-      "p3": "<strong>Feel what it’s like to be fully with yourself again.</strong>",
+      "title": "<strong>Chakra Clearing</strong>",
+      "p1": "<strong>Bring your energy back into balance</strong>",
+      "p2": "Gentle energy work for balance, clarity and the feeling of truly arriving back within yourself.",
       "imageAlt": "Corinne Vanarelli"
     },
     "s6": {
-      "title": "<strong>Spiritual Spine Alignment - back to your center, back to your power</strong>",
-      "p1": "Return to your natural alignment - for balance in body, mind and soul. Spiritual spine alignment supports you in coming into your full strength - physically, emotionally and energetically.",
-      "p2": "Your spine is the center of your being - it carries you, aligns you and lets your life force flow. When this flow is blocked, symptoms can arise on both physical and emotional levels.",
-      "p3": "<strong>This method sets your energy in motion again - gentle, holistic and deeply effective. Experience alignment, clarity and inner healing.</strong>",
+      "title": "<strong>Energetic Spinal Alignment</strong>",
+      "p1": "<strong>Find your way back to inner alignment.</strong>",
+      "p2": "Energetic alignment for stability, renewed strength and inner clarity.",
       "imageAlt": "Practice room"
     },
     "s7": {
-      "title": "<strong>doTERRA AromaTouch® - deep relaxation with essential oils</strong>",
-      "p1": "Gentle touch meets the power of pure plant essences. doTERRA AromaTouch® combines mindful touch with 100% pure essential oils from doTERRA.",
-      "p2": "Specific areas of the body are stimulated to reduce stress, support the immune system and restore inner balance. The method works physically and emotionally - bringing you into a deeply relaxed state.",
-      "p3": "<strong>A nourishing experience for body, mind and soul. Let go. Recharge. Arrive - in yourself.</strong>",
+      "title": "<strong>doTERRA AromaTouch</strong>",
+      "p1": "<strong>Deep relaxation for body & senses</strong>",
+      "p2": "Mindful application with essential oils to calm the nervous system and support holistic regeneration.",
       "imageAlt": "Corinne Vanarelli"
     }
   },

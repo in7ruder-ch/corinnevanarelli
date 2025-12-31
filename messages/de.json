@@ -109,57 +109,49 @@
     },
     "s1": {
       "title": "Willkommen auf deiner Reise <strong><em>zurück zu dir</em></strong>",
-      "kicker": "Ich begleite dich auf deinem Weg zu innerer Klarheit und Selbstermächtigung",
-      "p1": "Vielleicht spürst du schon lange diese leise Sehnsucht in dir. Die Sehnsucht nach Klarheit. Nach Ankommen. Nach dir selbst.",
-      "p2": "Ich begleite dich auf deiner inneren Reise – mit ontologischem Coaching und Energiearbeit. Gemeinsam lösen wir Blockaden, klären alte Muster und schaffen Raum für Veränderung, Heilung und neue Möglichkeiten. Für mehr Klarheit, innere Stärke und ein Leben im Einklang mit deiner Essenz.",
-      "p3": "In meiner Arbeit geht es nicht um höher, schneller, weiter – sondern um Tiefe, Echtheit und Bewusstsein. In deinem Tempo, auf deine Weise.",
-      "p4": "Ich unterstütze dich dabei, inneren Ballast loszulassen, Vertrauen in dich selbst zurückzugewinnen und deine eigene Wahrheit zu leben.",
-      "p5": "Du bist willkommen. Genau so, wie du bist. Und vielleicht beginnt genau hier deine Reise <em>zurück zu dir</em>.",
+      "kicker": "Für mehr Klarheit, innere Stärke und ein Leben\nim Einklang mit deiner Essenz",
+      "p1": "Manchmal spürst du, dass etwas in dir nach Veränderung ruft\nNicht laut\nAber beständig",
+      "p2": "Vielleicht ist es das Gefühl, festzustecken\nOder der Wunsch, wieder klarer zu sehen, innerlich ruhiger zu werden und Entscheidungen aus dir selbst heraus zu treffen statt aus Anpassung, Druck oder Angst.",
+      "p3": "Gemeinsam richten wir den Blick auf das, was dich innerlich zurückhält. Wir lösen überholte Muster und schaffen Raum für neue Klarheit, innere Stabilität und nachhaltige Veränderung.",
+      "p4": "Hier geht es nicht um Selbstoptimierung\nNicht um höher, schneller, weiter\nSondern um Rückverbindung, Bewusstsein und ehrliche innere Arbeit.",
+      "p5": "Ich begleite dich dabei, inneren Ballast loszulassen, Vertrauen in dich selbst zurückzugewinnen und deinem eigenen inneren Kompass wieder zu folgen.\nDu darfst dich erinnern, wer du bist.",
+      "p6": "<strong>Wenn du spürst, dass dieser Weg dich ruft, lade ich dich ein, den nächsten Schritt zu gehen</strong>",
       "imageAlt": "Corinne Vanarelli"
     },
     "s2": {
-      "title": "<strong>Ontologisches Coaching – zurück zu deinem wahren Sein</strong>",
-      "p1": "Ontologisches Coaching geht tiefer als klassisches Coaching:",
-      "p2": "Es stellt nicht nur die Frage: „Was will ich tun?“, sondern „Wer bin ich – und wie will ich leben?“",
-      "p3": "Im Mittelpunkt steht dein Sein: deine innere Haltung, deine Sprache, dein Denken und Fühlen.",
-      "p4": "Denn echte Veränderung entsteht nicht durch mehr Tun – sondern durch Bewusstheit.",
-      "p5": "<strong>Veränderung beginnt nicht im Aussen – sondern in dir</strong>.",
+      "title": "<strong>Ontologisches Coaching</strong>",
+      "p1": "<strong>Veränderung beginnt nicht im Aussen – sondern in dir</strong>",
+      "p2": "Bewusste Begleitung für Klarheit, innere Ausrichtung und nachhaltige Veränderung.",
       "imageAlt": "Praxisraum"
     },
     "s3": {
-      "title": "<strong>Akasha Reading – Botschaften deiner Seele</strong>",
-      "p1": "Manchmal stehen wir im Leben an einem Wendepunkt – und spüren: Es braucht Klarheit. Eine Akasha-Lesung öffnet dir den Raum, tiefer zu verstehen, wer du bist und was deine Seele wirklich will.",
-      "p2": "Du erhältst Einblicke in die Ursprünge deiner Ängste, Muster und Blockaden – und erkennst, warum bestimmte Erfahrungen in deinem Leben geschehen.",
-      "p3": "So wird sichtbar, was dich wirklich bewegt – und was dich jetzt in deine Kraft bringen kann.",
-      "p4": "<strong>Die Seelenlesung schenkt dir Orientierung, Bewusstsein und Vertrauen. Für deinen Weg. Für deine Entscheidung. Für dich.</strong>",
+      "title": "<strong>Akasha Reading</strong>",
+      "p1": "<strong>Botschaften deiner Seele</strong>",
+      "p2": "Seelische Einsichten für Klarheit, Orientierung und bewusste Entscheidungen.",
       "imageAlt": "Corinne Vanarelli"
     },
     "s4": {
-      "title": "<strong>Hopi Herzheilung – Dein Herz kennt den Weg</strong>",
-      "p1": "Die Hopi Herzheilung ist eine kraftvolle und zugleich sehr sanfte Form der Energiearbeit, die aus der Weisheit der Hopi-Indianer stammt. Alte Erfahrungen, Enttäuschungen oder tiefe seelische Wunden können uns daran hindern, in Verbindung mit uns selbst zu sein.",
-      "p2": "Du kommst wieder in Kontakt mit deinem inneren Frieden, deiner Selbstliebe und deiner Herzenskraft. Diese tiefe Verbindung ermöglicht dir einen Neuanfang – in dir selbst, mit dir selbst.",
-      "p3": "<strong>Diese Herzarbeit öffnet Räume: für Heilung, für Verbindung, für Vertrauen – und für deinen ganz eigenen Weg.</strong>",
+      "title": "<strong>Hopi Herzheilung</strong>",
+      "p1": "<strong>Dein Herz kennt den Weg</strong>",
+      "p2": "Sanfte Herzarbeit zur Lösung innerer Spannungen und zur Rückverbindung mit Vertrauen und Selbstliebe.",
       "imageAlt": "Praxisraum"
     },
     "s5": {
-      "title": "<strong>Chakra Clearing – bring deine Energie ins Gleichgewicht</strong>",
-      "p1": "Deine sieben Chakren sind die Energiezentren deines Körpers – sie beeinflussen, wie du fühlst, denkst und dich erlebst. Stress, alte Emotionen oder innere Unruhe können diese Zentren blockieren.",
-      "p2": "Beim Chakra Cleaning werden deine Chakren sanft gereinigt, aktiviert und wieder ins Gleichgewicht gebracht. So kann deine Energie wieder frei fliessen – für mehr Klarheit, Leichtigkeit und innere Harmonie.",
-      "p3": "<strong>Spüre, wie es sich anfühlt, wieder ganz bei dir zu sein.</strong>",
+      "title": "<strong>Chakra Clearing</strong>",
+      "p1": "<strong>Bring deine Energie ins Gleichgewicht</strong>",
+      "p2": "Sanfte Energiearbeit für Balance, Klarheit und das Gefühl, wieder ganz bei dir anzukommen.",
       "imageAlt": "Corinne Vanarelli"
     },
     "s6": {
-      "title": "<strong>Geistige Wirbelsäulenaufrichtung – zurück in deine Mitte, zurück in deine Kraft</strong>",
-      "p1": "Finde zurück in deine natürliche Ausrichtung – für Balance in Körper, Geist und Seele. Die geistige Wirbelsäulenaufrichtung unterstützt dich dabei, in deine volle Kraft zu kommen – körperlich, emotional und energetisch.",
-      "p2": "Deine Wirbelsäule ist das Zentrum deines Seins – sie trägt dich, richtet dich aus und lässt deine Lebensenergie fliessen. Wenn dieser Energiefluss blockiert ist, können Beschwerden auf körperlicher und seelischer Ebene entstehen.",
-      "p3": "<strong>Diese Methode bringt deine Energie wieder in Fluss – sanft, ganzheitlich und tief wirksam. Erlebe Aufrichtung, Klarheit und innere Heilung.</strong>",
+      "title": "<strong>Energetische\nAufrichtung</strong>",
+      "p1": "<strong>Finde zurück in deine innere Ausrichtung</strong>",
+      "p2": "Energetische Aufrichtung für Stabilität, neue Kraft und innere Klarheit.",
       "imageAlt": "Praxisraum"
     },
     "s7": {
-      "title": "<strong>doTERRA AromaTouch® – Tiefenentspannung mit ätherischen Ölen</strong>",
-      "p1": "Sanfte Berührung trifft auf die Kraft reiner Pflanzenessenzen. Die doTERRA AromaTouch® kombiniert achtsame Berührungen mit 100 % reinen ätherischen Ölen von doTERRA.",
-      "p2": "Dabei werden gezielt Körperzonen stimuliert, um Stress abzubauen, das Immunsystem zu stärken und das innere Gleichgewicht wiederherzustellen. Diese Methode wirkt nicht nur körperlich, sondern auch emotional – und bringt dich spürbar in eine tiefe Entspannung.",
-      "p3": "<strong>Ein wohltuendes Erlebnis für Körper, Geist und Seele. Loslassen. Auftanken. Ankommen – bei dir selbst.</strong>",
+      "title": "<strong>doTERRA AromaTouch</strong>",
+      "p1": "<strong>Tiefe Entspannung für Körper & Sinne</strong>",
+      "p2": "Achtsame Anwendung mit ätherischen Ölen zur Beruhigung des Nervensystems und ganzheitlichen Regeneration.",
       "imageAlt": "Corinne Vanarelli"
     }
   },
