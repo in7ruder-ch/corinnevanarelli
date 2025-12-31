@@ -63,6 +63,7 @@ export default async function UeberMichPage() {
     },
   ];
 
+
   return (
     <>
       {/* Intro: texto izq / imagen der */}
@@ -78,16 +79,20 @@ export default async function UeberMichPage() {
                 {t("intro.title")}
               </h1>
               <p className="mt-3 text-xl text-neutral-800">
-                {/* contiene <em> */}
                 {t.rich("intro.nameLine", {
                   em: (chunks) => <em className="italic">{chunks}</em>,
                 })}
               </p>
 
               <div className="mt-8 space-y-5 leading-relaxed text-neutral-800">
-                <p>{t("intro.p1")}</p>
-                <p>{t("intro.p2")}</p>
-                <p className="font-semibold">{t("intro.p3")}</p>
+                <p className="whitespace-pre-line">{t("intro.p1")}</p>
+                <p className="whitespace-pre-line">{t("intro.p2")}</p>
+
+                <p className="whitespace-pre-line text-neutral-800">
+                  {t.rich("intro.p3", {
+                    strong: (chunks) => <strong className="font-semibold">{chunks}</strong>,
+                  })}
+                </p>
 
                 {/* Instagram (opcional) */}
                 <div className="pt-4">
@@ -145,7 +150,6 @@ export default async function UeberMichPage() {
         {rows.map((row, idx) => (
           <div key={idx} className="mt-10 first:mt-10">
             <div className="grid md:grid-cols-2 gap-y-3 items-start">
-              {/* Columna izquierda */}
               <div>
                 <div className="text-sm text-neutral-500">{row.year}</div>
                 <div className="mt-2 space-y-1 text-neutral-800">
@@ -155,7 +159,6 @@ export default async function UeberMichPage() {
                 </div>
               </div>
 
-              {/* Columna derecha (correspondiente a la misma fila) */}
               <div>
                 <div className="mt-6 md:mt-6 space-y-1 text-neutral-800">
                   {row.right.map((r, i) => (
