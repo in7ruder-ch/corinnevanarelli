@@ -8,13 +8,22 @@ const nextConfig = {
   reactStrictMode: true,
 
   // ======================================================
-  // ✅ REDIRECTS SEO — CANONICAL HOST
+  // ✅ REDIRECTS SEO — CANONICAL HOST + WIX LEGACY
   // Fuerza:
-  // - corinnevanarelli.ch  -> www.corinnevanarelli.ch
-  // - *.vercel.app         -> www.corinnevanarelli.ch
+  // - corinnevanarelli.ch          -> www.corinnevanarelli.ch
+  // - corinnevanarelli.vercel.app  -> www.corinnevanarelli.ch
+  //
+  // Limpieza migración Wix:
+  // - /service-page/*   -> /angebote/*
+  // - /services-page    -> /
+  // - legacy top-level  -> /angebote/*
+  // - umlaut duplicate  -> /ueber-mich
   // ======================================================
   async redirects() {
     return [
+      // ----------------------
+      // 1) Canonical host (SEO)
+      // ----------------------
       {
         source: "/:path*",
         has: [{ type: "host", value: "corinnevanarelli.ch" }],
@@ -25,6 +34,66 @@ const nextConfig = {
         source: "/:path*",
         has: [{ type: "host", value: "corinnevanarelli.vercel.app" }],
         destination: "https://www.corinnevanarelli.ch/:path*",
+        permanent: true,
+      },
+
+      // ----------------------
+      // 2) Wix legacy routes
+      // ----------------------
+      // Wix "service-page" -> nuevo esquema
+      {
+        source: "/service-page/:slug*",
+        destination: "/angebote/:slug*",
+        permanent: true,
+      },
+
+      // Wix "services-page" (no existe en tu nuevo sitio)
+      {
+        source: "/services-page",
+        destination: "/",
+        permanent: true,
+      },
+
+      // ----------------------
+      // 3) Legacy top-level -> /angebote/...
+      // ----------------------
+      {
+        source: "/akasha-chronik-lesung",
+        destination: "/angebote/akasha-chronik-lesung",
+        permanent: true,
+      },
+      {
+        source: "/chakra-clearing",
+        destination: "/angebote/chakra-clearing",
+        permanent: true,
+      },
+      {
+        source: "/doterra-aromatouch",
+        destination: "/angebote/doterra-aromatouch",
+        permanent: true,
+      },
+      {
+        source: "/hopi-herzheilung",
+        destination: "/angebote/hopi-herzheilung",
+        permanent: true,
+      },
+      {
+        source: "/geistige-wirbelsäulenaufrichtung",
+        destination: "/angebote/gwa",
+        permanent: true,
+      },
+      {
+        source: "/coaching",
+        destination: "/angebote/ontologisches-coaching",
+        permanent: true,
+      },
+
+      // ----------------------
+      // 4) Umlaut duplicates
+      // ----------------------
+      {
+        source: "/über-mich",
+        destination: "/ueber-mich",
         permanent: true,
       },
     ];
