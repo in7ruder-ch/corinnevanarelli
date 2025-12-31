@@ -7,9 +7,36 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig = {
   reactStrictMode: true,
 
+  // ======================================================
+  // ✅ REDIRECTS SEO — CANONICAL HOST
+  // Fuerza:
+  // - corinnevanarelli.ch  -> www.corinnevanarelli.ch
+  // - *.vercel.app         -> www.corinnevanarelli.ch
+  // ======================================================
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "corinnevanarelli.ch" }],
+        destination: "https://www.corinnevanarelli.ch/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "corinnevanarelli.vercel.app" }],
+        destination: "https://www.corinnevanarelli.ch/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
+  // ======================================================
+  // HEADERS / SECURITY
+  // ======================================================
   async headers() {
     const isProd = process.env.NODE_ENV === "production";
-    const paymentsEnabled = (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED || "").trim() === "true";
+    const paymentsEnabled =
+      (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED || "").trim() === "true";
 
     const self = "'self'";
     const supabaseUrl = (process.env.NEXT_PUBLIC_SUPABASE_URL || "").replace(/\/+$/, "");
@@ -17,7 +44,6 @@ const nextConfig = {
     const vercelInsights = "https://vitals.vercel-insights.com";
 
     // ===== BASE (prod por defecto) =====
-    // En producción necesitamos permitir inline scripts que Next inyecta para hidratar.
     let scriptSrc = `${self} 'unsafe-inline' ${vercelInsights}`;
     let styleSrc = `${self} 'unsafe-inline'`;
     let imgSrc = `${self} https: data: blob:`;
@@ -31,9 +57,8 @@ const nextConfig = {
       connectSrc += " https://www.paypal.com https://www.sandbox.paypal.com";
     }
 
-    // ===== AFINES DEV =====
+    // ===== DEV ONLY =====
     if (!isProd) {
-      // Next dev HMR necesita eval + websockets y localhost
       scriptSrc += " 'unsafe-eval'";
       connectSrc += " ws: http://localhost:* https://localhost:*";
       imgSrc += " http://localhost:* https://localhost:*";
@@ -58,11 +83,17 @@ const nextConfig = {
 
     const securityHeaders = [
       { key: "Content-Security-Policy", value: csp },
-      { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" },
+      {
+        key: "Strict-Transport-Security",
+        value: "max-age=31536000; includeSubDomains; preload",
+      },
       { key: "X-Frame-Options", value: "DENY" },
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), geolocation=()",
+      },
       { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
     ];
 
