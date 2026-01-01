@@ -51,7 +51,7 @@ export default function AltSection({
                 <p className="font-semibold text-neutral-900 mb-3 whitespace-pre-line">{kicker}</p>
               ) : null}
 
-              <div className="text-[15px] md:text-base leading-relaxed space-y-4">
+              <div className="text-[15px] md:text-base leading-relaxed space-y-4 whitespace-pre-line">
                 {typeof body === 'string' ? <p>{body}</p> : body}
               </div>
 

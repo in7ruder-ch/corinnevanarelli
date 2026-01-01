@@ -86,8 +86,14 @@ export default async function HopiHerzHeilungPage() {
                 <li key={i}>{item}</li>
               ))}
             </ul>
+
+            {t.rich("alt2.bodyOutro", {
+              p: (chunks) => <p className="whitespace-pre-line">{chunks}</p>,
+              strong: (chunks) => <strong>{chunks}</strong>
+            })}
           </>
         }
+
         imageSrc="/img/Hopi Herzheilung 2.webp"
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}

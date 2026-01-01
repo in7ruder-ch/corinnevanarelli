@@ -61,7 +61,7 @@ export default async function ChakraClearingPage() {
         body={
           <>
             {t.rich("alt1.body", {
-              p: (chunks) => <p>{chunks}</p>,
+              p: (chunks) => <p className="whitespace-pre-line">{chunks}</p>,
               strong: (chunks) => <strong>{chunks}</strong>
             })}
           </>

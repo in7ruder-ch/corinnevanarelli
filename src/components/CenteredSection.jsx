@@ -20,7 +20,7 @@ export default function CenteredSection({
             {title}
           </h2>
 
-          <div className="mt-8 text-[15px] md:text-base leading-relaxed space-y-5 text-neutral-800">
+          <div className="mt-8 text-[15px] md:text-base leading-relaxed space-y-5 text-neutral-800 whitespace-pre-line">
             {typeof body === 'string' ? <p>{body}</p> : body}
           </div>
         </div>

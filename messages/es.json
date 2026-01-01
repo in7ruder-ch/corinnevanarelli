@@ -8,7 +8,7 @@
     "akashaReading": "Lectura de Registros Akáshicos",
     "hopiHeartHealing": "Sanación de Corazón",
     "chakraClearing": "Limpieza de Chakras",
-    "spinalAlignment": "Alineación Espiritual",
+    "spinalAlignment": "Alineación Energética de la Columna",
     "aromatouch": "doTERRA AromaTouch"
   },
   "AltSection": {
@@ -244,11 +244,11 @@
   "Coaching": {
     "meta": {
       "title": "Coaching ontológico | Corinne Vanarelli",
-      "description": "Claridad, foco y verdadera implementación: coaching de igual a igual para temas profesionales y personales - en Zúrich y online.",
+      "description": "Claridad, enfoque y acción real: acompañamiento en coaching de igual a igual para temas profesionales y personales — en Zúrich y online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
       "og": {
         "title": "Coaching ontológico | Corinne Vanarelli",
-        "description": "De la comprensión a la acción: ampliar perspectivas, decidir y pasar al hacer.",
+        "description": "De la toma de conciencia a la acción: ampliar perspectivas, tomar decisiones y pasar a la práctica.",
         "url": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
         "siteName": "Corinne Vanarelli",
         "images": [
@@ -263,7 +263,7 @@
       "twitter": {
         "card": "summary_large_image",
         "title": "Coaching ontológico | Corinne Vanarelli",
-        "description": "Crear claridad, fijar prioridades, pasar a la acción.",
+        "description": "Ganar claridad, definir prioridades y pasar a la acción.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg"
         ]
@@ -275,49 +275,50 @@
     },
     "alt1": {
       "title": "Coaching ontológico - el cambio comienza en el ser",
-      "body": "<p>El coaching ontológico te acompaña a un nivel más profundo - no solo en lo que haces, sino en quién eres en tu núcleo. El foco no está en resolver problemas rápido, sino en la pregunta honesta:</p><p>¿Quién soy - y cómo diseño mi vida desde esa verdad interior?</p><p>En lugar de trabajar en la superficie, miramos juntxs tu ser:</p><p>Cómo piensas, hablas, sientes - y cómo percibes el mundo. Allí está la clave del cambio real y sostenible.</p><p>El coaching ontológico no es un \"programa rápido\". Es un viaje consciente de regreso a ti - a tu ritmo, a tu profundidad, en tu propio compás. Abre nuevas perspectivas, claridad y acceso a lo que ya está en ti, aunque quizá aún oculto.</p><p><strong>Por claridad. Por conexión. Por tu vida auténtica.</strong></p>",
+      "body": "<p>El coaching ontológico te acompaña en un nivel más profundo.\nNo solo en lo que haces, sino en quién eres en tu esencia.</p><p>El foco no está en resolver problemas rápidamente, sino en una pregunta honesta y clarificadora:\n¿Quién soy y cómo diseño mi vida desde esta verdad interior?</p><p>En lugar de trabajar en la superficie, dirigimos juntos la mirada hacia tu ser. Hacia cómo piensas, hablas y sientes, y cómo percibes el mundo. Porque ahí reside la clave del cambio real y sostenible.</p><p>El coaching ontológico no es un programa rápido\nEs un viaje consciente hacia ti misma/o, a tu ritmo, en tu profundidad, en tu propio compás</p><p>Aporta claridad, amplía tu mirada y activa el potencial que ya existe dentro de ti.</p><p>Para decisiones conscientes\nPara conexión interior\nPara una vida vivida desde tu centro</p>",
       "imageAlt": "Espacio de coaching"
     },
     "alt2": {
-      "title": "Coaching como acompañamiento en tu camino de vuelta a ti:",
+      "title": "Coaching como acompañamiento en tu camino de regreso a ti:",
+      "bodyIntro": "<p>El coaching es un espacio en el que te encuentras contigo misma/o. Te ayuda a:</p>",
       "items": [
-        "ganar claridad sobre tu propio camino",
-        "descubrir tus fortalezas y valores",
-        "liberar bloqueos personales y desarrollar estrategias de acción",
-        "generar cambios sostenibles",
-        "resolver conflictos internos y externos",
-        "fortalecer tus estrategias de afrontamiento",
-        "desplegar tu potencial personal"
+        "encontrar orientación y claridad para tu propio camino",
+        "volver a vivir tus fortalezas y valores de forma consciente",
+        "soltar bloqueos internos y desarrollar nuevas perspectivas",
+        "integrar los cambios de manera sostenible",
+        "clarificar conflictos tanto internos como externos",
+        "fortalecer la confianza en tus propios recursos",
+        "desplegar tu potencial a tu propio ritmo"
       ],
       "imageAlt": "Camino compartido"
     },
     "centered": {
-      "title": "Coaching con claridad - para un cambio real",
-      "body": "<p>Mi coaching se basa en una confianza profunda - en tus capacidades, tu sabiduría interior y tu propio camino. Estoy convencida: cada persona lleva dentro el potencial para crecer y diseñar su vida de forma consciente.</p><p>En mi trabajo combino métodos emocionales y mentales efectivos de diversos enfoques - con atención plena, de manera individual y orientada a soluciones. Así se crea espacio para nuevas perspectivas, pensamiento claro y acción consciente. Un camino que te acerca a ti.</p><p>El proceso de coaching es tan único como tú - hecho a medida y alineado con tus necesidades. Juntxs miramos aquello que te bloquea por dentro y desarrollamos caminos para que recuperes claridad y vuelvas a tu fuerza. Muchas veces solo hace falta una nueva mirada para ver más allá.</p><p>Con preguntas precisas traemos luz a tu tema - especialmente donde quizá estés demasiado cerca como para reconocer con claridad las respuestas. Te acompaño con corazón, claridad y un espacio seguro para el cambio real.</p><p>La única condición: la disposición a soltar lo viejo - y permitir lo nuevo.</p>"
+      "title": "Coaching ontológico: claridad en el ser como base del cambio",
+      "body": "<p>Mi trabajo se basa en el enfoque del coaching ontológico. El centro no es principalmente el comportamiento ni la resolución rápida de problemas, sino el ser de la persona – la forma en que percibes, interpretas y actúas en el mundo.</p><p>El coaching ontológico parte de la idea de que el cambio sostenible surge cuando los patrones de pensamiento, las emociones y los hábitos lingüísticos se hacen conscientes. Juntas/os reflexionamos sobre cómo estos niveles influyen en tus acciones, decisiones y relaciones.</p><p>El proceso de coaching es individual, estructurado y orientado a soluciones. Crea un espacio profesional de reflexión donde los bloqueos internos se hacen visibles, surgen nuevas perspectivas y se amplían las posibilidades de acción. El objetivo es ganar claridad, fortalecer la autorresponsabilidad y tomar decisiones desde una postura interior consciente.</p><p>A través de preguntas precisas y un acompañamiento atento, te apoyo a reconocer tus propios patrones, reorganizar conexiones y anclar cambios sostenibles en tu forma de pensar, sentir y actuar.</p><p>La base del coaching es la apertura: \nla disposición a cuestionar patrones existentes y permitir nuevas perspectivas.</p>"
     },
     "steps": {
-      "title": "El proceso de coaching - qué esperar",
-      "subtitle": "El cambio empieza con un primer paso. Así funciona mi proceso de coaching:",
+      "title": "El proceso de coaching - ¿qué te espera?",
+      "subtitle": "El cambio comienza con un primer paso. Aquí puedes ver cómo se desarrolla el proceso de coaching conmigo:",
       "items": [
         {
-          "title": "Llamada inicial gratuita",
-          "body": "En la primera conversación nos conocemos (aprox. 20 minutos). Me cuentas qué te mueve - y aclaramos cómo puedo apoyarte de la mejor manera. Este primer encuentro no tiene compromiso y es gratuito."
+          "title": "Conversación inicial gratuita",
+          "body": "En el primer encuentro nos conocemos (aprox. 20 minutos). Me compartes lo que te está moviendo actualmente y juntas/os vemos cómo puedo acompañarte de la mejor manera. Este encuentro es sin compromiso y gratuito."
         },
         {
           "title": "Sesiones de coaching individuales",
-          "body": "En las sesiones trabajamos específicamente tus temas. Desarrollamos soluciones y estrategias que encajan contigo - y te llevan paso a paso hacia tus objetivos."
+          "body": "En las sesiones trabajamos de manera específica sobre tus temas actuales. Basándonos en el enfoque del coaching ontológico, no solo observamos posibles soluciones, sino sobre todo los patrones de pensamiento, lenguaje y emoción que influyen en tu forma de actuar."
         },
         {
-          "title": "Reflexión y desarrollo continuo",
-          "body": "Al final miramos juntos hacia atrás: ¿qué cambió? ¿qué te sostiene? ¿y cómo puedes seguir en conexión contigo en tu camino?"
+          "title": "Reflexión y desarrollo",
+          "body": "Al final del proceso miramos juntas/os hacia atrás: ¿qué ha cambiado?, ¿qué te sostiene ahora? y ¿cómo puedes seguir caminando en conexión contigo misma/o?"
         }
       ],
-      "footer": "<p>Este camino puede ser emocionalmente movilizador - y justamente allí reside su fuerza:</p><p><strong>Al final suele aparecer una sensación profunda de claridad, ligereza y nueva energía.</strong></p>"
+      "footer": "<p>Este camino puede ser emocionalmente intenso — pero justamente ahí reside su fuerza:</p><p><strong>Al final, suele aparecer una profunda sensación de claridad, ligereza y nueva energía.</strong></p>"
     },
     "freeConsult": {
-      "title": "1:1 Llamada gratuita para claridad",
-      "subtitle": "¿Tienes curiosidad pero dudas? Te invito a una llamada gratuita para conocernos.",
-      "duration": "20 min",
+      "title": "1:1 Conversación gratuita para ganar claridad",
+      "subtitle": "¿Tienes curiosidad pero aún no estás segura/o? Entonces te invito a una conversación gratuita para conocernos.",
+      "duration": "20 min.",
       "price": "Gratis",
       "ctaLabel": "Solicitar reserva"
     }

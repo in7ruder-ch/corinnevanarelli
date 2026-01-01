@@ -81,12 +81,17 @@ export default async function GWAPage() {
         }
         body={
           <>
+            {/* ✅ Nuevo bodyIntro */}
+            <p className="mb-4 whitespace-pre-line">{t("alt2.bodyIntro")}</p>
+
             <ul className="list-disc pl-6 space-y-2 marker:text-neutral-900">
               {t.raw("alt2.items").map((li, i) => (
                 <li key={i}>{li}</li>
               ))}
             </ul>
-            <p className="mt-4">{t("alt2.outro")}</p>
+
+            {/* ✅ Outro con saltos */}
+            <p className="mt-4 whitespace-pre-line">{t("alt2.outro")}</p>
           </>
         }
         imageSrc="/img/GWA.webp"

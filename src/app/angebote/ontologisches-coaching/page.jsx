@@ -83,11 +83,17 @@ export default async function OntologischesCoachingPage() {
           </>
         }
         body={
-          <ul className="list-disc pl-6 space-y-2 marker:text-neutral-900">
-            {t
-              .raw("alt2.items")
-              .map((item, i) => <li key={i}>{item}</li>)}
-          </ul>
+          <>
+            {t.rich("alt2.bodyIntro", {
+              p: (chunks) => <p>{chunks}</p>
+            })}
+
+            <ul className="list-disc pl-6 space-y-2 marker:text-neutral-900">
+              {t.raw("alt2.items").map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </>
         }
         imageSrc="/img/Ontologisches Coaching.jpg"
         imageAlt={t("alt2.imageAlt")}

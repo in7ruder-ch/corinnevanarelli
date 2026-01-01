@@ -8,7 +8,7 @@
     "akashaReading": "Akashic Records Reading",
     "hopiHeartHealing": "Hopi Heart Healing",
     "chakraClearing": "Chakra Clearing",
-    "spinalAlignment": "Spiritual Spine Alignment",
+    "spinalAlignment": "Energetic Spine Alignment",
     "aromatouch": "doTERRA AromaTouch"
   },
   "AltSection": {
@@ -274,42 +274,43 @@
       "imageAlt": "Ontological Coaching - banner"
     },
     "alt1": {
-      "title": "Ontological Coaching - change begins in being",
-      "body": "<p>Ontological coaching accompanies you on a deeper level - not only in what you do, but in who you are at your core. The focus is not on quickly solving problems, but on the honest question:</p><p>Who am I - and how do I shape my life from this inner truth?</p><p>Instead of working on the surface, we look together at your being:</p><p>How you think, speak, feel - and how you perceive the world. This is where the key to real, sustainable change lies.</p><p>Ontological coaching is not a \"quick program\". It is a conscious journey back to yourself - at your pace, at your depth, in your own rhythm. It opens new perspectives, clarity and access to what lies within you, but may still be hidden.</p><p><strong>For clarity. For connection. For your authentic life.</strong></p>",
+      "title": "Ontological Coaching – Change begins in being",
+      "body": "<p>Ontological coaching accompanies you on a deeper level.\nNot only in what you do, but in who you are at your core.</p><p>The focus is not on quick problem-solving, but on an honest, clarifying question:\nWho am I, and how do I shape my life from this inner truth?</p><p>Instead of working on the surface, we turn our attention to your being. To how you think, speak and feel, and how you perceive the world. Because this is exactly where the key to real, sustainable change lies.</p><p>Ontological coaching is not a quick fix.\nIt is a conscious journey back to yourself – in your tempo, your depth, your own rhythm.</p><p>It brings clarity, broadens your perspective and activates the potential that already exists within you.</p><p>For conscious decisions\nFor inner connection\nFor a life lived from your center</p>",
       "imageAlt": "Coaching space"
     },
     "alt2": {
-      "title": "Coaching as companionship on your path back to yourself:",
+      "title": "Coaching as guidance on your path back to yourself:",
+      "bodyIntro": "<p>Coaching is a space where you meet yourself. It helps you to:</p>",
       "items": [
-        "gain clarity about your own path",
-        "discover your strengths and values",
-        "dissolve personal blocks and develop action strategies",
-        "create sustainable change",
-        "resolve inner and outer conflicts",
-        "strengthen your coping strategies",
-        "unfold your personal potential"
+        "find orientation and clarity for your own path",
+        "live your strengths and values more consciously again",
+        "release inner blockages and develop new perspectives",
+        "anchor change sustainably",
+        "clarify conflicts on both inner and outer levels",
+        "strengthen trust in your own resources",
+        "unfold your potential at your own pace"
       ],
       "imageAlt": "Shared path"
     },
     "centered": {
-      "title": "Coaching with clarity - for real change",
-      "body": "<p>My coaching is based on deep trust - in your abilities, your inner wisdom and your very own path. I am convinced: every person carries the potential within to grow and shape life consciously.</p><p>In my work, I combine effective emotional and mental methods from various approaches - mindful, individual and solution-oriented. This creates space for new perspectives, clear thinking and conscious action. A path that brings you closer to yourself.</p><p>The coaching process is as unique as you are - tailor-made and aligned with your needs. Together we look at what blocks you from within and develop ways for you to gain clarity and step into your power again. Often it only takes a new perspective to see further.</p><p>Through targeted questions we bring light to your topic - especially where you may be too close to recognize answers clearly. I accompany you with heart, clarity and a safe space for real change.</p><p>The only prerequisite: the willingness to let go of the old - and allow the new.</p>"
+      "title": "Ontological coaching – clarity in being as the foundation for change",
+      "body": "<p>My coaching is based on the ontological coaching approach. The focus is not primarily on behavior or short-term problem-solving, but on the being of the person – the way you perceive, interpret and act in the world.</p><p>Ontological coaching assumes that sustainable change emerges where ways of thinking, emotional patterns and linguistic habits become conscious. Together, we reflect on how these levels shape your actions, decisions and relationships.</p><p>The coaching process is individual, structured and solution-oriented. It creates a professional space for reflection in which inner blockages become visible, new perspectives arise and room for action expands. The goal is to gain clarity, strengthen self-responsibility and make decisions from a conscious inner stance.</p><p>Through targeted questions and mindful guidance, I support you in recognizing your own patterns, reordering connections and anchoring sustainable change in thinking, feeling and acting.</p><p>The prerequisite for coaching is openness:\nthe willingness to question existing patterns and allow new perspectives.</p>"
     },
     "steps": {
-      "title": "The coaching process - what to expect",
-      "subtitle": "Change begins with a first step. Here is how my coaching process works:",
+      "title": "The coaching process – what to expect",
+      "subtitle": "Change begins with a first step. Here you can see how the coaching process with me unfolds:",
       "items": [
         {
-          "title": "Free initial call",
-          "body": "In the first conversation we get to know each other (approx. 20 minutes). You tell me what moves you - and we clarify how I can best support you. This get-to-know-you is non-binding and free of charge."
+          "title": "Free initial consultation",
+          "body": "In our first conversation, we get to know each other (approx. 20 minutes). You share what is currently moving you, and together we clarify how I can best support you. This initial meeting is non-binding and free of charge."
         },
         {
           "title": "Individual coaching sessions",
-          "body": "In the sessions we work specifically on your topics. We develop solutions and strategies that fit you - and take you step by step toward your goals."
+          "body": "In the coaching sessions, we work specifically on your current concerns. Based on the ontological coaching approach, we look not only at possible solutions, but above all at the underlying patterns of thinking, language and emotion that shape your actions."
         },
         {
           "title": "Reflection & further development",
-          "body": "At the end we look back together: what has changed? What carries you forward? And how can you stay connected with yourself on your path?"
+          "body": "At the end of the process, we look back together: What has changed? What continues to support you? And how can you stay connected with yourself on your path forward?"
         }
       ],
       "footer": "<p>This path can be emotionally moving - and that is exactly where its power lies:</p><p><strong>In the end, a deep feeling of clarity, lightness and new energy often emerges.</strong></p>"
@@ -355,24 +356,24 @@
       "imageAlt": "Akashic Records - banner"
     },
     "alt1": {
-      "title": "Akashic Records - clarity about your path and your blocks",
-      "body": "<p>The Akashic Records are a subtle, energetic field - often referred to as the \"universal memory\". It holds everything a soul has ever experienced, felt and learned - across space and time. In many spiritual traditions, the Akashic Records are considered a source of deep wisdom, clarity and healing. When we connect with them, we gain access to higher knowledge - beyond the mind.</p><p>The messages from the Akasha are always loving, precise and supportive. They help us understand patterns, dissolve blocks and reconnect with our inner truth.</p><p><strong>The Akashic Records remind you who you truly are - on a soul level.</strong></p>",
-      "imageAlt": "Akashic reading"
+      "title": "Akasha Records – Clarity about your path and your blocks",
+      "body": "<p>The Akasha Records are often described as the subtle field of consciousness – a space in which experiences, insights and learning processes on a soul level are stored. Many spiritual traditions understand them as a source of wisdom, orientation and inner healing.</p><p>In an Akasha reading, access opens to information that goes beyond the rational mind. The messages from the Akasha are clear, loving and precise. They make soul-level connections visible, help to understand recurring patterns and consciously release inner blocks.</p><p>This creates a deeper understanding of your life path – of what has shaped you, and of what can support you now. The Akasha Records invite you to reconnect with your inner truth and to make decisions from a deeper sense of clarity.</p><p>They remind you of who you are\nbeyond roles, expectations and old stories\nOn a soul level</p>",
+      "imageAlt": "Akasha Reading"
     },
     "alt2": {
-      "title": "Insights that remind you - and move you forward",
-      "bodyIntro": "<p>An Akashic reading can offer deep insights and new perspectives - exactly where you are in life right now. It opens a space where you may recognize and understand yourself on a soul level. You can:</p>",
+      "title": "Insights that remind you – and guide you forward",
+      "bodyIntro": "<p>An Akasha reading can offer you deep insights and new perspectives exactly where you are in your life right now. It opens a space in which you are invited to recognize and understand yourself on a soul level.</p><p>Through this, you may:</p>",
       "items": [
-        "gain a deeper understanding of your current life feeling",
-        "see your life task and soul path more clearly",
-        "understand and dissolve recurring patterns",
-        "gently transform entanglements, blocks or fears",
+        "gain a deeper understanding of your current emotional state",
+        "recognize your soul path and life purpose more clearly",
+        "become aware of and release recurring patterns",
+        "gently transform inner entanglements, blocks or fears",
         "develop new perspectives on inner and outer challenges",
-        "find more inner clarity and energetic alignment",
-        "strengthen the connection to your soul and trust it again"
+        "find greater inner clarity and energetic alignment",
+        "strengthen the connection to your soul and learn to trust it again"
       ],
-      "bodyOutro": "For people who feel: there is more - and I am ready to see it.",
-      "imageAlt": "Akashic Records reading"
+      "bodyOutro": "This work is for people who feel:\n<strong>There is more – and I am ready to recognize it.</strong>",
+      "imageAlt": "Akasha Records Reading"
     },
     "topics": {
       "title": "Possible topics in an Akashic reading",
@@ -441,7 +442,7 @@
       "items": [
         {
           "title": "Preparation for the reading",
-          "body": "Before each reading, I attune through a meditative connection to your soul and energetic field. I connect with your soul energy and your spiritual companions - always in alignment with your highest good."
+          "body": "Before each reading, I prepare myself with care and attune in a meditative connection to your soul and your energetic level. In doing so, I open a protected space to receive the information that is essential for you in this moment. I connect with your soul energy as well as with your spiritual guides, always in respect of your free will and in alignment with your highest good. This creates a clear and safe foundation for a reading that is supportive, respectful and attuned to you."
         },
         {
           "title": "Receiving the messages",
@@ -491,44 +492,45 @@
       "imageAlt": "Hopi Heart Healing - banner"
     },
     "alt1": {
-      "title": "Hopi Heart Healing - your heart knows your way",
-      "body": "<p>Hopi heart healing is a gentle yet deeply effective method from the ancient knowledge of the Hopi. It touches your heart - and with it the level of your soul and subtle body. This is where the deepest wounds, but also your greatest inner strength, often reside - and where heart healing begins.</p><p>Step by step, you may reopen your heart - free from old wounds, fears or blocks that unconsciously keep you from allowing love, abundance and genuine connection into your life.</p><p>This energetic work supports you in releasing emotional burdens - not only your own, but also inherited patterns from your ancestral line.</p><p><strong>This creates space for clarity, lightness and true heart connection - with yourself and with others.</strong></p>",
+      "title": "Hopi Heart Healing – your heart knows the way",
+      "body": "<p>Hopi Heart Healing is a gentle yet deeply effective form of energy work rooted in the ancient wisdom of the Hopi tradition. It works on the level of the heart – where soul experiences, emotional imprints and your greatest inner strength reside.</p><p>Through this heart-centered work, what has long been protected or closed off can gently begin to open, step by step. Old wounds, fears and inner blocks may dissolve, as well as patterns that often unconsciously prevent you from allowing love, abundance and true connection into your life.</p><p>Hopi Heart Healing supports you in gently transforming emotional burdens. In this process, not only personal themes may arise, but also inherited imprints from the ancestral line that were passed on without being consciously chosen.</p><p>This creates space for inner clarity, lightness and a deep heart connection with yourself and with others.</p>",
       "imageAlt": "Hopi Heart Healing"
     },
     "alt2": {
       "title": "When your heart calls for healing",
-      "bodyIntro": "<p>This healing work is for everyone who wishes to be touched and supported on a heart level - especially in times of change, inner restlessness or emotional strain. It is especially suitable for people who:</p>",
+      "bodyIntro": "<p>This heart work is for people who wish to be touched and supported on a heart level – especially during times of change, inner restlessness or emotional strain. It creates a protected space in which healing, relief and new connection can unfold.</p><p>It is especially suitable for people who:</p>",
       "items": [
-        "feel inwardly blocked or emotionally exhausted",
-        "wish to lovingly release old wounds, grief or fears",
-        "want to reconnect with their heart energy",
-        "seek peace with themselves and their past",
-        "long for emotional healing and inner peace",
-        "want to clarify attachment issues, relationship pain or old wounds",
-        "wish for a deeper connection with themselves and others",
-        "suffer from burnout, depression, grief or unexplained complaints",
+        "feel internally blocked, overwhelmed or emotionally exhausted",
+        "wish to mindfully release old wounds, grief or fears",
+        "want to reconnect with their heart energy and inner center",
+        "seek to find peace with themselves and their past",
+        "long for emotional healing, inner calm and stability",
+        "wish to clarify attachment themes, relationship pain or old heart wounds",
+        "desire a deeper connection with themselves and with others",
+        "experience exhaustion, depressive phases, grief or difficult-to-define complaints",
         "are in a phase of change, crisis or reorientation",
-        "as a child (or for their child) want to strengthen emotional safety - e.g., after parents' separation"
+        "wish to strengthen emotional security as a child or for their child, for example after parental separation"
       ],
+      "bodyOutro": "<p>This work does not replace medical or therapeutic treatment, but it can be a valuable and supportive accompaniment on an emotional and energetic level.</p><p>A space for your heart\nFor relief\nFor new connection and inner calm</p>",
       "imageAlt": "Heart Healing"
     },
     "steps": {
-      "title": "How a Hopi heart healing unfolds",
+      "title": "Process of a Hopi Heart Healing",
       "items": [
         {
           "title": "Arriving & attuning",
-          "body": "At the beginning you take time to come to rest at your own pace and arrive within yourself. In a short conversation we look together at what is moving you right now - emotionally, spiritually or physically. This creates a mindful space where everything may be present."
+          "body": "At the beginning, you take time to arrive and settle in at your own pace. In a short introductory conversation, we gently look at what is currently moving you – emotionally, mentally or physically. This creates a mindful space in which everything is welcome."
         },
         {
           "title": "Heart work & energetic guidance",
-          "body": "You may lie down or sit comfortably - and simply receive. I connect with the source of Hopi energy and work intuitively through your heart center. The energy flows exactly where it is needed - lovingly, clearly and often deeply touching. Old wounds, blocks or inherited patterns may gently dissolve."
+          "body": "You are invited to lie down or sit comfortably – and simply receive. I connect with the source of Hopi energy and work intuitively through your heart center. The energy flows exactly where it is needed – lovingly, clearly and often deeply touching. Old wounds, blocks or inherited patterns may gently release."
         },
         {
           "title": "After the session",
-          "body": "After the session you have space to feel in peace - with yourself, without hurry. In a mindful exchange we reflect on what has shown up. You receive impulses on how to integrate the experience into your everyday life and carry the effect of the heart healing further. The energy often continues to work for days - quietly yet deeply. Many people then feel more inner peace, a wide, open heart connection and more loving feelings toward themselves."
+          "body": "After the session, you have space to gently feel into the experience – fully with yourself, without haste. In a mindful exchange, we reflect together on what has shown itself and how you can integrate the experience for yourself. The energetic effect often continues to unfold over several days – quietly, subtly and yet deeply. Many people report a greater sense of inner peace, a feeling of openness and spaciousness in the heart, and a more compassionate attitude toward themselves."
         }
       ],
-      "footer": "<p><strong>Give yourself time.</strong> Drink enough water, allow yourself rest and listen to your body.</p><p>Healing does not happen under pressure - it unfolds when you give it space.</p>"
+      "footer": "<p><strong>Give yourself time.</strong> Drink plenty of water, allow yourself rest and listen to your body.</p><p>Healing does not happen under pressure – it unfolds when you give it space.</p>"
     },
     "freeConsult": {
       "title": "1:1 Free call for clarity",
@@ -571,42 +573,38 @@
       "imageAlt": "Chakra Clearing - banner"
     },
     "alt1": {
-      "title": "Chakra Clearing - clarity, balance & new vitality",
-      "body": "<p>Our seven main chakras are subtle energy centers along the spine. They influence our physical, emotional and mental well-being.</p><p>When these chakras fall out of balance - due to stress, emotional strain or external influences - it can lead to restlessness, exhaustion or a sense of inner emptiness.</p><p>A chakra clearing can strengthen you on all levels - energetically, emotionally and spiritually. You come back to yourself and feel what is truly alive within you.</p><p><strong>Your energy is the key. Chakra clearing helps you let it flow freely again.</strong></p>",
-      "imageAlt": "Chakra Clearing"
+      "title": "Chakra Clearing – clarity, balance & renewed vitality",
+      "body": "<p>The seven main chakras are subtle energy centers along the spine. They influence how we feel physically, how we respond emotionally, and how we are mentally aligned.</p><p>When these centers fall out of balance – for example due to stress, emotional strain or external influences – this can manifest as inner restlessness, exhaustion or a feeling of being disconnected from yourself.</p><p>A chakra clearing gently supports you in harmonizing your energy and bringing it back into balance. On an energetic, emotional and soulful level, space is created for clarity, stability and renewed life force. Many people experience a stronger sense of centering and inner presence afterward.</p><p>Your energy is the key.\nChakra clearing helps it flow freely again.</p>",
+      "imageAlt": "Chakra clearing"
     },
     "alt2": {
       "title": "Chakra clearing gently brings your energy back into flow",
       "items": [
-        "find more inner calm and balance",
-        "experience a clear, powerful sense of energy",
-        "strengthen your intuition and self-perception",
-        "release emotional strain",
-        "bring more lightness into everyday life",
-        "deepen body and soul awareness"
+        "finding more inner calm and balance",
+        "experiencing a clear, powerful sense of energy",
+        "strengthening your intuition and self-awareness",
+        "mindfully releasing emotional burdens",
+        "bringing more lightness into your everyday life",
+        "deepening body and soul awareness"
       ],
-      "imageAlt": "Chakra Clearing in Düdingen"
+      "imageAlt": "Chakra clearing in Düdingen"
     },
     "steps": {
       "title": "Chakra clearing process",
       "items": [
         {
           "title": "Preparation",
-          "body": "Before we begin, you take time to arrive within yourself. In a short conversation we look together at what is moving you and which topic wants space. You may open inwardly to what wants to be seen, felt and released - in your tempo, in your way. Everything is welcome. Nothing must."
+          "body": "Before we begin, you take time to arrive within yourself. In a short, mindful conversation, we look together at what is currently moving you and which topic would like to be given space. You are invited to gently open to what wants to be seen, felt and released – at your own pace and in your own way. Everything is welcome. Nothing is required."
         },
         {
           "title": "During the session",
-          "intro": "In a quiet, protected space, you may come to rest - sitting or lying down, as feels right for you. I work mindfully along your seven main chakras and support the flow of energy through intuitive perception and gentle energetic impulses. This may:",
-          "list": [
-            "recognize and dissolve energetic blocks",
-            "bring your chakras into balance",
-            "gently relieve emotional, mental and physical tension"
-          ],
-          "outro": "This application offers new clarity, inner spaciousness and a palpable sense of connection with yourself. You may feel warmth, tingling, inner images or deep calm - every person experiences the session differently."
+          "intro": "In a calm, protected space, you are invited to relax – sitting or lying down, just as feels right for you. The session unfolds mindfully, at your pace and without pressure. I work along your seven main chakras and support the natural flow of energy through intuitive perception and gentle energetic impulses.",
+          "list": [],
+          "outro": ""
         },
         {
           "title": "After the session",
-          "body": "Many people report more lightness, inner clarity and a deep sense of connection with themselves. After the chakra clearing, the energy continues to work - gently and in your own tempo. Energy work often sets deeper processes in motion that may unfold in the following days."
+          "body": "Many people report feeling more lightness, inner clarity and a deeper sense of connection with themselves afterward. After a chakra clearing, the energetic effect may continue to resonate – gently and in your own time. Energy work often initiates deeper processes that can unfold in different ways in the days following the session."
         }
       ],
       "footer": "<p><strong>Give yourself time.</strong> Drink enough water, allow rest and listen to your body.</p><p>Healing does not happen under pressure - it unfolds when you give it space.</p>"

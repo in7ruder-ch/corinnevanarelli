@@ -90,7 +90,12 @@ export default async function AkashaChronikLesungPage() {
                 <li key={i}>{item}</li>
               ))}
             </ul>
-            <p>{t("alt2.bodyOutro")}</p>
+            <p className="whitespace-pre-line">
+              {t.rich("alt2.bodyOutro", {
+                strong: (chunks) => <strong>{chunks}</strong>,
+              })}
+            </p>
+
           </>
         }
         imageSrc="/img/Akasha Chronik Lesung.jpg"
