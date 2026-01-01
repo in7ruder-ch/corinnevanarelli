@@ -39,7 +39,6 @@ export default async function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
-          <div aria-hidden className="h-32" />
           <main className="">{children}</main>
         </NextIntlClientProvider>
       </body>

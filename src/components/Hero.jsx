@@ -16,8 +16,9 @@ export default function Hero({
   return (
     <section
       aria-label={t("ariaLabel")}
-      className="relative w-full h-[calc(100svh-8rem)] md:h-[calc(100vh-8rem)] overflow-hidden"
+      className="relative w-full h-[calc(100svh-8rem)] md:h-[calc(100vh-8rem)] overflow-hidden mt-32 md:mt-0"
     >
+
       <div className="absolute inset-0 -z-10">
         <Image
           src={imageSrc}
