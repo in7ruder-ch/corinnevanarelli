@@ -173,8 +173,8 @@ export default async function HomePage() {
           </>
         }
         imageSrc={{
-          mobile: "/img/hopi2.webp",
-          desktop: "/img/hopi2.webp"
+          mobile: "/img/Chakra clearing Dudingen.webp",
+          desktop: "/img/Chakra clearing Dudingen.webp"
         }}
         imageAlt={t('s6.imageAlt')}
         mediaLeft={false}

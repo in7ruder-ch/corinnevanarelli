@@ -68,8 +68,8 @@ export default async function GWAPage() {
           </>
         }
         imageSrc={{
-          mobile: "/img/hopi2.webp",
-          desktop: "/img/hopi2.webp"
+          mobile: "/img/Chakra clearing Dudingen.webp",
+          desktop: "/img/Chakra clearing Dudingen.webp"
         }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
@@ -98,8 +98,8 @@ export default async function GWAPage() {
           </>
         }
         imageSrc={{
-          mobile: "/img/GWA.webp",
-          desktop: "/img/GWA.webp"
+          mobile: "/img/gwa2.webp",
+          desktop: "/img/gwa2.webp"
         }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
