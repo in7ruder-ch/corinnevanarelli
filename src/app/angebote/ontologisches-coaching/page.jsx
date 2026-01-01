@@ -70,7 +70,10 @@ export default async function OntologischesCoachingPage() {
               })}
           </>
         }
-        imageSrc="/img/Coaching.jpg"
+        imageSrc={{
+          mobile: "/img/Coaching.jpg",
+          desktop: "/img/Coaching.jpg"
+        }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -95,7 +98,10 @@ export default async function OntologischesCoachingPage() {
             </ul>
           </>
         }
-        imageSrc="/img/Ontologisches Coaching.jpg"
+        imageSrc={{
+          mobile: "/img/Ontologisches Coaching.jpg",
+          desktop: "/img/Ontologisches Coaching.jpg"
+        }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

@@ -68,7 +68,10 @@ export default async function AkashaChronikLesungPage() {
             })}
           </>
         }
-        imageSrc="/img/akasha2.webp"
+        imageSrc={{
+          mobile: "/img/akasha2.webp",
+          desktop: "/img/akasha2.webp"
+        }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -98,7 +101,10 @@ export default async function AkashaChronikLesungPage() {
 
           </>
         }
-        imageSrc="/img/akasha3.webp"
+        imageSrc={{
+          mobile: "/img/akasha3.webp",
+          desktop: "/img/akasha3.webp"
+        }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

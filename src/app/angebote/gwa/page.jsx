@@ -67,7 +67,10 @@ export default async function GWAPage() {
             })}
           </>
         }
-        imageSrc="/img/hopi2.webp"
+        imageSrc={{
+          mobile: "/img/hopi2.webp",
+          desktop: "/img/hopi2.webp"
+        }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -94,7 +97,10 @@ export default async function GWAPage() {
             <p className="mt-4 whitespace-pre-line">{t("alt2.outro")}</p>
           </>
         }
-        imageSrc="/img/GWA.webp"
+        imageSrc={{
+          mobile: "/img/GWA.webp",
+          desktop: "/img/GWA.webp"
+        }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

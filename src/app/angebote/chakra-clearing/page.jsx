@@ -66,7 +66,10 @@ export default async function ChakraClearingPage() {
             })}
           </>
         }
-        imageSrc="/img/chakra.webp"
+        imageSrc={{
+          mobile: "/img/chakra.webp",
+          desktop: "/img/chakra.webp"
+        }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -85,7 +88,10 @@ export default async function ChakraClearingPage() {
             ))}
           </ul>
         }
-        imageSrc="/img/chakra2.webp"
+        imageSrc={{
+          mobile: "/img/chakra2.webp",
+          desktop: "/img/chakra2.webp"
+        }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

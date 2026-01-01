@@ -92,7 +92,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s2.p2')}</p>
           </>
         }
-        imageSrc="/img/Ontologisches Coaching.jpg"
+        imageSrc={{
+          mobile: "/img/Ontologisches Coaching.jpg",
+          desktop: "/img/Ontologisches Coaching.jpg"
+        }}
         imageAlt={t('s2.imageAlt')}
         mediaLeft={false}
         ctaHref="/angebote/ontologisches-coaching"
@@ -109,7 +112,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s3.p2')}</p>
           </>
         }
-        imageSrc="/img/akasha.webp"
+        imageSrc={{
+          mobile: "/img/akasha.webp",
+          desktop: "/img/akasha.webp"
+        }}
         imageAlt={t('s3.imageAlt')}
         mediaLeft={true}
         ctaHref="/angebote/akasha-chronik-lesung"
@@ -126,7 +132,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s4.p2')}</p>
           </>
         }
-        imageSrc="/img/hopi.webp"
+        imageSrc={{
+          mobile: "/img/hopi.webp",
+          desktop: "/img/hopi.webp"
+        }}
         imageAlt={t('s4.imageAlt')}
         mediaLeft={false}
         ctaHref="/angebote/hopi-herzheilung"
@@ -143,7 +152,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s5.p2')}</p>
           </>
         }
-        imageSrc="/img/Geistige.webp"
+        imageSrc={{
+          mobile: "/img/Geistige.webp",
+          desktop: "/img/Geistige.webp"
+        }}
         imageAlt={t('s5.imageAlt')}
         mediaLeft={true}
         ctaHref="/angebote/chakra-clearing"
@@ -160,7 +172,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s6.p2')}</p>
           </>
         }
-        imageSrc="/img/hopi2.webp"
+        imageSrc={{
+          mobile: "/img/hopi2.webp",
+          desktop: "/img/hopi2.webp"
+        }}
         imageAlt={t('s6.imageAlt')}
         mediaLeft={false}
         ctaHref="/angebote/gwa"
@@ -177,7 +192,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s7.p2')}</p>
           </>
         }
-        imageSrc="/img/DoTerra Aromatouch.webp"
+        imageSrc={{
+          mobile: "/img/DoTerra Aromatouch.webp",
+          desktop: "/img/DoTerra Aromatouch.webp"
+        }}
         imageAlt={t('s7.imageAlt')}
         mediaLeft={true}
         ctaHref="/angebote/doterra-aromatouch"

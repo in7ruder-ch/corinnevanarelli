@@ -67,7 +67,10 @@ export default async function DoterraAromaTouchPage() {
             })}
           </>
         }
-        imageSrc="/img/DoTerra Aromatouch.webp"
+        imageSrc={{
+          mobile: "/img/DoTerra Aromatouch.webp",
+          desktop: "/img/DoTerra Aromatouch.webp"
+        }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -94,7 +97,10 @@ export default async function DoterraAromaTouchPage() {
             </p>
           </>
         }
-        imageSrc="/img/doterra2.webp"
+        imageSrc={{
+          mobile: "/img/doterra2.webp",
+          desktop: "/img/doterra2.webp"
+        }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

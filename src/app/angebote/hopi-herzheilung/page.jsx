@@ -66,7 +66,10 @@ export default async function HopiHerzHeilungPage() {
             })}
           </>
         }
-        imageSrc="/img/hopi.webp"
+        imageSrc={{
+          mobile: "/img/hopi.webp",
+          desktop: "/img/hopi.webp"
+        }}
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -93,8 +96,10 @@ export default async function HopiHerzHeilungPage() {
             })}
           </>
         }
-
-        imageSrc="/img/newbanner.webp"
+        imageSrc={{
+          mobile: "/img/newbanner.webp",
+          desktop: "/img/newbanner.webp"
+        }}
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}
