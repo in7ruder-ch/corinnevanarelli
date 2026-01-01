@@ -47,7 +47,7 @@ export default async function ChakraClearingPage() {
     <>
       <ServiceBanner
         title={t("banner.title")}
-        imageSrc="/img/Banner.jpeg"
+        imageSrc="/img/banner3.webp"
         imageAlt={t("banner.imageAlt")}
       />
 
@@ -66,7 +66,7 @@ export default async function ChakraClearingPage() {
             })}
           </>
         }
-        imageSrc="/img/Chakra clearing Dudingen.webp"
+        imageSrc="/img/chakra.webp"
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -85,7 +85,7 @@ export default async function ChakraClearingPage() {
             ))}
           </ul>
         }
-        imageSrc="/img/Chakra Clearing Sitzung.webp"
+        imageSrc="/img/chakra2.webp"
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

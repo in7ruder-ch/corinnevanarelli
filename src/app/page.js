@@ -13,7 +13,7 @@ export async function generateMetadata() {
   const locale = await getLocale();
   const ogLocale =
     locale === 'de' ? 'de_DE' :
-    locale === 'en' ? 'en_US' : 'es_ES';
+      locale === 'en' ? 'en_US' : 'es_ES';
 
   return {
     title: t('meta.title'),
@@ -73,7 +73,10 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s1.p6')}</p>
           </>
         }
-        imageSrc="/img/Ontologisches Coach.webp"
+        imageSrc={{
+          mobile: "/img/Ontologisches Coach - mobile.webp",
+          desktop: "/img/Ontologisches Coach.webp"
+        }}
         imageAlt={t('s1.imageAlt')}
         mediaLeft={true}
         showCta={false}
@@ -140,7 +143,7 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s5.p2')}</p>
           </>
         }
-        imageSrc="/img/Chakra clearing Dudingen.webp"
+        imageSrc="/img/Geistige.webp"
         imageAlt={t('s5.imageAlt')}
         mediaLeft={true}
         ctaHref="/angebote/chakra-clearing"
@@ -157,7 +160,7 @@ export default async function HomePage() {
             <p className="whitespace-pre-line">{rich('s6.p2')}</p>
           </>
         }
-        imageSrc="/img/Geistige.webp"
+        imageSrc="/img/hopi2.webp"
         imageAlt={t('s6.imageAlt')}
         mediaLeft={false}
         ctaHref="/angebote/gwa"

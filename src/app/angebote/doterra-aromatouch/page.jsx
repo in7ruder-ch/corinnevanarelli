@@ -48,7 +48,7 @@ export default async function DoterraAromaTouchPage() {
     <>
       <ServiceBanner
         title={t("banner.title")}
-        imageSrc="/img/Banner.jpeg"
+        imageSrc="/img/banner3.webp"
         imageAlt={t("banner.imageAlt")}
       />
 
@@ -94,7 +94,7 @@ export default async function DoterraAromaTouchPage() {
             </p>
           </>
         }
-        imageSrc="/img/DoTerra Öl.webp"
+        imageSrc="/img/doterra2.webp"
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

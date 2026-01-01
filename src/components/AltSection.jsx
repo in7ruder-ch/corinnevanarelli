@@ -78,14 +78,28 @@ export default function AltSection({
           </div>
 
           {/* IMAGEN */}
+          {/* IMAGEN */}
           <div className={['order-2', mediaLeft ? 'md:order-1' : 'md:order-2'].join(' ')}>
             <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full overflow-hidden">
+
+              {/* Mobile */}
+              {typeof imageSrc === 'object' && imageSrc.mobile && (
+                <Image
+                  src={imageSrc.mobile}
+                  alt={imageAlt}
+                  fill
+                  sizes="100vw"
+                  className="object-cover md:hidden"
+                />
+              )}
+
+              {/* Desktop */}
               <Image
-                src={imageSrc}
+                src={typeof imageSrc === 'object' ? imageSrc.desktop : imageSrc}
                 alt={imageAlt}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
+                className="object-cover hidden md:block"
               />
             </div>
           </div>

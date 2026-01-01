@@ -49,7 +49,7 @@ export default async function AkashaChronikLesungPage() {
     <>
       <ServiceBanner
         title={t("banner.title")}
-        imageSrc="/img/Banner.jpeg"
+        imageSrc="/img/banner3.webp"
         imageAlt={t("banner.imageAlt")}
       />
 
@@ -68,7 +68,7 @@ export default async function AkashaChronikLesungPage() {
             })}
           </>
         }
-        imageSrc="/img/Akasha Lesung.jpg"
+        imageSrc="/img/akasha2.webp"
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -98,7 +98,7 @@ export default async function AkashaChronikLesungPage() {
 
           </>
         }
-        imageSrc="/img/Akasha Chronik Lesung.jpg"
+        imageSrc="/img/akasha3.webp"
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

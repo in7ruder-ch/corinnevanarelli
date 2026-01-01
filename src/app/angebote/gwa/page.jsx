@@ -48,7 +48,7 @@ export default async function GWAPage() {
     <>
       <ServiceBanner
         title={t("banner.title")}
-        imageSrc="/img/Banner.jpeg"
+        imageSrc="/img/banner3.webp"
         imageAlt={t("banner.imageAlt")}
       />
 
@@ -67,7 +67,7 @@ export default async function GWAPage() {
             })}
           </>
         }
-        imageSrc="/img/Geistige.webp"
+        imageSrc="/img/hopi2.webp"
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />

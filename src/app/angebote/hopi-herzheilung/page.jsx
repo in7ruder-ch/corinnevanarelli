@@ -47,7 +47,7 @@ export default async function HopiHerzHeilungPage() {
     <>
       <ServiceBanner
         title={t("banner.title")}
-        imageSrc="/img/Banner.jpeg"
+        imageSrc="/img/banner3.webp"
         imageAlt={t("banner.imageAlt")}
       />
 
@@ -66,7 +66,7 @@ export default async function HopiHerzHeilungPage() {
             })}
           </>
         }
-        imageSrc="/img/Hopi.jpeg"
+        imageSrc="/img/hopi.webp"
         imageAlt={t("alt1.imageAlt")}
         mediaLeft={false}
       />
@@ -94,7 +94,7 @@ export default async function HopiHerzHeilungPage() {
           </>
         }
 
-        imageSrc="/img/Hopi Herzheilung 2.webp"
+        imageSrc="/img/newbanner.webp"
         imageAlt={t("alt2.imageAlt")}
         mediaLeft={true}
         padTop={false}

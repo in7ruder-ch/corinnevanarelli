@@ -24,7 +24,7 @@ export const metadata = {
   },
   openGraph: {
     siteName: "Corinne Vanarelli",
-    images: [{ url: "/img/Banner.jpeg", width: 1200, height: 630 }]
+    images: [{ url: "/img/banner3.webp", width: 1200, height: 630 }]
   },
   twitter: { card: "summary_large_image" }
 };
