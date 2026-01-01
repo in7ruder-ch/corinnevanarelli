@@ -622,18 +622,18 @@
   },
   "GWA": {
     "meta": {
-      "title": "Alineación Espiritual de la Columna",
+      "title": "Alineación Energética",
       "description": "Alineación energética: disolver bloqueos, encontrar orientación y experimentar más ligereza y energía en el día a día.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/gwa",
       "og": {
-        "title": "Alineación Espiritual de la Columna",
+        "title": "Alineación Energética",
         "description": "Equilibrar cuerpo, mente y alma - de forma suave e integral.",
         "url": "https://www.corinnevanarelli.ch/angebote/gwa",
         "siteName": "Corinne Vanarelli",
         "images": [
           {
             "url": "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp",
-            "alt": "Alineación Espiritual de la Columna"
+            "alt": "Alineación Energética"
           }
         ],
         "locale": "es_ES",
@@ -641,7 +641,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Alineación Espiritual de la Columna",
+        "title": "Alineación Energética",
         "description": "Alineación y equilibrio - para más libertad en el cuerpo y en la vida.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp"
@@ -649,28 +649,29 @@
       }
     },
     "banner": {
-      "title": "Alineación Espiritual de la Columna",
-      "imageAlt": "Alineación Espiritual de la Columna - banner"
+      "title": "Alineación Energética",
+      "imageAlt": "Alineación Energética - banner"
     },
     "alt1": {
-      "title": "Alineación espiritual de la columna - el cambio comienza en el ser",
-      "body": "<p>La alineación espiritual de la columna es un método suave y a la vez profundo que devuelve a armonía cuerpo, mente y alma.</p><p>Se basa en el entendimiento de que nuestro cuerpo físico y nuestro sistema energético están inseparablemente conectados.</p><p>Nuestra columna es mucho más que el centro físico del estar erguidxs - es un canal energético central, un árbol de vida interno por el que fluyen fuerza, estabilidad y alineación.</p><p>En la alineación espiritual, tu sistema energético se lleva conscientemente al equilibrio.</p><p>Los bloqueos pueden liberarse y la columna volver a su orden natural - y con ella, todo tu sistema.</p>",
-      "imageAlt": "Alineación Espiritual de la Columna"
+      "title": "Alineación energética – el cambio comienza en el ser",
+      "body": "<p>La alineación energética es un método suave y a la vez profundamente efectivo que devuelve el equilibrio entre cuerpo, mente y alma. Se basa en la comprensión de que el cuerpo físico y el sistema energético están inseparablemente conectados.</p><p>La columna vertebral es mucho más que el centro físico de nuestra postura erguida. Actúa como un canal energético central, un árbol de vida interior por el que fluyen la estabilidad, la alineación y la fuerza vital.</p><p>Durante la alineación, tu sistema energético se reordena de manera consciente y respetuosa. Los bloqueos energéticos pueden liberarse, las tensiones regularse y la columna vertebral regresar a su orden natural. Con ello, todo tu sistema vuelve al equilibrio.</p><p>Este trabajo no actúa a través del esfuerzo ni de la corrección, sino a través de la conciencia y la alineación interior.\nEl cambio ocurre allí donde tu ser vuelve a estar claro, estable y conectado.</p>",
+      "imageAlt": "Alineación energética"
     },
     "alt2": {
-      "title": "Tu columna como llave para la alineación interior",
+      "title": "Tu columna vertebral como clave para la alineación interior",
+      "bodyIntro": "Este trabajo puede acompañarte si:",
       "items": [
-        "padecen molestias físicas o tensión crónica",
-        "quieren disolver bloqueos emocionales o patrones antiguos",
-        "anhelan equilibrio interior y ligereza",
-        "quieren volver a sentir energía, vitalidad y alegría de vivir",
-        "buscan un método holístico que aborde cuerpo, mente y alma"
+        "sufres molestias físicas o tensiones crónicas",
+        "deseas liberar bloqueos emocionales o patrones profundamente arraigados",
+        "anhelas mayor equilibrio, estabilidad y ligereza interior",
+        "quieres volver a sentir de forma más consciente tu energía, vitalidad y alegría de vivir",
+        "buscas un método holístico que integre cuerpo, mente y alma por igual"
       ],
-      "outro": "La alineación interior libera nueva energía vital - actúa no solo sobre tu columna, sino sobre cada célula de tu cuerpo.",
-      "imageAlt": "Alineación de la columna"
+      "outro": "A través de la alineación interior puede liberarse nueva energía vital.\nNo actúa solo sobre tu columna vertebral, sino sobre todo tu sistema hasta cada una de tus células. Así se crea espacio para la estabilidad, la claridad y una conexión más profunda contigo misma/o.",
+      "imageAlt": "Alineación de la columna vertebral"
     },
     "steps": {
-      "title": "Proceso de una sesión - alineación espiritual de la columna",
+      "title": "Proceso de una sesión - alineación Energética",
       "subtitle": "Cada sesión se da en un espacio protegido y atento - con foco en tu equilibrio físico, anímico y energético.",
       "items": [
         {

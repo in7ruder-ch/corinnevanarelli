@@ -619,18 +619,18 @@
   },
   "GWA": {
     "meta": {
-      "title": "Spiritual Spinal Alignment",
+      "title": "Energetic Alignment",
       "description": "Energetic alignment: dissolve blocks, find orientation and experience more lightness & energy in everyday life.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/gwa",
       "og": {
-        "title": "Spiritual Spinal Alignment",
+        "title": "Energetic Alignment",
         "description": "Bring body, mind and soul into balance - gently and holistically.",
         "url": "https://www.corinnevanarelli.ch/angebote/gwa",
         "siteName": "Corinne Vanarelli",
         "images": [
           {
             "url": "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp",
-            "alt": "Spiritual Spinal Alignment"
+            "alt": "Energetic Alignment"
           }
         ],
         "locale": "en_US",
@@ -638,7 +638,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Spiritual Spinal Alignment",
+        "title": "Energetic Alignment",
         "description": "Alignment & balance - for more freedom in body and life.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Geistige Wirbelsaulenaufrichtung.webp"
@@ -646,28 +646,29 @@
       }
     },
     "banner": {
-      "title": "Spiritual Spinal Alignment",
-      "imageAlt": "Spiritual Spinal Alignment - banner"
+      "title": "Energetic Alignment",
+      "imageAlt": "Energetic Alignment - banner"
     },
     "alt1": {
-      "title": "Spiritual spinal alignment - change begins in being",
-      "body": "<p>Spiritual spinal alignment is a gentle yet deeply effective method that brings body, mind and soul back into harmony.</p><p>It is based on the understanding that our physical body and our energy system are inseparably connected.</p><p>Our spine is far more than the physical center of our upright being - it is a central energy channel, an inner tree of life through which strength, stability and alignment flow.</p><p>In spiritual alignment, your energy system is consciously brought into balance.</p><p>Blocks may release and the spine returns to its natural order - and with it your entire system.</p>",
-      "imageAlt": "Spiritual Spinal Alignment"
+      "title": "Energetic Alignment – change begins in being",
+      "body": "<p>Energetic Alignment is a gentle yet deeply effective method that brings body, mind and soul back into harmony. It is based on the understanding that the physical body and the energetic system are inseparably connected.</p><p>The spine is far more than just the physical center of our upright posture. It functions as a central energy channel, an inner tree of life through which stability, alignment and vital energy flow.</p><p>During the alignment, your energetic system is gently realigned. Energetic blockages may dissolve, tensions can regulate, and the spine finds its way back into its natural order. With it, your entire system returns to balance.</p><p>This work does not function through effort or correction, but through awareness and inner alignment.\nChange occurs where your being becomes clear, stable and connected again.</p>",
+      "imageAlt": "Energetic alignment"
     },
     "alt2": {
-      "title": "Your spine as a key to inner alignment",
+      "title": "Your spine as the key to inner alignment",
+      "bodyIntro": "This work may support you if you:",
       "items": [
-        "suffer from physical complaints or chronic tension",
-        "wish to dissolve emotional blocks or old patterns",
-        "long for inner balance and lightness",
-        "want to feel energy, vitality and joy of life again",
-        "seek a holistic method addressing body, mind and soul"
+        "experience physical discomfort or chronic tension",
+        "wish to release emotional blockages or deeply rooted patterns",
+        "long for greater inner balance, stability and lightness",
+        "want to consciously reconnect with your energy, vitality and joy for life",
+        "are seeking a holistic method that addresses body, mind and soul equally"
       ],
-      "outro": "Inner alignment frees new life energy - it acts not only on your spine but on every single cell of your body.",
+      "outro": "Through inner alignment, new life energy can be released.\nIt affects not only your spine, but your entire system down to every single cell. This creates space for stability, clarity and a deeper connection to yourself.",
       "imageAlt": "Spinal alignment"
     },
     "steps": {
-      "title": "Session process - spiritual spinal alignment",
+      "title": "Session process - energetic alignment",
       "subtitle": "Each session takes place in a protected, mindful space - focused on your physical, emotional and energetic balance.",
       "items": [
         {
