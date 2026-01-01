@@ -3,9 +3,9 @@ import { useTranslations } from 'next-intl';
 
 export default function Hero({
   title,
-  subtitle,                               // si no viene, usamos i18n
+  subtitle,
   imageSrc = '/img/Banner-Home-Mobile.webp',
-  imageAlt                              // si no viene, i18n
+  imageAlt
 }) {
   const t = useTranslations('Hero');
 
@@ -16,8 +16,8 @@ export default function Hero({
   return (
     <section
       aria-label={t('ariaLabel')}
-      // usar svh para evitar el bug del viewport; fallback a vh
-      className="relative w-full h-[calc(100svh-8rem)] md:h-[calc(100vh-8rem)]"
+      // ⬇️ deja espacio para el navbar fixed (h-32 = 8rem)
+      className="relative w-full pt-32 h-[100svh] md:h-[100vh]"
     >
       {/* Fondo */}
       <div className="absolute inset-0 -z-10">
@@ -32,8 +32,8 @@ export default function Hero({
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Center–center real */}
-      <div className="grid h-full w-full place-content-center px-4 sm:px-6 lg:px-8 text-center gap-4">
+      {/* Center–center real dentro del área “visible” */}
+      <div className="grid h-[calc(100svh-8rem)] md:h-[calc(100vh-8rem)] w-full place-content-center px-4 sm:px-6 lg:px-8 text-center gap-4">
         <h1 className="whitespace-pre-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
           {_title}
         </h1>
@@ -41,7 +41,6 @@ export default function Hero({
           {_subtitle}
         </h2>
       </div>
-
     </section>
   );
 }
