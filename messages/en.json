@@ -8,7 +8,7 @@
     "akashaReading": "Akashic Records Reading",
     "hopiHeartHealing": "Hopi Heart Healing",
     "chakraClearing": "Chakra Clearing",
-    "spinalAlignment": "Energetic Spine Alignment",
+    "spinalAlignment": "Energetic Alignment",
     "aromatouch": "doTERRA AromaTouch"
   },
   "AltSection": {
@@ -143,7 +143,7 @@
       "imageAlt": "Corinne Vanarelli"
     },
     "s6": {
-      "title": "<strong>Energetic Spinal Alignment</strong>",
+      "title": "<strong>Energetic Alignment</strong>",
       "p1": "<strong>Find your way back to inner alignment.</strong>",
       "p2": "Energetic alignment for stability, renewed strength and inner clarity.",
       "imageAlt": "Practice room"
@@ -212,7 +212,7 @@
           ],
           "right": [
             "Energetic healing work",
-            "Training: Heart healing, Akashic Records reading, Spiritual Spinal Alignment, Chakra Clearing"
+            "Training: Heart healing, Akashic Records reading, Spiritual Alignment, Chakra Clearing"
           ]
         },
         {
@@ -807,7 +807,7 @@
       "slug": "chakra-clearing"
     },
     "gwa": {
-      "title": "Spiritual Spinal Alignment",
+      "title": "Spiritual Alignment",
       "teaser": "Holistic alignment - inner balance and new energy.",
       "image": "/img/Geistige Wirbelsaulenaufrichtung.webp",
       "imageAlt": "Spinal alignment",

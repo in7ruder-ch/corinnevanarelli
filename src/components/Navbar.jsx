@@ -35,7 +35,7 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
   const LOCALES = [
     { value: 'de', label: 'DE', flagSrc: '/img/flags/de.svg', flagAlt: 'Deutsch' },
     { value: 'en', label: 'EN', flagSrc: '/img/flags/gb.svg', flagAlt: 'English' },
-    { value: 'es', label: 'SP', flagSrc: '/img/flags/es.svg', flagAlt: 'Español' } // mostrar SP, value sigue "es"
+    { value: 'es', label: 'ES', flagSrc: '/img/flags/es.svg', flagAlt: 'Español' } // mostrar SP, value sigue "es"
   ];
 
   const current = LOCALES.find(l => l.value === activeLocale) ?? LOCALES[0];
