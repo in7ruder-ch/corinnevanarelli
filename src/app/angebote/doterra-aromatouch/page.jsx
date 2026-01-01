@@ -81,13 +81,16 @@ export default async function DoterraAromaTouchPage() {
         }
         body={
           <>
+            <p className="mb-3">{t("alt2.bodyIntro")}</p>
+
             <ul className="list-disc pl-6 space-y-2 marker:text-neutral-900">
               {t.raw("alt2.items").map((li, i) => (
                 <li key={i}>{li}</li>
               ))}
             </ul>
+
             <p className="mt-3">
-              <strong>{t("alt2.strong")}</strong>
+              <strong>{t("alt2.bodyOutro")}</strong>
             </p>
           </>
         }
@@ -96,6 +99,7 @@ export default async function DoterraAromaTouchPage() {
         mediaLeft={true}
         padTop={false}
       />
+
 
       {/* 3) Sección centrada */}
       <CenteredSection

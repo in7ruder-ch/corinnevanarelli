@@ -730,36 +730,37 @@
       "imageAlt": "doTERRA AromaTouch - banner"
     },
     "alt1": {
-      "title": "Técnica AromaTouch - una aplicación atenta para cuerpo y sentidos",
-      "body": "<p>La técnica doTERRA AromaTouch™ actúa de manera holística - a nivel físico, emocional y energético. La combinación de aceites esenciales de alta calidad con un toque atento lleva a tu sistema a un estado de regeneración profunda.</p><p>Fue diseñada para relajar, regenerar y llevar a equilibrio cuerpo, mente y alma de forma natural.</p><p>En la aplicación, ocho aceites esenciales doTERRA especialmente seleccionados se aplican suavemente a lo largo de la columna y en zonas reflejas de los pies. Con toques precisos se integran los aceites en el sistema - para reducir el estrés, fortalecer el sistema inmunitario y promover el equilibrio emocional.</p><p><strong>Un respiro reparador para tu sistema nervioso - profundamente relajante, fortalecedor y armonizante.</strong></p>",
+      "title": "Técnica AromaTouch – una aplicación consciente para el cuerpo y los sentidos",
+      "body": "<p>La Técnica AromaTouch es una aplicación holística que actúa a nivel físico, emocional y energético. A través de la combinación de aceites esenciales de alta calidad de doTERRA y un toque consciente, todo tu sistema es invitado a un estado de profunda relajación y regeneración.</p><p>Este método fue desarrollado para reducir el estrés, calmar el sistema nervioso y devolver de forma natural el equilibrio al cuerpo, la mente y el alma.</p><p>Durante la aplicación, ocho aceites esenciales cuidadosamente seleccionados se aplican suavemente a lo largo de la columna vertebral y en las zonas reflejas de los pies. Con movimientos tranquilos y precisos, los aceites se integran de manera consciente para fomentar la relajación, apoyar el sistema inmunológico y fortalecer el equilibrio emocional.</p><p>La Técnica AromaTouch te ofrece una pausa consciente del día a día\nprofundamente relajante, fortalecedora y armonizadora.</p>",
       "imageAlt": "Técnica AromaTouch"
     },
     "alt2": {
-      "title": "De vuelta a tu equilibrio - con el poder de los aceites esenciales",
+      "title": "De vuelta a tu equilibrio con el poder de los aceites esenciales",
+      "bodyIntro": "La aplicación AromaTouch apoya a todo tu sistema para volver a un equilibrio natural. Puede ayudar a:",
       "items": [
-        "equilibrio del sistema nervioso autónomo",
-        "apoyo al sistema inmunitario",
-        "prevención o reducción de respuestas inflamatorias en el cuerpo",
-        "regeneración mediante relajación mental y física profunda",
-        "vuelve a equilibrar cuerpo, mente y alma"
+        "regular el sistema nervioso autónomo",
+        "fortalecer el sistema inmunológico",
+        "prevenir o reducir procesos inflamatorios en el cuerpo",
+        "favorecer una profunda relajación mental y física",
+        "devolver el equilibrio al cuerpo, la mente y el alma"
       ],
-      "strong": "Muchxs perciben el tratamiento como profundamente relajante, clarificador y a la vez energizante.",
+      "bodyOutro": "Muchas personas perciben el tratamiento como profundamente relajante y clarificador, y al mismo tiempo suavemente revitalizante y energizante.",
       "imageAlt": "Camino compartido"
     },
     "centered": {
-      "title": "Técnica AromaTouch - cómo funciona",
-      "bodyIntro": "<p>La aplicación se realiza en un entorno tranquilo y protegido. Permaneces vestida/o; solo se descubren suavemente la espalda y los pies. En una secuencia fija, ocho aceites doTERRA seleccionados se aplican suavemente a lo largo de la columna y en las zonas reflejas de los pies. Entre ellos:</p>",
+      "title": "Proceso de la Técnica AromaTouch",
+      "bodyIntro": "<p>La aplicación se realiza en un ambiente tranquilo y protegido. Permaneces vestido durante toda la sesión; únicamente se descubren suavemente la espalda y los pies. Esto te permite relajarte y llegar plenamente a ti.</p><p>En una secuencia fija y probada, ocho aceites esenciales seleccionados de doTERRA se aplican suavemente a lo largo de la columna vertebral y en las zonas reflejas de los pies. Los aceites se integran con un toque tranquilo y consciente para desplegar su efecto de manera óptima.</p><p>Entre otros, se utilizan los siguientes aceites:</p>",
       "oils": [
-        "Balance - enraizamiento y estabilidad interior",
-        "Lavanda - calmante y relajante",
-        "Melaleuca (árbol de té) - limpiadora y fortalecedora",
-        "On Guard - apoyo para tu sistema inmunitario",
-        "Aromatouch - relajante para músculos y mente",
-        "Deep Blue - alivia tensiones",
-        "Wild Orange - vitalizante y elevador del ánimo",
-        "Peppermint - clarificante y refrescante"
+        "Balance – favorece el enraizamiento y la estabilidad interior",
+        "Lavanda – calmante, relajante y equilibrante",
+        "Árbol de té – purificante y fortalecedor",
+        "On Guard – apoyo para el sistema inmunológico",
+        "AromaTouch™ – relajante para músculos y sistema nervioso",
+        "Deep Blue – reconfortante para tensiones",
+        "Wild Orange – estimulante y elevador del ánimo",
+        "Peppermint – clarificador, refrescante y activador"
       ],
-      "bodyOutro": "La única condición: la disposición a soltar lo viejo - y permitir lo nuevo."
+      "bodyOutro": "La aplicación sigue una estructura clara y, al mismo tiempo, crea espacio para una profunda relajación, regeneración y equilibrio energético."
     },
     "freeConsult": {
       "title": "1:1 Llamada gratuita para claridad",

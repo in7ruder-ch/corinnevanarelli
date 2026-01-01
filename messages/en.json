@@ -727,36 +727,37 @@
       "imageAlt": "doTERRA AromaTouch - banner"
     },
     "alt1": {
-      "title": "AromaTouch technique - a mindful application for body and senses",
-      "body": "<p>The doTERRA AromaTouch™ technique works holistically - on physical, emotional and energetic levels. Combining high-quality essential oils with mindful touch brings your whole system into a state of deep regeneration.</p><p>It was developed to relax, regenerate and bring body, mind and soul into balance in a natural way.</p><p>During the application, eight specifically selected doTERRA essential oils are gently applied along the spine and on the foot reflex zones. With targeted touch, the oils are worked into the system - to reduce stress, support the immune system and promote emotional balance.</p><p><strong>A soothing time-out for your nervous system - deeply relaxing, strengthening and harmonizing.</strong></p>",
-      "imageAlt": "AromaTouch technique"
+      "title": "AromaTouch Technique – a mindful application for body and senses",
+      "body": "<p>The AromaTouch Technique is a holistic application that works on a physical, emotional, and energetic level. Through the combination of high-quality doTERRA essential oils and mindful touch, your entire system is invited into a state of deep relaxation and regeneration.</p><p>This method was developed to reduce stress, calm the nervous system, and naturally bring body, mind, and soul back into balance.</p><p>During the application, eight carefully selected essential oils are gently applied along the spine and on the reflex zones of the feet. With calm, intentional touch, the oils are worked in mindfully to promote relaxation, support the immune system, and strengthen emotional balance.</p><p>The AromaTouch Technique offers you a conscious pause from everyday life\ndeeply relaxing, strengthening, and harmonizing.</p>",
+      "imageAlt": "AromaTouch Technique"
     },
     "alt2": {
-      "title": "Back into balance - with the power of essential oils",
+      "title": "Back into balance with the power of essential oils",
+      "bodyIntro": "The AromaTouch application supports your entire system in returning to a natural state of balance. It may help to:",
       "items": [
-        "balance of the autonomic nervous system",
-        "support of the immune system",
-        "prevention or reduction of inflammatory responses in the body",
-        "regeneration through mental and physical deep relaxation",
-        "brings body, mind and soul back into balance"
+        "regulate the autonomic nervous system",
+        "strengthen the immune system",
+        "prevent or reduce inflammatory reactions in the body",
+        "promote deep mental and physical relaxation",
+        "bring body, mind, and soul back into balance"
       ],
-      "strong": "Many find the treatment deeply relaxing, clarifying and at the same time energizing.",
+      "bodyOutro": "Many people experience the treatment as deeply relaxing and clarifying – while also gently invigorating and energizing.",
       "imageAlt": "Shared path"
     },
     "centered": {
-      "title": "AromaTouch technique - how it works",
-      "bodyIntro": "<p>The application takes place in a quiet, protected setting. You remain clothed; only the back and feet are gently uncovered. In a fixed sequence, eight selected doTERRA oils are gently applied along the spine and on the foot reflex zones. Oils used include:</p>",
+      "title": "AromaTouch Technique – Process",
+      "bodyIntro": "<p>The application takes place in a calm, protected atmosphere. You remain fully clothed throughout the session; only the back and feet are gently uncovered. This allows you to relax and arrive fully with yourself.</p><p>In a fixed, proven sequence, eight selected doTERRA essential oils are gently applied along the spine and on the reflex zones of the feet. The oils are worked in with calm, intentional touch to unfold their effects optimally.</p><p>Among others, the following oils are used:</p>",
       "oils": [
-        "Balance - grounding and inner stability",
-        "Lavender - calming and relaxing",
-        "Melaleuca (tea tree) - cleansing and strengthening",
-        "On Guard - supportive for your immune system",
-        "Aromatouch - relaxing for muscles and mind",
-        "Deep Blue - relieving for tensions",
-        "Wild Orange - uplifting and invigorating",
-        "Peppermint - clarifying and refreshing"
+        "Balance – supports grounding and inner stability",
+        "Lavender – calming, relaxing, and balancing",
+        "Tea Tree – cleansing and strengthening",
+        "On Guard – supportive for the immune system",
+        "AromaTouch™ – relaxing for muscles and nervous system",
+        "Deep Blue – soothing for tension",
+        "Wild Orange – uplifting and mood-enhancing",
+        "Peppermint – clarifying, refreshing, and activating"
       ],
-      "bodyOutro": "The only prerequisite: the willingness to let go of the old - and allow the new."
+      "bodyOutro": "The application follows a clear structure while creating space for deep relaxation, regeneration, and energetic balance."
     },
     "freeConsult": {
       "title": "1:1 Free call for clarity",

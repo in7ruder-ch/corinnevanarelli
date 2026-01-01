@@ -727,36 +727,37 @@
       "imageAlt": "doTERRA AromaTouch - Banner"
     },
     "alt1": {
-      "title": "AromaTouch-Technik - eine achtsame Anwendung für Körper und Sinne",
-      "body": "<p>Die doTERRA AromaTouch™-Technik wirkt ganzheitlich - auf körperlicher, emotionaler und energetischer Ebene. Durch die Kombination aus hochwertigen ätherischen Ölen und achtsamer Berührung wird dein gesamtes System in einen Zustand tiefer Regeneration versetzt.</p><p>Sie wurde entwickelt, um Körper, Geist und Seele auf natürliche Weise zu entspannen, zu regenerieren und in Balance zu bringen.</p><p>Bei der Anwendung werden acht speziell ausgewählte ätherische Öle von doTERRA sanft entlang der Wirbelsäule und auf den Fussreflexzonen aufgetragen. Mit gezielten Berührungen werden die Öle in das System eingearbeitet - um Stress abzubauen, das Immunsystem zu stärken und das emotionale Gleichgewicht zu fördern.</p><p><strong>Eine wohltuende Auszeit für dein Nervensystem - tief entspannend, stärkend und harmonisierend.</strong></p>",
+      "title": "AromaTouch Technik - eine achtsame Anwendung für Körper und Sinne",
+      "body": "<p>Die AromaTouch Technik ist eine ganzheitliche Anwendung, die auf körperlicher, emotionaler und energetischer Ebene wirkt. Durch die Kombination hochwertiger ätherischer Öle von doTERRA und achtsamer Berührung wird dein gesamtes System in einen Zustand tiefer Entspannung und Regeneration eingeladen.</p><p>Diese Methode wurde entwickelt, um Stress abzubauen, das Nervensystem zu beruhigen und Körper, Geist und Seele auf natürliche Weise wieder in Balance zu bringen.</p><p>Während der Anwendung werden acht sorgfältig ausgewählte ätherische Öle sanft entlang der Wirbelsäule sowie auf den Fussreflexzonen aufgetragen. Mit ruhigen, gezielten Berührungen werden die Öle achtsam eingearbeitet, um Entspannung zu fördern, das Immunsystem zu unterstützen und das emotionale Gleichgewicht zu stärken.</p><p>Die AromaTouch-Technik schenkt dir eine bewusste Auszeit vom Alltag\ntief entspannend, stärkend und harmonisierend.</p>",
       "imageAlt": "AromaTouch-Technik"
     },
     "alt2": {
-      "title": "Zurück in deine Balance - mit der Kraft ätherischer Öle",
+      "title": "Zurück in deine Balance mit der Kraft ätherischer Öle",
+      "bodyIntro": "Die AromaTouch-Anwendung unterstützt dein gesamtes System dabei, wieder in einen natürlichen Ausgleich zu finden. Sie kann dazu beitragen,",
       "items": [
-        "Ausgleich des vegetativen Nervensystems",
-        "Stärkung des Immunsystems",
-        "Vorbeugung bzw. Minderung von Entzündungsreaktionen im Körper",
-        "Regeneration durch geistige und körperliche Tiefenentspannung",
-        "Bringt Körper, Geist und Seele wieder in Balance"
+        "das vegetative Nervensystem zu regulieren",
+        "das Immunsystem zu stärken",
+        "Entzündungsreaktionen im Körper vorzubeugen oder zu mildern",
+        "tiefe geistige und körperliche Entspannung zu fördern",
+        "Körper, Geist und Seele wieder in Balance zu bringen"
       ],
-      "strong": "Viele empfinden die Behandlung als zutiefst entspannend, klärend und zugleich energetisierend.",
+      "bodyOutro": "Viele Menschen empfinden die Behandlung als zutiefst entspannend und klärend zugleich – aber auch als sanft belebend und energetisierend.",
       "imageAlt": "Gemeinsamer Weg"
     },
     "centered": {
       "title": "Ablauf der AromaTouch Technik",
-      "bodyIntro": "<p>Die Anwendung findet in einer ruhigen, geschützten Atmosphäre statt. Du bleibst dabei bekleidet; lediglich Rücken und Füsse werden sanft freigelegt. In einer festen Abfolge werden acht ausgewählte doTERRA-Öle sanft entlang der Wirbelsäule sowie auf den Fussreflexzonen aufgetragen. Verwendet werden unter anderem Öle wie:</p>",
+      "bodyIntro": "<p>Die Anwendung findet in einer ruhigen, geschützten Atmosphäre statt. Du bleibst während der gesamten Sitzung bekleidet; lediglich Rücken und Füsse werden achtsam freigelegt. So kannst du dich entspannen und ganz bei dir ankommen.</p><p>In einer festen, bewährten Abfolge werden acht ausgewählte ätherische Öle von doTERRA sanft entlang der Wirbelsäule sowie auf den Fussreflexzonen aufgetragen. Die Öle werden mit ruhigen, gezielten Berührungen eingearbeitet, um ihre Wirkung optimal zu entfalten.</p><p>Zum Einsatz kommen unter anderem folgende Öle:</p>",
       "oils": [
-        "Balance - für Erdung und innere Stabilität",
-        "Lavendel - beruhigend und entspannend",
-        "Melaleuca (Teebaum) - reinigend und stärkend",
-        "On Guard - unterstützend für dein Immunsystem",
-        "Aromatouch - entspannend für Muskeln und Geist",
-        "Deep Blue - lindernd bei Verspannungen",
-        "Wild Orange - belebend und stimmungsaufhellend",
-        "Peppermint - klärend und erfrischend"
+        "Balance – unterstützt Erdung und innere Stabilität",
+        "Lavendel – beruhigend, entspannend und ausgleichend",
+        "Teebaum – reinigend und stärkend",
+        "On Guard – unterstützend für das Immunsystem",
+        "AromaTouch™ – entspannend für Muskeln und Nervensystem",
+        "Deep Blue – wohltuend bei Verspannungen",
+        "Wild Orange – belebend und stimmungsaufhellend",
+        "Peppermint – klärend, erfrischend und aktivierend"
       ],
-      "bodyOutro": "Die einzige Voraussetzung: Die Bereitschaft, Altes loszulassen - und Neues zuzulassen."
+      "bodyOutro": "Die Anwendung folgt einem klaren Ablauf und schafft zugleich Raum für tiefe Entspannung, Regeneration und energetische Balance."
     },
     "freeConsult": {
       "title": "1:1 Kostenloses Gespräch für Klarheit",
