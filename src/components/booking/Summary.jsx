@@ -21,7 +21,7 @@ function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
   if (paid?.ok) {
     return (
       <div className="mt-3 rounded bg-green-50 border border-green-200 p-3 text-green-800">
-        {t("paid")} ✅ — {t("seeYou")}
+        {t("paid")} ✅ - {t("seeYou")}
       </div>
     );
   }
@@ -194,7 +194,7 @@ export default function Summary({ service, datetime }) {
       {service && (
         <p className="text-sm">
           <span className="font-medium">{t("labels.service")}</span>{" "}
-          {service.title} — {service.durationMin} {t("labels.min")} •{" "}
+          {service.title} - {service.durationMin} {t("labels.min")} •{" "}
           {priceFormatted}
         </p>
       )}

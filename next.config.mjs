@@ -8,7 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
 
   // ======================================================
-  // ✅ REDIRECTS SEO — CANONICAL HOST + WIX LEGACY
+  // ✅ REDIRECTS SEO - CANONICAL HOST + WIX LEGACY
   // Fuerza:
   // - corinnevanarelli.ch          -> www.corinnevanarelli.ch
   // - corinnevanarelli.vercel.app  -> www.corinnevanarelli.ch

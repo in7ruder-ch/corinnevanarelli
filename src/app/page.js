@@ -93,8 +93,8 @@ export default async function HomePage() {
           </>
         }
         imageSrc={{
-          mobile: "/img/Ontologisches Coaching.jpg",
-          desktop: "/img/Ontologisches Coaching.jpg"
+          mobile: "/img/Coaching.jpg",
+          desktop: "/img/Coaching.jpg"
         }}
         imageAlt={t('s2.imageAlt')}
         mediaLeft={false}

@@ -15,9 +15,9 @@ const STATUS_OPTIONS = [
 const PAYMENTS_ENABLED = (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED ?? "").toString().trim() === "true";
 
 function formatDateTime(iso) {
-  if (!iso) return "—";
+  if (!iso) return "-";
   const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "—";
+  if (Number.isNaN(d.getTime())) return "-";
   return new Intl.DateTimeFormat("de-CH", {
     weekday: "short",
     day: "2-digit",
@@ -167,7 +167,7 @@ export default function AdminPage() {
   return (
     <main className="mt-32 mx-auto max-w-6xl px-4 py-8 md:py-10">
       <div className="flex items-center justify-between gap-4">
-        <h1 className="text-2xl md:text-3xl font-semibold">Admin — Buchungen</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold">Admin - Buchungen</h1>
 
         <div className="flex items-center gap-2">
           <button
@@ -230,7 +230,7 @@ export default function AdminPage() {
           <label className="text-xs text-neutral-500">Zusammenfassung</label>
           <div className="w-full border rounded-lg px-3 py-2 text-sm flex items-center justify-between">
             <span>{count} Einträge</span>
-            <span className="font-medium">Summe (PAID): {paidSum > 0 ? `CHF ${paidSum}` : "—"}</span>
+            <span className="font-medium">Summe (PAID): {paidSum > 0 ? `CHF ${paidSum}` : "-"}</span>
           </div>
         </div>
       </div>
@@ -282,17 +282,17 @@ export default function AdminPage() {
                   </td>
 
                   <td className="px-3 py-3 align-top">
-                    <div className="font-medium">{s.title || "—"}</div>
+                    <div className="font-medium">{s.title || "-"}</div>
                     <div className="text-neutral-600">
                       {s.modality ? s.modality : null}
                       {s.modality && s.durationLabel ? " | " : null}
-                      {s.durationLabel || (s.durationMin ? `${s.durationMin} Min` : "—")}
+                      {s.durationLabel || (s.durationMin ? `${s.durationMin} Min` : "-")}
                     </div>
                   </td>
 
                   <td className="px-3 py-3 align-top">
-                    <div className="font-medium">{b.customerName || "—"}</div>
-                    <div className="text-neutral-600">{b.customerEmail || "—"}</div>
+                    <div className="font-medium">{b.customerName || "-"}</div>
+                    <div className="text-neutral-600">{b.customerEmail || "-"}</div>
                   </td>
 
                   <td className="px-3 py-3 align-top">
@@ -300,7 +300,7 @@ export default function AdminPage() {
                   </td>
 
                   <td className="px-3 py-3 align-top">
-                    {s.price != null ? (s.price === 0 ? "Gratis" : `CHF ${s.price}`) : "—"}
+                    {s.price != null ? (s.price === 0 ? "Gratis" : `CHF ${s.price}`) : "-"}
                   </td>
 
                   <td className="px-3 py-3 align-top text-xs text-neutral-600">

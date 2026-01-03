@@ -9,7 +9,11 @@
     "hopiHeartHealing": "Hopi Heart Healing",
     "chakraClearing": "Chakra Clearing",
     "spinalAlignment": "Energetic Alignment",
-    "aromatouch": "doTERRA AromaTouch"
+    "aromatouch": "doTERRA AromaTouch",
+    "events": "Events",
+    "eventsSeminars": "Seminars",
+    "eventsRetreats": "Retreats",
+    "blog": "Blog"
   },
   "AltSection": {
     "ctaLabel": "Learn more"
@@ -111,7 +115,7 @@
       "title": "Back to you.",
       "kicker": "For more clarity, inner strength and a life aligned with your essence",
       "p1": "Sometimes you feel that something inside you is calling for change\nNot loudly\nBut steadily",
-      "p2": "Maybe it’s the feeling of being stuck\nOr the desire to see more clearly again, to feel calmer inside and to make decisions from within yourself instead of from adaptation, pressure or fear",
+      "p2": "Maybe it’s the feeling of being stuck.\nOr the desire to see more clearly again, to feel calmer inside and to make decisions from within yourself instead of from adaptation, pressure or fear",
       "p3": "Together we look at what is holding you back internally. We release outdated patterns\nand create space for new clarity, inner stability and sustainable change.",
       "p4": "This is not about self-optimization\nNot about higher, faster, more\nBut about reconnection, awareness and honest inner work",
       "p5": "I support you in letting go of inner weight, rebuilding trust in yourself and\nfollowing your own inner compass again.\nYou are allowed to remember who you are.",
@@ -186,9 +190,9 @@
     "intro": {
       "title": "About me",
       "nameLine": "<em>My path, my values</em>",
-      "p1": "From early on, I’ve been interested in what moves people on the inside and how real change actually happens. Questions of justice, inner freedom and self-determination have shaped my path from the very beginning. Driven by this, I studied Social Work with the goal of accompanying people through challenging life phases in a professional, respectful and equal way.\n\nIn my work, I’ve had the privilege of getting to know many different life realities. I supported unaccompanied minor refugees, worked with adults in the asylum sector, assisted people affected by substance dependence — in therapy, harm reduction and prevention — and accompanied women, children and adolescents through sensitive transitions and crisis periods. Every encounter has taught me how much strength, vulnerability and wisdom lives within each person.",
-      "p2": "My own path has also been shaped by highs and lows: personal crises, new beginnings, inner transformation processes. Especially formative were my almost eight years in Latin America. That time changed me deeply — as a human being and as a professional. There I learned to relate to life with more trust, depth and connection.\n\nOver the years, it became clear to me: true change does not begin on the outside. It begins where we meet ourselves honestly. This path isn’t always comfortable — but it is healing. During this phase, coaching and energy work entered my life. They helped me recognize old patterns, release inner blocks and come closer to my own truth.",
-      "p3": "Today, all of these experiences flow into my work. I combine professional competence with presence, life experience and a refined sense for what truly matters. In my coaching and energy work, I create a safe space where you can feel seen, heard and taken seriously — and where personal growth and inner stability become possible.\n\n<strong>I am convinced:</strong>\nEvery person already carries the power for change within.\nSometimes all it takes is the right space — and mindful support — for that power to unfold.",
+      "p1": "From early on, I’ve been interested in what moves people on the inside and how real change actually happens. Questions of justice, inner freedom and self-determination have shaped my path from the very beginning. Driven by this, I studied Social Work with the goal of accompanying people through challenging life phases in a professional, respectful and equal way.\n\nIn my work, I’ve had the privilege of getting to know many different life realities. I supported unaccompanied minor refugees, worked with adults in the asylum sector, assisted people affected by substance dependence - in therapy, harm reduction and prevention - and accompanied women, children and adolescents through sensitive transitions and crisis periods. Every encounter has taught me how much strength, vulnerability and wisdom lives within each person.",
+      "p2": "My own path has also been shaped by highs and lows: personal crises, new beginnings, inner transformation processes. Especially formative were my almost eight years in Latin America. That time changed me deeply - as a human being and as a professional. There I learned to relate to life with more trust, depth and connection.\n\nOver the years, it became clear to me: true change does not begin on the outside. It begins where we meet ourselves honestly. This path isn’t always comfortable - but it is healing. During this phase, coaching and energy work entered my life. They helped me recognize old patterns, release inner blocks and come closer to my own truth.",
+      "p3": "Today, all of these experiences flow into my work. I combine professional competence with presence, life experience and a refined sense for what truly matters. In my coaching and energy work, I create a safe space where you can feel seen, heard and taken seriously - and where personal growth and inner stability become possible.\n\n<strong>I am convinced:</strong>\nEvery person already carries the power for change within.\nSometimes all it takes is the right space - and mindful support - for that power to unfold.",
       "imageAlt": "Corinne Vanarelli in nature"
     },
     "education": {
@@ -904,6 +908,474 @@
         "paid": "Payment received",
         "seeYou": "See you at the appointment!"
       }
+    }
+  },
+  "Events": {
+    "meta": {
+      "title": "Events | Corinne Vanarelli",
+      "description": "Seminars and retreats – spaces for change, clarity, and real reconnection.",
+      "canonical": "https://www.corinnevanarelli.ch/events",
+      "og": {
+        "title": "Events | Corinne Vanarelli",
+        "description": "Seminars and retreats – spaces for change, clarity, and real reconnection.",
+        "url": "https://www.corinnevanarelli.ch/events",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp",
+            "alt": "Corinne Vanarelli – Events"
+          }
+        ]
+      },
+      "twitter": {
+        "title": "Events | Corinne Vanarelli",
+        "description": "Seminars and retreats – spaces for change, clarity, and real reconnection.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
+        ]
+      }
+    },
+    "intro": {
+      "kicker": "Events",
+      "title": "Seminars & Retreats",
+      "body": "Spaces where change isn’t forced - it becomes possible.\nWith warmth, clarity, and presence."
+    },
+    "nav": {
+      "seminars": "Seminars",
+      "retreats": "Retreats",
+      "cta": "Get in touch"
+    },
+    "seminars": {
+      "title": "Seminars",
+      "subtitle": "Online & in person - impulses that question familiar patterns\nand open inner flexibility.",
+      "items": [
+        {
+          "tag": "Online",
+          "title": "Online Spring Seminar",
+          "body": "An invitation to question familiar thinking and judgement patterns.\nNot to optimize yourself - but to become open to movement, uncertainty, and new perspectives.",
+          "meta": [
+            "Spring",
+            "Online",
+            "Change work"
+          ],
+          "cta": "More info / interest"
+        }
+      ]
+    },
+    "retreats": {
+      "title": "Retreats",
+      "subtitle": "Deep time away - nature, nervous system, and real reconnection.\nYou’ll leave different than you arrived.",
+      "items": [
+        {
+          "tag": "Costa Rica",
+          "title": "Costa Rica Retreat",
+          "body": "A journey back into your body, your clarity, your inner space.\nFor people who have carried a lot - and now want to be honest with themselves.",
+          "meta": [
+            "Costa Rica",
+            "Retreat",
+            "Embodiment"
+          ],
+          "cta": "Request a spot"
+        }
+      ]
+    }
+  },
+  "EventsRetreatCostaRica": {
+    "meta": {
+      "title": "Costa Rica Retreat | Corinne Vanarelli",
+      "description": "A retreat for real reconnection: body, nervous system, nature, and clarity.",
+      "canonical": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
+      "og": {
+        "title": "Costa Rica Retreat | Corinne Vanarelli",
+        "description": "A retreat for real reconnection: body, nervous system, nature, and clarity.",
+        "url": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp",
+            "alt": "Costa Rica Retreat – Corinne Vanarelli"
+          }
+        ]
+      },
+      "twitter": {
+        "title": "Costa Rica Retreat | Corinne Vanarelli",
+        "description": "A retreat for real reconnection: body, nervous system, nature, and clarity.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
+        ]
+      }
+    },
+    "EventsRetreatCostaRica": {
+      "hero": {
+        "kicker": "Retreat · Costa Rica",
+        "title": "Arrive\nSlow down\nFeel again",
+        "comingSoon": "This retreat is currently in its final planning phase.\n\nMore information coming soon.",
+        "ctaPrimary": "Get in touch",
+        "badges": [
+          "Costa Rica",
+          "Nature & Presence",
+          "Small group"
+        ],
+        "image": {
+          "src": "/img/retreats/costa-rica/hero.webp",
+          "alt": "Nature and calm in Costa Rica",
+          "placeholder": "Image coming soon"
+        }
+      },
+      "details": {
+        "title": "What this is about",
+        "body": "This retreat is an invitation to step out of constant functioning.\nInto a space where your system can breathe again.\n\nNature, presence and embodied work - so change is not only understood, but lived.",
+        "quote": "“You won’t come back the same -\nNot because you become someone else,\nbut because you come closer to yourself again.”",
+        "image": {
+          "src": "",
+          "alt": "",
+          "placeholder": "Details image (placeholder)"
+        }
+      },
+      "forWho": {
+        "title": "Who it’s for",
+        "items": [
+          "For people who have carried a lot - and now want to be honest with themselves.",
+          "For those who feel: it can’t continue like this.",
+          "For those who don’t want to only “know”, but truly embody."
+        ]
+      },
+      "whatYouGet": {
+        "title": "What you’ll take with you",
+        "items": [
+          "More inner calm and nervous-system regulation.",
+          "Clarity about old patterns - without self-judgment.",
+          "Reconnection with your body, intuition, and boundaries.",
+          "A space that stays with you - not just a beautiful experience."
+        ]
+      },
+      "howWeWork": {
+        "title": "How we work",
+        "items": [
+          {
+            "title": "Presence & nervous system",
+            "body": "Depth - without pressure, without forcing."
+          },
+          {
+            "title": "Embodiment & bodywork",
+            "body": "Gentle, clear, embodied."
+          },
+          {
+            "title": "Energetic processes",
+            "body": "For what doesn’t shift only cognitively."
+          },
+          {
+            "title": "Integration",
+            "body": "So it lands in everyday life."
+          }
+        ]
+      },
+      "gallery": {
+        "title": "Impressions",
+        "images": [
+          {
+            "src": "",
+            "alt": "",
+            "placeholder": "Image 1"
+          },
+          {
+            "src": "",
+            "alt": "",
+            "placeholder": "Image 2"
+          },
+          {
+            "src": "",
+            "alt": "",
+            "placeholder": "Image 3"
+          }
+        ]
+      },
+      "sidebar": {
+        "tag": "Quick overview",
+        "title": "Retreat at a glance",
+        "meta": [
+          {
+            "label": "Location",
+            "value": "Costa Rica"
+          },
+          {
+            "label": "Format",
+            "value": "Retreat (details coming soon)"
+          },
+          {
+            "label": "Spots",
+            "value": "Limited"
+          }
+        ],
+        "cta": "Contact & request"
+      }
+    },
+    "Blog": {
+      "title": "Blog",
+      "lead": "Insights, perspectives and texts for inner clarity, change, and true reconnection.",
+      "categoriesNavAria": "Blog categories navigation",
+      "readMore": "Read more",
+      "readMoreAria": "Read more: {title}",
+      "emptyCategory": "No posts in this category yet. New content is coming soon.",
+      "categories": {
+        "coaching": {
+          "label": "Coaching",
+          "title": "Coaching",
+          "description": "Guidance, practice and presence - for real inner movement."
+        },
+        "beliefs": {
+          "label": "Beliefs",
+          "title": "Beliefs",
+          "description": "See the patterns, loosen the knots, choose again."
+        },
+        "transformation": {
+          "label": "Awareness & Transformation",
+          "title": "Awareness & Transformation",
+          "description": "When change begins quietly - and you keep moving."
+        },
+        "development": {
+          "label": "Development",
+          "title": "Development",
+          "description": "Growth, self-leadership and fresh perspectives in daily life."
+        },
+        "mindfuck": {
+          "label": "Mindfuck",
+          "title": "Mindfuck",
+          "description": "When the mind gets loud - and you want clarity again."
+        }
+      },
+      "meta": {
+        "title": "Blog",
+        "description": "Insights and texts for inner clarity and change.",
+        "canonical": "/blog",
+        "og": {
+          "title": "Blog",
+          "description": "Insights and texts for inner clarity and change.",
+          "url": "/blog",
+          "siteName": "Coco Soulcoaching",
+          "locale": "en_US",
+          "type": "website",
+          "images": [
+            {
+              "url": "/og/blog.jpg",
+              "alt": "Blog"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Blog",
+          "description": "Insights and texts for inner clarity and change.",
+          "images": [
+            "/og/blog.jpg"
+          ]
+        }
+      }
+    },
+    "BlogPost": {
+      "backToBlog": "Back to blog",
+      "notFound": {
+        "title": "Post not found",
+        "description": "This post doesn’t exist (or it was moved)."
+      },
+      "meta": {
+        "notFound": {
+          "title": "Post not found",
+          "description": "The requested blog post could not be found."
+        }
+      },
+      "pagination": {
+        "aria": "Post navigation",
+        "prev": "Previous",
+        "next": "Next"
+      }
+    },
+    "EventsSeminars": {
+      "meta": {
+        "title": "Seminars",
+        "description": "Guided seminars and online formats for conscious change, presence and inner clarity.",
+        "canonical": "https://www.corinnevanarelli.ch/en/events/seminars",
+        "og": {
+          "title": "Seminars",
+          "description": "Guided seminars and online formats for conscious change, presence and inner clarity.",
+          "url": "https://www.corinnevanarelli.ch/en/events/seminars",
+          "siteName": "Corinne Vanarelli",
+          "images": [
+            {
+              "url": "https://www.corinnevanarelli.ch/img/og-default.jpg",
+              "alt": "Seminars – Corinne Vanarelli"
+            }
+          ]
+        },
+        "twitter": {
+          "title": "Seminars",
+          "description": "Guided seminars and online formats for conscious change, presence and inner clarity.",
+          "images": [
+            "https://www.corinnevanarelli.ch/img/og-default.jpg"
+          ]
+        }
+      },
+      "intro": {
+        "kicker": "Events",
+        "title": "Seminars",
+        "body": "Seminars are guided experiential spaces.\nThey invite participants to pause, question familiar patterns and develop new inner perspectives.\n\nNot as courses with ready-made answers – but as shared processes."
+      },
+      "nav": {
+        "seminars": "Seminars",
+        "cta": "Contact"
+      },
+      "seminars": {
+        "title": "Current seminars",
+        "subtitle": "Multi-part formats – online or live – with space for exchange, reflection and integration.",
+        "items": [
+          {
+            "tag": "Online seminar",
+            "title": "Being aware. Becoming aware. Living aware.",
+            "body": "An inner journey across three encounters.\nFor people who wish to consciously engage with change, clarity and self-connection.",
+            "meta": [
+              "April – May 2026",
+              "3 live sessions",
+              "Online"
+            ],
+            "cta": "View seminar"
+          }
+        ]
+      }
+    },
+    "SeminarFruhling2026": {
+      "meta": {
+        "title": "Being aware. Becoming aware. Living consciously. – Online Seminar Spring 2026",
+        "description": "A three-part online seminar for inner clarity, presence, and conscious change. April–May 2026 · live · online.",
+        "canonical": "https://www.corinnevanarelli.ch/events/seminars/seminar-fruhling-2026",
+        "og": {
+          "title": "Online Seminar Spring 2026",
+          "description": "Being aware. Becoming aware. Living consciously. A guided experiential space for inner clarity and presence.",
+          "url": "https://www.corinnevanarelli.ch/events/seminars/seminar-fruhling-2026",
+          "siteName": "Corinne Vanarelli",
+          "images": [
+            {
+              "url": "https://www.corinnevanarelli.ch/img/seminars/fruhling-2026/01.webp",
+              "alt": "Online Seminar Spring 2026"
+            }
+          ]
+        },
+        "twitter": {
+          "title": "Online Seminar Spring 2026",
+          "description": "A three-part online seminar for conscious change.",
+          "images": [
+            "https://www.corinnevanarelli.ch/img/seminars/fruhling-2026/01.webp"
+          ]
+        }
+      },
+      "nav": {
+        "back": "Back to seminars",
+        "cta": "Get in touch"
+      },
+      "hero": {
+        "ctaPrimary": "Get in touch",
+        "ctaSecondary": "View details"
+      },
+      "intro": {
+        "kicker": "Online Seminar · Spring 2026",
+        "title": "Being aware\nBecoming aware\nLiving consciously",
+        "subtitle": "A three-part online seminar for inner clarity and conscious change.",
+        "meta": [
+          "April – May 2026",
+          "3 live sessions",
+          "Online via Zoom"
+        ]
+      },
+      "s1": {
+        "title": "**The turning point begins quietly**",
+        "body": "Many people wait for a turning point\nthat feels unmistakable.\n\nA clear decision.\nA new plan.\nA moment that changes everything.\n\nBut real change often begins differently:\nquietly,\nunspectacularly,\nsometimes even unsettling.\n\nThis online seminar invites you to look right there.\nNot to fix something,\nbut to experience yourself more consciously."
+      },
+      "s2": {
+        "title": "What this online seminar is really about",
+        "body": "This online seminar does not follow the logic of self-optimization.\nIt invites conscious pausing and honest self-perception.\n\nIt is a guided experiential space in which you connect with your inner experience:",
+        "points": [
+          "with your thinking and evaluation patterns",
+          "with what you feel and may have ignored for a long time",
+          "with the question of how you want to shape your life more consciously"
+        ],
+        "outro": "Not through performance\nNot through concepts\nBut through perception, presence, and experience"
+      },
+      "s3": {
+        "for": {
+          "title": "Who this seminar is for",
+          "items": [
+            "those who have been functioning for a long time",
+            "those who have been strong, held on, pushed through",
+            "those who sense that old patterns no longer carry them",
+            "those who want to meet themselves more honestly"
+          ],
+          "note": "Not to become faster.\nBut to become more truthful."
+        }
+      },
+      "s4": {
+        "title": "The journey through the online seminar",
+        "parts": [
+          {
+            "kicker": "Session 1",
+            "title": "Being aware",
+            "body": "Becoming present with what is.\n\nWhich roles do I live?\nWhich ideas of right and wrong shape me?\nWhich patterns have I adopted without ever questioning them?"
+          },
+          {
+            "kicker": "Session 2",
+            "title": "Becoming aware",
+            "body": "Listening inward and feeling.\n\nWhat do I really feel?\nWhere have I distanced myself from myself?",
+            "note": "Simple exercises support you in reconnecting with your inner experience."
+          },
+          {
+            "kicker": "Session 3",
+            "title": "Living consciously",
+            "body": "Embodying the new awareness and integrating it into everyday life.\n\nNot as a new concept, but as a lived attitude."
+          }
+        ]
+      },
+      "s5": {
+        "title": "What awaits you in this online seminar",
+        "items": [
+          "three live online seminars (3 hours each)",
+          "access to Zoom recordings if you cannot attend",
+          "a clear and safely held framework",
+          "space for perception, reflection, and exchange",
+          "time between sessions for integration"
+        ]
+      },
+      "s6": {
+        "title": "Practical information",
+        "datesTitle": "Dates",
+        "datesBody": "April 11 · April 25 · May 9, 2026\n3:00 – 6:00 pm",
+        "placeTitle": "Location",
+        "placeBody": "Online via Zoom (live)",
+        "inviteTitle": "Invitation",
+        "inviteBody": "\nYou don’t have to perform here.\nYou don’t have to achieve anything.\nYou are allowed to simply be.\n\nIf you feel\nthat it is time to meet yourself more honestly,\nthen you are welcome."
+      },
+      "gallery": {
+        "title": "Impressions"
+      },
+      "images": [
+        {
+          "src": "/img/seminars/fruhling-2026/01.webp",
+          "alt": "Inner clarity",
+          "placeholder": ""
+        },
+        {
+          "src": "/img/seminars/fruhling-2026/02.webp",
+          "alt": "Self-perception",
+          "placeholder": ""
+        },
+        {
+          "src": "/img/seminars/fruhling-2026/03.webp",
+          "alt": "Process of awareness",
+          "placeholder": ""
+        },
+        {
+          "src": "/img/seminars/fruhling-2026/04.webp",
+          "alt": "Integration into everyday life",
+          "placeholder": ""
+        }
+      ]
     }
   }
 }

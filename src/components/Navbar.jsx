@@ -140,7 +140,10 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const [offersOpen, setOffersOpen] = useState(false);
+  const [eventsOpen, setEventsOpen] = useState(false);
+
   const lastY = useRef(0);
   const ticking = useRef(false);
   const pathname = usePathname();
@@ -231,10 +234,17 @@ export default function Navbar() {
         ].join(' ')}
       >
         {/* Logo izquierda */}
-        <Link href="/" className="shrink-0 flex items-center gap-3" onClick={() => setOffersOpen(false)}>
+        <Link
+          href="/"
+          className="shrink-0 flex items-center gap-3"
+          onClick={() => {
+            setOffersOpen(false);
+            setEventsOpen(false);
+          }}
+        >
           <Image
             src="/img/Corinne Vanarelli Logo.png"
-            alt="Corinne Vanarelli — Soulcoaching"
+            alt="Corinne Vanarelli - Soulcoaching"
             width={200}
             height={200}
             priority
@@ -243,16 +253,46 @@ export default function Navbar() {
 
         {/* Menú desktop */}
         <ul className="hidden md:flex items-center gap-10 ml-auto">
-          <li><NavLink href="/" onClick={() => setOffersOpen(false)}>{t('home')}</NavLink></li>
-          <li><NavLink href="/ueber-mich" onClick={() => setOffersOpen(false)}>{t('about')}</NavLink></li>
+          <li>
+            <NavLink
+              href="/"
+              onClick={() => {
+                setOffersOpen(false);
+                setEventsOpen(false);
+              }}
+            >
+              {t('home')}
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              href="/ueber-mich"
+              onClick={() => {
+                setOffersOpen(false);
+                setEventsOpen(false);
+              }}
+            >
+              {t('about')}
+            </NavLink>
+          </li>
 
           {/* Dropdown: Angebote */}
           <li
             className="relative"
-            onMouseEnter={() => setOffersOpen(true)}
+            onMouseEnter={() => {
+              setOffersOpen(true);
+              setEventsOpen(false);
+            }}
             onMouseLeave={() => setOffersOpen(false)}
           >
-            <NavLink href="/book" onClick={() => setOffersOpen(false)}>
+            <NavLink
+              href="/book"
+              onClick={() => {
+                setOffersOpen(false);
+                setEventsOpen(false);
+              }}
+            >
               <span className="inline-flex items-center gap-1">
                 {t('offers')} <span aria-hidden>▾</span>
               </span>
@@ -282,7 +322,72 @@ export default function Navbar() {
             </div>
           </li>
 
-          <li><NavLink href="/#kontakt" onClick={() => setOffersOpen(false)}>{t('contact')}</NavLink></li>
+          {/* Dropdown: Events */}
+          <li
+            className="relative"
+            onMouseEnter={() => {
+              setEventsOpen(true);
+              setOffersOpen(false);
+            }}
+            onMouseLeave={() => setEventsOpen(false)}
+          >
+            <NavLink
+              href="/events"
+              onClick={() => {
+                setEventsOpen(false);
+                setOffersOpen(false);
+              }}
+            >
+              <span className="inline-flex items-center gap-1">
+                {t('events')} <span aria-hidden>▾</span>
+              </span>
+            </NavLink>
+
+            <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 ${eventsOpen ? 'block' : 'hidden'}`}>
+              <div className="min-w-[220px] rounded-xl border bg-white shadow-lg p-2">
+                <Link
+                  href="/events/seminars"
+                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
+                  onClick={() => setEventsOpen(false)}
+                >
+                  {t('eventsSeminars')}
+                </Link>
+
+                <Link
+                  href="/events/retreats/costa-rica"
+                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
+                  onClick={() => setEventsOpen(false)}
+                >
+                  {t('eventsRetreats')}
+                </Link>
+              </div>
+            </div>
+          </li>
+
+          {/* Blog */}
+          <li>
+            <NavLink
+              href="/blog"
+              onClick={() => {
+                setOffersOpen(false);
+                setEventsOpen(false);
+              }}
+            >
+              {t('blog')}
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              href="/#kontakt"
+              onClick={() => {
+                setOffersOpen(false);
+                setEventsOpen(false);
+              }}
+            >
+              {t('contact')}
+            </NavLink>
+          </li>
 
           {/* Selector idioma (desktop) */}
           <li>
@@ -294,7 +399,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* ✅ Mobile: idioma SIEMPRE visible, al lado de la hamburguesa */}
+        {/* Mobile: idioma visible */}
         <div className="md:hidden ml-auto flex items-center gap-3">
           <LocaleMenu
             activeLocale={activeLocale}
@@ -308,7 +413,11 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-md p-2 ring-1 ring-neutral-300"
             aria-label="Menü öffnen"
             aria-expanded={mobileOpen ? 'true' : 'false'}
-            onClick={() => { setMobileOpen(o => !o); setOffersOpen(false); }}
+            onClick={() => {
+              setMobileOpen(o => !o);
+              setOffersOpen(false);
+              setEventsOpen(false);
+            }}
             suppressHydrationWarning
           >
             <svg
@@ -378,9 +487,33 @@ export default function Navbar() {
               </Link>
             </li>
 
-            <li><NavLink href="/#kontakt" onClick={() => setMobileOpen(false)}>{t('contact')}</NavLink></li>
+            {/* Events + subitems */}
+            <li><NavLink href="/events" onClick={() => setMobileOpen(false)}>{t('events')}</NavLink></li>
 
-            {/* ❌ ya NO va el selector de idioma acá */}
+            <li className="pl-4">
+              <Link
+                href="/events/seminars"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-neutral-700 hover:text-neutral-900"
+              >
+                {t('eventsSeminars')}
+              </Link>
+            </li>
+
+            <li className="pl-4">
+              <Link
+                href="/events/retreats/costa-rica"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-neutral-700 hover:text-neutral-900"
+              >
+                {t('eventsRetreats')}
+              </Link>
+            </li>
+
+            {/* Blog */}
+            <li><NavLink href="/blog" onClick={() => setMobileOpen(false)}>{t('blog')}</NavLink></li>
+
+            <li><NavLink href="/#kontakt" onClick={() => setMobileOpen(false)}>{t('contact')}</NavLink></li>
           </ul>
         </div>
       )}

@@ -9,7 +9,11 @@
     "hopiHeartHealing": "Hopi Herzheilung",
     "chakraClearing": "Chakra Clearing",
     "spinalAlignment": "Energetische Aufrichtung",
-    "aromatouch": "doTERRA AromaTouch"
+    "aromatouch": "doTERRA AromaTouch",
+    "events": "Events",
+    "eventsSeminars": "Seminare",
+    "eventsRetreats": "Retreats",
+    "blog": "Blog"
   },
   "AltSection": {
     "ctaLabel": "Mehr erfahren"
@@ -53,7 +57,7 @@
     "ariaLabel": "Hero",
     "title": "Ganzheitliche Begleitung\nfür innere Klarheit\nund nachhaltige Veränderung",
     "subtitle": "Individuelle Begleitung auf deinem persönlichen Entwicklungsweg",
-    "imageAlt": "Natur & Ruhe — Hero"
+    "imageAlt": "Natur & Ruhe - Hero"
   },
   "ServiceBanner": {
     "ariaLabel": "Service Banner",
@@ -111,7 +115,7 @@
       "title": "Willkommen auf deiner Reise <strong><em>zurück zu dir</em></strong>",
       "kicker": "Für mehr Klarheit, innere Stärke und ein Leben\nim Einklang mit deiner Essenz",
       "p1": "Manchmal spürst du, dass etwas in dir nach Veränderung ruft\nNicht laut\nAber beständig",
-      "p2": "Vielleicht ist es das Gefühl, festzustecken\nOder der Wunsch, wieder klarer zu sehen, innerlich ruhiger zu werden und Entscheidungen aus dir selbst heraus zu treffen statt aus Anpassung, Druck oder Angst.",
+      "p2": "Vielleicht ist es das Gefühl, festzustecken.\nOder der Wunsch, wieder klarer zu sehen, innerlich ruhiger zu werden und Entscheidungen aus dir selbst heraus zu treffen statt aus Anpassung, Druck oder Angst.",
       "p3": "Gemeinsam richten wir den Blick auf das, was dich innerlich zurückhält. Wir lösen überholte Muster und schaffen Raum für neue Klarheit, innere Stabilität und nachhaltige Veränderung.",
       "p4": "Hier geht es nicht um Selbstoptimierung\nNicht um höher, schneller, weiter\nSondern um Rückverbindung, Bewusstsein und ehrliche innere Arbeit.",
       "p5": "Ich begleite dich dabei, inneren Ballast loszulassen, Vertrauen in dich selbst zurückzugewinnen und deinem eigenen inneren Kompass wieder zu folgen.\nDu darfst dich erinnern, wer du bist.",
@@ -905,5 +909,471 @@
         "seeYou": "Wir sehen uns zum Termin!"
       }
     }
+  },
+  "Events": {
+    "meta": {
+      "title": "Events | Corinne Vanarelli",
+      "description": "Seminare und Retreats – Räume für Veränderung, Klarheit und echte Rückverbindung.",
+      "canonical": "https://www.corinnevanarelli.ch/events",
+      "og": {
+        "title": "Events | Corinne Vanarelli",
+        "description": "Seminare und Retreats – Räume für Veränderung, Klarheit und echte Rückverbindung.",
+        "url": "https://www.corinnevanarelli.ch/events",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp",
+            "alt": "Corinne Vanarelli – Events"
+          }
+        ]
+      },
+      "twitter": {
+        "title": "Events | Corinne Vanarelli",
+        "description": "Seminare und Retreats – Räume für Veränderung, Klarheit und echte Rückverbindung.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
+        ]
+      }
+    },
+    "intro": {
+      "kicker": "Events",
+      "title": "Seminare & Retreats",
+      "body": "Räume, in denen Veränderung nicht erzwungen wird – sondern möglich wird.\nMit Wärme, Klarheit und Präsenz."
+    },
+    "nav": {
+      "seminars": "Seminare",
+      "retreats": "Retreats",
+      "cta": "Kontakt aufnehmen"
+    },
+    "seminars": {
+      "title": "Seminare",
+      "subtitle": "Online & vor Ort – Impulse, die vertraute Muster hinterfragen\nund neue innere Beweglichkeit öffnen.",
+      "items": [
+        {
+          "tag": "Online",
+          "title": "Online Seminar im Frühling",
+          "body": "Dieser Kurs lädt dazu ein, vertraute Denk- und Bewertungsmuster zu hinterfragen.\nNicht um dich zu optimieren – sondern um offen zu werden: für Bewegung, Unsicherheit und neue Perspektiven.",
+          "meta": [
+            "Frühling",
+            "Online",
+            "Für Veränderung"
+          ],
+          "cta": "Mehr Infos / Interesse"
+        }
+      ]
+    },
+    "retreats": {
+      "title": "Retreats",
+      "subtitle": "Tiefe Auszeiten – Natur, Nervensystem und echte Rückverbindung.\nDu gehst anders, als du gekommen bist.",
+      "items": [
+        {
+          "tag": "Costa Rica",
+          "title": "Retreat in Costa Rica",
+          "body": "Eine Reise zurück in deinen Körper, in deine Klarheit, in deinen inneren Raum.\nFür Menschen, die viel getragen haben – und jetzt ehrlich werden wollen.",
+          "meta": [
+            "Costa Rica",
+            "Retreat",
+            "Embodiment"
+          ],
+          "cta": "Platz anfragen"
+        }
+      ]
+    }
+  },
+  "EventsRetreatCostaRica": {
+    "meta": {
+      "title": "Costa Rica Retreat | Corinne Vanarelli",
+      "description": "Ein Retreat für echte Rückverbindung: Körper, Nervensystem, Natur und Klarheit.",
+      "canonical": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
+      "og": {
+        "title": "Costa Rica Retreat | Corinne Vanarelli",
+        "description": "Ein Retreat für echte Rückverbindung: Körper, Nervensystem, Natur und Klarheit.",
+        "url": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp",
+            "alt": "Costa Rica Retreat – Corinne Vanarelli"
+          }
+        ]
+      },
+      "twitter": {
+        "title": "Costa Rica Retreat | Corinne Vanarelli",
+        "description": "Ein Retreat für echte Rückverbindung: Körper, Nervensystem, Natur und Klarheit.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
+        ]
+      }
+    },
+    "hero": {
+      "kicker": "Retreat · Costa Rica",
+      "title": "Ankommen\nEntschleunigen\nWieder fühlen",
+      "comingSoon": "Dieses Retreat befindet sich aktuell in der finalen Ausarbeitung.\n\nWeitere Informationen folgen in Kürze.",
+      "ctaPrimary": "Kontakt aufnehmen",
+      "badges": [
+        "Costa Rica",
+        "Natur & Präsenz",
+        "Kleingruppe"
+      ],
+      "image": {
+        "src": "/img/retreats/costa-rica/hero.webp",
+        "alt": "Natur und Ruhe in Costa Rica",
+        "placeholder": "Bild folgt"
+      }
+    },
+    "details": {
+      "title": "Worum es geht",
+      "body": "Dieses Retreat ist eine Einladung, aus dem Dauer-Funktionieren auszusteigen.\nIn einen Raum, in dem dein System wieder atmen darf.\n\nNatur, Präsenz und verkörperte Arbeit – damit Veränderung nicht nur verstanden, sondern erlebt wird.",
+      "quote": "„Du kommst nicht gleich zurück –\nNicht weil du jemand anderes wirst,\nsondern weil du dir selbst wieder näher kommst.“",
+      "image": {
+        "src": "",
+        "alt": "",
+        "placeholder": "Details Bild (Placeholder)"
+      }
+    },
+    "forWho": {
+      "title": "Für wen ist es",
+      "items": [
+        "Für Menschen, die viel getragen haben – und jetzt ehrlich werden wollen.",
+        "Für Menschen, die spüren: So wie bisher geht es nicht weiter.",
+        "Für Menschen, die nicht mehr nur „wissen“, sondern wirklich verkörpern wollen."
+      ]
+    },
+    "whatYouGet": {
+      "title": "Was du mitnimmst",
+      "items": [
+        "Mehr innere Ruhe und Nervensystem-Regulation.",
+        "Klarheit über alte Muster – ohne dich zu verurteilen.",
+        "Rückverbindung mit Körper, Intuition und Grenzen.",
+        "Einen Raum, der nachwirkt – nicht nur ein schönes Erlebnis."
+      ]
+    },
+    "howWeWork": {
+      "title": "Wie wir arbeiten",
+      "items": [
+        {
+          "title": "Präsenz & Nervensystem",
+          "body": "Raum für Tiefe – ohne Druck, ohne Müssen."
+        },
+        {
+          "title": "Embodiment & Körperarbeit",
+          "body": "Sanft, klar, verkörpert."
+        },
+        {
+          "title": "Energetische Prozesse",
+          "body": "Für das, was sich nicht nur kognitiv löst."
+        },
+        {
+          "title": "Integration & Nachwirken",
+          "body": "Damit es im Alltag ankommt."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "Impressionen",
+      "images": [
+        {
+          "src": "",
+          "alt": "",
+          "placeholder": "Bild 1"
+        },
+        {
+          "src": "",
+          "alt": "",
+          "placeholder": "Bild 2"
+        },
+        {
+          "src": "",
+          "alt": "",
+          "placeholder": "Bild 3"
+        }
+      ]
+    },
+    "sidebar": {
+      "tag": "Kurz & klar",
+      "title": "Retreat Überblick",
+      "meta": [
+        {
+          "label": "Ort",
+          "value": "Costa Rica"
+        },
+        {
+          "label": "Format",
+          "value": "Retreat (Details folgen)"
+        },
+        {
+          "label": "Plätze",
+          "value": "Limitiert"
+        }
+      ],
+      "cta": "Kontakt & Anfrage"
+    }
+  },
+  "Blog": {
+    "title": "Blog",
+    "lead": "Impulse, Perspektiven und Texte für innere Klarheit, Veränderung und echte Rückverbindung.",
+    "categoriesNavAria": "Blog Kategorien Navigation",
+    "readMore": "Weiterlesen",
+    "readMoreAria": "Weiterlesen: {title}",
+    "emptyCategory": "Noch keine Beiträge in dieser Kategorie. Bald kommt etwas Neues.",
+    "categories": {
+      "coaching": {
+        "label": "Coaching",
+        "title": "Coaching",
+        "description": "Begleitung, Haltung und Praxis - für echte Bewegung im Inneren."
+      },
+      "beliefs": {
+        "label": "Glaubenssätze",
+        "title": "Glaubenssätze",
+        "description": "Gedankenmuster erkennen, entknoten und neu wählen."
+      },
+      "transformation": {
+        "label": "Bewusstsein & Transformation",
+        "title": "Bewusstsein & Transformation",
+        "description": "Wenn Wandel leise beginnt - und du trotzdem weitergehst."
+      },
+      "development": {
+        "label": "Entwicklung",
+        "title": "Entwicklung",
+        "description": "Wachstum, Selbstführung und neue Perspektiven im Alltag."
+      },
+      "mindfuck": {
+        "label": "Mindfuck",
+        "title": "Mindfuck",
+        "description": "Wenn der Kopf laut wird - und du wieder klar sehen willst."
+      }
+    },
+    "meta": {
+      "title": "Blog",
+      "description": "Impulse, Perspektiven und Texte für innere Klarheit und Veränderung.",
+      "canonical": "/blog",
+      "og": {
+        "title": "Blog",
+        "description": "Impulse, Perspektiven und Texte für innere Klarheit und Veränderung.",
+        "url": "/blog",
+        "siteName": "Coco Soulcoaching",
+        "locale": "de_DE",
+        "type": "website",
+        "images": [
+          {
+            "url": "/og/blog.jpg",
+            "alt": "Blog"
+          }
+        ]
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Blog",
+        "description": "Impulse, Perspektiven und Texte für innere Klarheit und Veränderung.",
+        "images": [
+          "/og/blog.jpg"
+        ]
+      }
+    }
+  },
+  "BlogPost": {
+    "backToBlog": "Zurück zum Blog",
+    "notFound": {
+      "title": "Beitrag nicht gefunden",
+      "description": "Dieser Beitrag existiert nicht (oder wurde verschoben)."
+    },
+    "meta": {
+      "notFound": {
+        "title": "Beitrag nicht gefunden",
+        "description": "Der gewünschte Blogbeitrag konnte nicht gefunden werden."
+      }
+    },
+    "pagination": {
+      "aria": "Beitragsnavigation",
+      "prev": "Vorheriger Beitrag",
+      "next": "Nächster Beitrag"
+    }
+  },
+  "EventsSeminars": {
+    "meta": {
+      "title": "Seminare",
+      "description": "Begleitete Seminare und Online-Formate für bewusste Veränderung, Präsenz und innere Klarheit.",
+      "canonical": "https://www.corinnevanarelli.ch/events/seminars",
+      "og": {
+        "title": "Seminare",
+        "description": "Begleitete Seminare und Online-Formate für bewusste Veränderung, Präsenz und innere Klarheit.",
+        "url": "https://www.corinnevanarelli.ch/events/seminars",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/og-default.jpg",
+            "alt": "Seminare – Corinne Vanarelli"
+          }
+        ]
+      },
+      "twitter": {
+        "title": "Seminare",
+        "description": "Begleitete Seminare und Online-Formate für bewusste Veränderung, Präsenz und innere Klarheit.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/og-default.jpg"
+        ]
+      }
+    },
+    "intro": {
+      "kicker": "Events",
+      "title": "Seminare",
+      "body": "Seminare sind begleitete Erfahrungsräume.\nSie laden dazu ein, innezuhalten, vertraute Denk- und Handlungsmuster zu hinterfragen und neue innere Perspektiven zu entwickeln.\n\nNicht als Kurs mit Lösungen – sondern als gemeinsamer Prozess."
+    },
+    "nav": {
+      "seminars": "Seminare",
+      "cta": "Kontakt"
+    },
+    "seminars": {
+      "title": "Aktuelle Seminare",
+      "subtitle": "Mehrteilige Formate – online oder live – mit Raum für Austausch, Reflexion und Integration.",
+      "items": [
+        {
+          "tag": "Online Seminar",
+          "title": "Bewusst sein. Bewusst werden. Bewusst leben.",
+          "body": "Eine innere Reise in drei Begegnungen.\nFür Menschen, die sich bewusster mit Veränderung, innerer Klarheit und Selbstverbindung auseinandersetzen möchten.",
+          "meta": [
+            "April – Mai 2026",
+            "3 Live-Sessions",
+            "Online"
+          ],
+          "cta": "Zum Seminar"
+        }
+      ]
+    }
+  },
+  "SeminarFruhling2026": {
+    "meta": {
+      "title": "Bewusst sein. Bewusst werden. Bewusst leben. – Online-Seminar Frühling 2026",
+      "description": "Ein dreiteiliges Online-Seminar für innere Klarheit, Präsenz und bewusste Veränderung. April–Mai 2026 · live · online.",
+      "canonical": "https://www.corinnevanarelli.ch/events/seminars/seminar-fruhling-2026",
+      "og": {
+        "title": "Online-Seminar Frühling 2026",
+        "description": "Bewusst sein. Bewusst werden. Bewusst leben. Ein geführter Erfahrungsraum für innere Klarheit und Präsenz.",
+        "url": "https://www.corinnevanarelli.ch/events/seminars/seminar-fruhling-2026",
+        "siteName": "Corinne Vanarelli",
+        "images": [
+          {
+            "url": "https://www.corinnevanarelli.ch/img/seminars/fruhling-2026/01.webp",
+            "alt": "Online-Seminar Frühling 2026"
+          }
+        ]
+      },
+      "twitter": {
+        "title": "Online-Seminar Frühling 2026",
+        "description": "Ein dreiteiliges Online-Seminar für bewusste Veränderung.",
+        "images": [
+          "https://www.corinnevanarelli.ch/img/seminars/fruhling-2026/01.webp"
+        ]
+      }
+    },
+    "nav": {
+      "back": "Zurück zu den Seminaren",
+      "cta": "Kontakt aufnehmen"
+    },
+    "hero": {
+      "ctaPrimary": "Kontakt aufnehmen",
+      "ctaSecondary": "Details ansehen"
+    },
+    "intro": {
+      "kicker": "Online-Seminar · Frühling 2026",
+      "title": "Bewusst sein\nBewusst werden\nBewusst leben",
+      "subtitle": "Ein dreiteiliges Online-Seminar für innere Klarheit und bewusste Veränderung.",
+      "meta": [
+        "April – Mai 2026",
+        "3 Live-Sessions",
+        "Online via Zoom"
+      ]
+    },
+    "s1": {
+      "title": "**Der Wendepunkt beginnt leise**",
+      "body": "Viele Menschen warten auf einen Wendepunkt,\nder sich eindeutig anfühlt.\n\nEine klare Entscheidung.\nEin neuer Plan.\nEin Moment, der alles verändert.\n\nDoch echte Veränderung beginnt oft anders:\nleise,\nunspektakulär,\nmanchmal sogar verunsichernd.\n\nDieses Online-Seminar lädt dich ein, genau dort hinzuschauen.\nNicht um etwas zu reparieren,\nsondern um dich selbst bewusster zu erleben."
+    },
+    "s2": {
+      "title": "Worum es in diesem Online-Seminar wirklich geht",
+      "body": "Dieses Online-Seminar folgt keiner Logik der Selbstoptimierung.\nEs lädt ein zum bewussten Innehalten und zur ehrlichen Selbstwahrnehmung.\n\nEs ist ein geführter Erfahrungsraum, in dem du dich mit deinem inneren Erleben verbindest:",
+      "points": [
+        "mit deinen Denk- und Bewertungsmustern",
+        "mit dem, was du fühlst und vielleicht lange übergangen hast",
+        "mit der Frage, wie du dein Leben bewusster gestalten möchtest"
+      ],
+      "outro": "Nicht über Leistung\nNicht über Konzepte\nSondern über Wahrnehmung, Präsenz und Erfahrung"
+    },
+    "s3": {
+      "for": {
+        "title": "Für wen dieses Seminar gedacht ist",
+        "items": [
+          "die lange funktioniert haben",
+          "die stark waren, gehalten haben, durchgezogen haben",
+          "die spüren, dass alte Muster nicht mehr tragen",
+          "die sich selbst ehrlicher begegnen möchten"
+        ],
+        "note": "Nicht um schneller zu werden.\nSondern um wahrer zu werden."
+      }
+    },
+    "s4": {
+      "title": "Die Reise durch das Online-Seminar",
+      "parts": [
+        {
+          "kicker": "1. Termin",
+          "title": "Bewusst sein",
+          "body": "Präsent werden mit dem, was ist.\n\nWelche Rollen lebe ich?\nWelche Vorstellungen von richtig und falsch prägen mich?\nWelche Muster habe ich übernommen, ohne sie zu hinterfragen?"
+        },
+        {
+          "kicker": "2. Termin",
+          "title": "Bewusst werden",
+          "body": "Nach innen hören und fühlen.\n\nWas fühle ich wirklich?\nWo habe ich mich von mir selbst entfernt?",
+          "note": "Einfache Übungen begleiten dich dabei, wieder in Kontakt mit deinem inneren Erleben zu kommen."
+        },
+        {
+          "kicker": "3. Termin",
+          "title": "Bewusst leben",
+          "body": "Das neue Bewusstsein verkörpern und in den Alltag integrieren.\n\nNicht als neues Konzept, sondern als gelebte Haltung."
+        }
+      ]
+    },
+    "s5": {
+      "title": "Was dich in diesem Online-Seminar erwartet",
+      "items": [
+        "drei live Online-Seminare (je 3 Stunden)",
+        "Zugang zu Zoom-Aufzeichnungen bei Abwesenheit",
+        "ein klarer, sicher gehaltener Rahmen",
+        "Raum für Wahrnehmung, Reflexion und Austausch",
+        "Zeit zwischen den Terminen zur Integration"
+      ]
+    },
+    "s6": {
+      "title": "Organisatorisches",
+      "datesTitle": "Termine",
+      "datesBody": "11. April · 25. April · 9. Mai 2026\njeweils 15:00 – 18:00 Uhr",
+      "placeTitle": "Ort",
+      "placeBody": "Online via Zoom (live)",
+      "inviteTitle": "Einladung",
+      "inviteBody": "\nDu musst hier nichts leisten.\nDu musst nichts erreichen.\nDu darfst einfach da sein.\n\nWenn du spürst,\ndass es Zeit ist, dir selbst ehrlicher zu begegnen,\ndann bist du willkommen."
+    },
+    "gallery": {
+      "title": "Einblicke"
+    },
+    "images": [
+      {
+        "src": "/img/seminars/fruhling-2026/01.webp",
+        "alt": "Innere Klarheit",
+        "placeholder": ""
+      },
+      {
+        "src": "/img/seminars/fruhling-2026/02.webp",
+        "alt": "Selbstwahrnehmung",
+        "placeholder": ""
+      },
+      {
+        "src": "/img/seminars/fruhling-2026/03.webp",
+        "alt": "Bewusstseinsprozess",
+        "placeholder": ""
+      },
+      {
+        "src": "/img/seminars/fruhling-2026/04.webp",
+        "alt": "Integration im Alltag",
+        "placeholder": ""
+      }
+    ]
   }
 }

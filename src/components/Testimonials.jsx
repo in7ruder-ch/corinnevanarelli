@@ -50,7 +50,7 @@ export default function Testimonials({ items: itemsProp }) {
         >
           {tItem.text}
         </p>
-        <p className="mt-6 text-sm text-neutral-600">— {tItem.name}</p>
+        <p className="mt-6 text-sm text-neutral-600">- {tItem.name}</p>
 
         {/* Puntos */}
         <div className="mt-8 flex items-center justify-center gap-2">
