@@ -256,7 +256,7 @@ export default function ContactForm() {
                 <div className="text-sm" style={{ color: 'var(--muted)' }}>
                   {t('footer.address')}
                 </div>
-                <div className="mt-2" style={{ color: 'var(--text)' }}>
+                <div className="mt-2" style={{ color: 'var(--brand)' }}>
                   Gänsebergstrasse 12, 3186 Düdingen (FR)
                 </div>
               </li>
