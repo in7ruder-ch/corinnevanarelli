@@ -491,7 +491,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
 
                 {
                     type: "image",
-                    src: "/img/blog/PLACEHOLDER-FOG-FOREST.webp",
+                    src: "/img/blog/bandt02.webp",
                     alt: "Niebla en el bosque",
                     caption: "IMAGEN: Niebla y bosque (bajar contraste)."
                 },
