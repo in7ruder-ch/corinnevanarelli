@@ -1,44 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- HOME -->
   <url>
     <loc>https://www.corinnevanarelli.ch/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- ABOUT -->
   <url>
     <loc>https://www.corinnevanarelli.ch/ueber-mich</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- ANGEBOTE / SERVICES -->
   <url>
     <loc>https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.corinnevanarelli.ch/angebote/hopi-herzheilung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.corinnevanarelli.ch/angebote/ontologisches-coaching</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.corinnevanarelli.ch/angebote/chakra-clearing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.corinnevanarelli.ch/angebote/doterra-aromatouch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.corinnevanarelli.ch/angebote/gwa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- EVENTS OVERVIEW -->
+  <url>
+    <loc>https://www.corinnevanarelli.ch/events</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SEMINARS -->
+  <url>
+    <loc>https://www.corinnevanarelli.ch/events/seminars</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.corinnevanarelli.ch/events/seminars/seminar-fruhling-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- RETREATS -->
+  <url>
+    <loc>https://www.corinnevanarelli.ch/events/retreats/costa-rica</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- BLOG -->
+  <url>
+    <loc>https://www.corinnevanarelli.ch/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.corinnevanarelli.ch/blog/coaching-is-not-about-fixing-you</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

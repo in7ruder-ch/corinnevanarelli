@@ -35,7 +35,7 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
   const LOCALES = [
     { value: 'de', label: 'DE', flagSrc: '/img/flags/de.svg', flagAlt: 'Deutsch' },
     { value: 'en', label: 'EN', flagSrc: '/img/flags/gb.svg', flagAlt: 'English' },
-    { value: 'es', label: 'ES', flagSrc: '/img/flags/es.svg', flagAlt: 'Español' } // mostrar SP, value sigue "es"
+    { value: 'es', label: 'ES', flagSrc: '/img/flags/es.svg', flagAlt: 'Español' }
   ];
 
   const current = LOCALES.find(l => l.value === activeLocale) ?? LOCALES[0];
@@ -141,8 +141,13 @@ export default function Navbar() {
   const [atTop, setAtTop] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Desktop hover dropdowns
   const [offersOpen, setOffersOpen] = useState(false);
   const [eventsOpen, setEventsOpen] = useState(false);
+
+  // Mobile accordions (cerrados por defecto)
+  const [mobileOffersOpen, setMobileOffersOpen] = useState(false);
+  const [mobileEventsOpen, setMobileEventsOpen] = useState(false);
 
   const lastY = useRef(0);
   const ticking = useRef(false);
@@ -151,26 +156,54 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  // ✅ 1) Lock scroll del body cuando menu mobile está abierto
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
+
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = prevBody || '';
+      document.documentElement.style.overflow = prevHtml || '';
+    }
+
+    return () => {
+      document.body.style.overflow = prevBody || '';
+      document.documentElement.style.overflow = prevHtml || '';
+    };
+  }, [mobileOpen]);
+
+  // ✅ 2) Scroll handler: ignorar mientras el mobile menu está abierto
   useEffect(() => {
     const onScroll = () => {
+      if (mobileOpen) return;
+
       const y = window.scrollY || 0;
       if (ticking.current) return;
       ticking.current = true;
+
       window.requestAnimationFrame(() => {
         const delta = y - lastY.current;
         const threshold = 6;
+
         if (Math.abs(delta) > threshold) {
           if (delta > 0 && y > 80) setVisible(false);
           else setVisible(true);
         }
+
         setAtTop(y <= 8);
         lastY.current = y;
         ticking.current = false;
       });
     };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [mobileOpen]);
 
   useEffect(() => {
     const onResize = () => {
@@ -218,6 +251,12 @@ export default function Navbar() {
     );
   }
 
+  function closeMobile() {
+    setMobileOpen(false);
+    setMobileOffersOpen(false);
+    setMobileEventsOpen(false);
+  }
+
   return (
     <nav
       className={[
@@ -240,6 +279,7 @@ export default function Navbar() {
           onClick={() => {
             setOffersOpen(false);
             setEventsOpen(false);
+            closeMobile();
           }}
         >
           <Image
@@ -254,25 +294,13 @@ export default function Navbar() {
         {/* Menú desktop */}
         <ul className="hidden md:flex items-center gap-10 ml-auto">
           <li>
-            <NavLink
-              href="/"
-              onClick={() => {
-                setOffersOpen(false);
-                setEventsOpen(false);
-              }}
-            >
+            <NavLink href="/" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               {t('home')}
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              href="/ueber-mich"
-              onClick={() => {
-                setOffersOpen(false);
-                setEventsOpen(false);
-              }}
-            >
+            <NavLink href="/ueber-mich" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               {t('about')}
             </NavLink>
           </li>
@@ -280,19 +308,10 @@ export default function Navbar() {
           {/* Dropdown: Angebote */}
           <li
             className="relative"
-            onMouseEnter={() => {
-              setOffersOpen(true);
-              setEventsOpen(false);
-            }}
+            onMouseEnter={() => { setOffersOpen(true); setEventsOpen(false); }}
             onMouseLeave={() => setOffersOpen(false)}
           >
-            <NavLink
-              href="/book"
-              onClick={() => {
-                setOffersOpen(false);
-                setEventsOpen(false);
-              }}
-            >
+            <NavLink href="/book" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               <span className="inline-flex items-center gap-1">
                 {t('offers')} <span aria-hidden>▾</span>
               </span>
@@ -325,19 +344,10 @@ export default function Navbar() {
           {/* Dropdown: Events */}
           <li
             className="relative"
-            onMouseEnter={() => {
-              setEventsOpen(true);
-              setOffersOpen(false);
-            }}
+            onMouseEnter={() => { setEventsOpen(true); setOffersOpen(false); }}
             onMouseLeave={() => setEventsOpen(false)}
           >
-            <NavLink
-              href="/events"
-              onClick={() => {
-                setEventsOpen(false);
-                setOffersOpen(false);
-              }}
-            >
+            <NavLink href="/events" onClick={() => { setEventsOpen(false); setOffersOpen(false); }}>
               <span className="inline-flex items-center gap-1">
                 {t('events')} <span aria-hidden>▾</span>
               </span>
@@ -345,19 +355,10 @@ export default function Navbar() {
 
             <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 ${eventsOpen ? 'block' : 'hidden'}`}>
               <div className="min-w-[220px] rounded-xl border bg-white shadow-lg p-2">
-                <Link
-                  href="/events/seminars"
-                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
-                  onClick={() => setEventsOpen(false)}
-                >
+                <Link href="/events/seminars" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setEventsOpen(false)}>
                   {t('eventsSeminars')}
                 </Link>
-
-                <Link
-                  href="/events/retreats/costa-rica"
-                  className="block px-3 py-2 rounded-md hover:bg-neutral-100"
-                  onClick={() => setEventsOpen(false)}
-                >
+                <Link href="/events/retreats/costa-rica" className="block px-3 py-2 rounded-md hover:bg-neutral-100" onClick={() => setEventsOpen(false)}>
                   {t('eventsRetreats')}
                 </Link>
               </div>
@@ -366,25 +367,13 @@ export default function Navbar() {
 
           {/* Blog */}
           <li>
-            <NavLink
-              href="/blog"
-              onClick={() => {
-                setOffersOpen(false);
-                setEventsOpen(false);
-              }}
-            >
+            <NavLink href="/blog" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               {t('blog')}
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              href="/#kontakt"
-              onClick={() => {
-                setOffersOpen(false);
-                setEventsOpen(false);
-              }}
-            >
+            <NavLink href="/#kontakt" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               {t('contact')}
             </NavLink>
           </li>
@@ -417,6 +406,11 @@ export default function Navbar() {
               setMobileOpen(o => !o);
               setOffersOpen(false);
               setEventsOpen(false);
+              // NO abrir submenus por default
+              if (!mobileOpen) {
+                setMobileOffersOpen(false);
+                setMobileEventsOpen(false);
+              }
             }}
             suppressHydrationWarning
           >
@@ -442,81 +436,108 @@ export default function Navbar() {
       </div>
 
       {/* Panel móvil */}
-      {mounted && (
+      {mounted && mobileOpen ? (
         <div
           className={[
-            'md:hidden w-full overflow-auto transition-[max-height] duration-300 ease-in-out',
-            mobileOpen ? 'max-h-[calc(100vh-8rem)]' : 'max-h-0',
-            atTop ? 'bg-white' : 'bg-white/90 backdrop-blur'
+            'md:hidden fixed inset-x-0 top-32 bottom-0 z-50',
+            'bg-white/95 backdrop-blur',
+            'overflow-y-auto overscroll-contain'
           ].join(' ')}
           suppressHydrationWarning
         >
-          <ul className="px-6 pb-6 pt-2 flex flex-col gap-4 border-t border-neutral-200">
-            <li><NavLink href="/" onClick={() => setMobileOpen(false)}>{t('home')}</NavLink></li>
-            <li><NavLink href="/ueber-mich" onClick={() => setMobileOpen(false)}>{t('about')}</NavLink></li>
-            <li><NavLink href="/book" onClick={() => setMobileOpen(false)}>{t('offers')}</NavLink></li>
+          <ul className="px-6 pb-8 pt-6 flex flex-col gap-4 border-t border-neutral-200">
+            <li><NavLink href="/" onClick={closeMobile}>{t('home')}</NavLink></li>
+            <li><NavLink href="/ueber-mich" onClick={closeMobile}>{t('about')}</NavLink></li>
 
-            <li className="pl-4">
-              <Link href="/angebote/ontologisches-coaching" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
-                {t('ontologicalCoaching')}
-              </Link>
-            </li>
-            <li className="pl-4">
-              <Link href="/angebote/akasha-chronik-lesung" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
-                {t('akashaReading')}
-              </Link>
-            </li>
-            <li className="pl-4">
-              <Link href="/angebote/hopi-herzheilung" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
-                {t('hopiHeartHealing')}
-              </Link>
-            </li>
-            <li className="pl-4">
-              <Link href="/angebote/chakra-clearing" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
-                {t('chakraClearing')}
-              </Link>
-            </li>
-            <li className="pl-4">
-              <Link href="/angebote/gwa" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
-                {t('spinalAlignment')}
-              </Link>
-            </li>
-            <li className="pl-4">
-              <Link href="/angebote/doterra-aromatouch" onClick={() => setMobileOpen(false)} className="text-sm text-neutral-700 hover:text-neutral-900">
-                {t('aromatouch')}
-              </Link>
-            </li>
-
-            {/* Events + subitems */}
-            <li><NavLink href="/events" onClick={() => setMobileOpen(false)}>{t('events')}</NavLink></li>
-
-            <li className="pl-4">
-              <Link
-                href="/events/seminars"
-                onClick={() => setMobileOpen(false)}
-                className="text-sm text-neutral-700 hover:text-neutral-900"
+            {/* OFFERS accordion */}
+            <li>
+              <button
+                type="button"
+                className="w-full text-left text-[1.2rem] font-medium text-neutral-700 hover:text-neutral-900 inline-flex items-center justify-between"
+                aria-expanded={mobileOffersOpen ? 'true' : 'false'}
+                onClick={() => {
+                  setMobileOffersOpen(o => !o);
+                  setMobileEventsOpen(false);
+                }}
               >
-                {t('eventsSeminars')}
-              </Link>
+                <span>{t('offers')}</span>
+                <span aria-hidden className="text-neutral-500">{mobileOffersOpen ? '▴' : '▾'}</span>
+              </button>
             </li>
 
-            <li className="pl-4">
-              <Link
-                href="/events/retreats/costa-rica"
-                onClick={() => setMobileOpen(false)}
-                className="text-sm text-neutral-700 hover:text-neutral-900"
+            {mobileOffersOpen ? (
+              <>
+                <li className="pl-4">
+                  <Link href="/angebote/ontologisches-coaching" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('ontologicalCoaching')}
+                  </Link>
+                </li>
+                <li className="pl-4">
+                  <Link href="/angebote/akasha-chronik-lesung" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('akashaReading')}
+                  </Link>
+                </li>
+                <li className="pl-4">
+                  <Link href="/angebote/hopi-herzheilung" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('hopiHeartHealing')}
+                  </Link>
+                </li>
+                <li className="pl-4">
+                  <Link href="/angebote/chakra-clearing" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('chakraClearing')}
+                  </Link>
+                </li>
+                <li className="pl-4">
+                  <Link href="/angebote/gwa" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('spinalAlignment')}
+                  </Link>
+                </li>
+                <li className="pl-4">
+                  <Link href="/angebote/doterra-aromatouch" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('aromatouch')}
+                  </Link>
+                </li>
+              </>
+            ) : null}
+
+            {/* EVENTS accordion */}
+            <li className="mt-2">
+              <button
+                type="button"
+                className="w-full text-left text-[1.2rem] font-medium text-neutral-700 hover:text-neutral-900 inline-flex items-center justify-between"
+                aria-expanded={mobileEventsOpen ? 'true' : 'false'}
+                onClick={() => {
+                  setMobileEventsOpen(o => !o);
+                  setMobileOffersOpen(false);
+                }}
               >
-                {t('eventsRetreats')}
-              </Link>
+                <span>{t('events')}</span>
+                <span aria-hidden className="text-neutral-500">{mobileEventsOpen ? '▴' : '▾'}</span>
+              </button>
             </li>
+
+            {mobileEventsOpen ? (
+              <>
+                <li className="pl-4">
+                  <Link href="/events/seminars" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('eventsSeminars')}
+                  </Link>
+                </li>
+                <li className="pl-4">
+                  <Link href="/events/retreats/costa-rica" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                    {t('eventsRetreats')}
+                  </Link>
+                </li>
+              </>
+            ) : null}
 
             {/* Blog */}
-            <li><NavLink href="/blog" onClick={() => setMobileOpen(false)}>{t('blog')}</NavLink></li>
+            <li className="mt-2"><NavLink href="/blog" onClick={closeMobile}>{t('blog')}</NavLink></li>
 
-            <li><NavLink href="/#kontakt" onClick={() => setMobileOpen(false)}>{t('contact')}</NavLink></li>
+            <li><NavLink href="/#kontakt" onClick={closeMobile}>{t('contact')}</NavLink></li>
           </ul>
         </div>
-      )}
+      ) : null}
     </nav>
   );
 }
