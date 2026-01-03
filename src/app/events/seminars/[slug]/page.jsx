@@ -88,7 +88,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-    if (params?.slug !== SEMINAR_SLUG) notFound();
+    // ✅ Next sync dynamic APIs: params puede venir como Promise
+    const { slug } = await params;
+    if (slug !== SEMINAR_SLUG) notFound();
 
     const t = await getTranslations("SeminarFruhling2026.meta");
     const locale = await getLocale();
@@ -126,7 +128,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SeminarDetailPage({ params }) {
-    if (params?.slug !== SEMINAR_SLUG) notFound();
+    // ✅ Next sync dynamic APIs: params puede venir como Promise
+    const { slug } = await params;
+    if (slug !== SEMINAR_SLUG) notFound();
 
     const t = await getTranslations("SeminarFruhling2026");
 
@@ -136,6 +140,12 @@ export default async function SeminarDetailPage({ params }) {
         t("s2.body"),
         `• ${t("s2.points.0")}\n• ${t("s2.points.1")}\n• ${t("s2.points.2")}`,
     ].join("\n\n");
+
+    const longTextStyle = {
+        fontFamily: "var(--font-long)",
+        fontSize: "1.0625rem",
+        lineHeight: "1.7",
+    };
 
     return (
         <>
@@ -196,7 +206,7 @@ export default async function SeminarDetailPage({ params }) {
                         </div>
 
                         {/* Hero body (Wendepunkt...) */}
-                        <div className="mt-8 text-neutral-700">
+                        <div className="mt-8 text-neutral-700" style={longTextStyle}>
                             {renderParagraphsWithMarkdown(heroBody)}
                         </div>
                     </div>
@@ -257,7 +267,7 @@ export default async function SeminarDetailPage({ params }) {
                             {t("s2.title")}
                         </h2>
 
-                        <div className="mt-4 text-neutral-700">
+                        <div className="mt-4 text-neutral-700" style={longTextStyle}>
                             {splitParagraphs(detailsBody).map((p, i) => (
                                 <p key={i} className={i === 0 ? "" : "mt-4 whitespace-pre-line"}>
                                     {p}
@@ -290,7 +300,7 @@ export default async function SeminarDetailPage({ params }) {
                             <li>{t("s3.for.items.2")}</li>
                             <li>{t("s3.for.items.3")}</li>
                         </ul>
-                        <p className="mt-4 text-neutral-700 whitespace-pre-line">
+                        <p className="mt-4 text-neutral-700 whitespace-pre-line" style={longTextStyle}>
                             {t("s3.for.note")}
                         </p>
                     </div>
@@ -408,7 +418,8 @@ export default async function SeminarDetailPage({ params }) {
                             {t("s6.placeBody")}
                         </p>
                     </div>
-                    <p className="mt-4 text-neutral-700 whitespace-pre-line">
+
+                    <p className="mt-4 text-neutral-700 whitespace-pre-line" style={longTextStyle}>
                         {t("s6.inviteBody")}
                     </p>
                 </div>

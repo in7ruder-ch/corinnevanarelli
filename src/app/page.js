@@ -61,6 +61,7 @@ export default async function HomePage() {
 
       {/* S1 */}
       <AltSection
+        id="s1"
         title={rich('s1.title')}
         kicker={t('s1.kicker')}
         body={

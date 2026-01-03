@@ -14,7 +14,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const t = await getTranslations("BlogPost.meta");
   const locale = await getLocale();
-  const post = getPostBySlug(params.slug);
+
+  // ✅ Next sync dynamic APIs: params puede venir como Promise
+  const { slug } = await params;
+
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -45,7 +49,10 @@ export default async function BlogPostPage({ params }) {
   const t = await getTranslations("BlogPost");
   const locale = await getLocale();
 
-  const post = getPostBySlug(params.slug);
+  // ✅ Next sync dynamic APIs: params puede venir como Promise
+  const { slug } = await params;
+
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return (
@@ -113,7 +120,14 @@ export default async function BlogPostPage({ params }) {
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[900px]"
       >
         {/* IMPORTANTE: dejamos de usar "prose" para que el estilo sea consistente con el sitio */}
-        <article className="max-w-none text-neutral-800">
+        <article
+          className="max-w-none text-neutral-800"
+          style={{
+            fontFamily: "var(--font-long)",
+            fontSize: "1.0625rem", // ≈ +6%
+            lineHeight: "1.7",
+          }}
+        >
           {blocks.map((block, idx) => {
             if (!block) return null;
 
@@ -180,7 +194,7 @@ export default async function BlogPostPage({ params }) {
           })}
 
           {/* Prev / Next (misma categoría) */}
-          {(prev || next) ? (
+          {prev || next ? (
             <nav
               className="mt-12 border-t border-neutral-200 pt-8"
               aria-label={t("pagination.aria")}

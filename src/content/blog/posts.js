@@ -48,7 +48,6 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
         cover: "/img/blog/PLACEHOLDER-COVER.webp",
         content: {
             de: [
-                { type: "p", text: "Über innere Krisen, Bewusstsein und echte Veränderung" },
 
                 {
                     type: "image",
@@ -271,7 +270,6 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
             ],
 
             en: [
-                { type: "p", text: "On inner crises, awareness, and real change" },
 
                 {
                     type: "image",
@@ -490,7 +488,6 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
             ],
 
             es: [
-                { type: "p", text: "Sobre las crisis internas, la conciencia y el cambio real" },
 
                 {
                     type: "image",

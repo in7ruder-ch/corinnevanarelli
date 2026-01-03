@@ -25,6 +25,9 @@ export default function AltSection({
 
   const resolvedCtaLabel = ctaLabel ?? t('ctaLabel');
 
+  // ✅ Solo el primer AltSection (id="s1") usa Allura
+  const useScriptTitle = id === 's1';
+
   return (
     <section id={id} className={`bg-[#ffffff] ${sectionPadY}`}>
       <div className="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]">
@@ -39,7 +42,15 @@ export default function AltSection({
               'bg-[#f5f5f5]'
             ].join(' ')}
           >
-            <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-normal text-neutral-900 [text-wrap:balance] break-words whitespace-pre-line">
+            <h2
+              className={[
+                'leading-tight [text-wrap:balance] break-words whitespace-pre-line',
+                useScriptTitle
+                  ? 'text-[2.1rem] sm:text-[2.4rem] md:text-[2.7rem] lg:text-[3rem] xl:text-[3.2rem] font-normal text-neutral-800'
+                  : 'text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-normal text-neutral-900',
+              ].join(' ')}
+              style={useScriptTitle ? { fontFamily: 'var(--font-script)' } : undefined}
+            >
               {title}
             </h2>
 
@@ -78,10 +89,8 @@ export default function AltSection({
           </div>
 
           {/* IMAGEN */}
-          {/* IMAGEN */}
           <div className={['order-2', mediaLeft ? 'md:order-1' : 'md:order-2'].join(' ')}>
             <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full overflow-hidden">
-
               {/* Mobile */}
               {typeof imageSrc === 'object' && imageSrc.mobile && (
                 <Image
