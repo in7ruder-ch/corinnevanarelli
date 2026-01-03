@@ -435,17 +435,19 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Panel móvil */}
-      {mounted && mobileOpen ? (
+      {/* Panel móvil (NO fixed para evitar bugs con nav transform) */}
+      {mounted && (
         <div
           className={[
-            'md:hidden fixed inset-x-0 top-32 bottom-0 z-50',
-            'bg-white/95 backdrop-blur',
-            'overflow-y-auto overscroll-contain'
+            'md:hidden w-full border-t border-neutral-200',
+            'overflow-y-auto overscroll-contain',
+            'transition-[max-height] duration-300 ease-in-out',
+            mobileOpen ? 'max-h-[calc(100vh-8rem)]' : 'max-h-0',
+            atTop ? 'bg-white' : 'bg-white/90 backdrop-blur'
           ].join(' ')}
           suppressHydrationWarning
         >
-          <ul className="px-6 pb-8 pt-6 flex flex-col gap-4 border-t border-neutral-200">
+          <ul className="px-6 pb-8 pt-6 flex flex-col gap-4">
             <li><NavLink href="/" onClick={closeMobile}>{t('home')}</NavLink></li>
             <li><NavLink href="/ueber-mich" onClick={closeMobile}>{t('about')}</NavLink></li>
 
@@ -533,11 +535,10 @@ export default function Navbar() {
 
             {/* Blog */}
             <li className="mt-2"><NavLink href="/blog" onClick={closeMobile}>{t('blog')}</NavLink></li>
-
             <li><NavLink href="/#kontakt" onClick={closeMobile}>{t('contact')}</NavLink></li>
           </ul>
         </div>
-      ) : null}
+      )}
     </nav>
   );
 }
