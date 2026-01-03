@@ -5,13 +5,11 @@ import ContactForm from "@/components/ContactForm";
 import { getTranslations, getLocale } from "next-intl/server";
 import SeminarCard from "@/components/SeminarCard";
 
-// Metadata i18n
 export async function generateMetadata() {
   const t = await getTranslations("EventsSeminars.meta");
   const locale = await getLocale();
 
-  const ogLocale =
-    locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
@@ -45,23 +43,34 @@ export async function generateMetadata() {
 export default async function EventsSeminarsPage() {
   const t = await getTranslations("EventsSeminars");
 
+  const seminar = {
+    href: "/events/seminars/seminar-fruhling-2026",
+    tag: t("seminars.items.0.tag"),
+    title: t("seminars.items.0.title"),
+    body: t("seminars.items.0.body"),
+    cta: t("seminars.items.0.cta"),
+    meta: [0, 1, 2].map((i) => t(`seminars.items.0.meta.${i}`)),
+  };
+
   return (
     <>
-      {/* Intro */}
       <Section
-        className="bg-white pt-[12rem] pb-10 md:pb-16"
+        className="pt-[12rem] pb-10 md:pb-16"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <div className="max-w-3xl">
-          <p className="text-xs tracking-[0.25em] uppercase text-neutral-500">
+          <p className="text-xs tracking-[0.25em] uppercase" style={{ color: "var(--muted)" }}>
             {t("intro.kicker")}
           </p>
 
-          <h1 className="mt-3 text-[2.25rem] md:text-[3rem] leading-tight font-bold text-neutral-900">
+          <h1
+            className="mt-3 text-[2.25rem] md:text-[3rem] leading-tight font-bold"
+            style={{ color: "var(--text)" }}
+          >
             {t("intro.title")}
           </h1>
 
-          <p className="mt-4 text-base md:text-lg text-neutral-700 whitespace-pre-line">
+          <p className="mt-4 text-base md:text-lg whitespace-pre-line" style={{ color: "var(--muted)" }}>
             {t("intro.body")}
           </p>
 
@@ -69,43 +78,72 @@ export default async function EventsSeminarsPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#seminarios"
-              className="rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-800 hover:bg-neutral-50 transition-colors"
+              className="rounded-full px-4 py-2 text-sm font-medium transition-colors"
+              data-eventsseminars-pill="soft"
             >
               {t("nav.seminars")}
             </a>
 
             <a
               href="#kontakt"
-              className="rounded-full px-4 py-2 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
+              className="rounded-full px-4 py-2 text-sm font-medium transition-colors"
+              data-eventsseminars-pill="brand"
             >
               {t("nav.cta")}
             </a>
           </div>
+
+          {/* ✅ Base + hover (sin inline) */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                a[data-eventsseminars-pill="soft"]{
+                  background-color: var(--surface);
+                  border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+                  color: var(--text);
+                }
+                a[data-eventsseminars-pill="soft"]:hover{
+                  background-color: color-mix(in srgb, var(--brand) 12%, var(--surface));
+                  border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+                }
+                a[data-eventsseminars-pill="brand"]{
+                  background-color: var(--brand);
+                  border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
+                  color: white;
+                }
+                a[data-eventsseminars-pill="brand"]:hover{
+                  background-color: color-mix(in srgb, var(--brand) 85%, black);
+                }
+              `,
+            }}
+          />
         </div>
       </Section>
 
-      {/* SEMINARIOS (overview) */}
       <Section
         id="seminarios"
-        className="bg-white pb-10 md:pb-14 scroll-mt-40"
+        className="pb-10 md:pb-14 scroll-mt-40"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <div className="max-w-3xl">
-          <h2 className="text-xl md:text-2xl font-semibold text-neutral-900">
+          <h2 className="text-xl md:text-2xl font-semibold" style={{ color: "var(--text)" }}>
             {t("seminars.title")}
           </h2>
-          <p className="mt-2 text-neutral-700 whitespace-pre-line">
+          <p className="mt-2 whitespace-pre-line" style={{ color: "var(--muted)" }}>
             {t("seminars.subtitle")}
           </p>
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <SeminarCard
-            t={t}
-            href="/events/seminars/seminar-fruhling-2026"
+            href={seminar.href}
+            tag={seminar.tag}
+            title={seminar.title}
+            body={seminar.body}
+            cta={seminar.cta}
+            meta={seminar.meta}
           />
 
-          {/* placeholders */}
           <div className="hidden md:block" />
           <div className="hidden md:block" />
         </div>

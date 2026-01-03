@@ -89,15 +89,25 @@ export default function ContactForm() {
   return (
     <section
       id="kontakt"
-      className="bg-[#f5f5f5] py-16 md:py-24 scroll-mt-32"
+      className="py-16 md:py-24 scroll-mt-32"
+      style={{ backgroundColor: 'var(--bg)' }}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900 text-center">
+        <h2
+          className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-center"
+          style={{ color: 'var(--text)' }}
+        >
           {t('title')}
         </h2>
 
         {/* Tarjeta / formulario */}
-        <div className="mt-8 rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200">
+        <div
+          className="mt-8 rounded-2xl shadow-sm border"
+          style={{
+            backgroundColor: 'var(--surface)',
+            borderColor: 'color-mix(in srgb, var(--brand) 35%, transparent)'
+          }}
+        >
           <form
             onSubmit={handleSubmit}
             className="p-6 sm:p-8 md:p-10 space-y-7"
@@ -106,65 +116,77 @@ export default function ContactForm() {
           >
             {/* Vorname */}
             <div>
-              <label className="block text-sm text-neutral-700 mb-2">
+              <label className="block text-sm mb-2" style={{ color: 'var(--muted)' }}>
                 {t('fields.vorname')} *
               </label>
               <input
                 type="text"
                 value={form.vorname}
-                onChange={(e) =>
-                  setForm({ ...form, vorname: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, vorname: e.target.value })}
                 required
-                className="w-full bg-transparent border-0 border-b border-neutral-300 focus:border-neutral-700 focus:outline-none focus:ring-0 px-0 py-2"
+                className="w-full bg-transparent border-0 border-b focus:outline-none focus:ring-0 px-0 py-2"
+                style={{
+                  borderBottomColor: 'var(--border)',
+                }}
+                onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'var(--brand)')}
+                onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'var(--border)')}
               />
             </div>
 
             {/* Name */}
             <div>
-              <label className="block text-sm text-neutral-700 mb-2">
+              <label className="block text-sm mb-2" style={{ color: 'var(--muted)' }}>
                 {t('fields.name')} *
               </label>
               <input
                 type="text"
                 value={form.name}
-                onChange={(e) =>
-                  setForm({ ...form, name: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
-                className="w-full bg-transparent border-0 border-b border-neutral-300 focus:border-neutral-700 focus:outline-none focus:ring-0 px-0 py-2"
+                className="w-full bg-transparent border-0 border-b focus:outline-none focus:ring-0 px-0 py-2"
+                style={{
+                  borderBottomColor: 'var(--border)',
+                }}
+                onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'var(--brand)')}
+                onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'var(--border)')}
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm text-neutral-700 mb-2">
+              <label className="block text-sm mb-2" style={{ color: 'var(--muted)' }}>
                 {t('fields.email')} *
               </label>
               <input
                 type="email"
                 value={form.email}
-                onChange={(e) =>
-                  setForm({ ...form, email: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
                 required
-                className="w-full bg-transparent border-0 border-b border-neutral-300 focus:border-neutral-700 focus:outline-none focus:ring-0 px-0 py-2"
+                className="w-full bg-transparent border-0 border-b focus:outline-none focus:ring-0 px-0 py-2"
+                style={{
+                  borderBottomColor: 'var(--border)',
+                }}
+                onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'var(--brand)')}
+                onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'var(--border)')}
               />
             </div>
 
             {/* Nachricht */}
             <div>
-              <label className="block text-sm text-neutral-700 mb-2">
+              <label className="block text-sm mb-2" style={{ color: 'var(--muted)' }}>
                 {t('fields.nachricht')} *
               </label>
               <textarea
                 rows={4}
                 value={form.nachricht}
-                onChange={(e) =>
-                  setForm({ ...form, nachricht: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, nachricht: e.target.value })}
                 required
-                className="w-full bg-transparent border-0 border-b border-neutral-300 focus:border-neutral-700 focus:outline-none focus:ring-0 px-0 py-2 resize-none"
+                className="w-full bg-transparent border-0 border-b focus:outline-none focus:ring-0 px-0 py-2 resize-none"
+                style={{
+                  borderBottomColor: 'var(--border)',
+                }}
+                onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'var(--brand)')}
+                onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'var(--border)')}
               />
             </div>
 
@@ -173,20 +195,25 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="px-5 py-2 rounded-lg bg-neutral-800 text-white hover:bg-neutral-900 disabled:opacity-50"
+                className="px-6 py-2.5 rounded-lg text-white disabled:opacity-50 transition-colors"
+                style={{ backgroundColor: 'var(--brand)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-dark)')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand)')}
               >
                 {status === 'loading' ? t('actions.sending') : t('actions.send')}
               </button>
 
               {status !== 'idle' && (
                 <div
-                  className={`text-sm ${
-                    status === 'success'
-                      ? 'text-green-600'
-                      : status === 'error'
-                      ? 'text-red-600'
-                      : 'text-neutral-600'
-                  }`}
+                  className="text-sm"
+                  style={{
+                    color:
+                      status === 'success'
+                        ? 'var(--brand)'
+                        : status === 'error'
+                          ? '#B84A4A'
+                          : 'var(--muted)',
+                  }}
                 >
                   {message}
                 </div>
@@ -196,30 +223,40 @@ export default function ContactForm() {
         </div>
 
         {/* Franja de contacto inferior */}
-        <div className="mt-12 border-t border-neutral-900">
+        <div className="mt-12 border-t" style={{ borderColor: 'var(--border)' }}>
           <div className="mx-auto max-w-5xl">
-            <ul className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-900 text-center">
+            <ul className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x text-center" style={{ borderColor: 'var(--border)' }}>
               <li className="py-6 px-6">
-                <div className="text-sm text-neutral-600">{t('footer.phone')}</div>
+                <div className="text-sm" style={{ color: 'var(--muted)' }}>
+                  {t('footer.phone')}
+                </div>
                 <a
                   href="tel:+41797167212"
-                  className="mt-2 inline-block underline hover:no-underline"
+                  className="mt-2 inline-block underline underline-offset-4 hover:no-underline"
+                  style={{ color: 'var(--brand)', textDecorationColor: 'var(--brand)' }}
                 >
                   +41 79 716 7212
                 </a>
               </li>
+
               <li className="py-6 px-6">
-                <div className="text-sm text-neutral-600">{t('footer.email')}</div>
+                <div className="text-sm" style={{ color: 'var(--muted)' }}>
+                  {t('footer.email')}
+                </div>
                 <a
                   href="mailto:kontakt@corinnevanarelli.ch"
-                  className="mt-2 inline-block underline hover:no-underline break-all"
+                  className="mt-2 inline-block underline underline-offset-4 hover:no-underline break-all"
+                  style={{ color: 'var(--brand)', textDecorationColor: 'var(--brand)' }}
                 >
                   kontakt@corinnevanarelli.ch
                 </a>
               </li>
+
               <li className="py-6 px-6">
-                <div className="text-sm text-neutral-600">{t('footer.address')}</div>
-                <div className="mt-2">
+                <div className="text-sm" style={{ color: 'var(--muted)' }}>
+                  {t('footer.address')}
+                </div>
+                <div className="mt-2" style={{ color: 'var(--text)' }}>
                   Gänsebergstrasse 12, 3186 Düdingen (FR)
                 </div>
               </li>

@@ -7,7 +7,6 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { getAllPosts, getPostBySlug, getAdjacentPosts } from "@/content/blog/posts";
 
 export async function generateStaticParams() {
-  // genera rutas /blog/<slug> para todos los posts locales
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
 
@@ -58,15 +57,26 @@ export default async function BlogPostPage({ params }) {
     return (
       <>
         <Section
-          className="bg-white pt-[12rem] pb-16"
+          className="pt-[12rem] pb-16"
           containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[900px]"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900">
+          <h1
+            className="text-3xl md:text-4xl font-bold"
+            style={{ color: "var(--text)" }}
+          >
             {t("notFound.title")}
           </h1>
-          <p className="mt-4 text-neutral-700">{t("notFound.description")}</p>
+
+          <p className="mt-4" style={{ color: "var(--muted)" }}>
+            {t("notFound.description")}
+          </p>
+
           <div className="mt-8">
-            <Link href="/blog" className="text-neutral-900 hover:underline">
+            <Link
+              href="/blog"
+              className="hover:underline"
+              style={{ color: "var(--brand)" }}
+            >
               ← {t("backToBlog")}
             </Link>
           </div>
@@ -80,52 +90,56 @@ export default async function BlogPostPage({ params }) {
   const excerpt = post.excerpt?.[locale] ?? post.excerpt?.de ?? "";
   const readingTime = post.readingTime?.[locale] ?? post.readingTime?.de ?? "";
 
-  // NUEVO: bloques (h2, p, ul, image, quote, hr)
   const blocks = post.content?.[locale] ?? post.content?.de ?? [];
 
-  // Prev/Next dentro de la misma categoría (serie por categoría + fecha)
   const { prev, next } = getAdjacentPosts(post.slug, { category: post.category });
 
   return (
     <>
       <Section
-        className="bg-white pt-[12rem] pb-10"
+        className="pt-[12rem] pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[900px]"
       >
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 hover:underline"
+          className="inline-flex items-center gap-2 text-sm hover:underline"
+          style={{ color: "var(--muted)" }}
         >
           <span aria-hidden="true">←</span> {t("backToBlog")}
         </Link>
 
         <div className="mt-8">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-neutral-500">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm" style={{ color: "var(--muted)" }}>
             <span>{post.date}</span>
             {readingTime ? <span>• {readingTime}</span> : null}
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl leading-tight font-bold text-neutral-900">
+          <h1
+            className="mt-4 text-3xl md:text-5xl leading-tight font-bold"
+            style={{ color: "var(--text)" }}
+          >
             {title}
           </h1>
 
           {excerpt ? (
-            <p className="mt-5 text-lg md:text-xl text-neutral-700">{excerpt}</p>
+            <p className="mt-5 text-lg md:text-xl" style={{ color: "var(--muted)" }}>
+              {excerpt}
+            </p>
           ) : null}
         </div>
       </Section>
 
       <Section
-        className="bg-white pb-16 md:pb-24"
+        className="pb-16 md:pb-24"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[900px]"
       >
-        {/* IMPORTANTE: dejamos de usar "prose" para que el estilo sea consistente con el sitio */}
         <article
-          className="max-w-none text-neutral-800"
+          className="max-w-none"
           style={{
             fontFamily: "var(--font-long)",
             fontSize: "1.0625rem", // ≈ +6%
             lineHeight: "1.7",
+            color: "var(--muted)",
           }}
         >
           {blocks.map((block, idx) => {
@@ -136,7 +150,11 @@ export default async function BlogPostPage({ params }) {
                 return (
                   <h2
                     key={idx}
-                    className="mt-10 first:mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900"
+                    className="mt-10 first:mt-0 text-2xl md:text-3xl font-semibold tracking-tight"
+                    style={{
+                      fontFamily: "var(--font-title)",
+                      color: "var(--text)",
+                    }}
                   >
                     {block.text}
                   </h2>
@@ -144,7 +162,7 @@ export default async function BlogPostPage({ params }) {
 
               case "p":
                 return (
-                  <p key={idx} className="mt-4 leading-relaxed text-neutral-700">
+                  <p key={idx} className="mt-4 leading-relaxed">
                     {block.text}
                   </p>
                 );
@@ -153,7 +171,8 @@ export default async function BlogPostPage({ params }) {
                 return (
                   <ul
                     key={idx}
-                    className="mt-4 list-disc pl-6 space-y-2 text-neutral-700"
+                    className="mt-4 list-disc pl-6 space-y-2"
+                    style={{ color: "var(--muted)" }}
                   >
                     {block.items?.map((it, i) => (
                       <li key={i} className="leading-relaxed">
@@ -167,7 +186,11 @@ export default async function BlogPostPage({ params }) {
                 return (
                   <blockquote
                     key={idx}
-                    className="mt-6 border-l-2 border-neutral-300 pl-4 italic text-neutral-700"
+                    className="mt-6 pl-4 italic"
+                    style={{
+                      borderLeft: "2px solid color-mix(in srgb, var(--gold) 40%, transparent)",
+                      color: "var(--muted)",
+                    }}
                   >
                     {block.text}
                   </blockquote>
@@ -180,13 +203,24 @@ export default async function BlogPostPage({ params }) {
                       src={block.src}
                       alt={block.alt || ""}
                       loading="lazy"
-                      className="rounded-xl border border-neutral-200"
+                      className="rounded-xl"
+                      style={{
+                        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                      }}
                     />
                   </figure>
                 );
 
               case "hr":
-                return <hr key={idx} className="my-10 border-neutral-200" />;
+                return (
+                  <hr
+                    key={idx}
+                    className="my-10"
+                    style={{
+                      borderTop: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                    }}
+                  />
+                );
 
               default:
                 return null;
@@ -196,7 +230,10 @@ export default async function BlogPostPage({ params }) {
           {/* Prev / Next (misma categoría) */}
           {prev || next ? (
             <nav
-              className="mt-12 border-t border-neutral-200 pt-8"
+              className="mt-12 pt-8"
+              style={{
+                borderTop: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+              }}
               aria-label={t("pagination.aria")}
             >
               <div className="grid gap-4 md:grid-cols-2">
@@ -205,12 +242,28 @@ export default async function BlogPostPage({ params }) {
                   {prev ? (
                     <Link
                       href={`/blog/${prev.slug}`}
-                      className="group block rounded-xl border border-neutral-200 bg-white p-5 hover:border-neutral-300"
+                      className="group block rounded-xl p-5 transition-colors"
+                      style={{
+                        backgroundColor: "var(--surface)",
+                        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor =
+                          "color-mix(in srgb, var(--brand) 40%, transparent)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor =
+                          "color-mix(in srgb, var(--brand) 22%, transparent)";
+                      }}
                     >
-                      <p className="text-xs tracking-[0.25em] uppercase text-neutral-500">
+                      <p className="text-xs tracking-[0.25em] uppercase" style={{ color: "var(--muted)" }}>
                         {t("pagination.prev")}
                       </p>
-                      <p className="mt-2 text-lg font-semibold text-neutral-900 group-hover:underline">
+
+                      <p
+                        className="mt-2 text-lg font-semibold group-hover:underline"
+                        style={{ color: "var(--text)" }}
+                      >
                         {prev.title?.[locale] ?? prev.title?.de ?? ""}
                       </p>
                     </Link>
@@ -222,12 +275,28 @@ export default async function BlogPostPage({ params }) {
                   {next ? (
                     <Link
                       href={`/blog/${next.slug}`}
-                      className="group block rounded-xl border border-neutral-200 bg-white p-5 hover:border-neutral-300"
+                      className="group block rounded-xl p-5 transition-colors"
+                      style={{
+                        backgroundColor: "var(--surface)",
+                        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor =
+                          "color-mix(in srgb, var(--brand) 40%, transparent)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor =
+                          "color-mix(in srgb, var(--brand) 22%, transparent)";
+                      }}
                     >
-                      <p className="text-xs tracking-[0.25em] uppercase text-neutral-500">
+                      <p className="text-xs tracking-[0.25em] uppercase" style={{ color: "var(--muted)" }}>
                         {t("pagination.next")}
                       </p>
-                      <p className="mt-2 text-lg font-semibold text-neutral-900 group-hover:underline">
+
+                      <p
+                        className="mt-2 text-lg font-semibold group-hover:underline"
+                        style={{ color: "var(--text)" }}
+                      >
                         {next.title?.[locale] ?? next.title?.de ?? ""}
                       </p>
                     </Link>

@@ -63,34 +63,47 @@ export default async function UeberMichPage() {
     },
   ];
 
-
   return (
     <>
       {/* Intro: texto izq / imagen der */}
       <Section
-        className="bg-white pt-[12rem] pb-10 md:pb-16"
+        className="pt-[12rem] pb-10 md:pb-16"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <div className="grid items-stretch md:grid-cols-12">
-          {/* Texto en “card” gris */}
+          {/* Texto en card (surface + borde salvia suave) */}
           <div className="md:col-span-7">
-            <div className="h-full bg-[#efefef] p-6 sm:p-8 md:p-12">
-              <h1 className="text-[2.25rem] md:text-[3rem] leading-tight font-bold text-neutral-900">
+            <div
+              className="h-full p-6 sm:p-8 md:p-12"
+              style={{
+                backgroundColor: "var(--surface)",
+                border: "1px solid color-mix(in srgb, var(--brand) 28%, transparent)",
+              }}
+            >
+              <h1
+                className="text-[2.25rem] md:text-[3rem] leading-tight font-bold"
+                style={{ color: "var(--text)" }}
+              >
                 {t("intro.title")}
               </h1>
-              <p className="mt-3 text-xl text-neutral-800">
+
+              <p className="mt-3 text-xl" style={{ color: "var(--muted)" }}>
                 {t.rich("intro.nameLine", {
                   em: (chunks) => <em className="italic">{chunks}</em>,
                 })}
               </p>
 
-              <div className="mt-8 space-y-5 leading-relaxed text-neutral-800">
+              <div className="mt-8 space-y-5 leading-relaxed" style={{ color: "var(--muted)" }}>
                 <p className="whitespace-pre-line">{t("intro.p1")}</p>
                 <p className="whitespace-pre-line">{t("intro.p2")}</p>
 
-                <p className="whitespace-pre-line text-neutral-800">
+                <p className="whitespace-pre-line">
                   {t.rich("intro.p3", {
-                    strong: (chunks) => <strong className="font-semibold">{chunks}</strong>,
+                    strong: (chunks) => (
+                      <strong className="font-semibold" style={{ color: "var(--text)" }}>
+                        {chunks}
+                      </strong>
+                    ),
                   })}
                 </p>
 
@@ -101,7 +114,8 @@ export default async function UeberMichPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="inline-flex items-center gap-2 text-neutral-700 hover:text-neutral-900"
+                    className="group inline-flex items-center gap-2 transition-colors"
+                    data-ig-link
                   >
                     <svg
                       width="20"
@@ -112,13 +126,24 @@ export default async function UeberMichPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
+                      className="shrink-0"
                     >
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
+
                     <span className="sr-only">Instagram</span>
                   </a>
+
+                  <style
+                    dangerouslySetInnerHTML={{
+                      __html: `
+        a[data-ig-link]{ color: var(--brand); }
+        a[data-ig-link]:hover{ color: color-mix(in srgb, var(--brand) 85%, black); }
+      `,
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -140,10 +165,13 @@ export default async function UeberMichPage() {
 
       {/* Ausbildung */}
       <Section
-        className="bg-white pt-10 md:pt-14 pb-16 md:pb-24"
+        className="pt-10 md:pt-14 pb-16 md:pb-24"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
-        <h2 className="text-[2rem] md:text-[2.5rem] leading-tight font-semibold text-neutral-900">
+        <h2
+          className="text-[2rem] md:text-[2.5rem] leading-tight font-semibold"
+          style={{ color: "var(--text)" }}
+        >
           {t("education.title")}
         </h2>
 
@@ -151,8 +179,11 @@ export default async function UeberMichPage() {
           <div key={idx} className="mt-10 first:mt-10">
             <div className="grid md:grid-cols-2 gap-y-3 items-start">
               <div>
-                <div className="text-sm text-neutral-500">{row.year}</div>
-                <div className="mt-2 space-y-1 text-neutral-800">
+                <div className="text-sm" style={{ color: "var(--muted)" }}>
+                  {row.year}
+                </div>
+
+                <div className="mt-2 space-y-1" style={{ color: "var(--muted)" }}>
                   {row.left.map((l, i) => (
                     <p key={i}>{l}</p>
                   ))}
@@ -160,13 +191,19 @@ export default async function UeberMichPage() {
               </div>
 
               <div>
-                <div className="mt-6 md:mt-6 space-y-1 text-neutral-800">
+                <div className="mt-6 md:mt-6 space-y-1" style={{ color: "var(--muted)" }}>
                   {row.right.map((r, i) => (
                     <p key={i}>{r}</p>
                   ))}
                 </div>
               </div>
             </div>
+
+            {/* divisoria sutil entre bloques */}
+            <hr
+              className="mt-10"
+              style={{ borderTop: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)" }}
+            />
           </div>
         ))}
       </Section>

@@ -9,14 +9,22 @@ export default function StepsDyad({ title, subtitle, steps, footer }) {
 
   return (
     <Section
-      className="bg-[#f5f5f5] py-16 md:py-20 md:pb-24"
+      className="py-16 md:py-20 md:pb-24"
       containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
     >
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-normal text-neutral-900 [text-wrap:balance] break-words">
+        <h2
+          className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-normal [text-wrap:balance] break-words"
+          style={{ color: 'var(--text)' }}
+        >
           {_title}
         </h2>
-        {subtitle && <p className="mt-2 text-neutral-600">{subtitle}</p>}
+
+        {subtitle && (
+          <p className="mt-2" style={{ color: 'var(--muted)' }}>
+            {subtitle}
+          </p>
+        )}
       </div>
 
       {/* 2 tarjetas */}
@@ -29,32 +37,37 @@ export default function StepsDyad({ title, subtitle, steps, footer }) {
         {steps?.slice(0, 2).map((s, i) => (
           <div
             key={i}
-            className="
-              relative rounded-2xl bg-white shadow-sm ring-1 ring-black/5 px-6 pt-10 pb-8 text-center
-              w-full lg:w-[420px]
-            "
+            className="relative rounded-2xl px-6 pt-10 pb-8 text-center w-full lg:w-[420px]"
+            style={{
+              backgroundColor: 'var(--surface)',
+              border: '1px solid color-mix(in srgb, var(--brand) 28%, transparent)',
+              boxShadow: '0 8px 20px rgba(0,0,0,0.05)',
+            }}
           >
             {/* Badge número */}
             <div
-              className="
-                absolute -top-6 left-1/2 -translate-x-1/2
-                h-12 w-12 grid place-items-center text-lg font-semibold
-                rounded-full bg-white text-neutral-900
-                border border-neutral-200
-              "
+              className="absolute -top-6 left-1/2 -translate-x-1/2 h-12 w-12 grid place-items-center text-lg font-semibold rounded-full"
+              style={{
+                backgroundColor: 'var(--surface)',
+                color: 'var(--text)',
+                border: '1px solid color-mix(in srgb, var(--brand) 30%, transparent)',
+              }}
             >
               {i + 1}
             </div>
 
-            <h3 className="text-[1.5rem] font-semibold text-neutral-900">{s.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+            <h3 className="text-[1.5rem] font-semibold" style={{ color: 'var(--text)' }}>
+              {s.title}
+            </h3>
+
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
               {s.body}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="mx-auto max-w-3xl text-center mt-10">
+      <div className="mx-auto max-w-3xl text-center mt-10" style={{ color: 'var(--muted)' }}>
         {typeof footer === 'string' ? <p>{footer}</p> : footer}
       </div>
     </Section>

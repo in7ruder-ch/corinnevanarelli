@@ -11,16 +11,26 @@ export default function CenteredSection({
   ].join(' ');
 
   return (
-    <section id={id} className={`bg-white ${padY}`}>
+    <section
+      id={id}
+      className={padY}
+      style={{ backgroundColor: 'var(--bg)' }}
+    >
       {/* mismo ancho que el resto de secciones */}
       <div className="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]">
         {/* contenedor estrecho centrado para el contenido editorial */}
-        <div className="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]">
-          <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] text-center leading-tight font-normal text-neutral-900 [text-wrap:balance] break-words">
+        <div className="mx-auto max-w-3xl">
+          <h2
+            className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] text-center leading-tight font-normal [text-wrap:balance] break-words"
+            style={{ color: 'var(--text)' }}
+          >
             {title}
           </h2>
 
-          <div className="mt-8 text-[15px] md:text-base leading-relaxed space-y-5 text-neutral-800 whitespace-pre-line">
+          <div
+            className="mt-8 text-[15px] md:text-base leading-relaxed space-y-5 whitespace-pre-line"
+            style={{ color: 'var(--muted)' }}
+          >
             {typeof body === 'string' ? <p>{body}</p> : body}
           </div>
         </div>

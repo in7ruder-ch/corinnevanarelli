@@ -1,5 +1,6 @@
 // src/components/booking/DateTimePicker.jsx
 "use client";
+
 import { useEffect, useLayoutEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { DayPicker } from "react-day-picker";
@@ -14,7 +15,6 @@ function parseISODate(iso) {
   return new Date(y, m - 1, d, 0, 0, 0, 0); // fecha local (no UTC)
 }
 function toISODate(d) {
-  // YYYY-MM-DD en LOCAL (sin UTC)
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
   const day = String(d.getDate()).padStart(2, "0");
@@ -26,18 +26,16 @@ export default function DateTimePicker({ onChange, service }) {
   const t = useTranslations("Booking.DateTimePicker");
   const locale = useLocale();
 
-  // Mapa de locale para date-fns y Intl
   const dfLocale = useMemo(() => {
     if (locale.startsWith("en")) return dfen;
     if (locale.startsWith("es")) return dfes;
-    return dfde; // default de
+    return dfde;
   }, [locale]);
 
-  // Hoy a medianoche LOCAL
   const todayLocal = useMemo(() => {
-    const t = new Date();
-    t.setHours(0, 0, 0, 0);
-    return t;
+    const tt = new Date();
+    tt.setHours(0, 0, 0, 0);
+    return tt;
   }, []);
   const todayISO = toISODate(todayLocal);
 
@@ -50,12 +48,11 @@ export default function DateTimePicker({ onChange, service }) {
   const anchorRef = useRef(null);
   const panelRef = useRef(null);
 
-  // Posición del popover (fixed con portal)
   const [popPos, setPopPos] = useState({
     top: 0,
     left: 0,
     width: 320,
-    placement: "bottom"
+    placement: "bottom",
   });
 
   const positionPopover = () => {
@@ -66,8 +63,7 @@ export default function DateTimePicker({ onChange, service }) {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     const panelW = 320;
-    const panelH =
-      (panelRef.current && panelRef.current.getBoundingClientRect().height) || 360;
+    const panelH = (panelRef.current && panelRef.current.getBoundingClientRect().height) || 360;
 
     let left = Math.max(8, Math.min(rect.left, vw - panelW - 8));
     let top = rect.bottom + gap;
@@ -82,6 +78,7 @@ export default function DateTimePicker({ onChange, service }) {
         top = Math.max(8, Math.min(top, vh - panelH - 8));
       }
     }
+
     setPopPos({ top, left, width: panelW, placement });
   };
 
@@ -114,14 +111,12 @@ export default function DateTimePicker({ onChange, service }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openCal]);
 
-  // Resetear hora seleccionada si cambia el servicio
   useEffect(() => {
     setTime(null);
     onChange?.({ date, timeISO: null });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [service?.id]);
 
-  // Cargar slots cuando cambia la fecha o el servicio
   useEffect(() => {
     let mounted = true;
 
@@ -131,7 +126,6 @@ export default function DateTimePicker({ onChange, service }) {
       return;
     }
 
-    // ⛔ No pedir slots si la fecha es pasada
     if (date < todayISO) {
       setSlots([]);
       setLoading(false);
@@ -178,16 +172,24 @@ export default function DateTimePicker({ onChange, service }) {
 
   return (
     <div className="space-y-3">
-      <label className="text-sm font-medium">{t("label")}</label>
+      <label className="text-sm font-medium" style={{ color: "var(--text)" }}>
+        {t("label")}
+      </label>
 
       <div className="grid gap-3 sm:grid-cols-[240px,1fr]">
-        {/* Botón que abre/cierra el calendario (popover en portal; no empuja layout) */}
+        {/* Botón fecha */}
         <div>
           <button
             ref={anchorRef}
             type="button"
             onClick={() => setOpenCal((v) => !v)}
-            className="w-full rounded-lg border px-3 py-2 text-left hover:bg-neutral-50"
+            className="w-full rounded-2xl px-4 py-3 text-left transition-colors"
+            style={{
+              backgroundColor: "var(--surface)",
+              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              color: "var(--text)",
+            }}
+            data-dtp-datebtn
             aria-haspopup="dialog"
             aria-expanded={openCal}
           >
@@ -196,35 +198,47 @@ export default function DateTimePicker({ onChange, service }) {
         </div>
 
         {!serviceSelected ? (
-          <div className="text-sm text-neutral-600 self-center">
+          <div className="text-sm self-center" style={{ color: "var(--muted)" }}>
             {t("selectServiceFirst")}
           </div>
         ) : (
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {loading && (
-              <div className="col-span-full text-sm text-neutral-500">
+              <div className="col-span-full text-sm" style={{ color: "var(--muted)" }}>
                 {t("loading")}
               </div>
             )}
+
             {!loading && slots.length === 0 && (
-              <div className="md:mt-3 col-span-full text-sm text-neutral-500">
+              <div className="md:mt-3 col-span-full text-sm" style={{ color: "var(--muted)" }}>
                 {t("noSlots")}
               </div>
             )}
+
             {!loading &&
               slots.map((iso, i) => {
                 const dt = new Date(iso);
                 const isActive = time === iso;
+
                 return (
                   <button
                     key={i}
                     type="button"
                     onClick={() => handleSelect(iso)}
-                    className={`rounded-lg border px-3 py-2 text-sm transition ${
-                      isActive
-                        ? "border-black bg-black text-white"
-                        : "hover:bg-neutral-50"
-                    }`}
+                    className="rounded-full px-3 py-2 text-sm font-medium transition-colors"
+                    style={{
+                      backgroundColor: isActive
+                        ? "color-mix(in srgb, var(--brand) 14%, var(--surface))"
+                        : "var(--surface)",
+                      border: `1px solid ${
+                        isActive
+                          ? "color-mix(in srgb, var(--brand) 40%, transparent)"
+                          : "color-mix(in srgb, var(--brand) 22%, transparent)"
+                      }`,
+                      color: "var(--text)",
+                    }}
+                    data-dtp-slot
+                    data-active={isActive ? "true" : "false"}
                   >
                     {formatTime(dt)}
                   </button>
@@ -234,19 +248,37 @@ export default function DateTimePicker({ onChange, service }) {
         )}
       </div>
 
-      {/* POPUP en portal: fijo, con clamp y scroll interno si hace falta */}
+      {/* CSS-only hover */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            button[data-dtp-datebtn]:hover {
+              background-color: color-mix(in srgb, var(--brand) 10%, var(--surface));
+              border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+            }
+            button[data-dtp-slot][data-active="false"]:hover {
+              background-color: color-mix(in srgb, var(--brand) 10%, var(--surface));
+              border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+            }
+          `,
+        }}
+      />
+
+      {/* POPUP calendario */}
       {openCal &&
         typeof document !== "undefined" &&
         createPortal(
           <div
             data-calpanel="true"
             ref={panelRef}
-            className="fixed z-[1000] rounded-lg border bg-white p-2 shadow-xl overflow-auto"
+            className="fixed z-[1000] rounded-2xl p-3 shadow-xl overflow-auto"
             style={{
               top: popPos.top,
               left: popPos.left,
               width: popPos.width,
-              maxHeight: "min(80vh, 520px)"
+              maxHeight: "min(80vh, 520px)",
+              backgroundColor: "var(--surface)",
+              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
             }}
             role="dialog"
             aria-label={t("aria.calendar")}
@@ -261,11 +293,10 @@ export default function DateTimePicker({ onChange, service }) {
                 setDate(iso);
                 setOpenCal(false);
               }}
-              fromDate={todayLocal} // navegación mínima
+              fromDate={todayLocal}
               weekStartsOn={1}
               fixedWeeks
               showOutsideDays
-              // ⛔ Deshabilitar Dom/Lun/Sáb + TODAS las fechas anteriores a hoy
               disabled={[{ dayOfWeek: [0, 1, 6] }, { before: todayLocal }]}
               onMonthChange={() => requestAnimationFrame(positionPopover)}
             />

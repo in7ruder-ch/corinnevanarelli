@@ -7,7 +7,6 @@ import Section from "./Section";
 export default function Testimonials({ items: itemsProp }) {
   const t = useTranslations("Testimonials");
 
-  // Si no pasan items por props, usamos i18n (4 ítems como en tu versión)
   const fallbackItems = [
     { name: t("items.0.name"), text: t("items.0.text") },
     { name: t("items.1.name"), text: t("items.1.text") },
@@ -38,19 +37,27 @@ export default function Testimonials({ items: itemsProp }) {
   return (
     <Section
       id="stimmen"
-      className="bg-white pt-16 pb-16 md:pb-24"
+      className="pt-16 pb-16 md:pb-24"
+      style={{ backgroundColor: "var(--surface)" }}
       containerClass="relative mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
     >
       {/* Cita centrada */}
       <div className="mx-auto max-w-4xl text-center min-h-[30rem] sm:min-h-[30rem] md:min-h-[25rem] lg:min-h-[25rem] flex flex-col justify-center">
-        <div className="text-5xl md:text-6xl text-neutral-900">“</div>
+        <div className="text-5xl md:text-6xl" style={{ color: "var(--brand)" }}>
+          “
+        </div>
+
         <p
-          className="font-bold mt-6 text-xl md:text-2xl lg:text-[28px] leading-relaxed text-neutral-800 [text-wrap:balance]"
+          className="mt-6 text-xl md:text-2xl lg:text-[28px] leading-relaxed [text-wrap:balance]"
+          style={{ color: "var(--text)", fontWeight: 600 }}
           aria-live="polite"
         >
           {tItem.text}
         </p>
-        <p className="mt-6 text-sm text-neutral-600">- {tItem.name}</p>
+
+        <p className="mt-6 text-sm" style={{ color: "var(--muted)" }}>
+          — {tItem.name}
+        </p>
 
         {/* Puntos */}
         <div className="mt-8 flex items-center justify-center gap-2">
@@ -59,10 +66,17 @@ export default function Testimonials({ items: itemsProp }) {
               key={idx}
               onClick={handleUserNav(() => setI(idx))}
               aria-label={t("dotAria", { index: idx + 1 })}
-              className={[
-                "h-2 w-2 rounded-full transition-opacity",
-                i === idx ? "opacity-100 bg-neutral-800" : "opacity-40 bg-neutral-500 hover:opacity-70"
-              ].join(" ")}
+              className="h-2 w-2 rounded-full transition-opacity"
+              style={{
+                backgroundColor: "var(--brand)",
+                opacity: i === idx ? 1 : 0.35,
+              }}
+              onMouseEnter={(e) => {
+                if (i !== idx) e.currentTarget.style.opacity = 0.65;
+              }}
+              onMouseLeave={(e) => {
+                if (i !== idx) e.currentTarget.style.opacity = 0.35;
+              }}
             />
           ))}
         </div>
@@ -73,7 +87,10 @@ export default function Testimonials({ items: itemsProp }) {
         type="button"
         onClick={handleUserNav(prev)}
         aria-label={t("prevAria")}
-        className="hidden md:block absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
+        className="hidden md:block absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-3 transition-colors"
+        style={{ color: "var(--muted)" }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand)")}
+        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M15 18l-6-6 6-6" />
@@ -84,7 +101,10 @@ export default function Testimonials({ items: itemsProp }) {
         type="button"
         onClick={handleUserNav(next)}
         aria-label={t("nextAria")}
-        className="hidden md:block absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-3 text-neutral-700 hover:text-neutral-900"
+        className="hidden md:block absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-3 transition-colors"
+        style={{ color: "var(--muted)" }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand)")}
+        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M9 18l6-6-6-6" />

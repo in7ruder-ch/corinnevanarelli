@@ -14,8 +14,7 @@ export async function generateMetadata() {
   const t = await getTranslations("Blog.meta");
   const locale = await getLocale();
 
-  const ogLocale =
-    locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
@@ -52,20 +51,19 @@ export default async function BlogPage() {
 
   return (
     <>
-      <ServiceBanner
-        title={t("title")}
-        imageSrc="/img/banner3.webp"
-        imageAlt={t("title")}
-      />
+      <ServiceBanner title={t("title")} imageSrc="/img/banner3.webp" imageAlt={t("title")} />
 
       <Section
-        className="bg-white pb-16 md:pb-24"
+        className="pb-16 md:pb-24"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="space-y-16 mt-20 md:space-y-20">
           {/* Intro */}
           <div className="max-w-3xl">
-            <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-bold text-neutral-900 [text-wrap:balance] break-words whitespace-pre-line">
+            <h2
+              className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] leading-tight font-bold [text-wrap:balance] break-words whitespace-pre-line"
+              style={{ color: "var(--text)" }}
+            >
               {t("lead")}
             </h2>
           </div>
@@ -76,22 +74,33 @@ export default async function BlogPage() {
               <a
                 key={cat}
                 href={`#${cat}`}
-                className="
-                  rounded-full
-                  border border-neutral-300
-                  px-4 py-2
-                  text-sm
-                  text-neutral-800
-                  transition-colors
-                  hover:bg-neutral-900
-                  hover:text-white
-                  hover:border-neutral-900
-                "
+                className="rounded-full px-4 py-2 text-sm transition-colors"
+                style={{
+                  backgroundColor: "var(--surface)",
+                  border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                  color: "var(--text)",
+                }}
+                data-blog-pill="soft"
               >
                 {t(`categories.${cat}.label`)}
               </a>
             ))}
           </nav>
+
+          {/* CSS-only hover for nav pills + post cards */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                a[data-blog-pill="soft"]:hover {
+                  background-color: color-mix(in srgb, var(--brand) 12%, var(--surface));
+                  border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+                }
+                article[data-blog-card]:hover {
+                  border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+                }
+              `,
+            }}
+          />
 
           {/* Secciones por categoría (solo 2, orden fijo) */}
           {BLOG_CATEGORIES_ORDERED.map((cat) => {
@@ -100,45 +109,66 @@ export default async function BlogPage() {
             return (
               <section key={cat} id={cat} className="scroll-mt-40">
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900">
+                  <h2
+                    className="text-2xl md:text-3xl font-semibold tracking-tight"
+                    style={{ color: "var(--text)" }}
+                  >
                     {t(`categories.${cat}.title`)}
                   </h2>
-                  <p className="mt-2 text-neutral-700">
+
+                  <p className="mt-2" style={{ color: "var(--muted)" }}>
                     {t(`categories.${cat}.description`)}
                   </p>
                 </div>
 
                 {posts.length === 0 ? (
-                  <div className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 p-6 text-neutral-700">
+                  <div
+                    className="mt-6 rounded-lg p-6"
+                    style={{
+                      backgroundColor: "var(--surface)",
+                      border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                      color: "var(--muted)",
+                    }}
+                  >
                     {t("emptyCategory")}
                   </div>
                 ) : (
                   <div className="mt-8 grid gap-6 md:grid-cols-2">
                     {posts.map((p) => {
                       const postTitle = p.title?.[locale] ?? p.title?.de ?? "";
-                      const postExcerpt =
-                        p.excerpt?.[locale] ?? p.excerpt?.de ?? "";
+                      const postExcerpt = p.excerpt?.[locale] ?? p.excerpt?.de ?? "";
 
                       return (
                         <article
                           key={p.slug}
-                          className="rounded-xl border border-neutral-200 bg-white p-6 hover:border-neutral-300"
+                          className="rounded-xl p-6 transition-colors"
+                          style={{
+                            backgroundColor: "var(--surface)",
+                            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                          }}
+                          data-blog-card
                         >
-                          <div className="flex items-center justify-between gap-3 text-sm text-neutral-500">
+                          <div
+                            className="flex items-center justify-between gap-3 text-sm"
+                            style={{ color: "var(--muted)" }}
+                          >
                             <span>{t(`categories.${cat}.label`)}</span>
                             <span>{p.date}</span>
                           </div>
 
-                          <h3 className="mt-3 text-xl font-semibold text-neutral-900">
+                          <h3 className="mt-3 text-xl font-semibold" style={{ color: "var(--text)" }}>
                             {postTitle}
                           </h3>
 
-                          <p className="mt-2 text-neutral-700">{postExcerpt}</p>
+                          <p className="mt-2" style={{ color: "var(--muted)" }}>
+                            {postExcerpt}
+                          </p>
 
                           <div className="mt-4">
                             <Link
                               href={`/blog/${p.slug}`}
-                              className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:underline"
+                              className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                              style={{ color: "var(--brand)" }}
                               aria-label={t("readMoreAria", { title: postTitle })}
                             >
                               {t("readMore")}

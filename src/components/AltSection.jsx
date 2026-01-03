@@ -9,7 +9,7 @@ export default function AltSection({
   imageAlt = '',
   mediaLeft = true,
   ctaHref,
-  ctaLabel,                 // sin default literal
+  ctaLabel,
   ctaVariant = 'button',    // 'button' | 'link'
   showCta = true,
   padTop = true,
@@ -29,7 +29,11 @@ export default function AltSection({
   const useScriptTitle = id === 's1';
 
   return (
-    <section id={id} className={`bg-[#ffffff] ${sectionPadY}`}>
+    <section
+      id={id}
+      className={sectionPadY}
+      style={{ backgroundColor: 'var(--bg)' }}
+    >
       <div className="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-y-0 md:gap-0 min-h-[450px]">
           {/* TEXTO */}
@@ -39,30 +43,44 @@ export default function AltSection({
               mediaLeft ? 'md:order-2' : 'md:order-1',
               'md:self-stretch flex flex-col',
               'py-20 px-6 sm:px-8 md:px-12 lg:px-16',
-              'bg-[#f5f5f5]'
+              'rounded-none'
             ].join(' ')}
+            style={{ backgroundColor: 'var(--surface)' }}
           >
             <h2
               className={[
                 'leading-tight [text-wrap:balance] break-words whitespace-pre-line',
                 useScriptTitle
-                  ? 'text-[2.1rem] sm:text-[2.4rem] md:text-[2.7rem] lg:text-[3rem] xl:text-[3.2rem] font-normal text-neutral-800'
-                  : 'text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-normal text-neutral-900',
+                  ? 'text-[2.1rem] sm:text-[2.4rem] md:text-[2.7rem] lg:text-[3rem] xl:text-[3.2rem] font-normal'
+                  : 'text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-normal',
               ].join(' ')}
-              style={useScriptTitle ? { fontFamily: 'var(--font-script)' } : undefined}
+              style={
+                useScriptTitle
+                  ? { fontFamily: 'var(--font-script)', color: 'var(--text)' }
+                  : { color: 'var(--text)' }
+              }
             >
               {title}
             </h2>
 
-            <hr className="mt-4 mb-6 border-t border-neutral-300/80" />
+            {/* línea dorada sutil */}
+            <hr
+              className="mt-4 mb-6"
+              style={{ borderTop: '1px solid color-mix(in srgb, var(--gold) 55%, transparent)' }}
+            />
 
-            {/* ✅ Debajo del hr: centro vertical, alineado a la izquierda */}
+            {/* Centro vertical */}
             <div className="flex-1 flex flex-col justify-center items-start text-left">
               {kicker ? (
-                <p className="font-semibold text-neutral-900 mb-3 whitespace-pre-line">{kicker}</p>
+                <p className="font-semibold mb-3 whitespace-pre-line" style={{ color: 'var(--text)' }}>
+                  {kicker}
+                </p>
               ) : null}
 
-              <div className="text-[15px] md:text-base leading-relaxed space-y-4 whitespace-pre-line">
+              <div
+                className="text-[15px] md:text-base leading-relaxed space-y-4 whitespace-pre-line"
+                style={{ color: 'var(--muted)' }}
+              >
                 {typeof body === 'string' ? <p>{body}</p> : body}
               </div>
 
@@ -71,7 +89,11 @@ export default function AltSection({
                   <p className="mt-6">
                     <a
                       href={ctaHref}
-                      className="inline-block align-middle font-semibold italic underline decoration-neutral-800 transition-transform duration-100 ease-out hover:scale-105 transform-gpu py-1.5 -my-1.5"
+                      className="inline-block align-middle font-semibold italic underline transition-transform duration-100 ease-out hover:scale-105 transform-gpu py-1.5 -my-1.5"
+                      style={{
+                        color: 'var(--brand)',
+                        textDecorationColor: 'var(--brand)',
+                      }}
                     >
                       {resolvedCtaLabel}
                     </a>
@@ -79,7 +101,10 @@ export default function AltSection({
                 ) : (
                   <a
                     href={ctaHref}
-                    className="inline-block mt-6 px-6 py-3 rounded-lg bg-black text-white hover:bg-neutral-800 transition"
+                    className="inline-block mt-6 px-6 py-3 rounded-lg text-white transition-colors"
+                    style={{ backgroundColor: 'var(--brand)' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-dark)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand)')}
                   >
                     {resolvedCtaLabel}
                   </a>

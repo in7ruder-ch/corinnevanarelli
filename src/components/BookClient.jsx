@@ -10,7 +10,10 @@ export default function BookClient({ initialSelectedId }) {
   const [datetime, setDatetime] = useState({ date: null, timeISO: null });
 
   return (
-    <div className="mt-8 grid lg:grid-cols-[1fr,360px] gap-8">
+    <div
+      className="mt-8 grid lg:grid-cols-[1fr,360px] gap-8"
+      style={{ color: "var(--text)" }}
+    >
       <div className="space-y-8">
         {/* Preselección por query param ?serviceId=... */}
         <ServicePicker initialSelectedId={initialSelectedId} onChange={setService} />

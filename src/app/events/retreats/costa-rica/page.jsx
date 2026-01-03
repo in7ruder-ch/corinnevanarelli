@@ -48,48 +48,68 @@ export default async function CostaRicaRetreatPage() {
     <>
       {/* HERO (activo) */}
       <Section
-        className="bg-white pt-[12rem] pb-14"
+        className="pt-[12rem] pb-14"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <div className="grid gap-10 md:grid-cols-2 items-center">
           {/* Texto */}
           <div className="max-w-xl">
-            <p className="text-xs tracking-[0.25em] uppercase text-neutral-500">
+            <p
+              className="text-xs tracking-[0.25em] uppercase"
+              style={{ color: "var(--muted)" }}
+            >
               {t("hero.kicker")}
             </p>
 
-            <h1 className="mt-3 text-[2.4rem] md:text-[3rem] leading-tight font-bold text-neutral-900 whitespace-pre-line">
+            <h1
+              className="mt-3 text-[2.4rem] md:text-[3rem] leading-tight font-bold whitespace-pre-line"
+              style={{ color: "var(--text)" }}
+            >
               {t("hero.title")}
             </h1>
 
             {/* COMING SOON TEXT */}
-            <p className="mt-4 text-base md:text-lg text-neutral-700 whitespace-pre-line">
+            <p
+              className="mt-4 text-base md:text-lg whitespace-pre-line"
+              style={{ color: "var(--muted)" }}
+            >
               {t("hero.comingSoon")}
             </p>
 
             {/* CTA desactivado por ahora */}
-            {/* 
+            {/*
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#kontakt"
-                className="rounded-full px-6 py-2 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
+                className="rounded-full px-6 py-2 text-sm font-medium transition-colors"
+                style={{
+                  backgroundColor: "var(--brand)",
+                  border: "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
+                  color: "white",
+                }}
               >
                 {t("hero.ctaPrimary")}
               </a>
             </div>
             */}
 
-            {/* Badges (siguen ok) */}
+            {/* Badges */}
             <div className="mt-8 flex flex-wrap gap-3 text-xs">
-              <span className="rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
-                {t("hero.badges.0")}
-              </span>
-              <span className="rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
-                {t("hero.badges.1")}
-              </span>
-              <span className="rounded-full bg-neutral-100 px-3 py-1 text-neutral-700">
-                {t("hero.badges.2")}
-              </span>
+              {[0, 1, 2].map((idx) => (
+                <span
+                  key={idx}
+                  className="rounded-full px-3 py-1"
+                  style={{
+                    backgroundColor:
+                      "color-mix(in srgb, var(--brand) 10%, var(--surface))",
+                    border:
+                      "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                    color: "var(--text)",
+                  }}
+                >
+                  {t(`hero.badges.${idx}`)}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -105,8 +125,14 @@ export default async function CostaRicaRetreatPage() {
                 priority
               />
             ) : (
-              <div className="h-full w-full rounded-3xl border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center">
-                <span className="text-sm text-neutral-400">
+              <div
+                className="h-full w-full rounded-3xl border border-dashed flex items-center justify-center"
+                style={{
+                  borderColor: "color-mix(in srgb, var(--brand) 22%, transparent)",
+                  backgroundColor: "var(--surface)",
+                }}
+              >
+                <span className="text-sm" style={{ color: "var(--muted)" }}>
                   {t("hero.image.placeholder")}
                 </span>
               </div>

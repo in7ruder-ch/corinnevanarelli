@@ -86,29 +86,20 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
   const formatDuration = (s) => {
     const n = Number(s?.durationMin);
     if (Number.isFinite(n) && n > 0) return t("durationFmt", { min: n });
-    // fallback a lo que viene de DB si no hay durationMin
     return s?.durationLabel || "";
   };
 
   if (loading) {
-    return (
-      <div className="space-y-3">
-        <div className="text-sm text-neutral-500">{t("loading")}</div>
-      </div>
-    );
+    return <div className="text-sm" style={{ color: "var(--muted)" }}>{t("loading")}</div>;
   }
 
   if (!services.length) {
-    return (
-      <div className="space-y-3">
-        <div className="text-sm text-neutral-500">{t("empty")}</div>
-      </div>
-    );
+    return <div className="text-sm" style={{ color: "var(--muted)" }}>{t("empty")}</div>;
   }
 
   return (
-    <div className="space-y-3">
-      <div className="grid sm:grid-cols-3 gap-3">
+    <div className="space-y-4">
+      <div className="grid gap-3 sm:grid-cols-3">
         {services.map((s) => {
           const active = String(selected) === String(s.id);
           const durText = formatDuration(s);
@@ -120,37 +111,59 @@ export default function ServicePicker({ value, initialSelectedId, onChange }) {
               key={s.id}
               type="button"
               onClick={() => handleSelect(s.id)}
-              className={`text-left rounded-xl border p-4 transition ${
-                active ? "border-black bg-black text-white" : "hover:bg-neutral-50"
-              }`}
               aria-pressed={active}
+              className="text-left rounded-2xl p-4 transition-colors"
+              style={{
+                backgroundColor: active
+                  ? "color-mix(in srgb, var(--brand) 14%, var(--surface))"
+                  : "var(--surface)",
+                border: `1px solid ${
+                  active
+                    ? "color-mix(in srgb, var(--brand) 40%, transparent)"
+                    : "color-mix(in srgb, var(--brand) 22%, transparent)"
+                }`,
+              }}
+              data-service-tile
+              data-active={active ? "true" : "false"}
             >
-              <div className="font-semibold">{s.title}</div>
+              <div className="font-semibold" style={{ color: "var(--text)" }}>
+                {s.title}
+              </div>
 
-              {/* Subinfo: modalidad | duración (i18n) */}
               {(hasMod || hasDur) && (
-                <div className={`text-sm mt-1 ${active ? "opacity-90" : "text-neutral-600"}`}>
+                <div className="text-sm mt-1" style={{ color: "var(--muted)" }}>
                   {hasMod ? s.modality : null}
                   {hasMod && hasDur ? " | " : null}
                   {hasDur ? durText : null}
                 </div>
               )}
 
-              {/* Precio al final */}
               {s.priceLabel ? (
-                <div className={`text-sm mt-2 font-medium ${active ? "text-white" : "text-neutral-900"}`}>
+                <div className="text-sm mt-3 font-medium" style={{ color: "var(--text)" }}>
                   {s.priceLabel}
                 </div>
               ) : null}
+
+              {/* Hover (CSS-only) */}
+              <style
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    button[data-service-tile][data-active="false"]:hover {
+                      background-color: color-mix(in srgb, var(--brand) 10%, var(--surface));
+                      border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+                    }
+                  `,
+                }}
+              />
             </button>
           );
         })}
       </div>
 
-      {/* Resumen de selección (opcional) */}
       {selectedService ? (
-        <div className="text-sm">
-          {t("selected")} <strong>{selectedService.title}</strong>
+        <div className="text-sm" style={{ color: "var(--muted)" }}>
+          {t("selected")}{" "}
+          <strong style={{ color: "var(--text)" }}>{selectedService.title}</strong>
         </div>
       ) : null}
     </div>

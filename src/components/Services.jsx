@@ -1,4 +1,3 @@
-// src/components/Services.jsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -37,17 +36,26 @@ export default function Services() {
   return (
     <Section
       id="angebote"
-      className="pt-16 pb-16 md:pb-24 bg-[#f5f5f5]"
+      className="pt-16 pb-16 md:pb-24"
+      style={{ backgroundColor: "var(--bg)" }}
       containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
     >
-      <h2 className="text-[2rem] md:text-[2.75rem] leading-tight font-bold text-neutral-900">
+      <h2
+        className="text-[2rem] md:text-[2.75rem] leading-tight font-bold"
+        style={{ color: "var(--text)" }}
+      >
         {t("title")}
       </h2>
 
       {loading ? (
-        <div className="mt-6 text-sm text-neutral-600">{t("loading")}</div>
+        <div
+          className="mt-6 text-sm"
+          style={{ color: "var(--muted)" }}
+        >
+          {t("loading")}
+        </div>
       ) : (
-        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch auto-rows-fr">
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch auto-rows-fr">
           {services.map((s) => (
             <ServiceCard
               key={String(s.id)}
@@ -62,7 +70,10 @@ export default function Services() {
           ))}
 
           {!services.length && (
-            <div className="col-span-full text-sm text-neutral-600">
+            <div
+              className="col-span-full text-sm"
+              style={{ color: "var(--muted)" }}
+            >
               {t("empty")}
             </div>
           )}

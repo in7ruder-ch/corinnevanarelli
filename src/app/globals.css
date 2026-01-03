@@ -3,41 +3,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === Tus variables (sin la sintaxis @theme de v4) === */
+/* === Brand tokens (calma / confianza / profundidad / espacio) === */
 :root {
-  --background: #FFFFFF;
-  --foreground: #191919;
+  /* Surfaces */
+  --bg: #F6F4EF;
+  /* marfil (fondo principal) */
+  --surface: #FFFFFF;
+  /* blanco puro (cajas) */
+  --border: #E6E1D7;
+  /* gris cálido claro */
+
+  /* Text */
+  --text: #2E2E2C;
+  /* títulos */
+  --muted: #4A4A48;
+  /* textos largos */
+
+  /* Brand */
+  --brand: #7A8F85;
+  /* verde salvia */
+  --brand-dark: #5E7269;
+  /* verde salvia más oscuro (footer/hover) */
+  --gold: #C7A85A;
+  /* detalles */
+
+  /* Compat: si algo aún usa estas vars viejas */
+  --background: var(--bg);
+  --foreground: var(--text);
+
   color-scheme: light;
 }
 
 /* Suaviza scroll */
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 
-/* Colores base del documento + tipografía base */
+/* Base del documento + tipografía base */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans);
 }
 
 @layer base {
+
   /* Headings = Cormorant (title) */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-title);
-    color: var(--foreground);
+    color: var(--text);
   }
 
-  h1 { font-size: clamp(2rem, 2.8vw, 3rem); }
-  h2 { font-size: clamp(1.75rem, 2.4vw, 2.5rem); }
-  h3 { font-size: clamp(1.5rem, 2vw, 2rem); }
+  h1 {
+    font-size: clamp(2rem, 2.8vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+  }
 }
 
 /* Asegurar que el mes no se corte horizontalmente */
-.rdp { max-width: 320px; }
+.rdp {
+  max-width: 320px;
+}
 
 /* Espaciado/scroll del panel */
 [data-calpanel="true"] .rdp {
   width: 100%;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
 }

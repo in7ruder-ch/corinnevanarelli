@@ -16,10 +16,7 @@ function NavLink({ href, children, onClick, size = 'desktop' }) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
-  const sizeClass =
-    size === 'mobile'
-      ? 'text-base'
-      : 'text-sm';
+  const sizeClass = size === 'mobile' ? 'text-base' : 'text-sm';
 
   return (
     <Link
@@ -28,7 +25,9 @@ function NavLink({ href, children, onClick, size = 'desktop' }) {
       className={[
         sizeClass,
         'font-medium tracking-[0.02em] transition-colors',
-        isActive ? 'text-[#6d8f5e]' : 'text-neutral-700 hover:text-neutral-900'
+        isActive
+          ? 'text-[var(--brand)]'
+          : 'text-[var(--text)] hover:text-[var(--brand)]'
       ].join(' ')}
     >
       {children}
@@ -87,7 +86,12 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
-        className="rounded-md border border-neutral-300 px-2 py-1 text-sm text-neutral-700 inline-flex items-center gap-2 hover:bg-neutral-50"
+        className="rounded-md border px-2 py-1 text-sm inline-flex items-center gap-2 transition-colors"
+        style={{
+          borderColor: 'var(--border)',
+          backgroundColor: 'var(--surface)',
+          color: 'var(--text)',
+        }}
         aria-haspopup="menu"
         aria-expanded={open ? 'true' : 'false'}
       >
@@ -99,16 +103,20 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
           className="rounded-[2px]"
         />
         <span className="font-medium tracking-[0.02em]">{current.label}</span>
-        <span aria-hidden className="text-neutral-500">▾</span>
+        <span aria-hidden className="opacity-70">▾</span>
       </button>
 
       {open && (
         <div
           role="menu"
           className={[
-            'absolute top-full mt-2 w-28 rounded-xl border bg-white shadow-lg p-1 z-50',
+            'absolute top-full mt-2 w-28 rounded-xl shadow-lg p-1 z-50',
             align === 'left' ? 'left-0' : 'right-0'
           ].join(' ')}
+          style={{
+            backgroundColor: 'var(--surface)',
+            border: '1px solid var(--border)',
+          }}
         >
           {LOCALES.map((l) => {
             const isActive = l.value === activeLocale;
@@ -119,9 +127,10 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
                 role="menuitem"
                 onClick={() => submitLocale(l.value)}
                 className={[
-                  'w-full flex items-center gap-2 px-2 py-2 rounded-lg text-sm tracking-[0.02em]',
-                  isActive ? 'bg-neutral-100 text-neutral-900' : 'hover:bg-neutral-50 text-neutral-700'
+                  'w-full flex items-center gap-2 px-2 py-2 rounded-lg text-sm tracking-[0.02em] transition-colors',
+                  isActive ? 'bg-black/5' : 'hover:bg-black/5'
                 ].join(' ')}
+                style={{ color: 'var(--text)' }}
               >
                 <Image
                   src={l.flagSrc}
@@ -275,9 +284,12 @@ export default function Navbar() {
       <div
         className={[
           'w-full px-4 sm:px-6 lg:px-20',
-          'h-32 flex items-center gap-6',
-          atTop ? 'bg-white' : 'bg-white'
+          'h-32 flex items-center gap-6'
         ].join(' ')}
+        style={{
+          backgroundColor: 'var(--bg)',
+          borderBottom: atTop ? '1px solid transparent' : '1px solid var(--border)',
+        }}
       >
         {/* Logo izquierda */}
         <Link
@@ -320,28 +332,31 @@ export default function Navbar() {
           >
             <NavLink href="/book" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               <span className="inline-flex items-center gap-1">
-                {t('offers')} <span aria-hidden>▾</span>
+                {t('offers')} <span aria-hidden className="opacity-70">▾</span>
               </span>
             </NavLink>
 
             <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 ${offersOpen ? 'block' : 'hidden'}`}>
-              <div className="min-w-[240px] rounded-xl border bg-white shadow-lg p-2">
-                <Link href="/angebote/ontologisches-coaching" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setOffersOpen(false)}>
+              <div
+                className="min-w-[240px] rounded-xl shadow-lg p-2"
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+              >
+                <Link href="/angebote/ontologisches-coaching" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setOffersOpen(false)}>
                   {t('ontologicalCoaching')}
                 </Link>
-                <Link href="/angebote/akasha-chronik-lesung" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setOffersOpen(false)}>
+                <Link href="/angebote/akasha-chronik-lesung" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setOffersOpen(false)}>
                   {t('akashaReading')}
                 </Link>
-                <Link href="/angebote/hopi-herzheilung" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setOffersOpen(false)}>
+                <Link href="/angebote/hopi-herzheilung" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setOffersOpen(false)}>
                   {t('hopiHeartHealing')}
                 </Link>
-                <Link href="/angebote/chakra-clearing" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setOffersOpen(false)}>
+                <Link href="/angebote/chakra-clearing" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setOffersOpen(false)}>
                   {t('chakraClearing')}
                 </Link>
-                <Link href="/angebote/gwa" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setOffersOpen(false)}>
+                <Link href="/angebote/gwa" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setOffersOpen(false)}>
                   {t('spinalAlignment')}
                 </Link>
-                <Link href="/angebote/doterra-aromatouch" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setOffersOpen(false)}>
+                <Link href="/angebote/doterra-aromatouch" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setOffersOpen(false)}>
                   {t('aromatouch')}
                 </Link>
               </div>
@@ -356,16 +371,19 @@ export default function Navbar() {
           >
             <NavLink href="/events" onClick={() => { setEventsOpen(false); setOffersOpen(false); }}>
               <span className="inline-flex items-center gap-1">
-                {t('events')} <span aria-hidden>▾</span>
+                {t('events')} <span aria-hidden className="opacity-70">▾</span>
               </span>
             </NavLink>
 
             <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 ${eventsOpen ? 'block' : 'hidden'}`}>
-              <div className="min-w-[220px] rounded-xl border bg-white shadow-lg p-2">
-                <Link href="/events/seminars" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setEventsOpen(false)}>
+              <div
+                className="min-w-[220px] rounded-xl shadow-lg p-2"
+                style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+              >
+                <Link href="/events/seminars" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setEventsOpen(false)}>
                   {t('eventsSeminars')}
                 </Link>
-                <Link href="/events/retreats/costa-rica" className="block px-3 py-2 rounded-md hover:bg-neutral-100 text-sm" onClick={() => setEventsOpen(false)}>
+                <Link href="/events/retreats/costa-rica" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setEventsOpen(false)}>
                   {t('eventsRetreats')}
                 </Link>
               </div>
@@ -406,14 +424,14 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 ring-1 ring-neutral-300"
+            className="inline-flex items-center justify-center rounded-md p-2 ring-1"
+            style={{ color: 'var(--text)', borderColor: 'var(--border)' }}
             aria-label="Menü öffnen"
             aria-expanded={mobileOpen ? 'true' : 'false'}
             onClick={() => {
               setMobileOpen(o => !o);
               setOffersOpen(false);
               setEventsOpen(false);
-              // NO abrir submenus por default
               if (!mobileOpen) {
                 setMobileOffersOpen(false);
                 setMobileEventsOpen(false);
@@ -442,16 +460,19 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Panel móvil (NO fixed para evitar bugs con nav transform) */}
+      {/* Panel móvil */}
       {mounted && (
         <div
           className={[
-            'md:hidden w-full border-t border-neutral-200',
+            'md:hidden w-full border-t',
             'overflow-y-auto overscroll-contain',
             'transition-[max-height] duration-300 ease-in-out',
             mobileOpen ? 'max-h-[calc(100vh-8rem)]' : 'max-h-0',
-            atTop ? 'bg-white' : 'bg-white/90 backdrop-blur'
           ].join(' ')}
+          style={{
+            backgroundColor: 'var(--bg)',
+            borderColor: 'var(--border)',
+          }}
           suppressHydrationWarning
         >
           <ul className="px-6 pb-8 pt-6 flex flex-col gap-4">
@@ -462,7 +483,10 @@ export default function Navbar() {
             <li>
               <button
                 type="button"
-                className="w-full text-left text-base font-medium tracking-[0.02em] text-neutral-700 hover:text-neutral-900 inline-flex items-center justify-between"
+                className="w-full text-left text-base font-medium tracking-[0.02em] inline-flex items-center justify-between transition-colors"
+                style={{ color: 'var(--text)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--brand)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text)')}
                 aria-expanded={mobileOffersOpen ? 'true' : 'false'}
                 onClick={() => {
                   setMobileOffersOpen(o => !o);
@@ -470,39 +494,39 @@ export default function Navbar() {
                 }}
               >
                 <span>{t('offers')}</span>
-                <span aria-hidden className="text-neutral-500">{mobileOffersOpen ? '▴' : '▾'}</span>
+                <span aria-hidden className="opacity-70">{mobileOffersOpen ? '▴' : '▾'}</span>
               </button>
             </li>
 
             {mobileOffersOpen ? (
               <>
                 <li className="pl-4">
-                  <Link href="/angebote/ontologisches-coaching" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/angebote/ontologisches-coaching" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('ontologicalCoaching')}
                   </Link>
                 </li>
                 <li className="pl-4">
-                  <Link href="/angebote/akasha-chronik-lesung" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/angebote/akasha-chronik-lesung" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('akashaReading')}
                   </Link>
                 </li>
                 <li className="pl-4">
-                  <Link href="/angebote/hopi-herzheilung" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/angebote/hopi-herzheilung" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('hopiHeartHealing')}
                   </Link>
                 </li>
                 <li className="pl-4">
-                  <Link href="/angebote/chakra-clearing" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/angebote/chakra-clearing" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('chakraClearing')}
                   </Link>
                 </li>
                 <li className="pl-4">
-                  <Link href="/angebote/gwa" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/angebote/gwa" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('spinalAlignment')}
                   </Link>
                 </li>
                 <li className="pl-4">
-                  <Link href="/angebote/doterra-aromatouch" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/angebote/doterra-aromatouch" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('aromatouch')}
                   </Link>
                 </li>
@@ -513,7 +537,10 @@ export default function Navbar() {
             <li className="mt-2">
               <button
                 type="button"
-                className="w-full text-left text-base font-medium tracking-[0.02em] text-neutral-700 hover:text-neutral-900 inline-flex items-center justify-between"
+                className="w-full text-left text-base font-medium tracking-[0.02em] inline-flex items-center justify-between transition-colors"
+                style={{ color: 'var(--text)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--brand)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text)')}
                 aria-expanded={mobileEventsOpen ? 'true' : 'false'}
                 onClick={() => {
                   setMobileEventsOpen(o => !o);
@@ -521,19 +548,19 @@ export default function Navbar() {
                 }}
               >
                 <span>{t('events')}</span>
-                <span aria-hidden className="text-neutral-500">{mobileEventsOpen ? '▴' : '▾'}</span>
+                <span aria-hidden className="opacity-70">{mobileEventsOpen ? '▴' : '▾'}</span>
               </button>
             </li>
 
             {mobileEventsOpen ? (
               <>
                 <li className="pl-4">
-                  <Link href="/events/seminars" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/events/seminars" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('eventsSeminars')}
                   </Link>
                 </li>
                 <li className="pl-4">
-                  <Link href="/events/retreats/costa-rica" onClick={closeMobile} className="text-sm text-neutral-700 hover:text-neutral-900">
+                  <Link href="/events/retreats/costa-rica" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('eventsRetreats')}
                   </Link>
                 </li>
