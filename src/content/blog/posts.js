@@ -223,8 +223,8 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                         "macht ihn zu einem Wendepunkt."
                 },
 
-                { type: "h2", text: "Self-reflection" },
-                { type: "p", text: "3 Questions with Effect" },
+                { type: "h2", text: "Selbstreflexion" },
+                { type: "p", text: "3 Fragen mit Wirkung" },
                 {
                     type: "p",
                     text:
@@ -732,17 +732,17 @@ export function getPostBySlug(slug) {
 }
 
 export function getAdjacentPosts(slug, { category } = {}) {
-  const all = getAllPosts();
-  const list = category ? all.filter((p) => p.category === category) : all;
+    const all = getAllPosts();
+    const list = category ? all.filter((p) => p.category === category) : all;
 
-  const idx = list.findIndex((p) => p.slug === slug);
-  if (idx === -1) return { prev: null, next: null };
+    const idx = list.findIndex((p) => p.slug === slug);
+    if (idx === -1) return { prev: null, next: null };
 
-  // getAllPosts() devuelve newest -> oldest
-  // "prev" = post más nuevo (arriba en la lista)
-  // "next" = post más viejo (abajo en la lista)
-  const prev = idx > 0 ? list[idx - 1] : null;
-  const next = idx < list.length - 1 ? list[idx + 1] : null;
+    // getAllPosts() devuelve newest -> oldest
+    // "prev" = post más nuevo (arriba en la lista)
+    // "next" = post más viejo (abajo en la lista)
+    const prev = idx > 0 ? list[idx - 1] : null;
+    const next = idx < list.length - 1 ? list[idx + 1] : null;
 
-  return { prev, next };
+    return { prev, next };
 }

@@ -370,10 +370,8 @@ export default async function SeminarDetailPage({ params }) {
               <li>{t("s3.for.items.1")}</li>
               <li>{t("s3.for.items.2")}</li>
               <li>{t("s3.for.items.3")}</li>
+              <li>{t("s3.for.items.4")}</li>
             </ul>
-            <p className="mt-4 whitespace-pre-line" style={longTextStyle}>
-              {t("s3.for.note")}
-            </p>
           </div>
 
           <div>
@@ -389,6 +387,18 @@ export default async function SeminarDetailPage({ params }) {
             </ul>
           </div>
         </div>
+
+            <div
+              className="mt-8 rounded-2xl p-6"
+              style={{
+                backgroundColor: "var(--surface)",
+                border: "1px solid color-mix(in srgb, var(--accent) 35%, transparent)",
+              }}
+            >
+              <p className="text-center text-lg font-medium whitespace-pre-line" style={{ color: "var(--text)" }}>
+                {t("s3.for.note")}
+              </p>
+            </div>
       </Section>
 
       {/* HOW WE WORK */}
