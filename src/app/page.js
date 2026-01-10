@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import EventsSection from "@/components/EventsSection";
 
 // Metadata localizada
 export async function generateMetadata() {
@@ -203,8 +204,8 @@ export default async function HomePage() {
         ctaVariant="link"
         padTop={false}
       />
-
       <Services />
+      <EventsSection />
       <Testimonials />
       <ContactForm />
       <Footer />

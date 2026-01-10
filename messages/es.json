@@ -982,6 +982,11 @@
           "cta": "Solicitar plaza"
         }
       ]
+    },
+    "cards": {
+      "imagePlaceholder": "Imagen próximamente",
+      "allSeminars": "Ver todos los seminarios",
+      "allRetreats": "Ver todos los eventos"
     }
   },
   "EventsRetreatCostaRica": {

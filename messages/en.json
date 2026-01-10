@@ -978,6 +978,11 @@
           "cta": "Request a spot"
         }
       ]
+    },
+    "cards": {
+      "imagePlaceholder": "Image coming soon",
+      "allSeminars": "All seminars",
+      "allRetreats": "All events"
     }
   },
   "EventsRetreatCostaRica": {

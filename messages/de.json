@@ -938,7 +938,7 @@
     "intro": {
       "kicker": "Events",
       "title": "Seminare & Retreats",
-      "body": "Räume, in denen Veränderung nicht erzwungen wird – sondern möglich wird.\nMit Wärme, Klarheit und Präsenz."
+      "body": "Räume für innere Veränderung, die achtsam begleitet werden mit Klarheit und Präsenz."
     },
     "nav": {
       "seminars": "Seminare",
@@ -947,7 +947,7 @@
     },
     "seminars": {
       "title": "Seminare",
-      "subtitle": "Online & vor Ort – Impulse, die vertraute Muster hinterfragen\nund neue innere Beweglichkeit öffnen.",
+      "subtitle": "Impulse für bewusste Veränderung,\ndie gewohnte Denk- und Verhaltensmuster hinterfragen\nund neue innere Räume öffnen.",
       "items": [
         {
           "tag": "Online",
@@ -978,6 +978,11 @@
           "cta": "Platz anfragen"
         }
       ]
+    },
+    "cards": {
+      "imagePlaceholder": "Bild folgt",
+      "allSeminars": "Alle Seminare",
+      "allRetreats": "Alle Events"
     }
   },
   "EventsRetreatCostaRica": {
