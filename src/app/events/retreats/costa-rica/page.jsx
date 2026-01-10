@@ -50,7 +50,7 @@ export default async function CostaRicaRetreatPage() {
   const h2Class =
     "text-3xl md:text-[2.25rem] font-semibold text-neutral-900 whitespace-pre-line";
   const h3Class =
-    "text-lg md:text-xl font-semibold text-neutral-900 whitespace-pre-line";
+    "text-xl md:text-2xl font-semibold text-neutral-900 whitespace-pre-line";
 
   return (
     <>
@@ -128,7 +128,7 @@ export default async function CostaRicaRetreatPage() {
       {/* DETAILS */}
       <Section
         id="details"
-        className="bg-[#fafafa] py-14 scroll-mt-40"
+        className="bg-[#fafafa] py-10 scroll-mt-40"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="grid gap-10 md:grid-cols-2 items-stretch">
@@ -170,7 +170,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* PROCESS */}
       <Section
-        className="bg-white py-14"
+        className="bg-white py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-3xl text-center mx-auto">
@@ -228,7 +228,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* FOR WHO / NOT FOR WHO */}
       <Section
-        className="bg-[#fafafa] py-14"
+        className="bg-[#fafafa] py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="grid gap-10 md:grid-cols-2">
@@ -254,7 +254,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* WHAT YOU GET */}
       <Section
-        className="bg-white py-14"
+        className="bg-white py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="grid gap-10 md:grid-cols-2 items-start">
@@ -290,7 +290,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* GUIDANCE */}
       <Section
-        className="bg-[#fafafa] py-14"
+        className="bg-[#fafafa] py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-3xl mx-auto text-center">
@@ -312,7 +312,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* FEEL */}
       <Section
-        className="bg-white py-14"
+        className="bg-white py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-3xl mx-auto text-center">
@@ -334,7 +334,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* BOOKING */}
       <Section
-        className="bg-[#fafafa] py-14"
+        className="bg-[#fafafa] py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-6xl mx-auto">
