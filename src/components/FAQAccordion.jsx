@@ -7,7 +7,7 @@ export default function FAQAccordion({ title, items }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="py-14">
+    <section className="pt-4 pb-10">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-[2.25rem] font-semibold text-neutral-900 text-center whitespace-pre-line">
           {title}

@@ -164,7 +164,7 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      <div className="my-12 flex justify-center">
+      <div className="my-8 flex justify-center">
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
@@ -228,7 +228,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* FOR WHO / NOT FOR WHO */}
       <Section
-        className="bg-[#fafafa] py-10"
+        className="bg-[#fafafa] pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="grid gap-10 md:grid-cols-2">
@@ -254,7 +254,7 @@ export default async function CostaRicaRetreatPage() {
 
       {/* WHAT YOU GET */}
       <Section
-        className="bg-white py-10"
+        className="bg-white pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="grid gap-10 md:grid-cols-2 items-start">
@@ -284,13 +284,13 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      <div className="my-12 flex justify-center">
+      <div className="my-8 flex justify-center">
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
       {/* GUIDANCE */}
       <Section
-        className="bg-[#fafafa] py-10"
+        className="bg-[#fafafa] pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-3xl mx-auto text-center">
@@ -306,13 +306,13 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      <div className="my-12 flex justify-center">
+      <div className="my-8 flex justify-center">
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
       {/* FEEL */}
       <Section
-        className="bg-white py-10"
+        className="bg-white pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-3xl mx-auto text-center">
@@ -328,13 +328,13 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      <div className="my-12 flex justify-center">
+      <div className="my-8 flex justify-center">
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
       {/* BOOKING */}
       <Section
-        className="bg-[#fafafa] py-10"
+        className="bg-[#fafafa] pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1200px]"
       >
         <div className="max-w-6xl mx-auto">
@@ -430,7 +430,7 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      <div className="my-12 flex justify-center">
+      <div className="my-8 flex justify-center">
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
