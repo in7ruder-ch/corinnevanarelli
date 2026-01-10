@@ -287,22 +287,14 @@ export default async function CostaRicaRetreatPage() {
       >
         <div className="max-w-3xl mx-auto text-center">
           <h2 className={h2Class}>{t("guidance.title")}</h2>
-          <p className="mt-4 text-neutral-700 whitespace-pre-line">
+
+          <p className="mt-6 text-neutral-700 whitespace-pre-line">
             {t("guidance.body")}
           </p>
 
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
-            {[0, 1].map((idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-neutral-200 bg-white p-5"
-              >
-                <p className="text-sm text-neutral-700 whitespace-pre-line">
-                  {t(`guidance.bios.${idx}`)}
-                </p>
-              </div>
-            ))}
-          </div>
+          <p className="mt-8 text-neutral-700 whitespace-pre-line">
+            {t("guidance.body2")}
+          </p>
         </div>
       </Section>
 
