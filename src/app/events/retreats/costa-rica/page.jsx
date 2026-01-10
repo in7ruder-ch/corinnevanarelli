@@ -164,6 +164,10 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
+      <div className="my-12 flex justify-center">
+        <span className="block h-px w-80 bg-neutral-200" />
+      </div>
+
       {/* PROCESS */}
       <Section
         className="bg-white py-14"
@@ -280,6 +284,10 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
+      <div className="my-12 flex justify-center">
+        <span className="block h-px w-80 bg-neutral-200" />
+      </div>
+
       {/* GUIDANCE */}
       <Section
         className="bg-[#fafafa] py-14"
@@ -298,6 +306,10 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
+      <div className="my-12 flex justify-center">
+        <span className="block h-px w-80 bg-neutral-200" />
+      </div>
+
       {/* FEEL */}
       <Section
         className="bg-white py-14"
@@ -315,6 +327,10 @@ export default async function CostaRicaRetreatPage() {
           </p>
         </div>
       </Section>
+
+      <div className="my-12 flex justify-center">
+        <span className="block h-px w-80 bg-neutral-200" />
+      </div>
 
       {/* BOOKING */}
       <Section
@@ -413,6 +429,10 @@ export default async function CostaRicaRetreatPage() {
           </div>
         </div>
       </Section>
+
+      <div className="my-12 flex justify-center">
+        <span className="block h-px w-80 bg-neutral-200" />
+      </div>
 
       {/* FAQ */}
       <Section
