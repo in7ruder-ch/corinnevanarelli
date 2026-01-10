@@ -154,18 +154,12 @@ export default async function CostaRicaRetreatPage() {
           </div>
 
           {/* Texto */}
-          <div className="max-w-xl">
+          <div className="max-w-xl justify-center flex flex-col">
             <h2 className={h2Class}>{t("details.title")}</h2>
 
             <p className="mt-4 text-neutral-700 whitespace-pre-line">
               {t("details.body")}
             </p>
-
-            <div className="mt-8 rounded-2xl border border-neutral-200 bg-white p-6">
-              <p className="text-lg font-medium text-neutral-900 whitespace-pre-line">
-                {t("details.quote")}
-              </p>
-            </div>
           </div>
         </div>
       </Section>
