@@ -551,7 +551,7 @@
       "canonical": "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
       "og": {
         "title": "Chakra Clearing",
-        "description": "Blockaden lösen, Energie ins Fließen bringen, innere Mitte finden.",
+        "description": "Blockaden lösen, Energie ins Fliessen bringen, innere Mitte finden.",
         "url": "https://www.corinnevanarelli.ch/angebote/chakra-clearing",
         "siteName": "Corinne Vanarelli",
         "images": [
@@ -677,7 +677,7 @@
       "items": [
         {
           "title": "Ankommen & Vorgespräch",
-          "body": "Zu Beginn nimmst du dir Zeit, bei dir selbst anzukommen. In einem kurzen Gespräch klären wir, was dich aktuell beschäftigt und ob es bestimmte Themen oder Beschwerden gibt, die in die Sitzung mit einfließen dürfen."
+          "body": "Zu Beginn nimmst du dir Zeit, bei dir selbst anzukommen. In einem kurzen Gespräch klären wir, was dich aktuell beschäftigt und ob es bestimmte Themen oder Beschwerden gibt, die in die Sitzung mit einfliessen dürfen."
         },
         {
           "title": "Einstimmung & energetische Aufrichtung",
@@ -1006,86 +1006,206 @@
       }
     },
     "hero": {
-      "kicker": "Retreat · Costa Rica",
-      "title": "Ankommen\nEntschleunigen\nWieder fühlen",
-      "comingSoon": "Dieses Retreat befindet sich aktuell in der finalen Ausarbeitung.\n\nWeitere Informationen folgen in Kürze.",
+      "kicker": "Frauen Retreat · Costa Rica",
+      "title": "Frauen Retreat inmitten der kraftvollen Natur Costa Ricas",
+      "body": "Wenn Funktionieren nicht mehr trägt.\n\nEin achtsam geführtes Retreat für Frauen,\nderen Leben im Aussen läuft, während im Inneren etwas leiser geworden ist.\n\nHier geht es nicht um Veränderung, sondern um Rückverbindung.\nZu deinem Körper.\nZu deinem inneren Rhythmus.\nZu dem, was sich wahr anfühlt.",
       "ctaPrimary": "Kontakt aufnehmen",
+      "ctaSecondary": "Details ansehen",
       "badges": [
         "Costa Rica",
         "Natur & Präsenz",
         "Kleingruppe"
       ],
       "image": {
-        "src": "/img/retreats/costa-rica/hero.webp",
+        "src": "/img/retreats/costa-rica/hero2.png",
         "alt": "Natur und Ruhe in Costa Rica",
         "placeholder": "Bild folgt"
       }
     },
     "details": {
-      "title": "Worum es geht",
-      "body": "Dieses Retreat ist eine Einladung, aus dem Dauer-Funktionieren auszusteigen.\nIn einen Raum, in dem dein System wieder atmen darf.\n\nNatur, Präsenz und verkörperte Arbeit – damit Veränderung nicht nur verstanden, sondern erlebt wird.",
-      "quote": "„Du kommst nicht gleich zurück –\nNicht weil du jemand anderes wirst,\nsondern weil du dir selbst wieder näher kommst.“",
+      "title": "Wenn Funktionieren zur Gewohnheit geworden ist",
+      "body": "Viele Frauen funktionieren.\nAuch dann noch, wenn sie längst müde sind.\n\nDieses Frauen Retreat in Costa Rica lädt dich ein,\nden inneren Autopiloten zu verlassen\nund dich wieder im Körper, im Herzen, im Moment zu erleben.",
+      "quote": "Nicht über Leistung.\nNicht über Optimierung.\nSondern über Erfahrung, Präsenz\nund echte innere Bewegung.",
       "image": {
-        "src": "",
-        "alt": "",
+        "src": "/img/retreats/costa-rica/5.webp",
+        "alt": "Faultier in Costa Rica",
         "placeholder": "Details Bild (Placeholder)"
       }
     },
-    "forWho": {
-      "title": "Für wen ist es",
+    "howWeWork": {
+      "title": "Der Retreat-Prozess",
+      "subtitle": "Eine Reise zurück in deinen inneren Rhythmus",
+      "body": "Dieses Retreat folgt deinem inneren Tempo.\nSchritt für Schritt öffnet sich ein Raum,\nin dem Verlangsamung nicht Stillstand bedeutet,\nsondern bewusste Wahrnehmung, was in dir lebendig ist.",
       "items": [
-        "Für Menschen, die viel getragen haben – und jetzt ehrlich werden wollen.",
-        "Für Menschen, die spüren: So wie bisher geht es nicht weiter.",
-        "Für Menschen, die nicht mehr nur „wissen“, sondern wirklich verkörpern wollen."
+        {
+          "title": "Ankommen & Entschleunigen",
+          "subtitle": "Vom Kopf in den Körper",
+          "body": "Du lässt den Alltag hinter dir.\nDein Nervensystem darf zur Ruhe kommen.\nAtem, Stille und sanfte Rituale unterstützen dich dabei, wieder im Körper anzukommen\nund innere Sicherheit zu spüren."
+        },
+        {
+          "title": "Selbstwahrnehmung & innere Muster",
+          "subtitle": "Wer bist du jenseits des Funktionierens?",
+          "body": "In dieser Ruhe werden Muster erkennbar, nicht um festzuhalten, sondern um loszulassen."
+        },
+        {
+          "title": "Loslassen & innere Klärung",
+          "subtitle": "Was darf gehen, damit Neues entstehen kann?",
+          "body": "Behutsam richten wir den Blick auf das,\nwas dich innerlich begrenzt.\nGlaubenssätze und emotionale Reaktionen\ndürfen sich wandeln, in deinem Tempo, getragen von Präsenz."
+        },
+        {
+          "title": "Selbstverbindung & Empathie",
+          "subtitle": "Zurück in Beziehung mit dir selbst",
+          "body": "In der Verbindung mit dir selbst\nöffnet sich auch die Verbindung zu anderen.\nGetragen von der Natur Costa Ricas\nund der Präsenz der Gruppe\nentsteht ein Gefühl von Weite,\nSanftheit und Echtheit."
+        },
+        {
+          "title": "Integration & Ausrichtung",
+          "subtitle": "Was nimmst du mit in dein Leben?",
+          "body": "Zum Abschluss geht es nicht um „Veränderung“, sondern um Verankerung.\nDu gehst mit mehr Klarheit, innerer Stabilität\nund einem tieferen Vertrauen in dich selbst."
+        }
+      ]
+    },
+    "forWho": {
+      "title": "Dieses Retreat ist für dich, wenn …",
+      "items": [
+        "du viel trägst und dir selbst dabei kaum Raum lässt",
+        "du funktionierst, obwohl dein Inneres etwas anderes spürt",
+        "du nach Klarheit suchst,  nicht nach weiteren Methoden",
+        "du Heilung auf körperlicher und emotionaler Ebene erfahren möchtest",
+        "du dir einen echten Reset in der Natur wünschst"
+      ],
+      "notTitle": "Und nicht für dich, wenn …",
+      "notItems": [
+        "du Veränderung im Aussen suchst, statt im Inneren zu bleiben",
+        "du Geschwindigkeit bevorzugst, wo Langsamkeit notwendig ist",
+        "du Klarheit willst, ohne Unsicherheit zuzulassen"
       ]
     },
     "whatYouGet": {
-      "title": "Was du mitnimmst",
+      "title": "Was dich erwartet",
       "items": [
-        "Mehr innere Ruhe und Nervensystem-Regulation.",
-        "Klarheit über alte Muster – ohne dich zu verurteilen.",
-        "Rückverbindung mit Körper, Intuition und Grenzen.",
-        "Einen Raum, der nachwirkt – nicht nur ein schönes Erlebnis."
+        "Unterkunft inmitten der Natur Costa Ricas",
+        "Alle begleiteten Prozesse & Rituale",
+        "Persönliche Begleitung in einer kleinen Gruppe",
+        "Zeit & Raum für Rückzug und Integration",
+        "Gemeinsame Rituale in der Natur",
+        "Alle Mahlzeiten inklusive"
+      ],
+      "note": "Alles ist Teil eines geschützten Rahmens,\nder dich trägt vom Ankommen bis zum Abschied."
+    },
+    "guidance": {
+      "title": "Begleitung & Raumhalten",
+      "body": "Dieses Retreat wird von Nina und Corinne gemeinsam begleitet.\nWir halten den Raum zusammen, achtsam, präsent und aufmerksam für das,\nwas sich in der Gruppe und in jeder Einzelnen zeigt.\n\nNicht als feste Rollen, sondern als gemeinsame Präsenz.",
+      "bios": [
+        "Nina lebt seit mehreren Jahren in Costa Rica\nund kennt den Ort, die Kultur und die lokalen Gegebenheiten sehr gut.",
+        "Ich selbst habe insgesamt acht Jahre in Costa Rica gelebt und bin mit dem Leben, der Natur\nund den besonderen Rhythmen des Landes tief vertraut."
       ]
     },
-    "howWeWork": {
-      "title": "Wie wir arbeiten",
-      "items": [
-        {
-          "title": "Präsenz & Nervensystem",
-          "body": "Raum für Tiefe – ohne Druck, ohne Müssen."
-        },
-        {
-          "title": "Embodiment & Körperarbeit",
-          "body": "Sanft, klar, verkörpert."
-        },
-        {
-          "title": "Energetische Prozesse",
-          "body": "Für das, was sich nicht nur kognitiv löst."
-        },
-        {
-          "title": "Integration & Nachwirken",
-          "body": "Damit es im Alltag ankommt."
-        }
-      ]
+    "feel": {
+      "title": "Wie sich dieses Retreat anfühlt",
+      "body": "Du kommst an.\nNicht im Kopf, sondern im Körper.\n\nDer Atem wird ruhiger. Spannung lässt nach.\nNicht, weil etwas gelöst wird, sondern weil du aufhörst, dich zu halten.\n\nDein inneres Tempo sinkt. Nicht aus Entscheidung, sondern weil nichts mehr antreibt.\n\nEs entsteht Raum für Stille. Für Wahrnehmung und das, was sonst übergangen wird.\n\nDu musst nichts leisten, nichts erklären und nichts darstellen.\n\nDein Nervensystem darf sich ordnen. Dein Inneres darf nachziehen.\n\nDieses Retreat ist keine Pause vom Leben. Es ist der Moment,\nin dem du wieder erreichbar wirst.",
+      "closing": "Für dich.\nFür deinen Körper.\nFür das, was sich wirklich stimmig anfühlt."
+    },
+    "booking": {
+      "title": "Buchung & Zahlungsinformationen",
+      "subtitle": "Frauen Retreat · Costa Rica",
+      "intro": "Diese Seite dient deiner Orientierung.\nSie soll dir Sicherheit geben\nund dich dabei unterstützen,\nin Ruhe und aus innerer Klarheit zu entscheiden.",
+      "process": {
+        "title": "Buchungsprozess",
+        "body": "Die Buchung dieses Frauen Retreats erfolgt bewusst und persönlich.",
+        "steps": [
+          {
+            "title": "1. Anfrage über das Kontaktformular",
+            "body": "Du meldest dich unverbindlich über die Website."
+          },
+          {
+            "title": "2. Persönlicher Austausch",
+            "body": "In einem kurzen Gespräch klären wir offene Fragen\nund schauen gemeinsam,\nob das Retreat für dich stimmig ist."
+          },
+          {
+            "title": "3. Verbindliche Anmeldung",
+            "body": "Nach dem Gespräch erhältst du alle Informationen\nzur verbindlichen Buchung und zu den Zahlungsmodalitäten."
+          }
+        ],
+        "note": "Dieser Ablauf stellt sicher,\ndass jede Teilnehmerin gut eingebettet ist\nund sich im Retreat sicher fühlen kann."
+      },
+      "group": {
+        "title": "Teilnehmerinnenzahl",
+        "body": "Das Retreat findet in einer kleinen,\nbewusst gewählten Gruppe statt.",
+        "bullets": [
+          "persönliche Begleitung",
+          "Tiefe und Ruhe im Prozess",
+          "einen geschützten, klaren Rahmen"
+        ],
+        "note": "Die Plätze sind daher limitiert."
+      },
+      "payment": {
+        "title": "Zahlungsmodalitäten",
+        "body": "Die genauen Preise und Zahlungsdetails\nbesprechen wir im persönlichen Austausch.",
+        "options": [
+          "einer Anzahlung zur Platzsicherung",
+          "einer Restzahlung zu einem späteren Zeitpunkt"
+        ],
+        "note": "Individuelle Absprachen sind nach Rücksprache möglich."
+      },
+      "included": {
+        "title": "Was im Preis enthalten ist",
+        "items": [
+          "Unterkunft inmitten der Natur Costa Ricas",
+          "Alle begleiteten Prozesse, Workshops & Rituale",
+          "Persönliche Begleitung während des gesamten Retreats",
+          "Zeit & Raum für Rückzug und Integration",
+          "Alle Mahlzeiten während des Retreats"
+        ],
+        "optional": "Optionale begleitende Angebote\n(z. B. Herzheilung, Akasha-Lesung, Massagen oder Aktivitäten)\nsind nicht im Retreatpreis enthalten\nund können bei Interesse vor Ort gebucht werden."
+      },
+      "cancellation": {
+        "title": "Stornierung & Rücktritt",
+        "body": "Da dieses Retreat mit persönlicher Begleitung\nund einer begrenzten Teilnehmerinnenzahl geplant wird,\ngelten besondere Stornierungsbedingungen.\nDiese werden transparent und klar\nim Rahmen der verbindlichen Anmeldung kommuniziert.\nWir bitten um Verständnis,\ndass bereits reservierte Plätze\nnicht kurzfristig ersetzt werden können."
+      },
+      "notes": {
+        "title": "Wichtige Hinweise",
+        "items": [
+          "Die Teilnahme erfolgt in eigener Verantwortung",
+          "Das Retreat ersetzt keine medizinische oder therapeutische Behandlung",
+          "Eine stabile psychische Grundverfassung wird vorausgesetzt",
+          "Pausen und Rückzug sind jederzeit möglich"
+        ],
+        "footer": "Alles darf –\nnichts muss."
+      },
+      "closing": {
+        "title": "Abschliessender Hinweis",
+        "body": "Dieses Retreat ist kein Produkt,\nsondern ein gemeinsamer Prozess.",
+        "cta": "Wenn du spürst,\ndass dieser Raum dich ruft,\nladen wir dich herzlich ein,\nmit uns in Kontakt zu treten.",
+        "formEnd": "Formularende"
+      }
     },
     "gallery": {
       "title": "Impressionen",
       "images": [
         {
-          "src": "",
-          "alt": "",
-          "placeholder": "Bild 1"
+          "src": "/img/retreats/costa-rica/2.webp",
+          "alt": "Strand in Costa Rica",
+          "placeholder": "Bild 1 (Placeholder)"
         },
         {
-          "src": "",
-          "alt": "",
-          "placeholder": "Bild 2"
+          "src": "/img/retreats/costa-rica/3.webp",
+          "alt": "Strand in Costa Rica",
+          "placeholder": "Bild 2 (Placeholder)"
         },
         {
-          "src": "",
-          "alt": "",
-          "placeholder": "Bild 3"
+          "src": "/img/retreats/costa-rica/4.webp",
+          "alt": "Wilkommen in Puerto Viejo",
+          "placeholder": "Bild 3 (Placeholder)"
+        },
+        {
+          "src": "/img/retreats/costa-rica/1.webp",
+          "alt": "Faultier in Costa Rica",
+          "placeholder": "Bild 3 (Placeholder)"
+        },
+        {
+          "src": "/img/retreats/costa-rica/6.webp",
+          "alt": "Tukan in Costa Rica",
+          "placeholder": "Bild 3 (Placeholder)"
         }
       ]
     },
@@ -1107,6 +1227,88 @@
         }
       ],
       "cta": "Kontakt & Anfrage"
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "q": "Ist das Frauen Retreat in Costa Rica das Richtige für mich?",
+          "a": "Dieses Retreat ist für Frauen, die aus dem Funktionieren aussteigen und wieder in Verbindung mit sich selbst kommen möchten.\nWenn du langsamer werden willst, dich selbst wieder spüren möchtest und dir einen geschützten Raum für innere Klärung wünschst, kann dieses Retreat für dich passend sein."
+        },
+        {
+          "q": "Brauche ich spirituelle Vorerfahrung für das Retreat?",
+          "a": "Nein. Du brauchst keine spirituelle Erfahrung, keine Vorkenntnisse und kein bestimmtes Weltbild.\nAlles, was du mitbringst, ist deine Bereitschaft, dir selbst ehrlich zu begegnen."
+        },
+        {
+          "q": "Ist das Retreat Therapie oder Urlaub?",
+          "a": "Das Retreat ist weder Therapie noch klassischer Urlaub.\nEs ist ein begleiteter Erfahrungsraum, in dem Entschleunigung, Selbstwahrnehmung und innere Integration im Mittelpunkt stehen, ohne Leistungsdruck oder Bewertung."
+        },
+        {
+          "q": "Wie intensiv ist das Frauen Retreat?",
+          "a": "Das Retreat hat einen klaren, sicheren Rahmen und gleichzeitig viel freien Raum.\nEs gibt gemeinsame Prozesse und Rituale, aber auch Zeit für Rückzug, Natur, Ruhe und persönliche Integration.\nDu entscheidest jederzeit, wie intensiv du teilnehmen möchtest."
+        },
+        {
+          "q": "Muss ich mich in der Gruppe öffnen oder etwas teilen?",
+          "a": "Nein. Es gibt keinen Zwang zum Teilen und keinen Gruppendruck.\nDeine Grenzen werden respektiert. Rückzug ist genauso willkommen wie Austausch."
+        },
+        {
+          "q": "Was passiert, wenn starke Emotionen auftauchen?",
+          "a": "Emotionen dürfen da sein, ohne analysiert oder „gelöst“ werden zu müssen.\nDu wirst achtsam begleitet und gehalten, nicht korrigiert oder bewertet."
+        },
+        {
+          "q": "Wie gross ist die Gruppe beim Retreat?",
+          "a": "Die Gruppe ist bewusst klein gehalten, um einen sicheren, persönlichen und vertrauensvollen Rahmen zu ermöglichen.\nQualität, Tiefe und Präsenz stehen im Vordergrund."
+        },
+        {
+          "q": "Kann ich alleine nach Costa Rica reisen?",
+          "a": "Ja. Viele Teilnehmerinnen reisen alleine an.\nDu wirst vom Ankommen bis zum Abschied begleitet und eingebettet.\nOft entsteht schon während der Reise eine erste Verbindung zu dir selbst."
+        },
+        {
+          "q": "Gibt es freie Zeit während des Retreats?",
+          "a": "Ja. Das Retreat folgt keinem engen Zeitplan.\nFreie Zeit für Natur, Meer, Bewegung, Ruhe oder Ausflüge ist bewusst eingeplant."
+        },
+        {
+          "q": "Sind zusätzliche Angebote verpflichtend?",
+          "a": "Nein.\nAlle begleitenden Zusatzangebote sind optional und kein Bestandteil, den du brauchst.\nDas Retreat ist vollständig und in sich abgeschlossen."
+        },
+        {
+          "q": "Welche optionalen Angebote können vor Ort gebucht werden?",
+          "a": "Während des Retreats bist du in einem vollständigen, getragenen Prozess.\nAlles Wesentliche ist bereits enthalten.\nWenn du darüber hinaus den Wunsch verspürst, tiefer in ein persönliches Thema einzutauchen, können einzelne begleitende Sessions optional dazu gebucht werden.\nZum Beispiel:",
+          "bullets": [
+            "Herzheilung",
+            "Akasha-Lesung",
+            "individuelle 1:1-Begleitung"
+          ]
+        },
+        {
+          "q": "Raum für deine eigene Gestaltung",
+          "a": "In deiner freien Zeit hast du zudem die Möglichkeit, deinen Aufenthalt in Costa Rica ganz nach deinem Bedürfnis zu gestalten.\nOb:",
+          "bullets": [
+            "Surfen",
+            "Yoga",
+            "Massagen",
+            "Natur & Rückzug"
+          ]
+        },
+        {
+          "q": "Was nehme ich vom Retreat mit nach Hause?",
+          "a": "Viele Frauen berichten von:",
+          "bullets": [
+            "mehr innerer Ruhe",
+            "stärkerer Selbstwahrnehmung",
+            "mehr Vertrauen in das eigene Tempo",
+            "nachhaltiger innerer Klarheit"
+          ]
+        },
+        {
+          "q": "Wie weiss ich, ob jetzt der richtige Zeitpunkt ist?",
+          "a": "Der richtige Zeitpunkt fühlt sich selten logisch an.\nOft zeigt er sich als Wunsch nach Entschleunigung, Klarheit und innerem Raum.\nWenn dieses Bedürfnis da ist, ist das ein ausreichender Hinweis."
+        },
+        {
+          "q": "Kann ich vor der Buchung ein Gespräch führen?",
+          "a": "Ja.\nDu kannst jederzeit ein unverbindliches Gespräch anfragen, um offene Fragen zu klären und zu prüfen, ob das Retreat für dich stimmig ist."
+        }
+      ]
     }
   },
   "Blog": {
@@ -1229,7 +1431,7 @@
       "items": [
         {
           "tag": "Online Seminar",
-          "title": "Bewusst sein. Bewusst werden. Bewusst leben.",
+          "title": "Vielleicht wartest du auf einen Wendepunkt, der nie laut sein wird.",
           "body": "Eine innere Reise in drei Begegnungen.\nFür Menschen, die sich bewusster mit Veränderung, innerer Klarheit und Selbstverbindung auseinandersetzen möchten.",
           "meta": [
             "April – Mai 2026",
@@ -1276,7 +1478,7 @@
     },
     "intro": {
       "kicker": "Online-Seminar · Frühling 2026",
-      "title": "Bewusst sein\nBewusst werden\nBewusst leben",
+      "title": "Vielleicht wartest du auf einen Wendepunkt, der nie laut sein wird.",
       "subtitle": "Ein dreiteiliges Online-Seminar für innere Klarheit und bewusste Veränderung.",
       "meta": [
         "April – Mai 2026",

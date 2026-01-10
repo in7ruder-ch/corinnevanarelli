@@ -42,7 +42,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
         excerpt: {
             de: "Über innere Krisen, Bewusstsein und echte Veränderung – und warum der Wendepunkt oft leise beginnt.",
             en: "On inner crises, awareness, and real change – and why the turning point often begins quietly.",
-            es: "Sobre las crisis internas, la conciencia y el cambio real — y por qué el punto de inflexión suele empezar en silencio."
+            es: "Sobre las crisis internas, la conciencia y el cambio real - y por qué el punto de inflexión suele empezar en silencio."
         },
         readingTime: { de: "7 min", en: "7 min", es: "7 min" },
         cover: "/img/blog/PLACEHOLDER-COVER.webp",
@@ -166,11 +166,11 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                     caption: "BILD 2: Sheet (Kontrast reduzieren)."
                 },
 
-                { type: "h2", text: "Der Wendepunkt ist nicht äußerer Erfolg, sondern eine innere Entscheidung" },
+                { type: "h2", text: "Der Wendepunkt ist nicht äusserer Erfolg, sondern eine innere Entscheidung" },
                 {
                     type: "p",
                     text:
-                        "Viele schauen beim Wendepunkt auf das große Ereignis.\n\n" +
+                        "Viele schauen beim Wendepunkt auf das grosse Ereignis.\n\n" +
                         "Doch psychologisch geschieht er oft unscheinbar und leise.\n\n" +
                         "Er beginnt mit einem inneren Satz:"
                 },
@@ -331,7 +331,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                         "that it doesn’t fit our self-image."
                 },
 
-                { type: "h2", text: "Pain is not a sign of weakness — it’s a sign of truth" },
+                { type: "h2", text: "Pain is not a sign of weakness - it’s a sign of truth" },
                 {
                     type: "p",
                     text:
@@ -387,7 +387,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                     caption: "IMAGE 2: Sheet (reduce contrast)."
                 },
 
-                { type: "h2", text: "The turning point is not outer success — it’s an inner decision" },
+                { type: "h2", text: "The turning point is not outer success - it’s an inner decision" },
                 {
                     type: "p",
                     text:
@@ -406,7 +406,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                         "You stop opposing what you feel,\n" +
                         "and you begin to take yourself seriously.\n\n" +
                         "That is self-empowerment.\n" +
-                        "Not loud — but profound."
+                        "Not loud - but profound."
                 },
 
                 { type: "h2", text: "Healing doesn’t mean the pain disappears immediately" },
@@ -461,7 +461,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                     ]
                 },
 
-                { type: "h2", text: "Pain is not the end — it’s the transition" },
+                { type: "h2", text: "Pain is not the end - it’s the transition" },
                 {
                     type: "p",
                     text:
@@ -624,7 +624,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
                         "Dejas de ponerte en contra de lo que sientes\n" +
                         "y empiezas a tomarte en serio.\n\n" +
                         "Eso es autoempoderamiento.\n" +
-                        "No ruidoso — pero profundo."
+                        "No ruidoso - pero profundo."
                 },
 
                 { type: "h2", text: "Sanar no significa que el dolor desaparezca de inmediato" },

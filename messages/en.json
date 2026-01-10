@@ -983,11 +983,11 @@
   "EventsRetreatCostaRica": {
     "meta": {
       "title": "Costa Rica Retreat | Corinne Vanarelli",
-      "description": "A retreat for true reconnection: body, nervous system, nature, and clarity.",
+      "description": "A retreat for real reconnection: body, nervous system, nature and clarity.",
       "canonical": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
       "og": {
         "title": "Costa Rica Retreat | Corinne Vanarelli",
-        "description": "A retreat for true reconnection: body, nervous system, nature, and clarity.",
+        "description": "A retreat for real reconnection: body, nervous system, nature and clarity.",
         "url": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
         "siteName": "Corinne Vanarelli",
         "images": [
@@ -999,17 +999,18 @@
       },
       "twitter": {
         "title": "Costa Rica Retreat | Corinne Vanarelli",
-        "description": "A retreat for true reconnection: body, nervous system, nature, and clarity.",
+        "description": "A retreat for real reconnection: body, nervous system, nature and clarity.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
         ]
       }
     },
     "hero": {
-      "kicker": "Retreat · Costa Rica",
-      "title": "Arrive\nSlow down\nFeel again",
-      "comingSoon": "This retreat is currently in the final stage of development.\n\nMore information coming soon.",
+      "kicker": "Women’s Retreat · Costa Rica",
+      "title": "Women’s Retreat in the powerful nature of Costa Rica",
+      "body": "When functioning no longer holds.\n\nA carefully guided retreat for women whose life keeps running on the outside while something inside has grown quieter.\n\nThis is not about changing yourself, but about reconnecting.\nTo your body.\nTo your inner rhythm.\nTo what feels true.",
       "ctaPrimary": "Get in touch",
+      "ctaSecondary": "View details",
       "badges": [
         "Costa Rica",
         "Nature & presence",
@@ -1022,75 +1023,194 @@
       }
     },
     "details": {
-      "title": "What it’s about",
-      "body": "This retreat is an invitation to step out of constant functioning.\nInto a space where your system can breathe again.\n\nNature, presence, and embodied work – so that change is not only understood, but experienced.",
-      "quote": "“You won’t return the same –\nNot because you become someone else,\nbut because you come closer to yourself again.”",
+      "title": "When functioning becomes a habit",
+      "body": "Many women keep functioning.\nEven when they’ve been tired for a long time.\n\nThis women’s retreat in Costa Rica invites you to step out of inner autopilot and come back into your body, your heart, the present moment.",
+      "quote": "Not through performance.\nNot through optimization.\nBut through experience, presence,\nand real inner movement.",
       "image": {
-        "src": "",
-        "alt": "",
-        "placeholder": "Details image (Placeholder)"
+        "src": "/img/retreats/costa-rica/5.webp",
+        "alt": "Bird in Costa Rica",
+        "placeholder": "Details image (placeholder)"
       }
     },
-    "forWho": {
-      "title": "Who it is for",
+    "howWeWork": {
+      "title": "The retreat process",
+      "subtitle": "A journey back into your inner rhythm",
+      "body": "This retreat follows your inner pace.\nStep by step, a space opens in which slowing down doesn’t mean standing still, but a conscious awareness of what is alive in you.",
       "items": [
-        "For people who have carried a lot – and now want to be honest.",
-        "For people who feel: it can’t go on like this.",
-        "For people who no longer want to just “know”, but truly embody."
+        {
+          "title": "Arriving & slowing down",
+          "subtitle": "From the head into the body",
+          "body": "You leave everyday life behind.\nYour nervous system is allowed to settle.\nBreath, silence and gentle rituals support you in arriving back in your body and sensing inner safety."
+        },
+        {
+          "title": "Self-perception & inner patterns",
+          "subtitle": "Who are you beyond functioning?",
+          "body": "In this quiet, patterns become visible -not to hold on, but to let go."
+        },
+        {
+          "title": "Letting go & inner clarity",
+          "subtitle": "What may leave so something new can emerge?",
+          "body": "Gently we look at what limits you on the inside.\nBeliefs and emotional reactions can shift -in your time, held by presence."
+        },
+        {
+          "title": "Self-connection & empathy",
+          "subtitle": "Back into relationship with yourself",
+          "body": "As you reconnect with yourself, connection with others can open too.\nHeld by Costa Rica’s nature and the presence of the group, a sense of spaciousness, softness and truthfulness emerges."
+        },
+        {
+          "title": "Integration & orientation",
+          "subtitle": "What do you take with you into your life?",
+          "body": "In the end it’s not about “change”, but about anchoring.\nYou leave with more clarity, inner stability and a deeper trust in yourself."
+        }
+      ]
+    },
+    "forWho": {
+      "title": "This retreat is for you, if …",
+      "items": [
+        "you carry a lot and hardly make space for yourself",
+        "you keep functioning even though something inside feels different",
+        "you’re looking for clarity, not more methods",
+        "you want healing on a physical and emotional level",
+        "you long for a true reset in nature"
+      ],
+      "notTitle": "And not for you, if …",
+      "notItems": [
+        "you’re looking for change on the outside instead of staying with what’s inside",
+        "you prefer speed where slowness is necessary",
+        "you want clarity without allowing uncertainty"
       ]
     },
     "whatYouGet": {
-      "title": "What you take with you",
+      "title": "What to expect",
       "items": [
-        "More inner calm and nervous system regulation.",
-        "Clarity about old patterns – without judging yourself.",
-        "Reconnection with body, intuition, and boundaries.",
-        "A space that stays with you – not just a beautiful experience."
+        "Accommodation surrounded by Costa Rica’s nature",
+        "All guided processes & rituals",
+        "Personal support in a small group",
+        "Time & space for retreat and integration",
+        "Shared rituals in nature",
+        "All meals included"
+      ],
+      "note": "Everything is part of a protected container that holds you from arrival to goodbye."
+    },
+    "guidance": {
+      "title": "Guidance & holding the space",
+      "body": "This retreat is co-facilitated by Nina and Corinne.\nWe hold the space together -attentive, present and mindful of what unfolds in the group and in each woman.\n\nNot as fixed roles, but as shared presence.",
+      "bios": [
+        "Nina has been living in Costa Rica for several years and knows the place, the culture and the local realities very well.",
+        "I myself lived in Costa Rica for a total of eight years and am deeply familiar with the life, the nature and the country’s unique rhythms."
       ]
     },
-    "howWeWork": {
-      "title": "How we work",
-      "items": [
-        {
-          "title": "Presence & nervous system",
-          "body": "Space for depth – without pressure, without having to."
-        },
-        {
-          "title": "Embodiment & bodywork",
-          "body": "Gentle, clear, embodied."
-        },
-        {
-          "title": "Energetic processes",
-          "body": "For what doesn’t resolve only cognitively."
-        },
-        {
-          "title": "Integration & aftereffects",
-          "body": "So it lands in everyday life."
-        }
-      ]
+    "feel": {
+      "title": "How this retreat feels",
+      "body": "You arrive.\nNot in your mind, but in your body.\n\nYour breath slows down. Tension eases.\nNot because something is being fixed, but because you stop holding yourself together.\n\nYour inner pace drops. Not by decision, but because nothing is pushing anymore.\n\nSpace emerges for stillness. For awareness. For what is usually overlooked.\n\nYou don’t have to perform, explain, or present yourself.\n\nYour nervous system is allowed to settle. Your inner world can catch up.\n\nThis retreat is not a break from life. It is the moment\nwhen you become reachable again.",
+      "closing": "For you.\nFor your body.\nFor what truly feels aligned."
+    },
+    "booking": {
+      "title": "Booking & payment information",
+      "subtitle": "Women’s Retreat · Costa Rica",
+      "intro": "This page is for your orientation.\nIt’s here to give you a sense of safety and support you in deciding calmly -from inner clarity.",
+      "process": {
+        "title": "Booking process",
+        "body": "Booking this women’s retreat is personal and intentional.",
+        "steps": [
+          {
+            "title": "1. Inquiry via the contact form",
+            "body": "You reach out without obligation via the website."
+          },
+          {
+            "title": "2. Personal conversation",
+            "body": "In a short call we clarify open questions and sense together whether the retreat feels right for you."
+          },
+          {
+            "title": "3. Binding registration",
+            "body": "After the conversation you receive all information for a binding booking and the payment modalities."
+          }
+        ],
+        "note": "This flow ensures that every participant is well held and can feel safe within the retreat."
+      },
+      "group": {
+        "title": "Group size",
+        "body": "The retreat takes place in a small, carefully chosen group.",
+        "bullets": [
+          "personal support",
+          "depth and calm in the process",
+          "a protected, clear container"
+        ],
+        "note": "Places are therefore limited."
+      },
+      "payment": {
+        "title": "Payment",
+        "body": "We discuss exact prices and payment details in the personal conversation.",
+        "options": [
+          "a deposit to secure your spot",
+          "the remaining payment at a later date"
+        ],
+        "note": "Individual arrangements are possible after consultation."
+      },
+      "included": {
+        "title": "What’s included",
+        "items": [
+          "Accommodation surrounded by Costa Rica’s nature",
+          "All guided processes, workshops & rituals",
+          "Personal support throughout the entire retreat",
+          "Time & space for retreat and integration",
+          "All meals during the retreat"
+        ],
+        "optional": "Optional supportive offerings (e.g. heart healing, Akashic reading, massages or activities) are not included in the retreat price and can be booked on site if interested."
+      },
+      "cancellation": {
+        "title": "Cancellation & withdrawal",
+        "body": "Because this retreat is planned with personal support and a limited number of participants, special cancellation conditions apply.\nThey will be communicated transparently and clearly as part of the binding registration.\nThank you for understanding that reserved spots cannot be replaced at short notice."
+      },
+      "notes": {
+        "title": "Important notes",
+        "items": [
+          "Participation is at your own responsibility",
+          "This retreat does not replace medical or therapeutic treatment",
+          "A stable basic mental condition is assumed",
+          "Breaks and retreat are possible at any time"
+        ],
+        "footer": "Everything is welcome -\nnothing is required."
+      },
+      "closing": {
+        "title": "Closing note",
+        "body": "This retreat is not a product, but a shared process.",
+        "cta": "If you feel called by this space, we warmly invite you to get in touch with us.",
+        "formEnd": "Form end"
+      }
     },
     "gallery": {
       "title": "Impressions",
       "images": [
         {
-          "src": "",
-          "alt": "",
-          "placeholder": "Image 1"
+          "src": "/img/retreats/costa-rica/2.webp",
+          "alt": "Beach in Costa Rica",
+          "placeholder": "Bild 1 (Placeholder)"
         },
         {
-          "src": "",
-          "alt": "",
-          "placeholder": "Image 2"
+          "src": "/img/retreats/costa-rica/3.webp",
+          "alt": "Beach in Costa Rica",
+          "placeholder": "Bild 2 (Placeholder)"
         },
         {
-          "src": "",
-          "alt": "",
-          "placeholder": "Image 3"
+          "src": "/img/retreats/costa-rica/4.webp",
+          "alt": "Welcome to Puerto Viejo",
+          "placeholder": "Bild 3 (Placeholder)"
+        },
+        {
+          "src": "/img/retreats/costa-rica/1.webp",
+          "alt": "Sloth in Costa Rica",
+          "placeholder": "Bild 3 (Placeholder)"
+        },
+        {
+          "src": "/img/retreats/costa-rica/6.webp",
+          "alt": "Tucan in Costa Rica",
+          "placeholder": "Bild 3 (Placeholder)"
         }
       ]
     },
     "sidebar": {
-      "tag": "Short & clear",
+      "tag": "Quick overview",
       "title": "Retreat overview",
       "meta": [
         {
@@ -1107,52 +1227,134 @@
         }
       ],
       "cta": "Contact & inquiry"
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "q": "Is the women’s retreat in Costa Rica right for me?",
+          "a": "This retreat is for women who want to step out of constant functioning and return to connection with themselves.\nIf you want to slow down, feel yourself again, and you’re longing for a protected space for inner clarity, this retreat may be a good fit."
+        },
+        {
+          "q": "Do I need spiritual experience for the retreat?",
+          "a": "No. You don’t need spiritual experience, prior knowledge, or a specific worldview.\nAll you bring is your willingness to meet yourself honestly."
+        },
+        {
+          "q": "Is the retreat therapy or a vacation?",
+          "a": "This retreat is neither therapy nor a classic vacation.\nIt’s a guided experiential space where slowing down, self-perception and inner integration are at the center -without performance pressure or judgment."
+        },
+        {
+          "q": "How intense is the women’s retreat?",
+          "a": "The retreat has a clear, safe structure and at the same time plenty of free space.\nThere are shared processes and rituals, and also time for retreat, nature, rest and personal integration.\nYou decide at any time how deeply you want to participate."
+        },
+        {
+          "q": "Do I have to open up in the group or share something?",
+          "a": "No. There is no pressure to share and no group pressure.\nYour boundaries are respected. Retreat is as welcome as exchange."
+        },
+        {
+          "q": "What happens if strong emotions arise?",
+          "a": "Emotions are welcome -without having to be analyzed or “fixed”.\nYou are held and accompanied with care, not corrected or judged."
+        },
+        {
+          "q": "How big is the group?",
+          "a": "The group is intentionally kept small to create a safe, personal and trusting space.\nQuality, depth and presence come first."
+        },
+        {
+          "q": "Can I travel to Costa Rica alone?",
+          "a": "Yes. Many participants travel alone.\nYou are accompanied and held from arrival to goodbye.\nOften, the journey already creates a first reconnection with yourself."
+        },
+        {
+          "q": "Is there free time during the retreat?",
+          "a": "Yes. The retreat doesn’t follow a tight schedule.\nFree time for nature, the ocean, movement, rest or excursions is intentionally included."
+        },
+        {
+          "q": "Are additional offers mandatory?",
+          "a": "No.\nAll additional supportive offers are optional and not something you need.\nThe retreat is complete and self-contained."
+        },
+        {
+          "q": "Which optional offers can be booked on site?",
+          "a": "During the retreat you are in a complete, held process.\nEverything essential is already included.\nIf you feel the desire to go deeper into a personal topic, individual sessions can be booked optionally.\nFor example:",
+          "bullets": [
+            "Heart healing",
+            "Akashic reading",
+            "Individual 1:1 support"
+          ]
+        },
+        {
+          "q": "Space for your own design",
+          "a": "In your free time you also have the option to shape your stay in Costa Rica according to your needs.\nFor example:",
+          "bullets": [
+            "Surfing",
+            "Yoga",
+            "Massages",
+            "Nature & retreat"
+          ]
+        },
+        {
+          "q": "What will I take home from the retreat?",
+          "a": "Many women report:",
+          "bullets": [
+            "more inner calm",
+            "stronger self-perception",
+            "more trust in their own pace",
+            "lasting inner clarity"
+          ]
+        },
+        {
+          "q": "How do I know if now is the right time?",
+          "a": "The right time rarely feels logical.\nOften it shows up as a desire for slowing down, clarity and inner space.\nIf that need is there, that’s already a sufficient sign."
+        },
+        {
+          "q": "Can I have a conversation before booking?",
+          "a": "Yes.\nYou can request a non-binding conversation at any time to clarify open questions and sense whether the retreat is right for you."
+        }
+      ]
     }
   },
   "Blog": {
     "title": "Blog",
-    "lead": "Impulses, perspectives, and texts for inner clarity, change, and true reconnection.",
+    "lead": "Insights, perspectives, and texts for inner clarity, transformation, and genuine reconnection.",
     "categoriesNavAria": "Blog categories navigation",
     "readMore": "Read more",
     "readMoreAria": "Read more: {title}",
-    "emptyCategory": "No posts in this category yet. Something new is coming soon.",
+    "emptyCategory": "There are no posts in this category yet. Something new is coming soon.",
     "categories": {
       "coaching": {
         "label": "Coaching",
         "title": "Coaching",
-        "description": "Guidance, mindset, and practice – for real movement within."
+        "description": "Guidance, presence, and practice -for real inner movement."
       },
       "beliefs": {
         "label": "Beliefs",
         "title": "Beliefs",
-        "description": "Recognize thought patterns, untangle them, and choose anew."
+        "description": "Recognizing thought patterns, untangling them, and choosing anew."
       },
       "transformation": {
-        "label": "Awareness & transformation",
-        "title": "Awareness & transformation",
-        "description": "When change begins quietly – and you keep going anyway."
+        "label": "Awareness & Transformation",
+        "title": "Awareness & Transformation",
+        "description": "When change begins quietly - and you keep moving forward."
       },
       "development": {
-        "label": "Growth",
-        "title": "Growth",
+        "label": "Development",
+        "title": "Development",
         "description": "Growth, self-leadership, and new perspectives in everyday life."
       },
       "mindfuck": {
         "label": "Mindfuck",
         "title": "Mindfuck",
-        "description": "When your mind gets loud – and you want to see clearly again."
+        "description": "When the mind gets loud - and you want to see clearly again."
       }
     },
     "meta": {
       "title": "Blog",
-      "description": "Impulses, perspectives, and texts for inner clarity and change.",
+      "description": "Insights, perspectives, and texts for inner clarity and transformation.",
       "canonical": "/blog",
       "og": {
         "title": "Blog",
-        "description": "Impulses, perspectives, and texts for inner clarity and change.",
+        "description": "Insights, perspectives, and texts for inner clarity and transformation.",
         "url": "/blog",
         "siteName": "Coco Soulcoaching",
-        "locale": "de_DE",
+        "locale": "en_US",
         "type": "website",
         "images": [
           {
@@ -1164,7 +1366,7 @@
       "twitter": {
         "card": "summary_large_image",
         "title": "Blog",
-        "description": "Impulses, perspectives, and texts for inner clarity and change.",
+        "description": "Insights, perspectives, and texts for inner clarity and transformation.",
         "images": [
           "/og/blog.jpg"
         ]
@@ -1229,7 +1431,7 @@
       "items": [
         {
           "tag": "Online seminar",
-          "title": "To be aware. To become aware. To live consciously.",
+          "title": "Maybe you are waiting for a turning point that will never be loud.",
           "body": "An inner journey in three encounters.\nFor people who want to engage more consciously with change, inner clarity, and self-connection.",
           "meta": [
             "April – May 2026",
@@ -1276,7 +1478,7 @@
     },
     "intro": {
       "kicker": "Online Seminar · Spring 2026",
-      "title": "To be aware\nTo become aware\nTo live consciously",
+      "title": "Maybe you are waiting for a turning point that will never be loud.",
       "subtitle": "A three-part online seminar for inner clarity and conscious change.",
       "meta": [
         "April – May 2026",
