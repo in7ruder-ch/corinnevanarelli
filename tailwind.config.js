@@ -18,6 +18,7 @@ module.exports = {
         white: "#FFFFFF",
         ink: "#191919",
         accent: "#B58B5A",
+        brand: "rgb(var(--brand-rgb) / <alpha-value>)",
       },
     },
   },

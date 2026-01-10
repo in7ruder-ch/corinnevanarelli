@@ -95,7 +95,7 @@ export default async function CostaRicaRetreatPage() {
               {[0, 1, 2].map((idx) => (
                 <span
                   key={idx}
-                  className="rounded-full bg-neutral-100 px-3 py-1 text-neutral-700"
+                  className="rounded-full bg-brand/15 px-3 py-1 text-neutral-700"
                 >
                   {t(`hero.badges.${idx}`)}
                 </span>
