@@ -56,7 +56,7 @@ export default function Testimonials({ items: itemsProp }) {
         </p>
 
         <p className="mt-6 text-sm" style={{ color: "var(--muted)" }}>
-          — {tItem.name}
+          - {tItem.name}
         </p>
 
         {/* Puntos */}

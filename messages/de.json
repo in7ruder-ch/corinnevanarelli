@@ -1389,8 +1389,8 @@
     },
     "pagination": {
       "aria": "Beitragsnavigation",
-      "prev": "Vorheriger Beitrag",
-      "next": "Nächster Beitrag"
+      "prev": "Neuerer Beitrag",
+      "next": "Älterer Beitrag"
     }
   },
   "EventsSeminars": {

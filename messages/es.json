@@ -1393,8 +1393,8 @@
     },
     "pagination": {
       "aria": "Navegación de publicaciones",
-      "prev": "Publicación anterior",
-      "next": "Siguiente publicación"
+      "prev": "Publicación más reciente",
+      "next": "Publicación más antigua"
     }
   },
   "EventsSeminars": {

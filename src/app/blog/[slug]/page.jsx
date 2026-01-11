@@ -60,10 +60,7 @@ export default async function BlogPostPage({ params }) {
           className="pt-[12rem] pb-16"
           containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[900px]"
         >
-          <h1
-            className="text-3xl md:text-4xl font-bold"
-            style={{ color: "var(--text)" }}
-          >
+          <h1 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--text)" }}>
             {t("notFound.title")}
           </h1>
 
@@ -72,11 +69,7 @@ export default async function BlogPostPage({ params }) {
           </p>
 
           <div className="mt-8">
-            <Link
-              href="/blog"
-              className="hover:underline"
-              style={{ color: "var(--brand)" }}
-            >
+            <Link href="/blog" className="hover:underline" style={{ color: "var(--brand)" }}>
               ← {t("backToBlog")}
             </Link>
           </div>
@@ -114,10 +107,7 @@ export default async function BlogPostPage({ params }) {
             {readingTime ? <span>• {readingTime}</span> : null}
           </div>
 
-          <h1
-            className="mt-4 text-3xl md:text-5xl leading-tight font-bold"
-            style={{ color: "var(--text)" }}
-          >
+          <h1 className="mt-4 text-3xl md:text-5xl leading-tight font-bold" style={{ color: "var(--text)" }}>
             {title}
           </h1>
 
@@ -237,67 +227,39 @@ export default async function BlogPostPage({ params }) {
               aria-label={t("pagination.aria")}
             >
               <div className="grid gap-4 md:grid-cols-2">
-                {/* Prev (más nuevo) */}
+                {/* Más antiguo (older) -> next */}
                 <div>
-                  {prev ? (
-                    <Link
-                      href={`/blog/${prev.slug}`}
-                      className="group block rounded-xl p-5 transition-colors"
-                      style={{
-                        backgroundColor: "var(--surface)",
-                        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor =
-                          "color-mix(in srgb, var(--brand) 40%, transparent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor =
-                          "color-mix(in srgb, var(--brand) 22%, transparent)";
-                      }}
-                    >
-                      <p className="text-xs tracking-[0.25em] uppercase" style={{ color: "var(--muted)" }}>
-                        {t("pagination.prev")}
-                      </p>
-
-                      <p
-                        className="mt-2 text-lg font-semibold group-hover:underline"
-                        style={{ color: "var(--text)" }}
-                      >
-                        {prev.title?.[locale] ?? prev.title?.de ?? ""}
-                      </p>
-                    </Link>
-                  ) : null}
-                </div>
-
-                {/* Next (más viejo) */}
-                <div className="md:text-right">
                   {next ? (
                     <Link
                       href={`/blog/${next.slug}`}
-                      className="group block rounded-xl p-5 transition-colors"
-                      style={{
-                        backgroundColor: "var(--surface)",
-                        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor =
-                          "color-mix(in srgb, var(--brand) 40%, transparent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor =
-                          "color-mix(in srgb, var(--brand) 22%, transparent)";
-                      }}
+                      className="group block rounded-xl p-5 transition-colors border border-[color-mix(in_srgb,var(--brand)_22%,transparent)] hover:border-[color-mix(in_srgb,var(--brand)_40%,transparent)]"
+                      style={{ backgroundColor: "var(--surface)" }}
                     >
                       <p className="text-xs tracking-[0.25em] uppercase" style={{ color: "var(--muted)" }}>
                         {t("pagination.next")}
                       </p>
 
-                      <p
-                        className="mt-2 text-lg font-semibold group-hover:underline"
-                        style={{ color: "var(--text)" }}
-                      >
+                      <p className="mt-2 text-lg font-semibold group-hover:underline" style={{ color: "var(--text)" }}>
                         {next.title?.[locale] ?? next.title?.de ?? ""}
+                      </p>
+                    </Link>
+                  ) : null}
+                </div>
+
+                {/* Más reciente (newer) -> prev */}
+                <div className="md:text-right">
+                  {prev ? (
+                    <Link
+                      href={`/blog/${prev.slug}`}
+                      className="group block rounded-xl p-5 transition-colors border border-[color-mix(in_srgb,var(--brand)_22%,transparent)] hover:border-[color-mix(in_srgb,var(--brand)_40%,transparent)]"
+                      style={{ backgroundColor: "var(--surface)" }}
+                    >
+                      <p className="text-xs tracking-[0.25em] uppercase" style={{ color: "var(--muted)" }}>
+                        {t("pagination.prev")}
+                      </p>
+
+                      <p className="mt-2 text-lg font-semibold group-hover:underline" style={{ color: "var(--text)" }}>
+                        {prev.title?.[locale] ?? prev.title?.de ?? ""}
                       </p>
                     </Link>
                   ) : null}
