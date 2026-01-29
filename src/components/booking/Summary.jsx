@@ -6,6 +6,9 @@ import { useTranslations, useLocale } from "next-intl";
 const PAYMENTS_ENABLED =
   (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED ?? "").toString().trim() === "true";
 
+const TEL_HREF = "tel:+41797167212";
+const MAIL_HREF = "mailto:kontakt@corinnevanarelli.ch";
+
 function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
   const t = useTranslations("Booking.Summary.paypal");
   const [paid, setPaid] = useState(null);
@@ -13,7 +16,11 @@ function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
   if (isFree || !paymentsEnabled) return null;
 
   if (!holdInfo?.bookingId) {
-    return <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>{t("missingId")}</p>;
+    return (
+      <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
+        {t("missingId")}
+      </p>
+    );
   }
 
   if (paid?.ok) {
@@ -23,7 +30,7 @@ function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
         style={{
           backgroundColor: "color-mix(in srgb, #22c55e 10%, var(--surface))",
           border: "1px solid color-mix(in srgb, #22c55e 30%, transparent)",
-          color: "#166534"
+          color: "#166534",
         }}
       >
         {t("paid")} ✅ – {t("seeYou")}
@@ -31,16 +38,10 @@ function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
     );
   }
 
-  return (
-    <PayPalButton
-      bookingId={holdInfo.bookingId}
-      onPaid={setPaid}
-      isFree={isFree}
-    />
-  );
+  return <PayPalButton bookingId={holdInfo.bookingId} onPaid={setPaid} isFree={isFree} />;
 }
 
-export default function Summary({ service, datetime }) {
+export default function Summary({ service, datetime, isAutoBooking = true }) {
   const t = useTranslations("Booking.Summary");
   const locale = useLocale();
 
@@ -71,10 +72,10 @@ export default function Summary({ service, datetime }) {
 
   const priceNumber = Number(
     service?.price ??
-    service?.price_chf ??
-    service?.priceChf ??
-    service?.priceCHF ??
-    0
+      service?.price_chf ??
+      service?.priceChf ??
+      service?.priceCHF ??
+      0
   );
 
   const priceFormatted = useMemo(() => {
@@ -82,7 +83,7 @@ export default function Summary({ service, datetime }) {
       return new Intl.NumberFormat(locale, {
         style: "currency",
         currency: "CHF",
-        minimumFractionDigits: 0
+        minimumFractionDigits: 0,
       }).format(priceNumber);
     } catch {
       return `CHF ${priceNumber}`;
@@ -103,8 +104,8 @@ export default function Summary({ service, datetime }) {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           serviceId,
-          startISO: datetime.timeISO
-        })
+          startISO: datetime.timeISO,
+        }),
       });
 
       if (res.status === 409) {
@@ -119,7 +120,7 @@ export default function Summary({ service, datetime }) {
       const json = await res.json();
       setHoldInfo({
         bookingId: json.bookingId,
-        hold_until: json.hold_until
+        hold_until: json.hold_until,
       });
     } finally {
       setLoading(false);
@@ -145,8 +146,8 @@ export default function Summary({ service, datetime }) {
         body: JSON.stringify({
           bookingId: holdInfo.bookingId,
           name: form.name.trim(),
-          email: form.email.trim()
-        })
+          email: form.email.trim(),
+        }),
       });
 
       if (!res.ok) {
@@ -166,14 +167,15 @@ export default function Summary({ service, datetime }) {
       className="rounded-2xl p-6"
       style={{
         backgroundColor: "var(--surface)",
-        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)"
+        border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
       }}
     >
       <div className="font-semibold mb-2" style={{ color: "var(--text)" }}>
         {t("title")}
       </div>
 
-      {!hasAll && (
+      {/* Hint solo en modo auto-booking */}
+      {isAutoBooking && !hasAll && (
         <p className="text-sm" style={{ color: "var(--muted)" }}>
           {t("hintSelect")}
         </p>
@@ -181,139 +183,190 @@ export default function Summary({ service, datetime }) {
 
       {service && (
         <p className="text-sm" style={{ color: "var(--text)" }}>
-          <strong>{t("labels.service")}:</strong>{" "}
+          <strong>{t("labels.service")}</strong>{" "}
           {service.title} • {service.durationMin} {t("labels.min")} • {priceFormatted}
         </p>
       )}
 
-      {datetime?.timeISO && (
+      {/* Cita solo si hay fecha/hora y modo auto-booking */}
+      {isAutoBooking && datetime?.timeISO && (
         <p className="text-sm mt-1" style={{ color: "var(--text)" }}>
           <strong>{t("labels.appointment")}:</strong>{" "}
           {new Intl.DateTimeFormat(locale, {
             dateStyle: "medium",
-            timeStyle: "short"
+            timeStyle: "short",
           }).format(new Date(datetime.timeISO))}
         </p>
       )}
 
-      {holdInfo?.error && (
-        <p className="mt-3 text-sm text-red-600">{holdInfo.error}</p>
-      )}
-
-      {/* STEP 1 */}
-      {!hasHold && (
-        <button
-          type="button"
-          disabled={!hasAll || loading}
-          onClick={createHold}
-          className="mt-4 w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors"
-          style={{
-            backgroundColor: hasAll
-              ? "var(--brand)"
-              : "color-mix(in srgb, var(--brand) 25%, transparent)",
-            color: "white"
-          }}
-          data-summary-cta
-        >
-          {loading ? t("btn.wait") : t("btn.next")}
-        </button>
-      )}
-
-      {/* STEP 2 */}
-      {hasHold && !confirmState?.ok && (
-        <div className="mt-4">
-          <div className="text-sm mb-3" style={{ color: "var(--muted)" }}>
-            {t("hold.info")} –{" "}
-            {t("hold.until")}{" "}
-            {new Intl.DateTimeFormat(locale, {
-              hour: "2-digit",
-              minute: "2-digit"
-            }).format(new Date(holdInfo.hold_until))}
+      {/* ✅ MODO MANUAL: CTA de contacto y salimos */}
+      {!isAutoBooking && service && (
+        <>
+          <div
+            className="mt-4 rounded-xl p-4 text-sm"
+            style={{
+              backgroundColor: "color-mix(in srgb, var(--brand) 8%, var(--surface))",
+              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              color: "var(--text)",
+            }}
+          >
+            {t("manual.message")}
           </div>
 
-          <form className="space-y-3" onSubmit={confirmPending}>
-            {["name", "email"].map((f) => (
-              <input
-                key={f}
-                type={f === "email" ? "email" : "text"}
-                placeholder={t(`form.${f}`)}
-                className="w-full rounded-xl px-4 py-3 text-sm"
-                style={{
-                  backgroundColor: "var(--surface)",
-                  border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-                  color: "var(--text)"
-                }}
-                value={form[f]}
-                onChange={(e) => setForm((x) => ({ ...x, [f]: e.target.value }))}
-              />
-            ))}
+          <a
+            href={TEL_HREF}
+            className="mt-4 w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors inline-flex items-center justify-center"
+            style={{
+              backgroundColor: "var(--brand)",
+              color: "white",
+              textDecoration: "none",
+            }}
+            data-summary-cta
+          >
+            {t("manual.ctaPhone")}
+          </a>
 
-            {confirmState?.error && (
-              <p className="text-sm text-red-600">{confirmState.error}</p>
-            )}
+          <a
+            href={MAIL_HREF}
+            className="mt-3 w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors inline-flex items-center justify-center"
+            style={{
+              backgroundColor: "var(--brand)",
+              color: "white",
+              textDecoration: "none",
+            }}
+            data-summary-cta
+          >
+            {t("manual.ctaMail")}
+          </a>
 
+          {/* Hover (links y buttons) */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                a[data-summary-cta]:hover,
+                button[data-summary-cta]:hover {
+                  background-color: color-mix(in srgb, var(--brand) 85%, black);
+                }
+              `,
+            }}
+          />
+        </>
+      )}
+
+      {/* ✅ A partir de acá: SOLO modo auto-booking */}
+      {isAutoBooking && (
+        <>
+          {holdInfo?.error && <p className="mt-3 text-sm text-red-600">{holdInfo.error}</p>}
+
+          {/* STEP 1 */}
+          {!hasHold && (
             <button
-              type="submit"
-              disabled={loading}
-              className="w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors"
+              type="button"
+              disabled={!hasAll || loading}
+              onClick={createHold}
+              className="mt-4 w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors"
               style={{
-                backgroundColor: "var(--brand)",
-                color: "white"
+                backgroundColor: hasAll
+                  ? "var(--brand)"
+                  : "color-mix(in srgb, var(--brand) 25%, transparent)",
+                color: "white",
               }}
               data-summary-cta
             >
-              {loading
-                ? t("btn.sending")
-                : isFreeOrNoPay
-                ? t("btn.reserveFree")
-                : t("btn.confirm")}
+              {loading ? t("btn.wait") : t("btn.next")}
             </button>
-          </form>
-        </div>
-      )}
+          )}
 
-      {/* STEP 3 */}
-      {confirmState?.ok && isFreeOrNoPay && (
-        <div
-          className="mt-4 rounded-xl p-3 text-sm"
-          style={{
-            backgroundColor: "color-mix(in srgb, var(--brand) 8%, var(--surface))",
-            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)"
-          }}
-        >
-          <div className="font-medium">{t("success.title")}</div>
-          <p className="mt-1">{t("success.body")}</p>
-        </div>
-      )}
+          {/* STEP 2 */}
+          {hasHold && !confirmState?.ok && (
+            <div className="mt-4">
+              <div className="text-sm mb-3" style={{ color: "var(--muted)" }}>
+                {t("hold.info")} – {t("hold.until")}{" "}
+                {new Intl.DateTimeFormat(locale, {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                }).format(new Date(holdInfo.hold_until))}
+              </div>
 
-      {confirmState?.ok && !isFreeOrNoPay && (
-        <div
-          className="mt-4 rounded-xl p-3 text-sm"
-          style={{
-            backgroundColor: "var(--surface)",
-            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)"
-          }}
-        >
-          <div className="font-medium">{t("payPending.title")}</div>
-          <p className="mt-1">{t("payPending.body")}</p>
-          <PayPalSection
-            holdInfo={holdInfo}
-            isFree={isFree}
-            paymentsEnabled={PAYMENTS_ENABLED}
+              <form className="space-y-3" onSubmit={confirmPending}>
+                {["name", "email"].map((f) => (
+                  <input
+                    key={f}
+                    type={f === "email" ? "email" : "text"}
+                    placeholder={t(`form.${f}`)}
+                    className="w-full rounded-xl px-4 py-3 text-sm"
+                    style={{
+                      backgroundColor: "var(--surface)",
+                      border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                      color: "var(--text)",
+                    }}
+                    value={form[f]}
+                    onChange={(e) => setForm((x) => ({ ...x, [f]: e.target.value }))}
+                  />
+                ))}
+
+                {confirmState?.error && <p className="text-sm text-red-600">{confirmState.error}</p>}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors"
+                  style={{
+                    backgroundColor: "var(--brand)",
+                    color: "white",
+                  }}
+                  data-summary-cta
+                >
+                  {loading ? t("btn.sending") : isFreeOrNoPay ? t("btn.reserveFree") : t("btn.confirm")}
+                </button>
+              </form>
+            </div>
+          )}
+
+          {/* STEP 3 */}
+          {confirmState?.ok && isFreeOrNoPay && (
+            <div
+              className="mt-4 rounded-xl p-3 text-sm"
+              style={{
+                backgroundColor: "color-mix(in srgb, var(--brand) 8%, var(--surface))",
+                border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              }}
+            >
+              <div className="font-medium">{t("success.title")}</div>
+              <p className="mt-1">{t("success.body")}</p>
+            </div>
+          )}
+
+          {confirmState?.ok && !isFreeOrNoPay && (
+            <div
+              className="mt-4 rounded-xl p-3 text-sm"
+              style={{
+                backgroundColor: "var(--surface)",
+                border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              }}
+            >
+              <div className="font-medium">{t("payPending.title")}</div>
+              <p className="mt-1">{t("payPending.body")}</p>
+              <PayPalSection
+                holdInfo={holdInfo}
+                isFree={isFree}
+                paymentsEnabled={PAYMENTS_ENABLED}
+              />
+            </div>
+          )}
+
+          {/* Hover global (button) */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                button[data-summary-cta]:hover {
+                  background-color: color-mix(in srgb, var(--brand) 85%, black);
+                }
+              `,
+            }}
           />
-        </div>
+        </>
       )}
-
-      {/* Hover global */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            button[data-summary-cta]:hover {
-              background-color: color-mix(in srgb, var(--brand) 85%, black);
-            }
-          `,
-        }}
-      />
     </div>
   );
 }

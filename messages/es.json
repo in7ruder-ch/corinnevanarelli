@@ -911,6 +911,11 @@
         "missingId": "Falta el ID de la reserva.",
         "paid": "Pago recibido",
         "seeYou": "¡Nos vemos en el turno!"
+      },
+      "manual": {
+        "message": "Este servicio se coordina de forma personalizada. Contáctame directamente para acordar un día y un horario.",
+        "ctaPhone": "Contactarme por teléfono",
+        "ctaMail": "Contactarme por email"
       }
     }
   },

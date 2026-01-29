@@ -907,6 +907,11 @@
         "missingId": "Missing booking ID.",
         "paid": "Payment received",
         "seeYou": "See you at the appointment!"
+      },
+      "manual": {
+        "message": "This service is scheduled individually. Please contact me directly so we can agree on a day and time.",
+        "ctaPhone": "Contact me by phone",
+        "ctaMail": "Contact me by email"
       }
     }
   },

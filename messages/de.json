@@ -907,6 +907,11 @@
         "missingId": "Fehlende Buchung-ID.",
         "paid": "Zahlung erhalten",
         "seeYou": "Wir sehen uns zum Termin!"
+      },
+      "manual": {
+        "message": "Dieser Service wird individuell terminiert. Bitte kontaktiere mich direkt, damit wir gemeinsam einen passenden Tag und eine Uhrzeit finden.",
+        "ctaPhone": "Kontakt per Telefon",
+        "ctaMail": "Kontakt per E-Mail"
       }
     }
   },

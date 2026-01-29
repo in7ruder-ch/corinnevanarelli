@@ -22,7 +22,7 @@ function toISODate(d) {
 }
 const DATE_FORMAT = { weekday: "short", day: "2-digit", month: "long", year: "numeric" };
 
-export default function DateTimePicker({ onChange, service }) {
+export default function DateTimePicker({ onChange, service, isAutoBooking = true }) {
   const t = useTranslations("Booking.DateTimePicker");
   const locale = useLocale();
 
@@ -83,7 +83,10 @@ export default function DateTimePicker({ onChange, service }) {
   };
 
   useLayoutEffect(() => {
+    // ✅ Siempre se llama el hook; solo lo “apagamos” por condición interna
+    if (!isAutoBooking) return;
     if (!openCal) return;
+
     positionPopover();
 
     const onResize = () => positionPopover();
@@ -109,15 +112,29 @@ export default function DateTimePicker({ onChange, service }) {
       document.removeEventListener("mousedown", onClick);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [openCal]);
+  }, [openCal, isAutoBooking]);
 
   useEffect(() => {
+    // ✅ Si pasamos a modo manual, cerramos calendario, limpiamos hora/slots, y notificamos arriba
+    if (isAutoBooking) return;
+    setOpenCal(false);
+    setSlots([]);
+    setLoading(false);
+    setTime(null);
+    onChange?.({ date: null, timeISO: null });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAutoBooking]);
+
+  useEffect(() => {
+    if (!isAutoBooking) return;
     setTime(null);
     onChange?.({ date, timeISO: null });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [service?.id]);
 
   useEffect(() => {
+    if (!isAutoBooking) return;
+
     let mounted = true;
 
     if (!service?.id) {
@@ -161,7 +178,7 @@ export default function DateTimePicker({ onChange, service }) {
       mounted = false;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [date, service?.id]);
+  }, [date, service?.id, isAutoBooking]);
 
   function handleSelect(iso) {
     setTime(iso);
@@ -169,6 +186,9 @@ export default function DateTimePicker({ onChange, service }) {
   }
 
   const serviceSelected = !!service?.id;
+
+  // ✅ Recién acá “apagamos” el render, después de declarar todos los hooks
+  if (!isAutoBooking) return null;
 
   return (
     <div className="space-y-3">
