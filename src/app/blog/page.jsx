@@ -98,6 +98,10 @@ export default async function BlogPage() {
                 article[data-blog-card]:hover {
                   border-color: color-mix(in srgb, var(--brand) 40%, transparent);
                 }
+
+                /* Mobile horizontal scroll: hide scrollbar (best effort) */
+                .blog-row::-webkit-scrollbar { display: none; }
+                .blog-row { scrollbar-width: none; }
               `,
             }}
           />
@@ -109,10 +113,7 @@ export default async function BlogPage() {
             return (
               <section key={cat} id={cat} className="scroll-mt-40">
                 <div>
-                  <h2
-                    className="text-2xl md:text-3xl font-semibold tracking-tight"
-                    style={{ color: "var(--text)" }}
-                  >
+                  <h2 className="text-2xl md:text-3xl font-semibold tracking-tight" style={{ color: "var(--text)" }}>
                     {t(`categories.${cat}.title`)}
                   </h2>
 
@@ -133,52 +134,78 @@ export default async function BlogPage() {
                     {t("emptyCategory")}
                   </div>
                 ) : (
-                  <div className="mt-8 grid gap-6 md:grid-cols-2">
-                    {posts.map((p) => {
-                      const postTitle = p.title?.[locale] ?? p.title?.de ?? "";
-                      const postExcerpt = p.excerpt?.[locale] ?? p.excerpt?.de ?? "";
+                  <>
+                    {/* Desktop: grid. Mobile: horizontal "Netflix" row */}
+                    <div
+                      className={[
+                        "mt-8",
+                        // mobile: netflix row
+                        "blog-row flex gap-4 overflow-x-auto pb-2 -mx-4 snap-x snap-mandatory",
+                        // desktop+
+                        "md:mx-0 md:pb-0 md:grid md:gap-6 md:grid-cols-2 md:overflow-visible",
+                      ].join(" ")}
+                    >
+                      {/* left gutter (matches page padding) */}
+                      <div className="shrink-0 w-4 sm:w-6 md:hidden" aria-hidden="true" />
 
-                      return (
-                        <article
-                          key={p.slug}
-                          className="rounded-xl p-6 transition-colors"
-                          style={{
-                            backgroundColor: "var(--surface)",
-                            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-                          }}
-                          data-blog-card
-                        >
-                          <div
-                            className="flex items-center justify-between gap-3 text-sm"
-                            style={{ color: "var(--muted)" }}
+                      {posts.map((p) => {
+                        const postTitle = p.title?.[locale] ?? p.title?.de ?? "";
+                        const postExcerpt = p.excerpt?.[locale] ?? p.excerpt?.de ?? "";
+
+                        return (
+                          <article
+                            key={p.slug}
+                            className={[
+                              "rounded-xl p-6 transition-colors",
+                              // mobile sizing + snapping
+                              "snap-start min-w-[85%] sm:min-w-[70%]",
+                              // desktop reset
+                              "md:min-w-0",
+                            ].join(" ")}
+                            style={{
+                              backgroundColor: "var(--surface)",
+                              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                            }}
+                            data-blog-card
                           >
-                            <span>{t(`categories.${cat}.label`)}</span>
-                            <span>{p.date}</span>
-                          </div>
+                            <div className="flex items-center justify-between gap-3 text-sm" style={{ color: "var(--muted)" }}>
+                              <span>{t(`categories.${cat}.label`)}</span>
+                              <span>{p.date}</span>
+                            </div>
 
-                          <h3 className="mt-3 text-xl font-semibold" style={{ color: "var(--text)" }}>
-                            {postTitle}
-                          </h3>
+                            <h3 className="mt-3 text-xl font-semibold" style={{ color: "var(--text)" }}>
+                              {postTitle}
+                            </h3>
 
-                          <p className="mt-2" style={{ color: "var(--muted)" }}>
-                            {postExcerpt}
-                          </p>
+                            <p className="mt-2" style={{ color: "var(--muted)" }}>
+                              {postExcerpt}
+                            </p>
 
-                          <div className="mt-4">
-                            <Link
-                              href={`/blog/${p.slug}`}
-                              className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
-                              style={{ color: "var(--brand)" }}
-                              aria-label={t("readMoreAria", { title: postTitle })}
-                            >
-                              {t("readMore")}
-                              <span aria-hidden="true">→</span>
-                            </Link>
-                          </div>
-                        </article>
-                      );
-                    })}
-                  </div>
+                            <div className="mt-4">
+                              <Link
+                                href={`/blog/${p.slug}`}
+                                className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                                style={{ color: "var(--brand)" }}
+                                aria-label={t("readMoreAria", { title: postTitle })}
+                              >
+                                {t("readMore")}
+                                <span aria-hidden="true">→</span>
+                              </Link>
+                            </div>
+                          </article>
+                        );
+                      })}
+
+                      {/* right gutter (matches page padding) */}
+                      <div className="shrink-0 w-4 sm:w-6 md:hidden" aria-hidden="true" />
+                    </div>
+
+
+                    {/* Optional hint for mobile (subtle) */}
+                    <p className="mt-3 text-sm md:hidden" style={{ color: "var(--muted)" }}>
+                      {t("swipeHint") /* si no existe esta key, borrá este <p> */}
+                    </p>
+                  </>
                 )}
               </section>
             );

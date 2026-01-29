@@ -1314,6 +1314,7 @@
     }
   },
   "Blog": {
+    "swipeHint": "Swipe right to see more.",
     "title": "Blog",
     "lead": "Insights, perspectives, and texts for inner clarity, transformation, and genuine reconnection.",
     "categoriesNavAria": "Blog categories navigation",

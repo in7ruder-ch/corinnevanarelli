@@ -1314,6 +1314,7 @@
     }
   },
   "Blog": {
+    "swipeHint": "Wische nach rechts, um mehr zu sehen.",
     "title": "Blog",
     "lead": "Impulse, Perspektiven und Texte für innere Klarheit, Veränderung und echte Rückverbindung.",
     "categoriesNavAria": "Blog Kategorien Navigation",

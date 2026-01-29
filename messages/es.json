@@ -1318,6 +1318,7 @@
     }
   },
   "Blog": {
+    "swipeHint": "Desliza hacia la derecha para ver más.",
     "title": "Blog",
     "lead": "Impulsos, perspectivas y textos para claridad interior, cambio y una reconexión real.",
     "categoriesNavAria": "Navegación de categorías del blog",
