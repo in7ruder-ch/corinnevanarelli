@@ -139,10 +139,10 @@ export default async function BlogPage() {
                     <div
                       className={[
                         "mt-8",
-                        // mobile: netflix row
-                        "blog-row flex gap-4 overflow-x-auto pb-2 -mx-4 snap-x snap-mandatory",
+                        // mobile
+                        "blog-row flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 snap-x snap-mandatory scroll-px-4",
                         // desktop+
-                        "md:mx-0 md:pb-0 md:grid md:gap-6 md:grid-cols-2 md:overflow-visible",
+                        "md:mx-0 md:px-0 md:pb-0 md:grid md:gap-6 md:grid-cols-2 md:overflow-visible md:snap-none md:scroll-px-0",
                       ].join(" ")}
                     >
                       {/* left gutter (matches page padding) */}
