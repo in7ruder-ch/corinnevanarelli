@@ -7,8 +7,6 @@ import { useEffect, useRef, useState } from 'react';
 
 // [i18n-add]
 import { useTranslations, useLocale } from 'next-intl';
-// [i18n-add]
-import { changeLocale } from '@/actions/locale';
 
 const SCROLL_KEY = 'scroll:after-locale';
 
@@ -35,9 +33,7 @@ function NavLink({ href, children, onClick, size = 'desktop' }) {
   );
 }
 
-function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, align = 'right' }) {
-  const formRef = useRef(null);
-
+function LocaleMenu({ activeLocale, pathname, align = 'right' }) {
   const LOCALES = [
     { value: 'de', label: 'DE', flagSrc: '/img/flags/de.svg', flagAlt: 'Deutsch' },
     { value: 'en', label: 'EN', flagSrc: '/img/flags/gb.svg', flagAlt: 'English' },
@@ -46,11 +42,12 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
 
   const current = LOCALES.find(l => l.value === activeLocale) ?? LOCALES[0];
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const onDocClick = (e) => {
       if (!open) return;
-      const root = formRef.current;
+      const root = menuRef.current;
       if (!root) return;
       if (!root.contains(e.target)) setOpen(false);
     };
@@ -58,31 +55,16 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
     return () => document.removeEventListener('mousedown', onDocClick);
   }, [open]);
 
-  function submitLocale(nextLocale) {
-    const form = formRef.current;
-    if (!form) return;
-
-    if (typeof window !== 'undefined') {
-      onBeforeSubmit?.(form);
-
-      const url = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-      const hidden = form.querySelector('input[name="redirectTo"]');
-      if (hidden) hidden.value = url;
-    }
-
-    const input = form.querySelector('input[name="locale"]');
-    if (input) input.value = nextLocale;
-
-    form.requestSubmit();
-    setOpen(false);
-    onAfterSubmit?.();
+  // ✅ NUEVO: Remover el locale actual del pathname y agregar el nuevo
+  function getLocaleUrl(locale) {
+    // pathname es algo como "/de/ueber-mich" o "/de/"
+    // Removemos el locale actual (/de, /en, /es) y agregamos el nuevo
+    const pathWithoutLocale = pathname.replace(/^\/(de|en|es)(\/|$)/, '/');
+    return `/${locale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
   }
 
   return (
-    <form ref={formRef} action={changeLocale} className="relative inline-flex items-center">
-      <input type="hidden" name="redirectTo" value={pathname || '/'} />
-      <input type="hidden" name="locale" value={activeLocale} />
-
+    <div ref={menuRef} className="relative inline-flex items-center">
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
@@ -121,11 +103,11 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
           {LOCALES.map((l) => {
             const isActive = l.value === activeLocale;
             return (
-              <button
+              <Link
                 key={l.value}
-                type="button"
+                href={getLocaleUrl(l.value)}
                 role="menuitem"
-                onClick={() => submitLocale(l.value)}
+                onClick={() => setOpen(false)}
                 className={[
                   'w-full flex items-center gap-2 px-2 py-2 rounded-lg text-sm tracking-[0.02em] transition-colors',
                   isActive ? 'bg-black/5' : 'hover:bg-black/5'
@@ -140,12 +122,12 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
                   className="rounded-[2px]"
                 />
                 <span className="font-medium">{l.label}</span>
-              </button>
+              </Link>
             );
           })}
         </div>
       )}
-    </form>
+    </div>
   );
 }
 
@@ -172,7 +154,7 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  // ✅ 1) Lock scroll del body cuando menu mobile está abierto
+  // Lock scroll del body cuando menu mobile está abierto
   useEffect(() => {
     if (typeof document === 'undefined') return;
 
@@ -193,7 +175,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // ✅ 2) Scroll handler: ignorar mientras el mobile menu está abierto
+  // Scroll handler: ignorar mientras el mobile menu está abierto
   useEffect(() => {
     const onScroll = () => {
       if (mobileOpen) return;
@@ -228,44 +210,6 @@ export default function Navbar() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, [mobileOpen]);
-
-  // --- Restaurar posición de scroll después de cambiar el idioma ---
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const raw = sessionStorage.getItem(SCROLL_KEY);
-    if (!raw) return;
-
-    sessionStorage.removeItem(SCROLL_KEY);
-    const { x = 0, y = 0 } = JSON.parse(raw) || {};
-
-    let tries = 0;
-    const maxTries = 20;
-
-    const tryScroll = () => {
-      const ready =
-        document.readyState === 'complete' ||
-        (document.body && document.body.scrollHeight >= y);
-
-      if (ready || tries >= maxTries) {
-        window.scrollTo(x, y);
-        return;
-      }
-
-      tries += 1;
-      requestAnimationFrame(tryScroll);
-    };
-
-    setTimeout(() => requestAnimationFrame(tryScroll), 0);
-  }, []);
-
-  function onBeforeLocaleSubmit() {
-    if (typeof window === 'undefined') return;
-    sessionStorage.setItem(
-      SCROLL_KEY,
-      JSON.stringify({ x: window.scrollX, y: window.scrollY })
-    );
-  }
 
   function closeMobile() {
     setMobileOpen(false);
@@ -408,7 +352,6 @@ export default function Navbar() {
             <LocaleMenu
               activeLocale={activeLocale}
               pathname={pathname}
-              onBeforeSubmit={onBeforeLocaleSubmit}
             />
           </li>
         </ul>
@@ -418,7 +361,6 @@ export default function Navbar() {
           <LocaleMenu
             activeLocale={activeLocale}
             pathname={pathname}
-            onBeforeSubmit={onBeforeLocaleSubmit}
             align="left"
           />
 

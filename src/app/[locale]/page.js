@@ -1,4 +1,4 @@
-import { getTranslations, getLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
 import Hero from "@/components/Hero";
 import AltSection from "@/components/AltSection";
@@ -9,9 +9,11 @@ import Footer from "@/components/Footer";
 import EventsSection from "@/components/EventsSection";
 
 // Metadata localizada
-export async function generateMetadata() {
-  const t = await getTranslations('Home');
-  const locale = await getLocale();
+export async function generateMetadata({ params }) {
+  // ✅ NUEVO - recibe params y extrae locale
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Home' });
+  
   const ogLocale =
     locale === 'de' ? 'de_DE' :
       locale === 'en' ? 'en_US' : 'es_ES';
@@ -19,11 +21,18 @@ export async function generateMetadata() {
   return {
     title: t('meta.title'),
     description: t('meta.description'),
-    alternates: { canonical: "https://www.corinnevanarelli.ch/" },
+    alternates: { 
+      canonical: `https://www.corinnevanarelli.ch/${locale}/`,
+      languages: {
+        'de': 'https://www.corinnevanarelli.ch/de/',
+        'en': 'https://www.corinnevanarelli.ch/en/',
+        'es': 'https://www.corinnevanarelli.ch/es/',
+      }
+    },
     openGraph: {
       title: t('og.title'),
       description: t('og.description'),
-      url: "https://www.corinnevanarelli.ch/",
+      url: `https://www.corinnevanarelli.ch/${locale}/`,
       siteName: "Corinne Vanarelli",
       images: [
         {
@@ -46,6 +55,8 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
+  // ✅ NUEVO - ya no necesita params aquí porque getTranslations 
+  // toma el locale del contexto (NextIntlClientProvider)
   const t = await getTranslations('Home');
 
   // helpers para rich text
