@@ -1179,7 +1179,7 @@ export const blogPosts = /** @type {BlogPost[]} */ ([
     },
     {
         slug: "was-ich-uber-mich-gelernt-habe-als-alles-still-wurde",
-        category: "transformation",
+        category: "story",
         date: "2026-01-18",
         title: {
             de: "Was ich über mich gelernt habe, als alles still wurde",

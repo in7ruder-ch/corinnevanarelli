@@ -8,7 +8,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { getPostsByCategory } from "@/content/blog/posts";
 
 // Orden fijo (jerárquico) + solo las categorías que queremos mostrar
-const BLOG_CATEGORIES_ORDERED = ["transformation", "coaching"];
+const BLOG_CATEGORIES_ORDERED = ["transformation", "story"];
 
 export async function generateMetadata() {
   const t = await getTranslations("Blog.meta");
