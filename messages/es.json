@@ -996,199 +996,126 @@
   },
   "EventsRetreatCostaRica": {
     "meta": {
-      "title": "Costa Rica Retreat | Corinne Vanarelli",
-      "description": "Un retiro para una reconexión real: cuerpo, sistema nervioso, naturaleza y claridad.",
-      "canonical": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
+      "title": "Retreat Costa Rica – Claridad interior, naturaleza y transformación personal | Corinne Vanarelli",
+      "description": "Retreat Costa Rica 2026: Un retiro intensivo para el autoliderazgo, la regulación del estrés y la claridad interior. Desarrollo personal y transformación en la poderosa naturaleza de Costa Rica.",
+      "canonical": "https://www.corinnevanarelli.ch/es/events/retreats/costa-rica",
       "og": {
-        "title": "Costa Rica Retreat | Corinne Vanarelli",
-        "description": "Un retiro para una reconexión real: cuerpo, sistema nervioso, naturaleza y claridad.",
-        "url": "https://www.corinnevanarelli.ch/events/retreats/costa-rica",
+        "title": "Retreat Costa Rica – Claridad interior, naturaleza y transformación personal | Corinne Vanarelli",
+        "description": "Retreat Costa Rica 2026: Un retiro intensivo para el autoliderazgo, la regulación del estrés y la claridad interior. Desarrollo personal y transformación en la poderosa naturaleza de Costa Rica.",
+        "url": "https://www.corinnevanarelli.ch/es/events/retreats/costa-rica",
         "siteName": "Corinne Vanarelli",
         "images": [
           {
             "url": "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp",
-            "alt": "Costa Rica Retreat – Corinne Vanarelli"
+            "alt": "Retreat Costa Rica – Claridad interior, naturaleza y transformación personal – Corinne Vanarelli"
           }
         ]
       },
       "twitter": {
-        "title": "Costa Rica Retreat | Corinne Vanarelli",
-        "description": "Un retiro para una reconexión real: cuerpo, sistema nervioso, naturaleza y claridad.",
+        "title": "Retreat Costa Rica – Claridad interior, naturaleza y transformación personal | Corinne Vanarelli",
+        "description": "Retreat Costa Rica 2026: Un retiro intensivo para el autoliderazgo, la regulación del estrés y la claridad interior. Desarrollo personal y transformación en la poderosa naturaleza de Costa Rica.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
         ]
       }
     },
     "hero": {
-      "kicker": "Retiro de Mujeres · Costa Rica",
-      "title": "Retiro de Mujeres en medio de la poderosa naturaleza de Costa Rica",
-      "body": "Cuando funcionar ya no sostiene.\n\nUn retiro guiado con presencia para mujeres cuya vida sigue andando por fuera, mientras por dentro algo se ha vuelto más silencioso.\n\nAquí no se trata de cambiarte, sino de volver a conectar.\nCon tu cuerpo.\nCon tu ritmo interno.\nCon lo que se siente verdadero.",
-      "ctaPrimary": "Contactar",
+      "kicker": "Retreat · Costa Rica",
+      "title": "Salir del modo funcionamiento.\nEntrar en autoliderazgo.",
+      "subtitle": "Retreat Costa Rica",
+      "body": "Este retreat está dirigido a personas\ncuya vida sigue funcionando por fuera,\nmientras por dentro ya se hicieron visibles la tensión, la presión o el agotamiento.\n\nDentro de un marco sostenido conscientemente, trabajamos con:\n\n• coaching ontológico\n• comunicación no verbal\n• trabajo de presencia encarnada\n• acompañamiento energético\n\nEl objetivo no es una motivación momentánea,\nsino un cambio sostenible\nen la percepción, el autoliderazgo y la capacidad de decidir.\n\nEn la fuerza de la naturaleza de Costa Rica,\nse abre un espacio\nen el que tu sistema nervioso puede regularse\ny una nueva claridad interna puede volverse posible.\n\nLa transformación aquí no sucede a través de conceptos,\nsino a través de la experiencia.",
+      "ctaPrimary": "Ponerte en contacto",
       "ctaSecondary": "Ver detalles",
       "badges": [
         "Costa Rica",
-        "Naturaleza y presencia",
+        "Autoliderazgo",
+        "Sistema nervioso",
         "Grupo pequeño"
       ],
       "image": {
-        "src": "/img/retreats/costa-rica/hero.webp",
-        "alt": "Naturaleza y calma en Costa Rica",
+        "src": "/img/retreats/costa-rica/hero2.png",
+        "alt": "Retreat Costa Rica",
         "placeholder": "Imagen próximamente"
       }
     },
     "details": {
-      "title": "Cuando funcionar se vuelve costumbre",
-      "body": "Muchas mujeres funcionan.\nIncluso cuando hace tiempo que están cansadas.\n\nEste retiro de mujeres en Costa Rica te invita a salir del piloto automático interno y volver al cuerpo, al corazón, al momento presente.",
-      "quote": "No a través del rendimiento.\nNo a través de la optimización.\nSino a través de la experiencia, la presencia\ny un movimiento interno real.",
+      "title": "Cuando funcionar se volvió una costumbre",
+      "body": "Muchas personas viven en modo funcionamiento.\nSostienen mucho, hacen mucho,\ny en el proceso pierden la conexión consigo mismas.",
+      "body2": "Este retreat crea un espacio consciente\nen el que tu sistema nervioso puede regularse\ny puede surgir una nueva claridad interna.",
+      "body3": "No se trata de optimización.\nSe trata de autoliderazgo.\n\nNo se trata de retirarte de la vida.\nSino de una nueva orientación consciente.",
       "image": {
         "src": "/img/retreats/costa-rica/5.webp",
-        "alt": "Pajaro en Costa Rica",
-        "placeholder": "Imagen de detalles (placeholder)"
+        "alt": "Naturaleza en Costa Rica",
+        "placeholder": "Imagen próximamente"
       }
     },
-    "howWeWork": {
-      "title": "El proceso del retiro",
-      "subtitle": "Un viaje de regreso a tu ritmo interno",
-      "body": "Este retiro sigue tu ritmo interno.\nPaso a paso se abre un espacio donde ir más lento no significa detenerse, sino percibir conscientemente lo que está vivo en vos.",
-      "items": [
+    "process": {
+      "title": "El proceso del retreat",
+      "subtitle": "Del modo funcionamiento al autoliderazgo",
+      "intro": "Este retreat no es un programa para simplemente “desconectarte”,\nsino un proceso experiencial claramente guiado.",
+      "intro2": "Paso a paso se abre un espacio\nen el que tu sistema nervioso puede regularse,\nlos viejos patrones se vuelven visibles\ny una nueva orientación interna se vuelve posible.",
+      "steps": [
         {
-          "title": "Llegar y desacelerar",
+          "title": "1. Llegar y regular",
           "subtitle": "De la mente al cuerpo",
-          "body": "Dejás atrás la rutina.\nTu sistema nervioso puede calmarse.\nRespiración, silencio y rituales suaves te acompañan para volver al cuerpo y sentir seguridad interna."
+          "body": "Al comienzo no se trata de cambio,\nsino de seguridad.",
+          "body2": "A través de respiración, ejercicios y presencia encarnada,\ntu sistema empieza a salir del modo funcionamiento constante y a entrar en regulación.\nSolo cuando el cuerpo se siente seguro\npuede surgir una claridad real."
         },
         {
-          "title": "Autopercepción y patrones internos",
-          "subtitle": "¿Quién sos más allá de funcionar?",
-          "body": "En esta calma, los patrones se vuelven visibles - no para aferrarse, sino para soltar."
+          "title": "2. Reconocer patrones",
+          "subtitle": "Autopercepción en lugar de piloto automático",
+          "body": "En esta fase se vuelven visibles programas internos:\nsobreadaptación, presión por rendir, roles antiguos.",
+          "body2": "No para analizarlos,\nsino para reconocerlos conscientemente.\n\nLa conciencia es el primer paso para salir del automatismo."
         },
         {
-          "title": "Soltar y clarificar por dentro",
-          "subtitle": "¿Qué puede irse para que surja algo nuevo?",
-          "body": "Con cuidado miramos lo que te limita por dentro.\nCreencias y reacciones emocionales pueden transformarse - a tu ritmo, sostenidas por presencia."
+          "title": "3. Soltar y clarificar internamente",
+          "subtitle": "Cuestionar creencias",
+          "body": "¿Qué te estuvo guiando hasta ahora?\n¿Qué convicciones internas te mantienen pequeña?",
+          "body2": "A través de coaching ontológico, trabajo de proceso\ny acompañamiento energético,\ntrabajamos en el nivel en el que surge el comportamiento.\n\nNo en los síntomas,\nsino en la raíz."
         },
         {
-          "title": "Auto-conexión y empatía",
-          "subtitle": "Volver a relacionarte con vos misma",
-          "body": "Al reconectar con vos, también puede abrirse la conexión con otras.\nSostenidas por la naturaleza de Costa Rica y la presencia del grupo, aparece una sensación de amplitud, suavidad y autenticidad."
+          "title": "4. Autoconexión y vínculo",
+          "subtitle": "Presencia real en lugar de adaptación",
+          "body": "Cuando la presión interna empieza a aflojar,\nse abre espacio para una conexión genuina,\ncon vos misma y con otras personas.",
+          "body2": "En la naturaleza de Costa Rica,\nse vuelve perceptible cómo se sienten la claridad y la amplitud en el cuerpo."
         },
         {
-          "title": "Integración y orientación",
-          "subtitle": "¿Qué te llevás a tu vida?",
-          "body": "Al final no se trata de “cambiar”, sino de anclar.\nTe vas con más claridad, estabilidad interna y una confianza más profunda en vos."
+          "title": "5. Integración y orientación",
+          "subtitle": "De la experiencia a la acción",
+          "body": "Al final no se trata de una sensación linda,\nsino de cambio en la vida cotidiana.",
+          "body2": "Te vas con:\n\n• decisiones más claras\n• una postura interna más estable\n• más autoliderazgo\n• próximos pasos concretos\n\nNo eufórica, sino enraizada."
         }
       ]
     },
     "forWho": {
-      "title": "Este retiro es para vos, si …",
+      "title": "Este retreat es para vos, si …",
       "items": [
-        "cargás con mucho y casi no te das espacio",
-        "seguís funcionando aunque por dentro algo se siente distinto",
-        "buscás claridad, no más métodos",
-        "querés sanación a nivel físico y emocional",
-        "deseás un verdadero reset en la naturaleza"
+        "llevás mucha responsabilidad y notás que te estás perdiendo a vos misma en el proceso",
+        "por fuera seguís funcionando, mientras por dentro algo pide claridad",
+        "estás lista para mirar tus patrones con honestidad, no solo para hablar de ellos",
+        "querés un cambio real, no solo inspiración",
+        "estás dispuesta a darte tiempo conscientemente para regular tu sistema nervioso",
+        "buscás un espacio para el autoliderazgo en lugar de la autooptimización"
       ],
       "notTitle": "Y no es para vos, si …",
       "notItems": [
-        "buscás un cambio afuera en lugar de quedarte con lo que pasa adentro",
-        "preferís la velocidad donde la lentitud es necesaria",
-        "querés claridad sin permitir la incertidumbre"
+        "esperás soluciones rápidas sin proceso interno",
+        "buscás cambio afuera sin cuestionarte a vos misma",
+        "querés evitar confrontarte con tus patrones",
+        "solo buscás vacaciones o relajación"
       ]
     },
-    "whatYouGet": {
-      "title": "Lo que te espera",
+    "whatToExpect": {
+      "title": "Qué te espera",
       "items": [
-        "Alojamiento en medio de la naturaleza de Costa Rica",
-        "Todos los procesos y rituales guiados",
-        "Acompañamiento personal en un grupo pequeño",
-        "Tiempo y espacio para retiro e integración",
-        "Rituales compartidos en la naturaleza",
-        "Todas las comidas incluidas"
+        "Alojamiento en medio de la poderosa naturaleza de Costa Rica",
+        "Procesos y rituales guiados que abren espacio para un movimiento interno real",
+        "Acompañamiento personal en un grupo conscientemente pequeño",
+        "Tiempo para retiro, silencio e integración",
+        "Experiencias y rituales compartidos en la naturaleza",
+        "Todas las comidas preparadas con cariño e incluidas"
       ],
-      "note": "Todo es parte de un marco cuidado que te sostiene desde la llegada hasta la despedida."
-    },
-    "guidance": {
-      "title": "Acompañamiento y sostén del espacio",
-      "body": "Este retiro es acompañado conjuntamente por Nina y Corinne.\nNo desde roles fijos, sino desde una presencia atenta y disponible en el proceso.\n\nSostenemos un marco claro y tranquilo\nen el que la percepción, el encuentro y los procesos internos pueden tener lugar\nsin presión, sin expectativas, sin caminos predeterminados.",
-      "body2": "Nuestra conexión con Costa Rica, con la naturaleza y con el ritmo de este lugar\nmarca la forma en que este retiro es sostenido:\ncon presencia, enraizamiento y en sintonía con el momento."
-    },
-    "feel": {
-      "title": "Cómo se siente este retiro",
-      "body": "Llegás.\nNo a la cabeza, sino al cuerpo.\n\nLa respiración se aquieta. La tensión afloja.\nNo porque algo se resuelva, sino porque dejás de sostenerte.\n\nTu ritmo interno desciende. No por decisión, sino porque nada empuja.\n\nSe abre espacio para el silencio. Para la percepción. Para lo que normalmente es pasado por alto.\n\nNo tenés que rendir, explicar ni demostrar nada.\n\nTu sistema nervioso puede ordenarse. Tu interior puede alcanzarte.\n\nEste retiro no es una pausa de la vida. Es el momento\nen el que volvés a estar disponible.",
-      "closing": "Para vos.\nPara tu cuerpo.\nPara lo que realmente se siente verdadero."
-    },
-    "booking": {
-      "title": "Reserva e información de pago",
-      "subtitle": "Retiro de Mujeres · Costa Rica",
-      "intro": "Esta página es para orientarte.\nBusca darte seguridad y ayudarte a decidir con calma - desde tu claridad interna.",
-      "process": {
-        "title": "Proceso de reserva",
-        "body": "La reserva de este retiro de mujeres se realiza de forma consciente y personal.",
-        "steps": [
-          {
-            "title": "1. Consulta mediante el formulario de contacto",
-            "body": "Te contactás sin compromiso a través de la web."
-          },
-          {
-            "title": "2. Conversación personal",
-            "body": "En una breve charla aclaramos dudas y sentimos juntas si el retiro es adecuado para vos."
-          },
-          {
-            "title": "3. Inscripción confirmada",
-            "body": "Después de la charla recibís toda la información para la reserva confirmada y las modalidades de pago."
-          }
-        ],
-        "note": "Este proceso asegura que cada participante esté bien contenida y pueda sentirse segura dentro del retiro."
-      },
-      "group": {
-        "title": "Tamaño del grupo",
-        "body": "El retiro se realiza en un grupo pequeño, elegido con intención.",
-        "bullets": [
-          "acompañamiento personal",
-          "profundidad y calma en el proceso",
-          "un marco protegido y claro"
-        ],
-        "note": "Los cupos son limitados."
-      },
-      "payment": {
-        "title": "Modalidades de pago",
-        "body": "Los precios y detalles de pago los conversamos en el intercambio personal.",
-        "options": [
-          "una seña/anticipo para asegurar tu lugar",
-          "el pago restante en una fecha posterior"
-        ],
-        "note": "Se pueden acordar opciones individuales previa consulta."
-      },
-      "included": {
-        "title": "Qué está incluido",
-        "items": [
-          "Alojamiento en medio de la naturaleza de Costa Rica",
-          "Todos los procesos, talleres y rituales guiados",
-          "Acompañamiento personal durante todo el retiro",
-          "Tiempo y espacio para retiro e integración",
-          "Todas las comidas durante el retiro"
-        ],
-        "optional": "Ofertas opcionales de acompañamiento (p. ej. sanación del corazón, lectura de Akasha, masajes o actividades) no están incluidas en el precio del retiro y pueden reservarse en el lugar si te interesa."
-      },
-      "cancellation": {
-        "title": "Cancelación y desistimiento",
-        "body": "Como este retiro se planifica con acompañamiento personal y una cantidad limitada de participantes, aplican condiciones especiales de cancelación.\nSe comunicarán de forma transparente y clara en el marco de la inscripción confirmada.\nGracias por comprender que los lugares ya reservados no pueden reemplazarse a último momento."
-      },
-      "notes": {
-        "title": "Avisos importantes",
-        "items": [
-          "La participación es bajo tu propia responsabilidad",
-          "El retiro no reemplaza tratamiento médico o terapéutico",
-          "Se presupone una estabilidad psíquica básica",
-          "Las pausas y el retiro personal son posibles en cualquier momento"
-        ],
-        "footer": "Todo puede ser -\nno hay obligación de nada."
-      },
-      "closing": {
-        "title": "Nota final",
-        "body": "Este retiro no es un producto, sino un proceso compartido.",
-        "cta": "Si sentís que este espacio te llama, te invitamos con cariño a ponerte en contacto con nosotras.",
-        "formEnd": "Fin del formulario"
-      }
+      "note": "Todo sucede dentro de un marco protegido\nque te acompaña con atención\ndesde el primer momento de tu llegada\nhasta la despedida."
     },
     "gallery": {
       "title": "Impresiones",
@@ -1196,128 +1123,145 @@
         {
           "src": "/img/retreats/costa-rica/2.webp",
           "alt": "Playa en Costa Rica",
-          "placeholder": "Bild 1 (Placeholder)"
+          "placeholder": "Imagen 1"
         },
         {
           "src": "/img/retreats/costa-rica/3.webp",
           "alt": "Playa en Costa Rica",
-          "placeholder": "Bild 2 (Placeholder)"
+          "placeholder": "Imagen 2"
         },
         {
           "src": "/img/retreats/costa-rica/4.webp",
           "alt": "Bienvenidos a Puerto Viejo",
-          "placeholder": "Bild 3 (Placeholder)"
+          "placeholder": "Imagen 3"
         },
         {
           "src": "/img/retreats/costa-rica/1.webp",
           "alt": "Perezoso en Costa Rica",
-          "placeholder": "Bild 3 (Placeholder)"
+          "placeholder": "Imagen 4"
         },
         {
           "src": "/img/retreats/costa-rica/6.webp",
-          "alt": "",
-          "placeholder": "Bild 3 (Placeholder)"
+          "alt": "Costa Rica",
+          "placeholder": "Imagen 5"
         }
       ]
     },
-    "sidebar": {
-      "tag": "Resumen",
-      "title": "Información del retiro",
-      "meta": [
-        {
-          "label": "Lugar",
-          "value": "Costa Rica"
-        },
-        {
-          "label": "Formato",
-          "value": "Retiro (detalles pronto)"
-        },
-        {
-          "label": "Cupos",
-          "value": "Limitados"
+    "guidance": {
+      "title": "Acompañamiento y sostén del espacio",
+      "intro": "Este retreat es acompañado conjuntamente por Nina y Corinne.",
+      "body": "Un espacio en el que podés ir más despacio.\nEn el que la percepción, el encuentro y los procesos internos pueden surgir\nsin presión, sin expectativas y sin caminos prefijados.\n\nLa naturaleza de Costa Rica, su calma y su ritmo\nmarcan la cualidad de este retreat:\n\ncon atención, enraizado y sostenido por el momento.",
+      "corinne": {
+        "title": "Corinne Vanarelli",
+        "body": "Corinne acompaña desde hace muchos años a personas en fases de cambio personal y de reorientación interna.",
+        "body2": "Su recorrido une una larga experiencia en trabajo social, coaching ontológico y trabajo de proceso integrativo.\nAdemás trabaja con métodos de conciencia energética que incluyen el cuerpo, la percepción y los procesos internos.",
+        "body3": "Su enfoque no apunta a cambiar u optimizar a las personas,\nsino a crear espacios en los que puedan surgir claridad, autoconexión y decisiones auténticas.",
+        "image": {
+          "src": "/img/retreats/costa-rica/Coco.webp",
+          "alt": "Corinne Vanarelli",
+          "placeholder": "FOTO CORINNE"
         }
+      },
+      "nina": {
+        "title": "Nina",
+        "body": "Nina aporta enfoques de comunicación no verbal al trabajo compartido.\nVive desde hace muchos años en Costa Rica y está profundamente conectada con el ritmo y la naturaleza de este lugar.",
+        "body2": "Su acompañamiento está marcado por una presencia serena y clara,\nuna percepción fina y una profunda confianza en los procesos internos naturales.",
+        "image": {
+          "src": "/img/retreats/costa-rica/Nina.webp",
+          "alt": "Nina",
+          "placeholder": "FOTO NINA"
+        }
+      },
+      "closing": "Juntas, Nina y Corinne crean un espacio\nen el que las personas pueden sentirse lo suficientemente seguras\ncomo para encontrarse realmente consigo mismas.",
+      "placeImage": {
+        "src": "/img/retreats/costa-rica/Playa.webp",
+        "alt": "Costa Rica",
+        "placeholder": "FOTO PLAYA"
+      },
+      "placeCaption": "Muchas personas llegan a este retreat porque sienten que su vida por fuera funciona, pero por dentro algo pide más profundidad"
+    },
+    "transformation": {
+      "title": "Lo que puede transformarse a través de este retreat",
+      "intro": "Lo que puede abrirse en este tiempo a menudo es difícil de poner en palabras.\nY aun así, muchas personas describen experiencias similares después de procesos así:",
+      "items": [
+        "más calma en el sistema nervioso",
+        "una percepción más clara de las propias necesidades",
+        "más confianza en la propia percepción",
+        "menos presión interna por tener que seguir funcionando",
+        "una sensación más profunda de conexión, con una misma y con la vida"
       ],
-      "cta": "Contacto y consulta"
+      "body": "No porque este retreat “repare” algo.\n\nSino porque se crea un espacio\nen el que tu mundo interno puede reordenarse.",
+      "body2": "Muchas personas no se llevan de este tiempo solo recuerdos,\nsino otra cualidad de claridad, presencia y estabilidad interna.\n\nAlgo que sigue actuando también en la vida cotidiana.",
+      "closing": ""
+    },
+    "booking": {
+      "title": "Reserva y notas importantes",
+      "included": {
+        "title": "Qué está incluido en el precio",
+        "items": [
+          "Alojamiento en medio de la naturaleza de Costa Rica",
+          "Todos los procesos, workshops y rituales guiados durante el retreat",
+          "Acompañamiento personal durante todo el tiempo",
+          "Espacio para retiro, descanso e integración",
+          "Todas las comidas durante el retreat"
+        ],
+        "optional": "Ofertas opcionales de acompañamiento\n(por ejemplo sanación del corazón, lectura de Akasha, masajes o actividades)\nno están incluidas en el precio del retreat\ny pueden reservarse en el lugar si te interesa."
+      },
+      "cancellation": {
+        "title": "Cancelación y desistimiento",
+        "body": "Dado que este retreat se planifica con acompañamiento personal\ny con un tamaño de grupo conscientemente limitado,\nse aplican condiciones especiales de cancelación.",
+        "body2": "Estas se comunicarán de forma transparente y clara\ndentro del proceso de inscripción vinculante.\n\nAgradecemos tu comprensión de que,\nen caso de cancelaciones a último momento,\nmuchas veces los lugares reservados ya no pueden volver a asignarse."
+      },
+      "notes": {
+        "title": "Notas importantes",
+        "items": [
+          "La participación es bajo tu propia responsabilidad.",
+          "Este retreat no reemplaza tratamiento médico ni terapéutico.",
+          "Se presupone una estabilidad psíquica básica.",
+          "Pausas, retiro y espacio personal son posibles en todo momento."
+        ],
+        "footer": "Todo está permitido. Nada es obligatorio."
+      },
+      "closing": {
+        "title": "Quizás este espacio también sea para vos",
+        "body": "Si sentís\nque estas palabras te tocan,\neste retreat podría ser exactamente el espacio\nque estás buscando ahora.",
+        "cta": "El grupo se mantiene conscientemente pequeño\npara que pueda surgir un marco personal y protegido."
+      }
     },
     "faq": {
       "title": "FAQ",
       "items": [
         {
-          "q": "¿Este retiro de mujeres en Costa Rica es para mí?",
-          "a": "Este retiro es para mujeres que quieren salir del “modo funcionar” y volver a conectar consigo mismas.\nSi querés bajar el ritmo, sentirte otra vez y deseás un espacio cuidado para clarificar por dentro, este retiro puede ser para vos."
+          "q": "¿Para quién es este retreat?",
+          "a": "Este retreat está dirigido a personas cuya vida sigue funcionando por fuera, mientras por dentro ya se hicieron visibles la tensión, la presión o el agotamiento."
         },
         {
-          "q": "¿Necesito experiencia espiritual para el retiro?",
-          "a": "No. No necesitás experiencia espiritual, conocimientos previos ni una visión del mundo determinada.\nLo único que traés es tu disposición a encontrarte con vos misma con honestidad."
+          "q": "¿De qué se trata este retreat?",
+          "a": "No se trata de optimización, sino de autoliderazgo. No se trata de retirarte de la vida, sino de una nueva orientación consciente."
         },
         {
-          "q": "¿El retiro es terapia o vacaciones?",
-          "a": "El retiro no es terapia ni unas vacaciones clásicas.\nEs un espacio de experiencia guiado donde el foco está en desacelerar, percibirte y integrar por dentro - sin presión de rendimiento ni juicio."
+          "q": "¿Cómo se trabaja dentro del retreat?",
+          "a": "Dentro de un marco sostenido conscientemente, trabajamos con coaching ontológico, comunicación no verbal, trabajo de presencia encarnada y acompañamiento energético."
         },
         {
-          "q": "¿Qué tan intenso es el retiro?",
-          "a": "El retiro tiene un marco claro y seguro, y al mismo tiempo mucho espacio libre.\nHay procesos y rituales compartidos, y también tiempo para retiro, naturaleza, descanso e integración personal.\nVos decidís en todo momento qué tan intensamente querés participar."
+          "q": "¿Cuál es el objetivo del retreat?",
+          "a": "El objetivo no es una motivación momentánea, sino un cambio sostenible en la percepción, el autoliderazgo y la capacidad de decidir."
         },
         {
-          "q": "¿Tengo que abrirme en el grupo o compartir algo?",
-          "a": "No. No hay obligación de compartir ni presión grupal.\nTus límites se respetan. El retiro personal es tan bienvenido como el intercambio."
+          "q": "¿Qué me espera en el lugar?",
+          "a": "Te esperan alojamiento en la naturaleza, procesos y rituales guiados, acompañamiento personal en un grupo pequeño, tiempo para retiro e integración, y todas las comidas incluidas."
         },
         {
-          "q": "¿Qué pasa si aparecen emociones fuertes?",
-          "a": "Las emociones pueden estar - sin necesidad de analizarlas o “resolverlas”.\nEstás acompañada y sostenida con cuidado, no corregida ni juzgada."
+          "q": "¿Es para mí si solo busco descanso?",
+          "a": "Este retreat no es para vos si solo buscás vacaciones o relajación, o si esperás soluciones rápidas sin proceso interno."
         },
         {
-          "q": "¿Qué tamaño tiene el grupo?",
-          "a": "El grupo se mantiene intencionalmente pequeño para crear un marco seguro, personal y de confianza.\nLa calidad, la profundidad y la presencia van primero."
+          "q": "¿Este retreat reemplaza terapia o tratamiento médico?",
+          "a": "No. Este retreat no reemplaza tratamiento médico ni terapéutico."
         },
         {
-          "q": "¿Puedo viajar sola a Costa Rica?",
-          "a": "Sí. Muchas participantes viajan solas.\nEstás acompañada desde la llegada hasta la despedida.\nMuchas veces, el viaje ya genera una primera reconexión con vos misma."
-        },
-        {
-          "q": "¿Hay tiempo libre durante el retiro?",
-          "a": "Sí. El retiro no sigue un cronograma rígido.\nHay tiempo libre planificado para naturaleza, mar, movimiento, descanso o excursiones."
-        },
-        {
-          "q": "¿Las ofertas adicionales son obligatorias?",
-          "a": "No.\nTodas las ofertas adicionales son opcionales y no son algo que necesites.\nEl retiro está completo y es autosuficiente."
-        },
-        {
-          "q": "¿Qué ofertas opcionales se pueden reservar en el lugar?",
-          "a": "Durante el retiro estás en un proceso completo y sostenido.\nTodo lo esencial ya está incluido.\nSi además sentís el deseo de profundizar en un tema personal, se pueden reservar sesiones individuales de forma opcional.\nPor ejemplo:",
-          "bullets": [
-            "Sanación del corazón",
-            "Lectura de Akasha",
-            "Acompañamiento 1:1"
-          ]
-        },
-        {
-          "q": "Espacio para tu propia forma",
-          "a": "En tu tiempo libre también tenés la posibilidad de diseñar tu estadía en Costa Rica según tu necesidad.\nPor ejemplo:",
-          "bullets": [
-            "Surf",
-            "Yoga",
-            "Masajes",
-            "Naturaleza y retiro"
-          ]
-        },
-        {
-          "q": "¿Qué me llevo a casa del retiro?",
-          "a": "Muchas mujeres cuentan que se llevan:",
-          "bullets": [
-            "más calma interna",
-            "mayor autopercepción",
-            "más confianza en su propio ritmo",
-            "claridad interna sostenida"
-          ]
-        },
-        {
-          "q": "¿Cómo sé si ahora es el momento?",
-          "a": "El momento correcto rara vez se siente lógico.\nA menudo aparece como un deseo de desacelerar, de claridad y de espacio interno.\nSi esa necesidad está, ya es una señal suficiente."
-        },
-        {
-          "q": "¿Puedo tener una conversación antes de reservar?",
-          "a": "Sí.\nPodés pedir una conversación sin compromiso en cualquier momento para aclarar dudas y ver si el retiro es para vos."
+          "q": "¿Qué más debería saber?",
+          "a": "La participación es bajo tu propia responsabilidad. Se presupone una estabilidad psíquica básica. Pausas, retiro y espacio personal son posibles en todo momento."
         }
       ]
     }
@@ -1360,6 +1304,11 @@
         "label": "Mindfuck",
         "title": "Mindfuck",
         "description": "Cuando la mente se pone ruidosa – y quieres volver a ver con claridad."
+      },
+      "inner-experience": {
+        "label": "Espacios acompañados & experiencia interior",
+        "title": "Espacios acompañados & experiencia interior",
+        "description": "Textos sobre trabajo de conciencia, sanación energética y procesos internos. Para personas que desean comprenderse más profundamente y experimentar un cambio real en su vida."
       }
     },
     "meta": {

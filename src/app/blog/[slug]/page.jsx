@@ -14,7 +14,6 @@ export async function generateMetadata({ params }) {
   const t = await getTranslations("BlogPost.meta");
   const locale = await getLocale();
 
-  // ✅ Next sync dynamic APIs: params puede venir como Promise
   const { slug } = await params;
 
   const post = getPostBySlug(slug);
@@ -48,7 +47,6 @@ export default async function BlogPostPage({ params }) {
   const t = await getTranslations("BlogPost");
   const locale = await getLocale();
 
-  // ✅ Next sync dynamic APIs: params puede venir como Promise
   const { slug } = await params;
 
   const post = getPostBySlug(slug);
@@ -127,11 +125,27 @@ export default async function BlogPostPage({ params }) {
           className="max-w-none"
           style={{
             fontFamily: "var(--font-long)",
-            fontSize: "1.0625rem", // ≈ +6%
+            fontSize: "1.0625rem",
             lineHeight: "1.7",
             color: "var(--muted)",
           }}
         >
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                article a[data-inline-link="true"] {
+                  color: var(--brand);
+                  text-decoration: underline;
+                  text-underline-offset: 0.16em;
+                  transition: opacity 160ms ease;
+                }
+                article a[data-inline-link="true"]:hover {
+                  opacity: 0.8;
+                }
+              `,
+            }}
+          />
+
           {blocks.map((block, idx) => {
             if (!block) return null;
 
@@ -150,12 +164,20 @@ export default async function BlogPostPage({ params }) {
                   </h2>
                 );
 
-              case "p":
-                return (
-                  <p key={idx} className="mt-4 leading-relaxed">
-                    {block.text}
-                  </p>
+              case "p": {
+                const html = String(block.text ?? "").replace(
+                  /<a\s+href=(["'])(.*?)\1>/g,
+                  '<a href="$2" data-inline-link="true">'
                 );
+
+                return (
+                  <p
+                    key={idx}
+                    className="mt-4 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: html }}
+                  />
+                );
+              }
 
               case "ul":
                 return (
@@ -217,7 +239,6 @@ export default async function BlogPostPage({ params }) {
             }
           })}
 
-          {/* Prev / Next (misma categoría) */}
           {prev || next ? (
             <nav
               className="mt-12 pt-8"
@@ -227,7 +248,6 @@ export default async function BlogPostPage({ params }) {
               aria-label={t("pagination.aria")}
             >
               <div className="grid gap-4 md:grid-cols-2">
-                {/* Más antiguo (older) -> next */}
                 <div>
                   {next ? (
                     <Link
@@ -246,7 +266,6 @@ export default async function BlogPostPage({ params }) {
                   ) : null}
                 </div>
 
-                {/* Más reciente (newer) -> prev */}
                 <div className="md:text-right">
                   {prev ? (
                     <Link
