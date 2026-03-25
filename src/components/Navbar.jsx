@@ -380,9 +380,9 @@ export default function Navbar() {
                 className="min-w-[220px] rounded-xl shadow-lg p-2"
                 style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
               >
-                <Link href="/events/seminars" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setEventsOpen(false)}>
+                {/* <Link href="/events/seminars" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setEventsOpen(false)}>
                   {t('eventsSeminars')}
-                </Link>
+                </Link> */}
                 <Link href="/events/retreats/costa-rica" className="block px-3 py-2 rounded-md text-sm hover:bg-black/5" style={{ color: 'var(--text)' }} onClick={() => setEventsOpen(false)}>
                   {t('eventsRetreats')}
                 </Link>
@@ -554,11 +554,11 @@ export default function Navbar() {
 
             {mobileEventsOpen ? (
               <>
-                <li className="pl-4">
+                {/* <li className="pl-4">
                   <Link href="/events/seminars" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('eventsSeminars')}
                   </Link>
-                </li>
+                </li> */}
                 <li className="pl-4">
                   <Link href="/events/retreats/costa-rica" onClick={closeMobile} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                     {t('eventsRetreats')}
