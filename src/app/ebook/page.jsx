@@ -3,35 +3,37 @@ import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import EbookCheckoutButton from '@/components/ebook/EbookCheckoutButton';
 
 export async function generateMetadata() {
-  const t = await getTranslations("EbookPage.meta");
-  const locale = await getLocale();
+    const t = await getTranslations("EbookPage.meta");
+    const locale = await getLocale();
 
-  const ogLocale =
-    locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+    const ogLocale =
+        locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
-  return {
-    title: t("title"),
-    description: t("description"),
-    alternates: {
-      canonical: t("canonical"),
-    },
-    openGraph: {
-      title: t("og.title"),
-      description: t("og.description"),
-      url: t("og.url"),
-      siteName: t("og.siteName"),
-      images: [
-        {
-          url: t("og.image.url"),
-          alt: t("og.image.alt"),
+    return {
+        title: t("title"),
+        description: t("description"),
+        alternates: {
+            canonical: t("canonical"),
         },
-      ],
-      locale: ogLocale,
-      type: "website",
-    }
-  };
+        openGraph: {
+            title: t("og.title"),
+            description: t("og.description"),
+            url: t("og.url"),
+            siteName: t("og.siteName"),
+            images: [
+                {
+                    url: t("og.image.url"),
+                    alt: t("og.image.alt"),
+                },
+            ],
+            locale: ogLocale,
+            type: "website",
+        },
+
+    };
 }
 
 export default async function EbookPage() {
@@ -72,12 +74,7 @@ export default async function EbookPage() {
                         </p>
 
                         <div className="mt-8 flex flex-wrap gap-3">
-                            <button
-                                type="button"
-                                className="rounded-full px-6 py-2 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
-                            >
-                                {t("hero.primaryCta")}
-                            </button>
+                            <EbookCheckoutButton label={t('hero.primaryCta')} />
                         </div>
                     </div>
 
