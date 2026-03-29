@@ -206,7 +206,7 @@ export default async function HomePage() {
         padTop={false}
       />
       <Services />
-      <HomeEbookSection />
+     {/*  <HomeEbookSection /> */}
       <EventsSection />
       <Testimonials />
       <ContactForm />
