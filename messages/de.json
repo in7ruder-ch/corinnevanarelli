@@ -13,7 +13,8 @@
     "events": "Events",
     "eventsSeminars": "Seminare",
     "eventsRetreats": "Retreats",
-    "blog": "Blog"
+    "blog": "Blog",
+    "ebook": "E-Book"
   },
   "AltSection": {
     "ctaLabel": "Mehr erfahren"
@@ -157,6 +158,12 @@
       "p1": "<strong>Tiefe Entspannung für Körper & Sinne</strong>",
       "p2": "Achtsame Anwendung mit ätherischen Ölen zur Beruhigung des Nervensystems und ganzheitlichen Regeneration.",
       "imageAlt": "Corinne Vanarelli"
+    },
+    "ebook": {
+      "kicker": "Mindfuck Detox | E-Book",
+      "title": "Du funktionierst.\nAber lebst du auch?",
+      "text": "Die meisten Menschen merken nicht einmal,\ndass sie sich selbst längst verloren haben.",
+      "primaryCta": "Mehr erfahren"
     }
   },
   "About": {
@@ -1540,5 +1547,105 @@
         "placeholder": ""
       }
     ]
+  },
+  "EbookPage": {
+    "hero": {
+      "kicker": "E-Book",
+      "title": "Mindfuck Detox",
+      "subtitle": "Ein ehrlicher Blick auf die Stimmen in deinem Kopf – und wie sie dein Leben lenken.",
+      "primaryCta": "Jetzt kaufen"
+    },
+    "intro": {
+      "title": "Worum es wirklich geht",
+      "paragraphs": [
+        "Dieses eBook ist kein klassischer Ratgeber.",
+        "Es ist eine Einladung, die leisen Stimmen in deinem Kopf bewusst wahrzunehmen – die, die dich klein halten, zweifeln lassen oder ständig antreiben.",
+        "Nicht, um sie zu bekämpfen. Sondern um zu verstehen, wo sie herkommen – und warum sie heute noch wirken."
+      ]
+    },
+    "mindfucks": {
+      "title": "Was sind Mindfucks?",
+      "paragraphs": [
+        "Mindfucks sind keine Fehler.",
+        "Es sind innere Programme, die du irgendwann gelernt hast – um dich zu schützen, anzupassen oder dazuzugehören.",
+        "Was früher sinnvoll war, kann heute limitierend wirken.",
+        "Dieses Buch hilft dir, diese Muster zu erkennen – und einen neuen Umgang damit zu finden."
+      ]
+    },
+    "inside": {
+      "title": "Was dich erwartet",
+      "items": [
+        "Bewusstwerden deiner inneren Stimmen",
+        "Verstehen deiner Muster und Reaktionen",
+        "Reflexionsfragen für deinen Alltag",
+        "Konkrete Übungen zur Integration",
+        "Ein klarer, ehrlicher Blick auf dich selbst"
+      ]
+    },
+    "special": {
+      "title": "Was dieses Buch anders macht",
+      "paragraphs": [
+        "Dieses Buch gibt dir keine schnellen Lösungen.",
+        "Es verspricht keine Transformation über Nacht.",
+        "Stattdessen verbindet es Bewusstsein, Psychologie und Körperwahrnehmung – in einer klaren, geerdeten Sprache.",
+        "Es geht nicht darum, jemand anderes zu werden. Sondern darum, dich selbst wieder klarer zu sehen."
+      ]
+    },
+    "forWhom": {
+      "title": "Für wen es ist",
+      "items": [
+        "Wenn du merkst, dass du funktionierst – aber dich nicht wirklich fühlst",
+        "Wenn du dich oft selbst hinterfragst",
+        "Wenn du das Gefühl hast, festzustecken",
+        "Wenn du tiefer verstehen willst, was in dir wirkt"
+      ]
+    },
+    "notExpect": {
+      "title": "Was du nicht erwarten solltest",
+      "items": [
+        "Keine schnellen Lösungen",
+        "Keine einfachen Antworten",
+        "Kein positives Denken als Lösung für alles"
+      ]
+    },
+    "format": {
+      "title": "Format",
+      "items": [
+        "Digitales eBook (PDF)",
+        "In deinem eigenen Tempo",
+        "Mit Reflexionsfragen und Übungen",
+        "Begleitet dich über mehrere Tage hinweg"
+      ]
+    },
+    "cta": {
+      "title": "Bereit, dir selbst ehrlicher zu begegnen?",
+      "text": "Dieses Buch ist kein schneller Fix.\nEs ist ein ehrlicher Prozess.",
+      "primary": "Jetzt kaufen"
+    },
+    "success": {
+      "title": "Dein Zugang ist bereit",
+      "text": "Dein Kauf war erfolgreich. Du kannst das eBook jetzt herunterladen.",
+      "download": "Jetzt herunterladen"
+    },
+    "cancel": {
+      "title": "Zahlung abgebrochen",
+      "text": "Deine Zahlung wurde nicht abgeschlossen.",
+      "retry": "Erneut versuchen"
+    },
+    "meta": {
+      "title": "Mindfuck Detox",
+      "description": "Ein eBook über innere Muster, leise Stimmen und die Frage, wie du dich selbst wieder klarer sehen kannst.",
+      "canonical": "https://corinnevanarelli.com/ebook",
+      "og": {
+        "title": "Mindfuck Detox",
+        "description": "Ein ehrlicher Blick auf die Stimmen in deinem Kopf – und wie sie dein Leben lenken.",
+        "url": "https://corinnevanarelli.com/ebook",
+        "siteName": "Corinne Vanarelli",
+        "image": {
+          "url": "/img/ebook/Mindfuck.webp",
+          "alt": "Mindfuck Detox Ebook"
+        }
+      }
+    }
   }
 }

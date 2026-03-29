@@ -100,12 +100,12 @@ export default async function EventsSection() {
                 </p>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-                <Card
+            <div className="mt-10 md:grid-cols-2">
+                {/* <Card
                     data={seminar}
                     allHref="/events/seminars"
                     allLabel={t("cards.allSeminars")}
-                />
+                /> */}
                 <Card data={retreat} allHref="/events" allLabel={t("cards.allRetreats")} />
             </div>
         </Section>
