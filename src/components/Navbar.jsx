@@ -391,11 +391,11 @@ export default function Navbar() {
           </li>
 
           {/* Ebook */}
-          <li>
+          {/* <li>
             <NavLink href="/ebook" onClick={() => { setOffersOpen(false); setEventsOpen(false); }}>
               {t('ebook')}
             </NavLink>
-          </li>
+          </li> */}
 
           {/* Blog */}
           <li>
@@ -575,12 +575,13 @@ export default function Navbar() {
               </>
             ) : null}
 
-            {/* Blog */}
-            <li>
+            {/* Ebook */}
+           {/*  <li>
               <NavLink href="/ebook" onClick={closeMobile} size="mobile">
                 {t('ebook')}
               </NavLink>
-            </li>
+            </li> */}
+            {/* Blog */}
             <li className="mt-2"><NavLink href="/blog" onClick={closeMobile} size="mobile">{t('blog')}</NavLink></li>
             <li><NavLink href="/#kontakt" onClick={closeMobile} size="mobile">{t('contact')}</NavLink></li>
           </ul>
