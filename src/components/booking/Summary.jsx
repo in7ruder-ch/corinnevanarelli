@@ -1,45 +1,9 @@
 "use client";
-import PayPalButton from "./PayPalButton";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 
-const PAYMENTS_ENABLED =
-  (process.env.NEXT_PUBLIC_PAYMENTS_ENABLED ?? "").toString().trim() === "true";
-
 const TEL_HREF = "tel:+41797167212";
 const MAIL_HREF = "mailto:kontakt@corinnevanarelli.ch";
-
-function PayPalSection({ holdInfo, isFree, paymentsEnabled }) {
-  const t = useTranslations("Booking.Summary.paypal");
-  const [paid, setPaid] = useState(null);
-
-  if (isFree || !paymentsEnabled) return null;
-
-  if (!holdInfo?.bookingId) {
-    return (
-      <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
-        {t("missingId")}
-      </p>
-    );
-  }
-
-  if (paid?.ok) {
-    return (
-      <div
-        className="mt-3 rounded-xl p-3 text-sm"
-        style={{
-          backgroundColor: "color-mix(in srgb, #22c55e 10%, var(--surface))",
-          border: "1px solid color-mix(in srgb, #22c55e 30%, transparent)",
-          color: "#166534",
-        }}
-      >
-        {t("paid")} ✅ – {t("seeYou")}
-      </div>
-    );
-  }
-
-  return <PayPalButton bookingId={holdInfo.bookingId} onPaid={setPaid} isFree={isFree} />;
-}
 
 export default function Summary({ service, datetime, isAutoBooking = true }) {
   const t = useTranslations("Booking.Summary");
@@ -52,18 +16,6 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
 
   const hasAll = Boolean(service && datetime?.timeISO);
   const hasHold = Boolean(holdInfo?.bookingId);
-
-  const isFree = useMemo(() => {
-    const price =
-      service?.price ??
-      service?.price_chf ??
-      service?.priceChf ??
-      service?.priceCHF ??
-      0;
-    return Number(price) === 0;
-  }, [service]);
-
-  const isFreeOrNoPay = isFree || !PAYMENTS_ENABLED;
 
   useEffect(() => {
     setHoldInfo(null);
@@ -174,7 +126,7 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
         {t("title")}
       </div>
 
-      {/* Hint solo en modo auto-booking */}
+      {/* Hint only in auto-booking mode */}
       {isAutoBooking && !hasAll && (
         <p className="text-sm" style={{ color: "var(--muted)" }}>
           {t("hintSelect")}
@@ -188,7 +140,7 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
         </p>
       )}
 
-      {/* Cita solo si hay fecha/hora y modo auto-booking */}
+      {/* Date/time — only in auto-booking mode */}
       {isAutoBooking && datetime?.timeISO && (
         <p className="text-sm mt-1" style={{ color: "var(--text)" }}>
           <strong>{t("labels.appointment")}:</strong>{" "}
@@ -199,7 +151,7 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
         </p>
       )}
 
-      {/* ✅ MODO MANUAL: CTA de contacto y salimos */}
+      {/* MANUAL mode: contact CTAs */}
       {!isAutoBooking && service && (
         <>
           <div
@@ -216,11 +168,7 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
           <a
             href={TEL_HREF}
             className="mt-4 w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors inline-flex items-center justify-center"
-            style={{
-              backgroundColor: "var(--brand)",
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ backgroundColor: "var(--brand)", color: "white", textDecoration: "none" }}
             data-summary-cta
           >
             {t("manual.ctaPhone")}
@@ -229,36 +177,28 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
           <a
             href={MAIL_HREF}
             className="mt-3 w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors inline-flex items-center justify-center"
-            style={{
-              backgroundColor: "var(--brand)",
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ backgroundColor: "var(--brand)", color: "white", textDecoration: "none" }}
             data-summary-cta
           >
             {t("manual.ctaMail")}
           </a>
 
-          {/* Hover (links y buttons) */}
           <style
             dangerouslySetInnerHTML={{
-              __html: `
-                a[data-summary-cta]:hover,
-                button[data-summary-cta]:hover {
-                  background-color: color-mix(in srgb, var(--brand) 85%, black);
-                }
-              `,
+              __html: `a[data-summary-cta]:hover { background-color: color-mix(in srgb, var(--brand) 85%, black); }`,
             }}
           />
         </>
       )}
 
-      {/* ✅ A partir de acá: SOLO modo auto-booking */}
+      {/* AUTO-BOOKING mode */}
       {isAutoBooking && (
         <>
-          {holdInfo?.error && <p className="mt-3 text-sm text-red-600">{holdInfo.error}</p>}
+          {holdInfo?.error && (
+            <p className="mt-3 text-sm text-red-600">{holdInfo.error}</p>
+          )}
 
-          {/* STEP 1 */}
+          {/* STEP 1 — Reserve slot */}
           {!hasHold && (
             <button
               type="button"
@@ -277,7 +217,7 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
             </button>
           )}
 
-          {/* STEP 2 */}
+          {/* STEP 2 — Fill in contact details */}
           {hasHold && !confirmState?.ok && (
             <div className="mt-4">
               <div className="text-sm mb-3" style={{ color: "var(--muted)" }}>
@@ -305,26 +245,25 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
                   />
                 ))}
 
-                {confirmState?.error && <p className="text-sm text-red-600">{confirmState.error}</p>}
+                {confirmState?.error && (
+                  <p className="text-sm text-red-600">{confirmState.error}</p>
+                )}
 
                 <button
                   type="submit"
                   disabled={loading}
                   className="w-full rounded-full px-6 py-3 text-sm font-semibold transition-colors"
-                  style={{
-                    backgroundColor: "var(--brand)",
-                    color: "white",
-                  }}
+                  style={{ backgroundColor: "var(--brand)", color: "white" }}
                   data-summary-cta
                 >
-                  {loading ? t("btn.sending") : isFreeOrNoPay ? t("btn.reserveFree") : t("btn.confirm")}
+                  {loading ? t("btn.sending") : t("btn.reserveFree")}
                 </button>
               </form>
             </div>
           )}
 
-          {/* STEP 3 */}
-          {confirmState?.ok && isFreeOrNoPay && (
+          {/* STEP 3 — Success */}
+          {confirmState?.ok && (
             <div
               className="mt-4 rounded-xl p-3 text-sm"
               style={{
@@ -337,32 +276,9 @@ export default function Summary({ service, datetime, isAutoBooking = true }) {
             </div>
           )}
 
-          {confirmState?.ok && !isFreeOrNoPay && (
-            <div
-              className="mt-4 rounded-xl p-3 text-sm"
-              style={{
-                backgroundColor: "var(--surface)",
-                border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-              }}
-            >
-              <div className="font-medium">{t("payPending.title")}</div>
-              <p className="mt-1">{t("payPending.body")}</p>
-              <PayPalSection
-                holdInfo={holdInfo}
-                isFree={isFree}
-                paymentsEnabled={PAYMENTS_ENABLED}
-              />
-            </div>
-          )}
-
-          {/* Hover global (button) */}
           <style
             dangerouslySetInnerHTML={{
-              __html: `
-                button[data-summary-cta]:hover {
-                  background-color: color-mix(in srgb, var(--brand) 85%, black);
-                }
-              `,
+              __html: `button[data-summary-cta]:hover { background-color: color-mix(in srgb, var(--brand) 85%, black); }`,
             }}
           />
         </>

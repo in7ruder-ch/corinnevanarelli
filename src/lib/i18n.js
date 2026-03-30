@@ -1,12 +1,20 @@
-// src/lib/i18n.js
+import { getRequestConfig } from 'next-intl/server';
 
-// Carga mensajes por locale con fallback a 'de'
-export async function getMessages(locale = "de") {
-  try {
-    const messages = await import(`../../messages/${locale}.json`);
-    return messages.default || {};
-  } catch {
-    const fallback = await import("../../messages/de.json");
-    return fallback.default || {};
+const SUPPORTED = ['de', 'en', 'es'];
+const DEFAULT_LOCALE = 'de';
+
+export default getRequestConfig(async ({ requestLocale }) => {
+  let locale = await requestLocale;
+
+  if (!locale || !SUPPORTED.includes(locale)) {
+    locale = DEFAULT_LOCALE;
   }
-}
+
+  const messages = (await import(`./messages/${locale}.json`)).default;
+
+  return {
+    locale,
+    messages,
+    timeZone: 'Europe/Zurich',
+  };
+});

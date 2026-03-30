@@ -1,6 +1,6 @@
 // src/app/book/page.js
-import Footer from "../../components/Footer";
-import BookClient from "../../components/BookClient";
+import Footer from "@/components/Footer";
+import BookClient from "@/components/BookClient";
 import { getTranslations } from "next-intl/server";
 
 export const metadata = {

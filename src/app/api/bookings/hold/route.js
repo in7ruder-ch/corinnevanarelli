@@ -2,26 +2,7 @@
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-import { createClient } from "@supabase/supabase-js";
-import { supabaseServer } from "@/lib/supabase";
-
-/**
- * POST /api/bookings/hold
- * Body JSON: { serviceId: string, startISO: string, holdMinutes?: number, name?: string, email?: string }
- */
-
-// Cliente con SERVICE ROLE (bypassa RLS) con fallback a supabaseServer() si no hay service key
-function getSupabase() {
-  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE;
-  if (!url) throw new Error("Falta SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL");
-  if (serviceKey) {
-    return createClient(url, serviceKey, { auth: { persistSession: false } });
-  }
-  // Fallback (no recomendado con RLS activo)
-  return supabaseServer();
-}
+import { getSupabaseService } from "@/lib/supabaseService";
 
 export async function POST(req) {
   try {
@@ -36,16 +17,16 @@ export async function POST(req) {
       return Response.json({ error: "Invalid startISO" }, { status: 400 });
     }
 
-    const supabase = getSupabase();
+    const supabase = getSupabaseService();
 
-    // 0) Limpieza de HOLDs vencidos (evita conflictos con el índice parcial)
+    // Clean up expired HOLDs
     await supabase
       .from("bookings")
       .update({ status: "CANCELED" })
       .lt("hold_until", new Date().toISOString())
       .eq("status", "HOLD");
 
-    // 1) Traer servicio (para calcular end_at)
+    // Fetch service for duration
     const { data: svc, error: svcErr } = await supabase
       .from("services")
       .select("id, duration_min")
@@ -60,7 +41,7 @@ export async function POST(req) {
     const endAt = new Date(startAt.getTime() + (svc.duration_min || 60) * 60000);
     const holdUntil = new Date(Date.now() + holdMinutes * 60000).toISOString();
 
-    // 2) Intentar insertar HOLD
+    // Insert HOLD
     const { data: inserted, error: insErr } = await supabase
       .from("bookings")
       .insert({
@@ -76,7 +57,6 @@ export async function POST(req) {
       .single();
 
     if (insErr) {
-      // 23505 = unique_violation (slot ya tomado)
       if (String(insErr.code) === "23505") {
         return Response.json({ error: "Slot already taken" }, { status: 409 });
       }
