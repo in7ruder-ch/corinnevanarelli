@@ -13,7 +13,8 @@
     "events": "Events",
     "eventsSeminars": "Seminars",
     "eventsRetreats": "Retreats",
-    "blog": "Blog"
+    "blog": "Blog",
+    "ebook": "E-Book"
   },
   "AltSection": {
     "ctaLabel": "Learn more"
@@ -157,6 +158,12 @@
       "p1": "<strong>Deep relaxation for body & senses</strong>",
       "p2": "Mindful application with essential oils to calm the nervous system and support holistic regeneration.",
       "imageAlt": "Corinne Vanarelli"
+    },
+    "ebook": {
+      "kicker": "E-Book",
+      "title": "You function.\nBut are you really living?",
+      "text": "Most people don’t even realize\nthat they’ve already lost themselves.",
+      "primaryCta": "Learn more"
     }
   },
   "About": {
@@ -835,7 +842,7 @@
       "1:1 Kostenloses Gespräch für Klarheit": "freeConsult",
       "Ontologisches Coaching": "coaching",
       "Akasha Chronik Lesung": "akasha",
-      "Akasha Chronik Lesung - kurz": "akasha-kurz",
+      "Akasha Chronik Lesung kurz": "akasha-kurz",
       "Hopi Herzheilung": "hopi",
       "Chakra Clearing": "chakra",
       "Geistige Wirbelsäulenaufrichtung": "gwa",
@@ -1170,8 +1177,8 @@
       },
       "closing": "Together, Nina and Corinne create a space\nin which people can feel safe enough\nto truly meet themselves.",
       "placeImage": {
-          "src": "/img/retreats/costa-rica/Playa.webp",
-          "alt": "Costa Rica",
+        "src": "/img/retreats/costa-rica/Playa.webp",
+        "alt": "Costa Rica",
         "placeholder": "BEACH PHOTO"
       },
       "placeCaption": "Many people come to this retreat because they sense that their outer life still works, while something inside them is calling for more depth"
@@ -1300,6 +1307,11 @@
         "label": "Mindfuck",
         "title": "Mindfuck",
         "description": "When the mind gets loud - and you want to see clearly again."
+      },
+      "inner-experience": {
+        "label": "Guided Spaces & Inner Experience",
+        "title": "Guided Spaces & Inner Experience",
+        "description": "Texts on consciousness work, energetic healing and inner processes. For people who want to understand themselves more deeply and experience real change in their lives."
       }
     },
     "meta": {
@@ -1535,5 +1547,105 @@
         "placeholder": ""
       }
     ]
+  },
+  "EbookPage": {
+    "hero": {
+      "kicker": "E-Book",
+      "title": "Mindfuck Detox",
+      "subtitle": "An honest look at the voices in your head – and how they shape your life.",
+      "primaryCta": "Buy now"
+    },
+    "intro": {
+      "title": "What this is really about",
+      "paragraphs": [
+        "This eBook is not a typical self-help guide.",
+        "It is an invitation to become aware of the quiet voices in your head – the ones that hold you back, make you doubt, or constantly push you.",
+        "Not to fight them, but to understand where they come from – and why they still affect you today."
+      ]
+    },
+    "mindfucks": {
+      "title": "What are mindfucks?",
+      "paragraphs": [
+        "Mindfucks are not mistakes.",
+        "They are internal programs you once learned – to protect yourself, adapt, or belong.",
+        "What once made sense may now be limiting you.",
+        "This book helps you recognize these patterns – and relate to them in a new way."
+      ]
+    },
+    "inside": {
+      "title": "What you’ll find inside",
+      "items": [
+        "Awareness of your inner voices",
+        "Understanding your patterns and reactions",
+        "Reflection questions for your daily life",
+        "Practical exercises for integration",
+        "A clear and honest look at yourself"
+      ]
+    },
+    "special": {
+      "title": "What makes this book different",
+      "paragraphs": [
+        "This book doesn’t give you quick fixes.",
+        "It doesn’t promise overnight transformation.",
+        "Instead, it connects awareness, psychology, and body perception – in a clear, grounded way.",
+        "It’s not about becoming someone else. It’s about seeing yourself more clearly."
+      ]
+    },
+    "forWhom": {
+      "title": "Who this is for",
+      "items": [
+        "If you feel like you function but don’t truly feel yourself",
+        "If you constantly question yourself",
+        "If you feel stuck",
+        "If you want to understand yourself more deeply"
+      ]
+    },
+    "notExpect": {
+      "title": "What not to expect",
+      "items": [
+        "No quick fixes",
+        "No simple answers",
+        "No positive thinking as a solution to everything"
+      ]
+    },
+    "format": {
+      "title": "Format",
+      "items": [
+        "Digital eBook (PDF)",
+        "At your own pace",
+        "With reflection questions and exercises",
+        "Designed to accompany you over time"
+      ]
+    },
+    "cta": {
+      "title": "Ready to meet yourself more honestly?",
+      "text": "This book is not a quick fix.\nIt is an honest process.",
+      "primary": "Buy now"
+    },
+    "success": {
+      "title": "Your access is ready",
+      "text": "Your purchase was successful. You can now download the eBook.",
+      "download": "Download now"
+    },
+    "cancel": {
+      "title": "Payment cancelled",
+      "text": "Your payment was not completed.",
+      "retry": "Try again"
+    },
+    "meta": {
+      "title": "Mindfuck Detox | Corinne Vanarelli",
+      "description": "An eBook about inner patterns, quiet voices, and how to see yourself more clearly again.",
+      "canonical": "https://corinnevanarelli.com/ebook",
+      "og": {
+        "title": "Mindfuck Detox | Corinne Vanarelli",
+        "description": "An honest look at the voices in your head – and how they shape your life.",
+        "url": "https://corinnevanarelli.com/ebook",
+        "siteName": "Corinne Vanarelli",
+        "image": {
+          "url": "/img/ebook/Mindfuck.webp",
+          "alt": "Mindfuck Detox Ebook"
+        }
+      }
+    }
   }
 }

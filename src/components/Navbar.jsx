@@ -16,38 +16,44 @@ const LOCALES = [
   { value: 'es', label: 'ES', flagSrc: '/img/flags/es.svg', flagAlt: 'Español' },
 ];
 
+// path = everything after the locale prefix (no leading slash)
 const NAV_LINKS = [
-  { href: '/',           tKey: 'home' },
-  { href: '/ueber-mich', tKey: 'about' },
+  { path: '',            tKey: 'home' },
+  { path: 'ueber-mich', tKey: 'about' },
 ];
 const NAV_LINKS_RIGHT = [
-  { href: '/blog',     tKey: 'blog' },
-  { href: '/#kontakt', tKey: 'contact' },
+  { path: 'blog',     tKey: 'blog' },
+  { path: '#kontakt', tKey: 'contact' },
 ];
 
 const DROPDOWNS = [
   {
     tKey: 'offers',
-    href: '/book',
+    path: 'book',
     stateKey: 'offers',
     items: [
-      { href: '/angebote/ontologisches-coaching', tKey: 'ontologicalCoaching' },
-      { href: '/angebote/akasha-chronik-lesung',  tKey: 'akashaReading' },
-      { href: '/angebote/hopi-herzheilung',        tKey: 'hopiHeartHealing' },
-      { href: '/angebote/chakra-clearing',         tKey: 'chakraClearing' },
-      { href: '/angebote/gwa',                     tKey: 'spinalAlignment' },
-      { href: '/angebote/doterra-aromatouch',      tKey: 'aromatouch' },
+      { path: 'angebote/ontologisches-coaching', tKey: 'ontologicalCoaching' },
+      { path: 'angebote/akasha-chronik-lesung',  tKey: 'akashaReading' },
+      { path: 'angebote/hopi-herzheilung',       tKey: 'hopiHeartHealing' },
+      { path: 'angebote/chakra-clearing',        tKey: 'chakraClearing' },
+      { path: 'angebote/gwa',                    tKey: 'spinalAlignment' },
+      { path: 'angebote/doterra-aromatouch',     tKey: 'aromatouch' },
     ],
   },
   {
     tKey: 'events',
-    href: '/events',
+    path: 'events',
     stateKey: 'events',
     items: [
-      { href: '/events/retreats/costa-rica', tKey: 'eventsRetreats' },
+      { path: 'events/retreats/costa-rica', tKey: 'eventsRetreats' },
     ],
   },
 ];
+
+function localePath(locale, path) {
+  if (!path || path.startsWith('#')) return `/${locale}${path ? path : ''}`;
+  return `/${locale}/${path}`;
+}
 
 function NavLink({ href, children, onClick, size = 'desktop' }) {
   const pathname = usePathname();
@@ -109,7 +115,7 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
         aria-haspopup="menu"
         aria-expanded={open ? 'true' : 'false'}
       >
-        <Image src={current.flagSrc} alt={current.flagAlt} width={16} height={16} className="rounded-[2px]" />
+        <Image src={current.flagSrc} alt={current.flagAlt} width={16} height={16} style={{ height: 'auto' }} className="rounded-[2px]" />
         <span className="font-medium tracking-[0.02em]">{current.label}</span>
         <span aria-hidden className="opacity-70">▾</span>
       </button>
@@ -129,7 +135,7 @@ function LocaleMenu({ activeLocale, pathname, onBeforeSubmit, onAfterSubmit, ali
               className={['w-full flex items-center gap-2 px-2 py-2 rounded-lg text-sm tracking-[0.02em] transition-colors', l.value === activeLocale ? 'bg-black/5' : 'hover:bg-black/5'].join(' ')}
               style={{ color: 'var(--text)' }}
             >
-              <Image src={l.flagSrc} alt={l.flagAlt} width={16} height={16} className="rounded-[2px]" />
+              <Image src={l.flagSrc} alt={l.flagAlt} width={16} height={16} style={{ height: 'auto' }} className="rounded-[2px]" />
               <span className="font-medium">{l.label}</span>
             </button>
           ))}
@@ -144,10 +150,10 @@ export default function Navbar() {
   const activeLocale = useLocale();
   const pathname = usePathname();
 
-  const [visible, setVisible]       = useState(true);
-  const [atTop, setAtTop]           = useState(true);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [mounted, setMounted]       = useState(false);
+  const [visible, setVisible]         = useState(true);
+  const [atTop, setAtTop]             = useState(true);
+  const [mobileOpen, setMobileOpen]   = useState(false);
+  const [mounted, setMounted]         = useState(false);
   const [desktopOpen, setDesktopOpen] = useState(null);
   const [mobileOpen2, setMobileOpen2] = useState(null);
 
@@ -231,26 +237,27 @@ export default function Navbar() {
         className="w-full px-4 sm:px-6 lg:px-20 h-32 flex items-center gap-6"
         style={{ backgroundColor: 'var(--bg)', borderBottom: atTop ? '1px solid transparent' : '1px solid var(--border)' }}
       >
-        <Link href="/" className="shrink-0 flex items-center gap-3" onClick={closeAll}>
-          <Image src="/img/Corinne Vanarelli Logo.png" alt="Corinne Vanarelli - Soulcoaching" width={200} height={200} priority />
+        {/* Logo */}
+        <Link href={`/${activeLocale}`} className="shrink-0 flex items-center gap-3" onClick={closeAll}>
+          <Image src="/img/Corinne Vanarelli Logo.png" alt="Corinne Vanarelli - Soulcoaching" width={200} height={200} style={{ height: 'auto' }} priority />
         </Link>
 
         {/* ── Desktop menu ── */}
         <ul className="hidden md:flex items-center gap-10 ml-auto">
-          {NAV_LINKS.map(({ href, tKey }) => (
-            <li key={href}>
-              <NavLink href={href} onClick={() => setDesktopOpen(null)}>{t(tKey)}</NavLink>
+          {NAV_LINKS.map(({ path, tKey }) => (
+            <li key={tKey}>
+              <NavLink href={localePath(activeLocale, path)} onClick={() => setDesktopOpen(null)}>{t(tKey)}</NavLink>
             </li>
           ))}
 
-          {DROPDOWNS.map(({ tKey, href, stateKey, items }) => (
+          {DROPDOWNS.map(({ tKey, path, stateKey, items }) => (
             <li
               key={stateKey}
               className="relative"
               onMouseEnter={() => setDesktopOpen(stateKey)}
               onMouseLeave={() => setDesktopOpen(null)}
             >
-              <NavLink href={href} onClick={() => setDesktopOpen(null)}>
+              <NavLink href={localePath(activeLocale, path)} onClick={() => setDesktopOpen(null)}>
                 <span className="inline-flex items-center gap-1">
                   {t(tKey)} <span aria-hidden className="opacity-70">▾</span>
                 </span>
@@ -260,8 +267,8 @@ export default function Navbar() {
                 <div className="min-w-[220px] rounded-xl shadow-lg p-2" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
                   {items.map(item => (
                     <Link
-                      key={item.href}
-                      href={item.href}
+                      key={item.path}
+                      href={localePath(activeLocale, item.path)}
                       onClick={() => setDesktopOpen(null)}
                       className="block px-3 py-2 rounded-md text-sm hover:bg-black/5"
                       style={{ color: 'var(--text)' }}
@@ -274,9 +281,9 @@ export default function Navbar() {
             </li>
           ))}
 
-          {NAV_LINKS_RIGHT.map(({ href, tKey }) => (
-            <li key={href}>
-              <NavLink href={href} onClick={() => setDesktopOpen(null)}>{t(tKey)}</NavLink>
+          {NAV_LINKS_RIGHT.map(({ path, tKey }) => (
+            <li key={tKey}>
+              <NavLink href={localePath(activeLocale, path)} onClick={() => setDesktopOpen(null)}>{t(tKey)}</NavLink>
             </li>
           ))}
 
@@ -316,9 +323,9 @@ export default function Navbar() {
           suppressHydrationWarning
         >
           <ul className="px-6 pb-8 pt-6 flex flex-col gap-4">
-            {NAV_LINKS.map(({ href, tKey }) => (
-              <li key={href}>
-                <NavLink href={href} onClick={closeAll} size="mobile">{t(tKey)}</NavLink>
+            {NAV_LINKS.map(({ path, tKey }) => (
+              <li key={tKey}>
+                <NavLink href={localePath(activeLocale, path)} onClick={closeAll} size="mobile">{t(tKey)}</NavLink>
               </li>
             ))}
 
@@ -340,8 +347,8 @@ export default function Navbar() {
                 </li>
 
                 {mobileOpen2 === stateKey && items.map(item => (
-                  <li key={item.href} className="pl-4">
-                    <Link href={item.href} onClick={closeAll} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
+                  <li key={item.path} className="pl-4">
+                    <Link href={localePath(activeLocale, item.path)} onClick={closeAll} className="text-sm hover:underline" style={{ color: 'var(--text)' }}>
                       {t(item.tKey)}
                     </Link>
                   </li>
@@ -349,9 +356,9 @@ export default function Navbar() {
               </Fragment>
             ))}
 
-            {NAV_LINKS_RIGHT.map(({ href, tKey }) => (
-              <li key={href} className="mt-2">
-                <NavLink href={href} onClick={closeAll} size="mobile">{t(tKey)}</NavLink>
+            {NAV_LINKS_RIGHT.map(({ path, tKey }) => (
+              <li key={tKey} className="mt-2">
+                <NavLink href={localePath(activeLocale, path)} onClick={closeAll} size="mobile">{t(tKey)}</NavLink>
               </li>
             ))}
           </ul>

@@ -1,34 +1,27 @@
+import createMiddleware from 'next-intl/middleware';
 import { NextResponse } from 'next/server';
 
-const LOCALES = ['de', 'en', 'es'];
-const DEFAULT_LOCALE = 'de';
+const intlMiddleware = createMiddleware({
+  locales: ['de', 'en', 'es'],
+  defaultLocale: 'de',
+  localePrefix: 'always',
+});
 
-// Paths that bypass locale routing entirely
-const PUBLIC_PREFIXES = ['/admin', '/api', '/_next', '/img', '/flags'];
-
-export function middleware(req) {
+export default function middleware(req) {
   const { pathname } = req.nextUrl;
 
-  // Skip static files and excluded paths
+  // Skip admin, api and static files entirely
   if (
-    PUBLIC_PREFIXES.some(p => pathname.startsWith(p)) ||
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/_next') ||
     pathname.includes('.')
   ) {
     return NextResponse.next();
   }
 
-  // Check if pathname already starts with a valid locale
-  const pathnameHasLocale = LOCALES.some(
-    locale => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
-  );
-
-  if (pathnameHasLocale) return NextResponse.next();
-
-  // No locale in URL — redirect to default locale
-  const locale = DEFAULT_LOCALE;
-  const newUrl = req.nextUrl.clone();
-  newUrl.pathname = `/${locale}${pathname === '/' ? '' : pathname}`;
-  return NextResponse.redirect(newUrl);
+  // Let next-intl handle everything else — it sets the correct headers
+  return intlMiddleware(req);
 }
 
 export const config = {
