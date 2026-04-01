@@ -1,25 +1,34 @@
-// src/app/events/page.jsx
+// src/app/[locale]/events/page.jsx
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import Link from "next/link";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import SeminarCard from "@/components/SeminarCard";
 
-export async function generateMetadata() {
-  const t = await getTranslations("Events.meta");
-  const locale = await getLocale();
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Events.meta" });
 
+  const basePath = "/events";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
   const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/events",
+        en: "https://www.corinnevanarelli.ch/en/events",
+        es: "https://www.corinnevanarelli.ch/es/events",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -41,8 +50,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function EventsPage() {
-  const t = await getTranslations("Events");
+export default async function EventsPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Events" });
 
   const seminar = {
     href: "/events/seminars/seminar-fruhling-2026",
@@ -84,7 +94,6 @@ export default async function EventsPage() {
             {t("intro.body")}
           </p>
 
-          {/* Navegación interna */}
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#seminarios"
@@ -111,7 +120,6 @@ export default async function EventsPage() {
             </a>
           </div>
 
-          {/* ✅ Base + hover en CSS (sin inline, ahora sí funciona) */}
           <style
             dangerouslySetInnerHTML={{
               __html: `
@@ -133,7 +141,6 @@ export default async function EventsPage() {
                   background-color: color-mix(in srgb, var(--brand) 85%, black);
                 }
 
-                /* Optional: retreat link hover without inline */
                 a[data-retreat-link]{
                   color: var(--brand);
                 }
@@ -146,7 +153,6 @@ export default async function EventsPage() {
         </div>
       </Section>
 
-      {/* SEMINARIOS */}
       <Section
         id="seminarios"
         className="pb-10 md:pb-14 scroll-mt-40"
@@ -175,7 +181,6 @@ export default async function EventsPage() {
         </div>
       </Section>
 
-      {/* RETIROS */}
       <Section
         id="retiros"
         className="py-10 md:py-14 scroll-mt-40"

@@ -1,27 +1,36 @@
-// src/app/events/retreats/costa-rica/page.jsx
+// src/app/[locale]/events/retreats/costa-rica/page.jsx
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export async function generateMetadata() {
-  const t = await getTranslations("EventsRetreatCostaRica.meta");
-  const locale = await getLocale();
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "EventsRetreatCostaRica.meta" });
 
+  const basePath = "/events/retreats/costa-rica";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
   const ogLocale =
     locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/events/retreats/costa-rica",
+        en: "https://www.corinnevanarelli.ch/en/events/retreats/costa-rica",
+        es: "https://www.corinnevanarelli.ch/es/events/retreats/costa-rica",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -43,8 +52,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function CostaRicaRetreatPage() {
-  const t = await getTranslations("EventsRetreatCostaRica");
+export default async function CostaRicaRetreatPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "EventsRetreatCostaRica" });
 
   const h2Class =
     "text-3xl md:text-[2.25rem] font-semibold text-neutral-900 whitespace-pre-line";
@@ -53,7 +63,6 @@ export default async function CostaRicaRetreatPage() {
 
   return (
     <>
-      {/* HERO */}
       <Section
         className="bg-white pt-[12rem] pb-14"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -125,7 +134,6 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      {/* DETAILS */}
       <Section
         id="details"
         className="bg-[#fafafa] py-10 scroll-mt-40"
@@ -174,7 +182,6 @@ export default async function CostaRicaRetreatPage() {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
-      {/* PROCESS */}
       <Section
         className="bg-white py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -239,7 +246,6 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      {/* FOR WHO / NOT FOR WHO */}
       <Section
         className="bg-[#fafafa] pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -265,7 +271,6 @@ export default async function CostaRicaRetreatPage() {
         </div>
       </Section>
 
-      {/* WHAT TO EXPECT */}
       <Section
         className="bg-white pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -300,7 +305,6 @@ export default async function CostaRicaRetreatPage() {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
-      {/* GUIDANCE */}
       <Section
         className="bg-[#fafafa] pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -417,7 +421,6 @@ export default async function CostaRicaRetreatPage() {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
-      {/* TRANSFORMATION */}
       <Section
         className="bg-white pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -453,7 +456,6 @@ export default async function CostaRicaRetreatPage() {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
-      {/* BOOKING */}
       <Section
         className="bg-[#fafafa] pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -515,7 +517,6 @@ export default async function CostaRicaRetreatPage() {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
-      {/* FAQ */}
       <Section
         className="bg-white"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -559,7 +560,6 @@ export default async function CostaRicaRetreatPage() {
         />
       </Section>
 
-      {/* CONTACT */}
       <div id="kontakt" className="scroll-mt-40">
         <ContactForm />
       </div>

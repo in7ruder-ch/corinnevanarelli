@@ -9,26 +9,39 @@ import { getTranslations } from "next-intl/server";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65";
 
 // Metadata i18n (sin “| Corinne Vanarelli” en title)
-export async function generateMetadata() {
-  const t = await getTranslations("Chakra.meta");
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Chakra.meta" });
+
+  const basePath = "/angebote/chakra-clearing";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/angebote/chakra-clearing",
+        en: "https://www.corinnevanarelli.ch/en/angebote/chakra-clearing",
+        es: "https://www.corinnevanarelli.ch/es/angebote/chakra-clearing",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
           url: t("og.images.0.url"),
           width: 1200,
           height: 630,
-          alt: t("og.images.0.alt")
+          alt: t("og.images.0.alt"),
         }
       ],
-      locale: t("og.locale"),
+      locale: ogLocale,
       type: t("og.type")
     },
     twitter: {
@@ -40,8 +53,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function ChakraClearingPage() {
-  const t = await getTranslations("Chakra");
+export default async function ChakraClearingPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Chakra" });
 
   return (
     <>
@@ -51,7 +65,6 @@ export default async function ChakraClearingPage() {
         imageAlt={t("banner.imageAlt")}
       />
 
-      {/* 1) Imagen derecha / Texto izquierda */}
       <AltSection
         title={
           <>
@@ -74,7 +87,6 @@ export default async function ChakraClearingPage() {
         mediaLeft={false}
       />
 
-      {/* 2) Imagen izquierda / Texto derecha */}
       <AltSection
         title={
           <>

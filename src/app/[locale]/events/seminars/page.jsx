@@ -1,24 +1,33 @@
-// src/app/events/seminars/page.jsx
+// src/app/[locale]/events/seminars/page.jsx
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import SeminarCard from "@/components/SeminarCard";
 
-export async function generateMetadata() {
-  const t = await getTranslations("EventsSeminars.meta");
-  const locale = await getLocale();
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "EventsSeminars.meta" });
 
+  const basePath = "/events/seminars";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
   const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/events/seminars",
+        en: "https://www.corinnevanarelli.ch/en/events/seminars",
+        es: "https://www.corinnevanarelli.ch/es/events/seminars",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -40,8 +49,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function EventsSeminarsPage() {
-  const t = await getTranslations("EventsSeminars");
+export default async function EventsSeminarsPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "EventsSeminars" });
 
   const seminar = {
     href: "/events/seminars/seminar-fruhling-2026",
@@ -74,7 +84,6 @@ export default async function EventsSeminarsPage() {
             {t("intro.body")}
           </p>
 
-          {/* Navegación interna */}
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#seminarios"
@@ -93,7 +102,6 @@ export default async function EventsSeminarsPage() {
             </a>
           </div>
 
-          {/* ✅ Base + hover (sin inline) */}
           <style
             dangerouslySetInnerHTML={{
               __html: `

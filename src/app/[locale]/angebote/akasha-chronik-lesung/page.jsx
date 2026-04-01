@@ -11,39 +11,53 @@ const AKASHA_SERVICE_ID = "946a36c7-29c0-4ff8-a892-da6143c2d15f";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65";
 
 // Metadata i18n
-export async function generateMetadata() {
-  const t = await getTranslations("Akasha.meta");
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Akasha.meta" });
+
+  const basePath = "/angebote/akasha-chronik-lesung";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/angebote/akasha-chronik-lesung",
+        en: "https://www.corinnevanarelli.ch/en/angebote/akasha-chronik-lesung",
+        es: "https://www.corinnevanarelli.ch/es/angebote/akasha-chronik-lesung",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
           url: t("og.images.0.url"),
           width: 1200,
           height: 630,
-          alt: t("og.images.0.alt")
-        }
+          alt: t("og.images.0.alt"),
+        },
       ],
-      locale: t("og.locale"),
-      type: t("og.type")
+      locale: ogLocale,
+      type: t("og.type"),
     },
     twitter: {
       card: t("twitter.card"),
       title: t("twitter.title"),
       description: t("twitter.description"),
-      images: [t("twitter.images.0")]
-    }
+      images: [t("twitter.images.0")],
+    },
   };
 }
 
-export default async function AkashaChronikLesungPage() {
-  const t = await getTranslations("Akasha");
+export default async function AkashaChronikLesungPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Akasha" });
 
   return (
     <>
@@ -53,7 +67,6 @@ export default async function AkashaChronikLesungPage() {
         imageAlt={t("banner.imageAlt")}
       />
 
-      {/* 1) Imagen derecha / Texto izquierda */}
       <AltSection
         title={
           <>
@@ -76,7 +89,6 @@ export default async function AkashaChronikLesungPage() {
         mediaLeft={false}
       />
 
-      {/* 2) Imagen izquierda / Texto derecha */}
       <AltSection
         title={
           <>
@@ -98,7 +110,6 @@ export default async function AkashaChronikLesungPage() {
                 strong: (chunks) => <strong>{chunks}</strong>,
               })}
             </p>
-
           </>
         }
         imageSrc={{
