@@ -1,4 +1,4 @@
-import { getTranslations, getLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
 import Hero from "@/components/Hero";
 import AltSection from "@/components/AltSection";
@@ -9,22 +9,31 @@ import Footer from "@/components/Footer";
 import EventsSection from "@/components/EventsSection";
 import HomeEbookSection from "@/components/home/HomeEbookSection";
 
-// Metadata localizada
-export async function generateMetadata() {
-  const t = await getTranslations('Home');
-  const locale = await getLocale();
-  const ogLocale =
-    locale === 'de' ? 'de_DE' :
-      locale === 'en' ? 'en_US' : 'es_ES';
+// ✅ Metadata localizada con canonical + hreflang
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Home' });
+  
+  const ogLocale = locale === 'de' ? 'de_DE' : locale === 'en' ? 'en_US' : 'es_ES';
 
   return {
     title: t('meta.title'),
     description: t('meta.description'),
-    alternates: { canonical: "https://www.corinnevanarelli.ch/" },
+    
+    // ✅ CRÍTICO: Canonical + hreflang
+    alternates: {
+      canonical: `https://www.corinnevanarelli.ch/${locale}/`,
+      languages: {
+        'de': 'https://www.corinnevanarelli.ch/de/',
+        'en': 'https://www.corinnevanarelli.ch/en/',
+        'es': 'https://www.corinnevanarelli.ch/es/',
+      }
+    },
+    
     openGraph: {
       title: t('og.title'),
       description: t('og.description'),
-      url: "https://www.corinnevanarelli.ch/",
+      url: `https://www.corinnevanarelli.ch/${locale}/`,
       siteName: "Corinne Vanarelli",
       images: [
         {
@@ -37,6 +46,7 @@ export async function generateMetadata() {
       locale: ogLocale,
       type: "website"
     },
+    
     twitter: {
       card: "summary_large_image",
       title: t('twitter.title'),
@@ -205,6 +215,7 @@ export default async function HomePage() {
         ctaVariant="link"
         padTop={false}
       />
+      
       <Services />
       <HomeEbookSection />
       <EventsSection />

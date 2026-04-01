@@ -1,13 +1,9 @@
 User-agent: *
 Allow: /
 
-# Bloquear rutas que no deben indexarse
+# Bloquear solo lo que realmente no debe indexarse
 Disallow: /api/
 Disallow: /admin/
 Disallow: /book/
-
-# (Opcional) bloquear parámetros de búsqueda/tracking comunes
-Disallow: /*?*
-Disallow: /*&*
 
 Sitemap: https://www.corinnevanarelli.ch/sitemap.xml

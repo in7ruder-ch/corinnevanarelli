@@ -1,4 +1,4 @@
-// src/app/ueber-mich/page.jsx
+// src/app/[locale]/ueber-mich/page.jsx
 import Image from "next/image";
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
@@ -6,16 +6,29 @@ import ContactForm from "@/components/ContactForm";
 import { getTranslations } from "next-intl/server";
 
 // Metadata i18n
-export async function generateMetadata() {
-  const t = await getTranslations("About.meta");
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "About.meta" });
+
+  const basePath = "/ueber-mich";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/ueber-mich",
+        en: "https://www.corinnevanarelli.ch/en/ueber-mich",
+        es: "https://www.corinnevanarelli.ch/es/ueber-mich",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -25,7 +38,7 @@ export async function generateMetadata() {
           alt: t("og.images.0.alt"),
         },
       ],
-      locale: t("og.locale"),
+      locale: ogLocale,
       type: t("og.type"),
     },
     twitter: {
@@ -37,8 +50,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function UeberMichPage() {
-  const t = await getTranslations("About");
+export default async function UeberMichPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "About" });
 
   const rows = [
     {
@@ -65,13 +79,11 @@ export default async function UeberMichPage() {
 
   return (
     <>
-      {/* Intro: texto izq / imagen der */}
       <Section
         className="pt-[12rem] pb-10 md:pb-16"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <div className="grid items-stretch md:grid-cols-12">
-          {/* Texto en card (surface + borde salvia suave) */}
           <div className="md:col-span-7">
             <div
               className="h-full p-6 sm:p-8 md:p-12"
@@ -107,7 +119,6 @@ export default async function UeberMichPage() {
                   })}
                 </p>
 
-                {/* Instagram (opcional) */}
                 <div className="pt-4">
                   <a
                     href="https://www.instagram.com/soulcoaching.coco/"
@@ -149,7 +160,6 @@ export default async function UeberMichPage() {
             </div>
           </div>
 
-          {/* Imagen derecha */}
           <div className="md:col-span-5 overflow-hidden">
             <Image
               src="/img/Corinne Vanarelli - About me.jpg"
@@ -163,7 +173,6 @@ export default async function UeberMichPage() {
         </div>
       </Section>
 
-      {/* Ausbildung */}
       <Section
         className="pt-10 md:pt-14 pb-16 md:pb-24"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -199,7 +208,6 @@ export default async function UeberMichPage() {
               </div>
             </div>
 
-            {/* divisoria sutil entre bloques */}
             <hr
               className="mt-10"
               style={{ borderTop: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)" }}

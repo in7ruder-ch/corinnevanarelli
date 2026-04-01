@@ -254,11 +254,11 @@
   },
   "Coaching": {
     "meta": {
-      "title": "Ontologisches Coaching | Corinne Vanarelli",
+      "title": "Ontologisches Coaching",
       "description": "Klarheit, Fokus und echte Umsetzung: Coaching auf Augenhöhe für berufliche & persönliche Themen - in Zürich & online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
       "og": {
-        "title": "Ontologisches Coaching | Corinne Vanarelli",
+        "title": "Ontologisches Coaching",
         "description": "Von der Erkenntnis in die Handlung: Perspektiven weiten, Entscheidungen treffen, ins Tun kommen.",
         "url": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
         "siteName": "Corinne Vanarelli",
@@ -273,7 +273,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Ontologisches Coaching | Corinne Vanarelli",
+        "title": "Ontologisches Coaching",
         "description": "Klarheit schaffen, Prioritäten setzen, ins Handeln kommen.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg"
@@ -340,7 +340,7 @@
       "description": "Klarheit zu Blockaden, Mustern und nächsten Schritten: einfühlsame Akasha-Chronik Lesungen in Zürich & online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
       "og": {
-        "title": "Akasha Chronik Lesung | Corinne Vanarelli",
+        "title": "Akasha Chronik Lesung",
         "description": "Antworten mit Tiefgang: Akasha-Chronik Lesung für Orientierung, Heilung und innere Ausrichtung.",
         "url": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
         "siteName": "Corinne Vanarelli",
@@ -355,7 +355,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Akasha Chronik Lesung | Corinne Vanarelli",
+        "title": "Akasha Chronik Lesung",
         "description": "Erkenne Zusammenhänge, löse Blockaden, finde deinen Weg.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Akasha Chronik Lesung.jpg"
@@ -476,7 +476,7 @@
       "description": "Sanfte Herzheilung für innere Ruhe, Verbundenheit und emotionale Klarheit - in Zürich & online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
       "og": {
-        "title": "Hopi Herzheilung | Corinne Vanarelli",
+        "title": "Hopi Herzheilung",
         "description": "Das Herz öffnen, das Nervensystem beruhigen, wieder bei dir ankommen.",
         "url": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
         "siteName": "Corinne Vanarelli",
@@ -491,7 +491,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Hopi Herzheilung | Corinne Vanarelli",
+        "title": "Hopi Herzheilung",
         "description": "Mehr Ruhe, Liebe und Klarheit - aus dem Herzen heraus.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp"
@@ -924,11 +924,11 @@
   },
   "Events": {
     "meta": {
-      "title": "Events | Corinne Vanarelli",
+      "title": "Events",
       "description": "Seminare und Retreats – Räume für Veränderung, Klarheit und echte Rückverbindung.",
       "canonical": "https://www.corinnevanarelli.ch/events",
       "og": {
-        "title": "Events | Corinne Vanarelli",
+        "title": "Events",
         "description": "Seminare und Retreats – Räume für Veränderung, Klarheit und echte Rückverbindung.",
         "url": "https://www.corinnevanarelli.ch/events",
         "siteName": "Corinne Vanarelli",
@@ -940,7 +940,7 @@
         ]
       },
       "twitter": {
-        "title": "Events | Corinne Vanarelli",
+        "title": "Events",
         "description": "Seminare und Retreats – Räume für Veränderung, Klarheit und echte Rückverbindung.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"

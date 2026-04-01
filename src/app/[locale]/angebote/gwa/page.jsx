@@ -10,16 +10,29 @@ import { getTranslations } from "next-intl/server";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65";
 
 // Metadata i18n (sin “| Corinne Vanarelli” en title)
-export async function generateMetadata() {
-  const t = await getTranslations("GWA.meta");
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "GWA.meta" });
+
+  const basePath = "/angebote/gwa";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/angebote/gwa",
+        en: "https://www.corinnevanarelli.ch/en/angebote/gwa",
+        es: "https://www.corinnevanarelli.ch/es/angebote/gwa",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -29,7 +42,7 @@ export async function generateMetadata() {
           alt: t("og.images.0.alt")
         }
       ],
-      locale: t("og.locale"),
+      locale: ogLocale,
       type: t("og.type")
     },
     twitter: {
@@ -41,8 +54,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function GWAPage() {
-  const t = await getTranslations("GWA");
+export default async function GWAPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "GWA" });
 
   return (
     <>
@@ -52,7 +66,6 @@ export default async function GWAPage() {
         imageAlt={t("banner.imageAlt")}
       />
 
-      {/* 1) Imagen derecha / Texto izquierda */}
       <AltSection
         title={
           <>
@@ -75,7 +88,6 @@ export default async function GWAPage() {
         mediaLeft={false}
       />
 
-      {/* 2) Imagen izquierda / Texto derecha */}
       <AltSection
         title={
           <>
@@ -84,7 +96,6 @@ export default async function GWAPage() {
         }
         body={
           <>
-            {/* ✅ Nuevo bodyIntro */}
             <p className="mb-4 whitespace-pre-line">{t("alt2.bodyIntro")}</p>
 
             <ul className="list-disc pl-6 space-y-2 marker:text-neutral-900">
@@ -93,7 +104,6 @@ export default async function GWAPage() {
               ))}
             </ul>
 
-            {/* ✅ Outro con saltos */}
             <p className="mt-4 whitespace-pre-line">{t("alt2.outro")}</p>
           </>
         }

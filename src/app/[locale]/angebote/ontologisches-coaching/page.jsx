@@ -12,39 +12,53 @@ const COACHING_SERVICE_ID = "60749344-9ccb-40a1-ac12-abfb355883ce";
 const FREE_CONSULTATION_SERVICE_ID = "a8f310fc-a08f-4b10-853c-01044ae5bd65";
 
 // Metadata i18n
-export async function generateMetadata() {
-  const t = await getTranslations("Coaching.meta");
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Coaching.meta" });
+
+  const basePath = "/angebote/ontologisches-coaching";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/angebote/ontologisches-coaching",
+        en: "https://www.corinnevanarelli.ch/en/angebote/ontologisches-coaching",
+        es: "https://www.corinnevanarelli.ch/es/angebote/ontologisches-coaching",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
           url: t("og.images.0.url"),
           width: 1200,
           height: 630,
-          alt: t("og.images.0.alt")
-        }
+          alt: t("og.images.0.alt"),
+        },
       ],
-      locale: t("og.locale"),
-      type: t("og.type")
+      locale: ogLocale,
+      type: t("og.type"),
     },
     twitter: {
       card: t("twitter.card"),
       title: t("twitter.title"),
       description: t("twitter.description"),
-      images: [t("twitter.images.0")]
-    }
+      images: [t("twitter.images.0")],
+    },
   };
 }
 
-export default async function OntologischesCoachingPage() {
-  const t = await getTranslations("Coaching");
+export default async function OntologischesCoachingPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Coaching" });
 
   return (
     <>
@@ -54,7 +68,6 @@ export default async function OntologischesCoachingPage() {
         imageAlt={t("banner.imageAlt")}
       />
 
-      {/* 1) Imagen derecha / Texto izquierda */}
       <AltSection
         title={
           <>
@@ -63,11 +76,10 @@ export default async function OntologischesCoachingPage() {
         }
         body={
           <>
-            {t
-              .rich("alt1.body", {
-                p: (chunks) => <p>{chunks}</p>,
-                strong: (chunks) => <strong>{chunks}</strong>
-              })}
+            {t.rich("alt1.body", {
+              p: (chunks) => <p>{chunks}</p>,
+              strong: (chunks) => <strong>{chunks}</strong>
+            })}
           </>
         }
         imageSrc={{
@@ -78,7 +90,6 @@ export default async function OntologischesCoachingPage() {
         mediaLeft={false}
       />
 
-      {/* 2) Imagen izquierda / Texto derecha */}
       <AltSection
         title={
           <>
@@ -107,7 +118,6 @@ export default async function OntologischesCoachingPage() {
         padTop={false}
       />
 
-      {/* 3) Sección centrada */}
       <CenteredSection
         title={
           <>

@@ -1,29 +1,38 @@
-// src/app/blog/page.jsx
+// src/app/[locale]/blog/page.jsx
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Section from "@/components/Section";
 import ServiceBanner from "@/components/ServiceBanner";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import { getPostsByCategory } from "@/content/blog/posts";
 
 // Orden fijo (jerárquico) + solo las categorías que queremos mostrar
 const BLOG_CATEGORIES_ORDERED = ["transformation", "story", "inner-experience"];
 
-export async function generateMetadata() {
-  const t = await getTranslations("Blog.meta");
-  const locale = await getLocale();
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Blog.meta" });
 
+  const basePath = "/blog";
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
   const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: "https://www.corinnevanarelli.ch/de/blog",
+        en: "https://www.corinnevanarelli.ch/en/blog",
+        es: "https://www.corinnevanarelli.ch/es/blog",
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -45,9 +54,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function BlogPage() {
-  const t = await getTranslations("Blog");
-  const locale = await getLocale();
+export default async function BlogPage({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Blog" });
 
   return (
     <>
@@ -68,7 +77,7 @@ export default async function BlogPage() {
             </h2>
           </div>
 
-          {/* Anchor nav (solo 2 categorías, orden fijo) */}
+          {/* Anchor nav */}
           <nav className="flex flex-wrap gap-2" aria-label={t("categoriesNavAria")}>
             {BLOG_CATEGORIES_ORDERED.map((cat) => (
               <a
@@ -87,7 +96,6 @@ export default async function BlogPage() {
             ))}
           </nav>
 
-          {/* CSS-only hover for nav pills + post cards */}
           <style
             dangerouslySetInnerHTML={{
               __html: `
@@ -99,14 +107,12 @@ export default async function BlogPage() {
                   border-color: color-mix(in srgb, var(--brand) 40%, transparent);
                 }
 
-                /* Mobile horizontal scroll: hide scrollbar (best effort) */
                 .blog-row::-webkit-scrollbar { display: none; }
                 .blog-row { scrollbar-width: none; }
               `,
             }}
           />
 
-          {/* Secciones por categoría (solo 2, orden fijo) */}
           {BLOG_CATEGORIES_ORDERED.map((cat) => {
             const posts = getPostsByCategory(cat);
 
@@ -135,17 +141,13 @@ export default async function BlogPage() {
                   </div>
                 ) : (
                   <>
-                    {/* Desktop: grid. Mobile: horizontal "Netflix" row */}
                     <div
                       className={[
                         "mt-8",
-                        // mobile
                         "blog-row flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 snap-x snap-mandatory scroll-px-4",
-                        // desktop+
                         "md:mx-0 md:px-0 md:pb-0 md:grid md:gap-6 md:grid-cols-2 md:overflow-visible md:snap-none md:scroll-px-0",
                       ].join(" ")}
                     >
-                      {/* left gutter (matches page padding) */}
                       <div className="shrink-0 w-4 sm:w-6 md:hidden" aria-hidden="true" />
 
                       {posts.map((p) => {
@@ -157,9 +159,7 @@ export default async function BlogPage() {
                             key={p.slug}
                             className={[
                               "rounded-xl p-6 transition-colors",
-                              // mobile sizing + snapping
                               "snap-start min-w-[85%] sm:min-w-[70%]",
-                              // desktop reset
                               "md:min-w-0",
                             ].join(" ")}
                             style={{
@@ -196,14 +196,11 @@ export default async function BlogPage() {
                         );
                       })}
 
-                      {/* right gutter (matches page padding) */}
                       <div className="shrink-0 w-4 sm:w-6 md:hidden" aria-hidden="true" />
                     </div>
 
-
-                    {/* Optional hint for mobile (subtle) */}
                     <p className="mt-3 text-sm md:hidden" style={{ color: "var(--muted)" }}>
-                      {t("swipeHint") /* si no existe esta key, borrá este <p> */}
+                      {t("swipeHint")}
                     </p>
                   </>
                 )}

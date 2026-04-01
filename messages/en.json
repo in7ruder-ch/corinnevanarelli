@@ -172,7 +172,7 @@
       "description": "My path, my values, my work: social worker & coach - why I accompany people on their way to clarity, healing and self-empowerment.",
       "canonical": "https://www.corinnevanarelli.ch/ueber-mich",
       "og": {
-        "title": "About me | Corinne Vanarelli",
+        "title": "About me",
         "description": "Background & stance: heart healing, coaching and Akashic Records - human, clear, authentic.",
         "url": "https://www.corinnevanarelli.ch/ueber-mich",
         "siteName": "Corinne Vanarelli",
@@ -187,7 +187,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "About me | Corinne Vanarelli",
+        "title": "About me",
         "description": "Who I am and how I work - with depth and connection.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Corinne Vanarelli - About me.jpg"
@@ -254,11 +254,11 @@
   },
   "Coaching": {
     "meta": {
-      "title": "Ontological Coaching | Corinne Vanarelli",
+      "title": "Ontological Coaching",
       "description": "Clarity, focus and real implementation: coaching at eye level for professional & personal topics - in Zurich & online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
       "og": {
-        "title": "Ontological Coaching | Corinne Vanarelli",
+        "title": "Ontological Coaching",
         "description": "From insight to action: broaden perspectives, make decisions, move into action.",
         "url": "https://www.corinnevanarelli.ch/angebote/ontologisches-coaching",
         "siteName": "Corinne Vanarelli",
@@ -273,7 +273,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Ontological Coaching | Corinne Vanarelli",
+        "title": "Ontological Coaching",
         "description": "Create clarity, set priorities, move into action.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Ontologisches Coaching.jpg"
@@ -340,7 +340,7 @@
       "description": "Clarity on blocks, patterns and next steps: compassionate Akashic Records readings in Zurich & online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
       "og": {
-        "title": "Akashic Records Reading | Corinne Vanarelli",
+        "title": "Akashic Records Reading",
         "description": "Answers with depth: Akashic Records reading for orientation, healing and inner alignment.",
         "url": "https://www.corinnevanarelli.ch/angebote/akasha-chronik-lesung",
         "siteName": "Corinne Vanarelli",
@@ -355,7 +355,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Akashic Records Reading | Corinne Vanarelli",
+        "title": "Akashic Records Reading",
         "description": "See the connections, dissolve blocks, find your path.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Akasha Chronik Lesung.jpg"
@@ -476,7 +476,7 @@
       "description": "Gentle heart healing for inner calm, connection and emotional clarity - in Zurich & online.",
       "canonical": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
       "og": {
-        "title": "Hopi Heart Healing | Corinne Vanarelli",
+        "title": "Hopi Heart Healing",
         "description": "Open the heart, calm the nervous system, come back to yourself.",
         "url": "https://www.corinnevanarelli.ch/angebote/hopi-herzheilung",
         "siteName": "Corinne Vanarelli",
@@ -491,7 +491,7 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Hopi Heart Healing | Corinne Vanarelli",
+        "title": "Hopi Heart Healing",
         "description": "More calm, love and clarity - from the heart.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Hopi Herzheilung 2.webp"
@@ -924,11 +924,11 @@
   },
   "Events": {
     "meta": {
-      "title": "Events | Corinne Vanarelli",
+      "title": "Events",
       "description": "Seminars and retreats – spaces for change, clarity, and real reconnection.",
       "canonical": "https://www.corinnevanarelli.ch/events",
       "og": {
-        "title": "Events | Corinne Vanarelli",
+        "title": "Events",
         "description": "Seminars and retreats – spaces for change, clarity, and real reconnection.",
         "url": "https://www.corinnevanarelli.ch/events",
         "siteName": "Corinne Vanarelli",
@@ -940,7 +940,7 @@
         ]
       },
       "twitter": {
-        "title": "Events | Corinne Vanarelli",
+        "title": "Events",
         "description": "Seminars and retreats – spaces for change, clarity, and real reconnection.",
         "images": [
           "https://www.corinnevanarelli.ch/img/Banner-Home-Mobile.webp"
