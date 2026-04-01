@@ -39,14 +39,14 @@ export async function GET(req) {
       );
     }
 
-    const filePath = path.join(process.cwd(), 'storage', 'ebooks', 'ebook.pdf');
+    const filePath = path.join(process.cwd(), 'storage', 'ebooks', 'Mindfuck Detox - Corinne Vanarelli.pdf');
     const fileBuffer = await fs.readFile(filePath);
 
     return new NextResponse(fileBuffer, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="ebook.pdf"',
+        'Content-Disposition': 'attachment; filename="Mindfuck Detox - Corinne Vanarelli.pdf"',
         'Content-Length': String(fileBuffer.length),
         'Cache-Control': 'private, no-store, no-cache, must-revalidate',
       },

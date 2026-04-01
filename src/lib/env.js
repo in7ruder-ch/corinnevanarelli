@@ -1,17 +1,13 @@
+// src/lib/env.js
+
+function requireEnv(key) {
+  const value = process.env[key];
+  if (!value) throw new Error(`Missing environment variable: ${key}`);
+  return value;
+}
+
 export const env = {
-  stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-  stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+  get stripeSecretKey() { return requireEnv('STRIPE_SECRET_KEY'); },
+  get stripeWebhookSecret() { return requireEnv('STRIPE_WEBHOOK_SECRET'); },
+  get siteUrl() { return requireEnv('NEXT_PUBLIC_SITE_URL'); },
 };
-
-if (!env.stripeSecretKey) {
-  throw new Error('Missing STRIPE_SECRET_KEY in environment variables.');
-}
-
-if (!env.stripeWebhookSecret) {
-  throw new Error('Missing STRIPE_WEBHOOK_SECRET in environment variables.');
-}
-
-if (!env.siteUrl) {
-  throw new Error('Missing NEXT_PUBLIC_SITE_URL in environment variables.');
-}

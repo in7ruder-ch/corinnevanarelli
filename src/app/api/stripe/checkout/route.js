@@ -7,8 +7,6 @@ export async function POST() {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
 
-      customer_email: 'test@example.com',
-
       metadata: {
         product: 'ebook',
       },
