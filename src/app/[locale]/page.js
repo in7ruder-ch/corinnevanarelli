@@ -7,6 +7,7 @@ import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import EventsSection from "@/components/EventsSection";
+import HomeEbookSection from "@/components/home/HomeEbookSection";
 
 // Metadata localizada
 export async function generateMetadata() {
@@ -205,6 +206,7 @@ export default async function HomePage() {
         padTop={false}
       />
       <Services />
+     {/*  <HomeEbookSection /> */}
       <EventsSection />
       <Testimonials />
       <ContactForm />
