@@ -23,6 +23,7 @@ const NAV_LINKS = [
 ];
 const NAV_LINKS_RIGHT = [
   { path: 'blog',     tKey: 'blog' },
+  { path: 'ebook',    tKey: 'ebook' },
   { path: '#kontakt', tKey: 'contact' },
 ];
 

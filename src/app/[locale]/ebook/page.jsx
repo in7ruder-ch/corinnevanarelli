@@ -32,7 +32,6 @@ export async function generateMetadata() {
             locale: ogLocale,
             type: "website",
         },
-
     };
 }
 
@@ -73,8 +72,19 @@ export default async function EbookPage() {
                             {t("hero.subtitle")}
                         </p>
 
-                        <div className="mt-8 flex flex-wrap gap-3">
-                            <EbookCheckoutButton label={t('hero.primaryCta')} />
+                        {/* Price + CTA */}
+                        <div className="mt-8 flex flex-col gap-3">
+                            <div className="flex items-center gap-3">
+                                <span className="text-2xl font-bold text-neutral-900">
+                                    CHF 26
+                                </span>
+                                <span className="text-sm text-neutral-500">
+                                    {t("hero.priceNote")}
+                                </span>
+                            </div>
+                            <div className="pt-2">
+                                <EbookCheckoutButton label={t('hero.primaryCta')} />
+                            </div>
                         </div>
                     </div>
 
@@ -218,13 +228,20 @@ export default async function EbookPage() {
                             {t("cta.text")}
                         </p>
 
-                        <div className="mt-8">
-                            <button
-                                type="button"
-                                className="rounded-full px-6 py-2 bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-100 transition-colors"
-                            >
-                                {t("cta.primary")}
-                            </button>
+                        {/* Price + CTA */}
+                        <div className="mt-8 flex flex-col items-center gap-4">
+                            <div className="flex flex-col items-center gap-0.5">
+                                <span className="text-2xl font-bold text-white">
+                                    CHF 26
+                                </span>
+                                <span className="text-sm text-white/60">
+                                    {t("hero.priceNote")}
+                                </span>
+                            </div>
+                            <EbookCheckoutButton
+                                label={t("cta.primary")}
+                                variant="light"
+                            />
                         </div>
                     </div>
                 </div>

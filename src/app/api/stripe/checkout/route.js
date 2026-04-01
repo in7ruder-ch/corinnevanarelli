@@ -18,7 +18,7 @@ export async function POST() {
             product_data: {
               name: 'Ebook',
             },
-            unit_amount: 1900,
+            unit_amount: 2600,
           },
           quantity: 1,
         },
