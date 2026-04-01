@@ -5,6 +5,7 @@ const intlMiddleware = createMiddleware({
   locales: ['de', 'en', 'es'],
   defaultLocale: 'de',
   localePrefix: 'always',
+  localeDetection: false,
 });
 
 export default function middleware(req) {
