@@ -5,6 +5,9 @@ import ServicePicker from "./booking/ServicePicker";
 import DateTimePicker from "./booking/DateTimePicker";
 import Summary from "./booking/Summary";
 
+const PAID_BOOKINGS_ENABLED =
+  (process.env.NEXT_PUBLIC_PAID_BOOKINGS_ENABLED ?? "").toString().trim() === "true";
+
 function getPriceNumber(service) {
   const price =
     service?.price ??
@@ -25,8 +28,13 @@ export default function BookClient({ initialSelectedId }) {
     const price = getPriceNumber(service);
     const dur = Number(service?.durationMin ?? service?.duration ?? 0);
 
-    // ✅ Solo el "Kostenloses Gespräch" (0 CHF y 20 min) sigue con slots + hold/confirm
-    return price === 0 && dur === 20;
+    // Free consultation: siempre auto-booking
+    if (price === 0 && dur === 20) return true;
+
+    // Servicios pagos: auto-booking solo si el flag está activo
+    if (price > 0 && PAID_BOOKINGS_ENABLED) return true;
+
+    return false;
   }, [service]);
 
   return (
@@ -35,17 +43,14 @@ export default function BookClient({ initialSelectedId }) {
       style={{ color: "var(--text)" }}
     >
       <div className="space-y-8">
-        {/* Preselección por query param ?serviceId=... */}
         <ServicePicker
           initialSelectedId={initialSelectedId}
           onChange={(s) => {
             setService(s);
-            // Si pasamos a modo manual, limpiamos fecha/hora para evitar estado viejo
             if (s) setDatetime({ date: null, timeISO: null });
           }}
         />
 
-        {/* El picker emite { date, timeISO } */}
         <DateTimePicker
           onChange={setDatetime}
           service={service}

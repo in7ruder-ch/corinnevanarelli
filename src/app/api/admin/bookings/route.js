@@ -39,7 +39,7 @@ export async function GET(req) {
         services:service_id (id, title_de, modality_de, duration_label_de, duration_min, price_chf)`,
         { count: "exact" }
       )
-      .order("start_at", { ascending: true })
+      .order("start_at", { ascending: false })
       .limit(limit);
 
     if (status) query = query.eq("status", status);

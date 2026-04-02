@@ -1,75 +1,76 @@
-// src/app/api/bookings/hold/route.js
+// src/app/api/bookings/confirm/route.js
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 import { getSupabaseService } from "@/lib/supabaseService";
+import { sendBookingPaidEmail } from "@/lib/mailer";
 
 export async function POST(req) {
   try {
-    const { serviceId, startISO, holdMinutes = 10, name, email } = await req.json();
+    const { bookingId, name, email } = await req.json();
 
-    if (!serviceId || !startISO) {
-      return Response.json({ error: "Missing serviceId or startISO" }, { status: 400 });
-    }
-
-    const startAt = new Date(startISO);
-    if (isNaN(startAt.getTime())) {
-      return Response.json({ error: "Invalid startISO" }, { status: 400 });
+    if (!bookingId || !name?.trim() || !/.+@.+\..+/.test(email)) {
+      return Response.json({ error: "Missing or invalid fields" }, { status: 400 });
     }
 
     const supabase = getSupabaseService();
 
-    // Clean up expired HOLDs
-    await supabase
+    // Verificamos que el HOLD existe y no está expirado
+    const { data: booking, error: fetchErr } = await supabase
       .from("bookings")
-      .update({ status: "CANCELED" })
-      .lt("hold_until", new Date().toISOString())
-      .eq("status", "HOLD");
-
-    // Fetch service for duration
-    const { data: svc, error: svcErr } = await supabase
-      .from("services")
-      .select("id, duration_min")
-      .eq("id", serviceId)
+      .select("id, status, hold_until, start_at, service_id")
+      .eq("id", bookingId)
       .maybeSingle();
 
-    if (svcErr) throw svcErr;
-    if (!svc) {
-      return Response.json({ error: "Service not found" }, { status: 404 });
+    if (fetchErr) throw fetchErr;
+    if (!booking) {
+      return Response.json({ error: "Booking not found" }, { status: 404 });
+    }
+    if (booking.status !== "HOLD") {
+      return Response.json({ error: "Booking is no longer on hold" }, { status: 409 });
+    }
+    if (booking.hold_until && new Date(booking.hold_until) < new Date()) {
+      return Response.json({ error: "Hold expired" }, { status: 409 });
     }
 
-    const endAt = new Date(startAt.getTime() + (svc.duration_min || 60) * 60000);
-    const holdUntil = new Date(Date.now() + holdMinutes * 60000).toISOString();
-
-    // Insert HOLD
-    const { data: inserted, error: insErr } = await supabase
+    // Confirmamos: HOLD → CONFIRMED con datos del cliente
+    const { error: updateErr } = await supabase
       .from("bookings")
-      .insert({
-        service_id: serviceId,
-        start_at: startAt.toISOString(),
-        end_at: endAt.toISOString(),
-        status: "HOLD",
-        hold_until: holdUntil,
-        customer_name: name || null,
-        customer_email: email || null,
+      .update({
+        status: "CONFIRMED",
+        hold_until: null,
+        customer_name: name.trim(),
+        customer_email: email.trim(),
       })
-      .select("id, start_at, hold_until")
-      .single();
+      .eq("id", bookingId)
+      .eq("status", "HOLD");
 
-    if (insErr) {
-      if (String(insErr.code) === "23505") {
-        return Response.json({ error: "Slot already taken" }, { status: 409 });
-      }
-      throw insErr;
+    if (updateErr) throw updateErr;
+
+    // Cargamos el servicio para el email
+    const { data: service } = await supabase
+      .from("services")
+      .select("id, title_de, duration_min, price_chf")
+      .eq("id", booking.service_id)
+      .maybeSingle();
+
+    // Enviamos el email de confirmación (no bloqueamos si falla)
+    try {
+      await sendBookingPaidEmail({
+        booking: {
+          ...booking,
+          customer_name: name.trim(),
+          customer_email: email.trim(),
+        },
+        service: service || { title_de: booking.service_id, duration_min: 60, price_chf: 0 },
+      });
+    } catch (mailErr) {
+      console.error("[/api/bookings/confirm] email error (non-fatal):", mailErr);
     }
 
-    return Response.json({
-      bookingId: inserted.id,
-      start_at: inserted.start_at,
-      hold_until: inserted.hold_until,
-    });
+    return Response.json({ ok: true });
   } catch (e) {
-    console.error("[/api/bookings/hold] fatal:", e);
+    console.error("[/api/bookings/confirm] fatal:", e);
     return Response.json({ error: "Server error" }, { status: 500 });
   }
 }

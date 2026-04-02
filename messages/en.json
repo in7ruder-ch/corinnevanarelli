@@ -250,7 +250,17 @@
   },
   "Book": {
     "title": "Booking",
-    "lead": "Choose your service, date and time."
+    "lead": "Choose your service, date and time.",
+    "success": {
+      "title": "Booking confirmed!",
+      "body": "Your payment was successful. You will receive a confirmation email shortly.",
+      "cta": "Back to home"
+    },
+    "cancel": {
+      "title": "Payment cancelled",
+      "body": "Your booking was not completed. You can try again at any time.",
+      "cta": "Book again"
+    }
   },
   "Coaching": {
     "meta": {
@@ -919,7 +929,8 @@
         "message": "This service is scheduled individually. Please contact me directly so we can agree on a day and time.",
         "ctaPhone": "Contact me by phone",
         "ctaMail": "Contact me by email"
-      }
+      },
+      "pay": "Pay now"
     }
   },
   "Events": {

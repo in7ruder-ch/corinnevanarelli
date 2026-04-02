@@ -256,7 +256,17 @@
   },
   "Book": {
     "title": "Reserva",
-    "lead": "Elige tu servicio, fecha y hora."
+    "lead": "Elige tu servicio, fecha y hora.",
+    "success": {
+      "title": "¡Reserva confirmada!",
+      "body": "Tu pago fue exitoso. Recibirás un correo de confirmación en breve.",
+      "cta": "Volver al inicio"
+    },
+    "cancel": {
+      "title": "Pago cancelado",
+      "body": "Tu reserva no fue completada. Puedes intentarlo de nuevo cuando quieras.",
+      "cta": "Reservar de nuevo"
+    }
   },
   "Coaching": {
     "meta": {
@@ -929,7 +939,8 @@
         "message": "Este servicio se coordina de forma personalizada. Contáctame directamente para acordar un día y un horario.",
         "ctaPhone": "Contactarme por teléfono",
         "ctaMail": "Contactarme por email"
-      }
+      },
+      "pay": "Pagar ahora"
     }
   },
   "Events": {
