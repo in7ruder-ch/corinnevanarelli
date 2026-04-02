@@ -1,21 +1,8 @@
 // src/app/api/slots/route.js
-export const runtime = "nodejs"; // asegura acceso a las envs del server (no Edge)
+export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-
-/**
- * Cliente con SERVICE ROLE para ejecutar en servidor y bypass de RLS.
- * IMPORTANTE: Nunca usar esto en componentes "use client".
- */
-function getSupabaseService() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceRole =
-    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE; // fallback
-  if (!url) throw new Error("Falta NEXT_PUBLIC_SUPABASE_URL");
-  if (!serviceRole) throw new Error("Falta SUPABASE_SERVICE_ROLE_KEY (service role)");
-  return createClient(url, serviceRole, { auth: { persistSession: false } });
-}
+import { getSupabaseService } from "@/lib/supabaseService";
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -26,7 +13,6 @@ function isValidDateYYYYMMDD(s) {
   return !isNaN(d.getTime());
 }
 
-// "YYYY-MM-DD" de hoy en una TZ dada (ej. Europe/Zurich)
 function todayISOInTZ(timeZone = "Europe/Zurich") {
   const fmt = new Intl.DateTimeFormat("en-CA", {
     timeZone,
@@ -34,15 +20,14 @@ function todayISOInTZ(timeZone = "Europe/Zurich") {
     month: "2-digit",
     day: "2-digit",
   });
-  // en-CA con year/month/day devuelve "YYYY-MM-DD"
   return fmt.format(new Date());
 }
 
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
-    const date = searchParams.get("date"); // YYYY-MM-DD
-    const serviceId = searchParams.get("serviceId"); // uuid
+    const date = searchParams.get("date");
+    const serviceId = searchParams.get("serviceId");
 
     if (!date || !isValidDateYYYYMMDD(date)) {
       return NextResponse.json(
@@ -57,7 +42,6 @@ export async function GET(req) {
       );
     }
 
-    // ⛔ Si es fecha pasada según Europe/Zurich, no devolvemos slots
     const todayCH = todayISOInTZ("Europe/Zurich");
     if (date < todayCH) {
       return NextResponse.json(
@@ -68,7 +52,6 @@ export async function GET(req) {
 
     const supabase = getSupabaseService();
 
-    // El RPC devuelve filas { start_at: timestamptz } (o un array simple de timestamptz)
     const { data, error } = await supabase.rpc("get_available_slots", {
       p_date: date,
       p_service_id: serviceId,

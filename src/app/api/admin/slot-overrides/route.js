@@ -65,13 +65,6 @@ export async function POST(req) {
         const supabase = getSupabaseService();
 
         // Construimos el timestamptz del slot para comparar con bookings
-        // Usamos la TZ del booking_settings igual que la RPC
-        const { data: settings } = await supabase
-            .from("booking_settings")
-            .select("tz")
-            .eq("id", 1)
-            .maybeSingle();
-        const tz = settings?.tz || "Europe/Zurich";
 
         const slotISO = new Date(`${date}T${time}:00`).toISOString();
 

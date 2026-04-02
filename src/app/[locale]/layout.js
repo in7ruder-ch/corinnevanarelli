@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getLocale } from 'next-intl/server';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 const SUPPORTED = ['de', 'en', 'es'];
@@ -38,7 +38,7 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Navbar />
-      <main>{children}</main>
+      {children}
     </NextIntlClientProvider>
   );
 }

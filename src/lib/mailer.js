@@ -75,8 +75,8 @@ function buildIcs({ booking, service }) {
     `Service: ${service.title_de || booking.service_id}`,
     `Datum/Zeit (CH): ${formatDateCH(booking.start_at)}`,
     `Dauer: ${durationMin} Min`,
-    `Betrag: CHF ${Number(service.price_chf || 0).toFixed(2)}`,
-  ].join("\\n");
+    service.price_chf > 0 ? `Betrag: CHF ${Number(service.price_chf).toFixed(2)}` : null,
+  ].filter(Boolean).join("\\n");
 
   const location = process.env.MAIL_LOCATION || "";
 
@@ -94,7 +94,7 @@ function buildIcs({ booking, service }) {
     `SUMMARY:${summary}`,
     `DESCRIPTION:${description}`,
     location ? `LOCATION:${location}` : null,
-    `ORGANIZER;CN=Corinne Vanarelli:mailto:${getEnv("EMAIL_FROM","MAIL_FROM") || "kontakt@corinnevanarelli.ch"}`,
+    `ORGANIZER;CN=Corinne Vanarelli:mailto:${getEnv("EMAIL_FROM", "MAIL_FROM") || "kontakt@corinnevanarelli.ch"}`,
     booking.customer_email
       ? `ATTENDEE;CN=${booking.customer_name || "Gast"};RSVP=TRUE:mailto:${booking.customer_email}`
       : null,
@@ -134,13 +134,13 @@ export async function sendBookingPaidEmail({ booking, service }) {
     `• Service: ${service.title_de || booking.service_id}`,
     `• Datum/Zeit: ${when}`,
     `• Dauer: ${service.duration_min || ""} Min`,
-    `• Betrag: CHF ${Number(service.price_chf || 0).toFixed(2)}`,
+    service.price_chf > 0 ? `• Betrag: CHF ${Number(service.price_chf).toFixed(2)}` : null,
     "",
     `Du kannst den Termin mit der angehängten Datei (.ics) zu deinem Kalender hinzufügen.`,
     "",
     `Danke und bis bald,`,
     `Corinne`,
-  ].join("\n");
+  ].filter(Boolean).join("\n");
 
   const html = `
     <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5;color:#111">
@@ -150,7 +150,7 @@ export async function sendBookingPaidEmail({ booking, service }) {
         <li><strong>Service:</strong> ${service.title_de || booking.service_id}</li>
         <li><strong>Datum/Zeit:</strong> ${when}</li>
         <li><strong>Dauer:</strong> ${service.duration_min || ""} Min</li>
-        <li><strong>Betrag:</strong> CHF ${Number(service.price_chf || 0).toFixed(2)}</li>
+        ${service.price_chf > 0 ? `<li><strong>Betrag:</strong> CHF ${Number(service.price_chf).toFixed(2)}</li>` : ""}
       </ul>
       <p>Füge den Termin zu deinem Kalender hinzu (siehe Anhang <code>.ics</code>).</p>
       <p>Danke und bis bald,<br/>Corinne</p>
