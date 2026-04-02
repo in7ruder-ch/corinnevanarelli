@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Section from "@/components/Section";
 import { getTranslations } from "next-intl/server";
 
-import { getAllPosts, getPostBySlug, getAdjacentPosts } from "@/content/blog/posts";
+import { getAllPosts, getPostBySlug, getAdjacentPosts } from "@/content/blog";
 
 export async function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));

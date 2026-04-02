@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import ServiceBanner from "@/components/ServiceBanner";
 import { getTranslations } from "next-intl/server";
 
-import { getPostsByCategory } from "@/content/blog/posts";
+import { getPostsByCategory } from "@/content/blog";
 
 // Orden fijo (jerárquico) + solo las categorías que queremos mostrar
 const BLOG_CATEGORIES_ORDERED = ["transformation", "story", "inner-experience"];
