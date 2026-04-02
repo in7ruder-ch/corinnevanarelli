@@ -1,27 +1,34 @@
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import EbookCheckoutButton from '@/components/ebook/EbookCheckoutButton';
 
-export async function generateMetadata() {
-    const t = await getTranslations("EbookPage.meta");
-    const locale = await getLocale();
+// ✅ Metadata con canonical + hreflang
+export async function generateMetadata({ params }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "EbookPage.meta" });
 
-    const ogLocale =
-        locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
+    const basePath = "/ebook";
+    const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
+    const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
     return {
         title: t("title"),
         description: t("description"),
         alternates: {
-            canonical: t("canonical"),
+            canonical: currentUrl,
+            languages: {
+                de: "https://www.corinnevanarelli.ch/de/ebook",
+                en: "https://www.corinnevanarelli.ch/en/ebook",
+                es: "https://www.corinnevanarelli.ch/es/ebook",
+            },
         },
         openGraph: {
             title: t("og.title"),
             description: t("og.description"),
-            url: t("og.url"),
+            url: currentUrl,
             siteName: t("og.siteName"),
             images: [
                 {

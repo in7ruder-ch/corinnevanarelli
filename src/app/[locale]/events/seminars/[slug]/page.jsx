@@ -2,7 +2,7 @@
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -88,22 +88,30 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   if (slug !== SEMINAR_SLUG) notFound();
 
-  const t = await getTranslations("SeminarFruhling2026.meta");
-  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: "SeminarFruhling2026.meta" });
 
+  const basePath = `/events/seminars/${slug}`;
+  const currentUrl = `https://www.corinnevanarelli.ch/${locale}${basePath}`;
   const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: t("canonical") },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        de: `https://www.corinnevanarelli.ch/de${basePath}`,
+        en: `https://www.corinnevanarelli.ch/en${basePath}`,
+        es: `https://www.corinnevanarelli.ch/es${basePath}`,
+      },
+    },
     openGraph: {
       title: t("og.title"),
       description: t("og.description"),
-      url: t("og.url"),
+      url: currentUrl,
       siteName: t("og.siteName"),
       images: [
         {
@@ -388,17 +396,17 @@ export default async function SeminarDetailPage({ params }) {
           </div>
         </div>
 
-            <div
-              className="mt-8 rounded-2xl p-6"
-              style={{
-                backgroundColor: "var(--surface)",
-                border: "1px solid color-mix(in srgb, var(--accent) 35%, transparent)",
-              }}
-            >
-              <p className="text-center text-lg font-medium whitespace-pre-line" style={{ color: "var(--text)" }}>
-                {t("s3.for.note")}
-              </p>
-            </div>
+        <div
+          className="mt-8 rounded-2xl p-6"
+          style={{
+            backgroundColor: "var(--surface)",
+            border: "1px solid color-mix(in srgb, var(--accent) 35%, transparent)",
+          }}
+        >
+          <p className="text-center text-lg font-medium whitespace-pre-line" style={{ color: "var(--text)" }}>
+            {t("s3.for.note")}
+          </p>
+        </div>
       </Section>
 
       {/* HOW WE WORK */}

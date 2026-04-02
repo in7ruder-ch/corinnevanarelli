@@ -11,8 +11,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const t = await getTranslations("BlogPost.meta");
   const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPost.meta" });
 
   const post = getPostBySlug(slug);
 
@@ -25,13 +25,31 @@ export async function generateMetadata({ params }) {
 
   const title = post.title?.[locale] ?? post.title?.de ?? "";
   const description = post.excerpt?.[locale] ?? post.excerpt?.de ?? "";
-  const canonical = `/${locale}/blog/${post.slug}`;
+  
+  // ✅ URLs absolutas
+  const baseUrl = "https://www.corinnevanarelli.ch";
+  const canonical = `${baseUrl}/${locale}/blog/${post.slug}`;
+  const ogLocale = locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "es_ES";
 
   return {
     title,
     description,
-    alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: "article" },
+    alternates: {
+      canonical,
+      languages: {
+        de: `${baseUrl}/de/blog/${post.slug}`,
+        en: `${baseUrl}/en/blog/${post.slug}`,
+        es: `${baseUrl}/es/blog/${post.slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "article",
+      locale: ogLocale,
+      siteName: "Corinne Vanarelli",
+    },
   };
 }
 
