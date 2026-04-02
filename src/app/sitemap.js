@@ -1,5 +1,5 @@
 // src/app/sitemap.js
-import { getAllPosts } from "@/content/blog/posts";
+import { getAllPosts } from "@/content/blog";
 
 export default async function sitemap() {
   const baseUrl = "https://www.corinnevanarelli.ch";
