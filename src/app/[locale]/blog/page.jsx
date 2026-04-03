@@ -183,7 +183,7 @@ export default async function BlogPage({ params }) {
 
                             <div className="mt-4">
                               <Link
-                                href={`/blog/${p.slug}`}
+                                href={`/${locale}/blog/${p.slug}`}
                                 className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
                                 style={{ color: "var(--brand)" }}
                                 aria-label={t("readMoreAria", { title: postTitle })}

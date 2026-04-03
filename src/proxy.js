@@ -15,6 +15,7 @@ export default function middleware(req) {
   if (
     pathname.startsWith('/admin') ||
     pathname.startsWith('/api') ||
+    pathname.startsWith('/studio') ||
     pathname.startsWith('/_next') ||
     pathname.includes('.')
   ) {

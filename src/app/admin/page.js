@@ -141,11 +141,75 @@ function SlotOverridesPanel({ services }) {
   const todayISO = formatDateISO(new Date());
   const [form, setForm] = useState({ serviceId: "", date: todayISO, time: "09:00", type: "OPEN" });
   const [saving, setSaving] = useState(false);
-  const [saveMsg, setSaveMsg] = useState(null); // { ok, text }
+  const [saveMsg, setSaveMsg] = useState(null);
   const [deletingId, setDeletingId] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+
+  // Horas disponibles según si el día seleccionado es hoy o futuro
+  const availableHours = useMemo(() => {
+    const allHours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
+    if (form.date !== todayISO) return allHours;
+    const currentHour = new Date().getHours();
+    return allHours.filter((h) => parseInt(h) > currentHour);
+  }, [form.date, todayISO]);
+
+  // Minutos disponibles según hora seleccionada (si es hoy y misma hora)
+  const availableMinutes = useMemo(() => {
+    const allMinutes = ["00", "15", "30", "45"];
+    if (form.date !== todayISO) return allMinutes;
+    const currentHour = new Date().getHours();
+    const currentMinute = new Date().getMinutes();
+    const selectedHour = parseInt(form.time.split(":")[0]);
+    if (selectedHour > currentHour) return allMinutes;
+    if (selectedHour === currentHour) {
+      return allMinutes.filter((m) => parseInt(m) > currentMinute);
+    }
+    return allMinutes;
+  }, [form.date, form.time, todayISO]);
+
+  // Cuando cambia la fecha a hoy, corregimos la hora si quedó en el pasado
+  const handleDateChange = useCallback((newDate) => {
+    setForm((f) => {
+      let time = f.time;
+      if (newDate === todayISO) {
+        const currentHour = new Date().getHours();
+        const currentMinute = new Date().getMinutes();
+        const [h, m] = time.split(":").map(Number);
+        const isPast = h < currentHour || (h === currentHour && m <= currentMinute);
+        if (isPast) {
+          // Buscamos la próxima hora válida
+          const nextHour = currentHour + 1;
+          if (nextHour < 24) {
+            time = `${String(nextHour).padStart(2, "0")}:00`;
+          } else {
+            time = "23:45";
+          }
+        }
+      }
+      return { ...f, date: newDate, time };
+    });
+  }, [todayISO]);
+
+  // Overrides filtrados por fecha seleccionada (o todos si showAll)
+  const visibleOverrides = useMemo(() => {
+    if (showAll) return overrides;
+    return overrides.filter((ov) => ov.date === form.date);
+  }, [overrides, form.date, showAll]);
+
+  // Validación: hora en el pasado para hoy
+  const isTimeInPast = useMemo(() => {
+    if (form.date !== todayISO) return false;
+    const [h, m] = form.time.split(":").map(Number);
+    const now = new Date();
+    return h < now.getHours() || (h === now.getHours() && m <= now.getMinutes());
+  }, [form.date, form.time, todayISO]);
 
   const handleCreate = useCallback(async () => {
     if (!form.date || !form.time || !form.type) return;
+    if (isTimeInPast) {
+      setSaveMsg({ ok: false, text: "Die gewählte Uhrzeit liegt in der Vergangenheit." });
+      return;
+    }
     try {
       setSaving(true);
       setSaveMsg(null);
@@ -177,7 +241,7 @@ function SlotOverridesPanel({ services }) {
     } finally {
       setSaving(false);
     }
-  }, [form, refreshOverrides]);
+  }, [form, isTimeInPast, refreshOverrides]);
 
   const handleDelete = useCallback(async (id) => {
     if (!window.confirm("Override löschen?")) return;
@@ -226,7 +290,7 @@ function SlotOverridesPanel({ services }) {
               type="date"
               value={form.date}
               min={todayISO}
-              onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
+              onChange={(e) => handleDateChange(e.target.value)}
               className="w-full border rounded-lg px-3 py-2 text-sm bg-white"
             />
           </div>
@@ -239,7 +303,7 @@ function SlotOverridesPanel({ services }) {
                 onChange={(e) => setForm((f) => ({ ...f, time: `${e.target.value}:${f.time.split(":")[1] || "00"}` }))}
                 className="w-full border rounded-lg px-3 py-2 text-sm bg-white"
               >
-                {Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0")).map((h) => (
+                {availableHours.map((h) => (
                   <option key={h} value={h}>{h}</option>
                 ))}
               </select>
@@ -248,11 +312,14 @@ function SlotOverridesPanel({ services }) {
                 onChange={(e) => setForm((f) => ({ ...f, time: `${f.time.split(":")[0] || "09"}:${e.target.value}` }))}
                 className="w-full border rounded-lg px-3 py-2 text-sm bg-white"
               >
-                {["00", "15", "30", "45"].map((m) => (
+                {availableMinutes.map((m) => (
                   <option key={m} value={m}>{m}</option>
                 ))}
               </select>
             </div>
+{/*             {isTimeInPast && (
+              <p className="text-xs text-red-600 mt-1">Uhrzeit liegt in der Vergangenheit.</p>
+            )} */}
           </div>
 
           <div className="space-y-1">
@@ -268,14 +335,22 @@ function SlotOverridesPanel({ services }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 flex-wrap">
           <button
             onClick={handleCreate}
-            disabled={saving}
+            disabled={saving || isTimeInPast}
             className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium bg-white hover:bg-neutral-100 disabled:opacity-50"
           >
             {saving ? "Speichern…" : "Override erstellen"}
           </button>
+
+          <button
+            onClick={() => setShowAll((v) => !v)}
+            className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium bg-white hover:bg-neutral-100"
+          >
+            {showAll ? `Nur ${formatDateShort(form.date)}` : "Alle anzeigen"}
+          </button>
+
           {saveMsg && (
             <span className={`text-sm ${saveMsg.ok ? "text-green-700" : "text-red-600"}`}>
               {saveMsg.text}
@@ -286,6 +361,11 @@ function SlotOverridesPanel({ services }) {
 
       {/* Tabla de overrides */}
       <div className="mt-4 overflow-x-auto">
+        <div className="mb-2 text-xs text-neutral-500">
+          {showAll
+            ? `Alle Overrides (${overrides.length})`
+            : `Overrides für ${formatDateShort(form.date)} (${visibleOverrides.length})`}
+        </div>
         <table className="min-w-full text-sm">
           <thead>
             <tr className="border-b bg-neutral-50 text-neutral-600">
@@ -303,10 +383,12 @@ function SlotOverridesPanel({ services }) {
             {!loadingOv && errOv && (
               <tr><td colSpan={5} className="px-3 py-6 text-center text-red-600">{errOv}</td></tr>
             )}
-            {!loadingOv && !errOv && overrides.length === 0 && (
-              <tr><td colSpan={5} className="px-3 py-6 text-center text-neutral-500">Keine Overrides vorhanden.</td></tr>
+            {!loadingOv && !errOv && visibleOverrides.length === 0 && (
+              <tr><td colSpan={5} className="px-3 py-6 text-center text-neutral-500">
+                {showAll ? "Keine Overrides vorhanden." : `Keine Overrides für ${formatDateShort(form.date)}.`}
+              </td></tr>
             )}
-            {!loadingOv && !errOv && overrides.map((ov) => (
+            {!loadingOv && !errOv && visibleOverrides.map((ov) => (
               <tr key={ov.id} className="border-b hover:bg-neutral-50/50">
                 <td className="px-3 py-3">{formatDateShort(ov.date)}</td>
                 <td className="px-3 py-3">{ov.time?.slice(0, 5) || "-"}</td>
@@ -349,7 +431,6 @@ export default function AdminPage() {
     setDefaultTo(formatDateISO(inTwoWeeks));
     setReady(true);
 
-    // Cargamos servicios para el selector de overrides
     fetch("/api/services")
       .then((r) => r.json())
       .then((json) => setServices(Array.isArray(json?.services) ? json.services : []))

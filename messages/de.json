@@ -894,7 +894,8 @@
         "wait": "Bitte warten…",
         "sending": "Sende…",
         "reserveFree": "Kostenlos reservieren",
-        "confirm": "Bestätigen"
+        "confirm": "Bestätigen",
+        "pay": "Jetzt bezahlen"
       },
       "hold": {
         "info": "Slot für dich reserviert (HOLD). Bitte in den nächsten Minuten fortfahren.",
@@ -929,8 +930,7 @@
         "message": "Dieser Service wird individuell terminiert. Bitte kontaktiere mich direkt, damit wir gemeinsam einen passenden Tag und eine Uhrzeit finden.",
         "ctaPhone": "Kontakt per Telefon",
         "ctaMail": "Kontakt per E-Mail"
-      },
-      "pay": "Jetzt bezahlen"
+      }
     }
   },
   "Events": {

@@ -9,23 +9,28 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@sanity/image-url": "^2.1.1",
     "@supabase/supabase-js": "^2.57.4",
     "date-fns": "^3.6.0",
-    "next": "15.5.9",
+    "next": "^16.2.2",
     "next-intl": "^4.3.9",
-    "nodemailer": "^7.0.6",
-    "react": "19.1.0",
+    "next-sanity": "^7.1.4",
+    "nodemailer": "^8.0.4",
+    "react": "^19.2.4",
     "react-day-picker": "^9.11.0",
-    "react-dom": "19.1.0",
-    "stripe": "^21.0.1"
+    "react-dom": "^19.2.4",
+    "stripe": "^21.0.1",
+    "styled-components": "^6.3.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@sanity/vision": "^5.19.0",
     "@tailwindcss/postcss": "^4",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "postcss": "^8.4.38",
+    "sanity": "^5.19.0",
     "tailwindcss": "^3.4.10"
   }
 }

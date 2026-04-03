@@ -904,7 +904,8 @@
         "wait": "Por favor, esperá…",
         "sending": "Enviando…",
         "reserveFree": "Reservar gratis",
-        "confirm": "Confirmar"
+        "confirm": "Confirmar",
+        "pay": "Pagar ahora"
       },
       "hold": {
         "info": "Turno reservado para vos (HOLD). Por favor continuá en los próximos minutos.",
@@ -939,8 +940,7 @@
         "message": "Este servicio se coordina de forma personalizada. Contáctame directamente para acordar un día y un horario.",
         "ctaPhone": "Contactarme por teléfono",
         "ctaMail": "Contactarme por email"
-      },
-      "pay": "Pagar ahora"
+      }
     }
   },
   "Events": {
