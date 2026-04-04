@@ -32,6 +32,7 @@ import derWendepunkt from "./posts/der-wendepunkt-beginnt-leise.js";
 import wasIchGelernt from "./posts/was-ich-uber-mich-gelernt-habe-als-alles-still-wurde.js";
 import wennAntworten from "./posts/wenn-antworten-nicht-aus-dem-kopf-kommen.js";
 import wasGeschieht from "./posts/was-geschieht-wenn-dein-herz-wirklich-loslassen-darf.js";
+import heilung from "./posts/heilung-bedeutet-nicht-dass-alles-leicht-wird.js";
 
 const blogPosts = /** @type {BlogPost[]} */ ([
   wennDeinTiefpunkt,
@@ -39,6 +40,7 @@ const blogPosts = /** @type {BlogPost[]} */ ([
   wasIchGelernt,
   wennAntworten,
   wasGeschieht,
+  heilung
 ]);
 
 export function getAllPosts() {
