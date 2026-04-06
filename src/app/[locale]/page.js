@@ -22,18 +22,18 @@ export async function generateMetadata({ params }) {
     
     // ✅ CRÍTICO: Canonical + hreflang
     alternates: {
-      canonical: `https://www.corinnevanarelli.ch/${locale}/`,
+      canonical: `https://www.corinnevanarelli.ch/${locale}`,
       languages: {
-        'de': 'https://www.corinnevanarelli.ch/de/',
-        'en': 'https://www.corinnevanarelli.ch/en/',
-        'es': 'https://www.corinnevanarelli.ch/es/',
+        'de': 'https://www.corinnevanarelli.ch/de',
+        'en': 'https://www.corinnevanarelli.ch/en',
+        'es': 'https://www.corinnevanarelli.ch/es',
       }
     },
     
     openGraph: {
       title: t('og.title'),
       description: t('og.description'),
-      url: `https://www.corinnevanarelli.ch/${locale}/`,
+      url: `https://www.corinnevanarelli.ch/${locale}`,
       siteName: "Corinne Vanarelli",
       images: [
         {
