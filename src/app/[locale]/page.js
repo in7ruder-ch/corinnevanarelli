@@ -196,25 +196,6 @@ export default async function HomePage() {
         padTop={false}
       />
 
-      {/* S7 */}
-      <AltSection
-        title={mkStrong('s7.title')}
-        body={
-          <>
-            <p className="whitespace-pre-line">{rich('s7.p1')}</p>
-            <p className="whitespace-pre-line">{rich('s7.p2')}</p>
-          </>
-        }
-        imageSrc={{
-          mobile: "/img/DoTerra Aromatouch.webp",
-          desktop: "/img/DoTerra Aromatouch.webp"
-        }}
-        imageAlt={t('s7.imageAlt')}
-        mediaLeft={true}
-        ctaHref="/angebote/doterra-aromatouch"
-        ctaVariant="link"
-        padTop={false}
-      />
       
       <Services />
       <HomeEbookSection />

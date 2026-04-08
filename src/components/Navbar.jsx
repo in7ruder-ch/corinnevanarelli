@@ -38,7 +38,6 @@ const DROPDOWNS = [
       { path: 'angebote/hopi-herzheilung',       tKey: 'hopiHeartHealing' },
       { path: 'angebote/chakra-clearing',        tKey: 'chakraClearing' },
       { path: 'angebote/gwa',                    tKey: 'spinalAlignment' },
-      { path: 'angebote/doterra-aromatouch',     tKey: 'aromatouch' },
     ],
   },
   {
