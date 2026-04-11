@@ -3,7 +3,7 @@ import AltSection from "@/components/AltSection";
 import CenteredSection from "@/components/CenteredSection";
 import StepsTriptych from "@/components/StepsTriptych";
 import FreeConsultCallout from "@/components/FreeConsultCallout";
-import Testimonials from "@/components/Testimonials";
+import TestimonialsServer from "@/components/TestimonialsServer";
 import Footer from "@/components/Footer";
 import { getTranslations } from "next-intl/server";
 
@@ -148,7 +148,7 @@ export default async function DoterraAromaTouchPage({ params }) {
         ctaLabel={t("freeConsult.ctaLabel")}
       />
 
-      <Testimonials />
+      <TestimonialsServer />
       <Footer />
     </>
   );

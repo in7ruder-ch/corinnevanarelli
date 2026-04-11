@@ -80,7 +80,21 @@ export default function Testimonials({ items: itemsProp }) {
             />
           ))}
         </div>
+
+        {/* Link a Google Reviews */}
+        <a 
+          href="https://search.google.com/local/reviews?placeid=ChIJv1TFp5FrjkcRvUK8RkjfXWo"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-flex items-center justify-center gap-2 text-sm font-medium hover:underline"
+          style={{ color: "var(--brand)" }}
+        >
+          {t("allReviews")}
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
+
+      
 
       {/* Flechas izquierda/derecha (ocultas en mobile) */}
       <button
