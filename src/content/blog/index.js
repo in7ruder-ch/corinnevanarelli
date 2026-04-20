@@ -33,6 +33,7 @@ import wasIchGelernt from "./posts/was-ich-uber-mich-gelernt-habe-als-alles-stil
 import wennAntworten from "./posts/wenn-antworten-nicht-aus-dem-kopf-kommen.js";
 import wasGeschieht from "./posts/was-geschieht-wenn-dein-herz-wirklich-loslassen-darf.js";
 import heilung from "./posts/heilung-bedeutet-nicht-dass-alles-leicht-wird.js";
+import lateinamerika from "./posts/was-mich-lateinamerika-wirklich-gelehrt-hat.js";
 
 const blogPosts = /** @type {BlogPost[]} */ ([
   wennDeinTiefpunkt,
@@ -40,7 +41,8 @@ const blogPosts = /** @type {BlogPost[]} */ ([
   wasIchGelernt,
   wennAntworten,
   wasGeschieht,
-  heilung
+  heilung,
+  lateinamerika
 ]);
 
 export function getAllPosts() {
