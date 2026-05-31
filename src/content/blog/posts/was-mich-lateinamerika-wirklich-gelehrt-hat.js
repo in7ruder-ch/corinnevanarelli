@@ -2,7 +2,7 @@
 
 export default {
     slug: "was-mich-lateinamerika-wirklich-gelehrt-hat",
-    category: "transformation",
+    category: "story",
     date: "2026-04-20",
     title: {
         de: "Was mich Lateinamerika wirklich gelehrt hat",
