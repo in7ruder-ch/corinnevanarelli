@@ -90,7 +90,7 @@ export default async function CostaRicaRetreatPage({ params }) {
               {t("hero.title")}
             </h1>
 
-            <p className="mt-4 text-base md:text-lg text-neutral-700 whitespace-pre-line">
+            <p className="mt-4 text-base md:text-lg text-neutral-700 italic whitespace-pre-line">
               {t("hero.subtitle")}
             </p>
 
