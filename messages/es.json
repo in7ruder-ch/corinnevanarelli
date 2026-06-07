@@ -1046,9 +1046,9 @@
     },
     "hero": {
       "kicker": "Retreat · Costa Rica",
-      "title": "Salir del modo funcionamiento.\nEntrar en autoliderazgo.",
-      "subtitle": "Retreat Costa Rica",
-      "body": "Este retreat está dirigido a personas\ncuya vida sigue funcionando por fuera,\nmientras por dentro ya se hicieron visibles la tensión, la presión o el agotamiento.\n\nDentro de un marco sostenido conscientemente, trabajamos con:\n\n• coaching ontológico\n• comunicación no verbal\n• trabajo de presencia encarnada\n• acompañamiento energético\n\nEl objetivo no es una motivación momentánea,\nsino un cambio sostenible\nen la percepción, el autoliderazgo y la capacidad de decidir.\n\nEn la fuerza de la naturaleza de Costa Rica,\nse abre un espacio\nen el que tu sistema nervioso puede regularse\ny una nueva claridad interna puede volverse posible.\n\nLa transformación aquí no sucede a través de conceptos,\nsino a través de la experiencia.",
+      "title": "En algún momento, incluso\nfuncionar se vuelve agotador.",
+      "subtitle": "Embodied Truth Retreat · Costa Rica",
+      "body": "Quizás ya entendiste hace tiempo\nque no estás simplemente cansada,\nsino agotada de siempre ser fuerte,\nde seguir adelante y de funcionar.\n\nY quizás sentís profundo en vos:\nNo quiero seguir así.\n\nEste retreat es un espacio\nen el que podés dejar de trabajar contra vos misma.\n\nUna reconexión con tu cuerpo, con tu verdad.\nSostenida por la naturaleza de Costa Rica,\nen un grupo conscientemente pequeño.\n\nLa transformación aquí no sucede a través de conceptos,\nsino a través de la experiencia vivida.",
       "ctaPrimary": "Ponerte en contacto",
       "ctaSecondary": "Ver detalles",
       "badges": [
@@ -1058,16 +1058,16 @@
         "Grupo pequeño"
       ],
       "image": {
-        "src": "/img/retreats/costa-rica/hero2.png",
+        "src": "/img/retreats/costa-rica/retreat-new.webp",
         "alt": "Retreat Costa Rica",
         "placeholder": "Imagen próximamente"
       }
     },
     "details": {
-      "title": "Cuando funcionar se volvió una costumbre",
-      "body": "Muchas personas viven en modo funcionamiento.\nSostienen mucho, hacen mucho,\ny en el proceso pierden la conexión consigo mismas.",
-      "body2": "Este retreat crea un espacio consciente\nen el que tu sistema nervioso puede regularse\ny puede surgir una nueva claridad interna.",
-      "body3": "No se trata de optimización.\nSe trata de autoliderazgo.\n\nNo se trata de retirarte de la vida.\nSino de una nueva orientación consciente.",
+      "title": "No ves la realidad.\nVes tu historia.",
+      "body": "Muchas personas creen que solo necesitan entender más.\nAnalizar más, lograr más y funcionar más.",
+      "body2": "Pero el problema real suele estar más profundo.\nNo en la mente, sino en viejos mecanismos de protección.\nEn historias que en algún momento tomaste como tu verdad.",
+      "body3": "Este retreat te ayuda\nno solo a reconocer esos patrones,\nsino a cambiarlos de verdad.",
       "image": {
         "src": "/img/retreats/costa-rica/5.webp",
         "alt": "Naturaleza en Costa Rica",
@@ -1077,68 +1077,77 @@
     "process": {
       "title": "El proceso del retreat",
       "subtitle": "Del modo funcionamiento al autoliderazgo",
-      "intro": "Este retreat no es un programa para simplemente “desconectarte”,\nsino un proceso experiencial claramente guiado.",
+      "processName": "El Embodied Truth Process",
+      "intro": "Este retreat no es un programa para simplemente desconectarte,\nsino un proceso experiencial claramente guiado.",
       "intro2": "Paso a paso se abre un espacio\nen el que tu sistema nervioso puede regularse,\nlos viejos patrones se vuelven visibles\ny una nueva orientación interna se vuelve posible.",
       "steps": [
         {
-          "title": "1. Llegar y regular",
+          "title": "1. De vuelta a tu cuerpo",
           "subtitle": "De la mente al cuerpo",
-          "body": "Al comienzo no se trata de cambio,\nsino de seguridad.",
-          "body2": "A través de respiración, ejercicios y presencia encarnada,\ntu sistema empieza a salir del modo funcionamiento constante y a entrar en regulación.\nSolo cuando el cuerpo se siente seguro\npuede surgir una claridad real."
+          "body": "La mayoría de las personas vive en su cabeza,\npero el cambio sucede en el cuerpo.",
+          "body2": "A través de regulación del sistema nervioso, breathwork y trabajo de presencia encarnada,\ntu sistema vuelve a salir del modo funcionamiento constante.\n\nPorque solo cuando tu cuerpo se siente seguro\npuede surgir una claridad real."
         },
         {
-          "title": "2. Reconocer patrones",
+          "title": "2. Entender por qué reaccionás así",
           "subtitle": "Autopercepción en lugar de piloto automático",
-          "body": "En esta fase se vuelven visibles programas internos:\nsobreadaptación, presión por rendir, roles antiguos.",
-          "body2": "No para analizarlos,\nsino para reconocerlos conscientemente.\n\nLa conciencia es el primer paso para salir del automatismo."
+          "body": "En esta fase se vuelven visibles programas internos.",
+          "questions": [
+            "¿Por qué decís que sí, aunque algo en vos dice que no?",
+            "¿Por qué te adaptás, aunque eso te aleja cada vez más de vos misma?",
+            "¿Por qué volvés a personas, situaciones o dinámicas que te agotan por dentro?",
+            "¿Por qué se repiten patrones, aunque ya hace tiempo entendiste que no te hacen bien?"
+          ],
+          "body2": ""
         },
         {
-          "title": "3. Soltar y clarificar internamente",
+          "title": "3. Lo que actúa bajo la superficie",
           "subtitle": "Cuestionar creencias",
-          "body": "¿Qué te estuvo guiando hasta ahora?\n¿Qué convicciones internas te mantienen pequeña?",
-          "body2": "A través de coaching ontológico, trabajo de proceso\ny acompañamiento energético,\ntrabajamos en el nivel en el que surge el comportamiento.\n\nNo en los síntomas,\nsino en la raíz."
+          "body": "Muchas reacciones surgen de viejas marcas y estrategias internas de protección.\n\nCon trabajo de proceso profundo, meditación y trabajo con la niña interior,\nabrimos un espacio en el que no solo se vuelven visibles los síntomas,\nsino su origen.",
+          "body2": "Porque el cambio real rara vez sucede donde solo te entendés mejor a vos misma.\nSino donde tu sistema finalmente puede dejar de luchar contra sí mismo."
         },
         {
-          "title": "4. Autoconexión y vínculo",
+          "title": "4. Quedarte con vos misma",
           "subtitle": "Presencia real en lugar de adaptación",
-          "body": "Cuando la presión interna empieza a aflojar,\nse abre espacio para una conexión genuina,\ncon vos misma y con otras personas.",
-          "body2": "En la naturaleza de Costa Rica,\nse vuelve perceptible cómo se sienten la claridad y la amplitud en el cuerpo."
+          "body": "El autoliderazgo no significa que nada vaya a ser difícil nunca más.",
+          "body2": "Significa aprender a no abandonarte a vos misma.\nNi en relaciones, ni en conflictos, ni en la incertidumbre."
         },
         {
-          "title": "5. Integración y orientación",
+          "title": "5. Volver de otra manera",
           "subtitle": "De la experiencia a la acción",
-          "body": "Al final no se trata de una sensación linda,\nsino de cambio en la vida cotidiana.",
-          "body2": "Te vas con:\n\n• decisiones más claras\n• una postura interna más estable\n• más autoliderazgo\n• próximos pasos concretos\n\nNo eufórica, sino enraizada."
+          "body": "No volvés como una nueva persona.\nSino como alguien que dejó de abandonarse a sí misma.",
+          "body2": "Con:\n– más calma interior\n– decisiones más claras\n– menos adaptación\n– más autoliderazgo\n– un sistema nervioso regulado\n– más confianza en la propia percepción\n\nNo perfecta, sino más vos."
         }
       ]
     },
     "forWho": {
       "title": "Este retreat es para vos, si …",
       "items": [
-        "llevás mucha responsabilidad y notás que te estás perdiendo a vos misma en el proceso",
-        "por fuera seguís funcionando, mientras por dentro algo pide claridad",
-        "estás lista para mirar tus patrones con honestidad, no solo para hablar de ellos",
-        "querés un cambio real, no solo inspiración",
-        "estás dispuesta a darte tiempo conscientemente para regular tu sistema nervioso",
-        "buscás un espacio para el autoliderazgo en lugar de la autooptimización"
+        "por fuera seguís funcionando, pero por dentro sentís que te perdiste a vos misma en algún punto",
+        "querés entender por qué ciertos patrones siguen volviendo",
+        "querés aprender a sostener emociones en lugar de perderte en ellas",
+        "querés perderte menos en relaciones y quedarte más con vos misma",
+        "buscás un cambio real, no solo inspiración",
+        "necesitás espacio para la regulación del sistema nervioso, el autoliderazgo y el trabajo interior profundo"
       ],
       "notTitle": "Y no es para vos, si …",
       "notItems": [
+        "solo buscás vacaciones o relajación pura",
         "esperás soluciones rápidas sin proceso interno",
-        "buscás cambio afuera sin cuestionarte a vos misma",
-        "querés evitar confrontarte con tus patrones",
-        "solo buscás vacaciones o relajación"
-      ]
+        "buscás cambio solo afuera sin cuestionarte a vos misma",
+        "querés evitar confrontarte con tus patrones"
+      ],
+      "closing": "Este retreat no es un escape.\nEs un encuentro con vos misma."
     },
     "whatToExpect": {
       "title": "Qué te espera",
       "items": [
-        "Alojamiento en medio de la poderosa naturaleza de Costa Rica",
-        "Procesos y rituales guiados que abren espacio para un movimiento interno real",
-        "Acompañamiento personal en un grupo conscientemente pequeño",
+        "Un grupo conscientemente pequeño para profundidad real y acompañamiento personal",
+        "Breathwork, regulación del sistema nervioso y trabajo de presencia encarnada",
+        "Coaching ontológico y clarificación interna profunda",
+        "Meditación, journaling y trabajo de proceso emocional",
+        "Encuentro honesto y comunicación no verbal",
         "Tiempo para retiro, silencio e integración",
-        "Experiencias y rituales compartidos en la naturaleza",
-        "Todas las comidas preparadas con cariño e incluidas"
+        "Cascadas, naturaleza, ceremonias y la fuerza de Costa Rica, más comidas preparadas con cariño"
       ],
       "note": "Todo sucede dentro de un marco protegido\nque te acompaña con atención\ndesde el primer momento de tu llegada\nhasta la despedida."
     },
@@ -1166,16 +1175,21 @@
           "placeholder": "Imagen 4"
         },
         {
-          "src": "/img/retreats/costa-rica/6.webp",
+          "src": "/img/retreats/costa-rica/birds.webp",
           "alt": "Costa Rica",
           "placeholder": "Imagen 5"
         }
       ]
     },
+    "whyCR": {
+      "title": "Por qué Costa Rica",
+      "body": "Porque algunos cambios no comienzan donde siempre estás.\n\nSino donde tu sistema finalmente puede dejar de funcionar constantemente.\n\nLa naturaleza de Costa Rica desacelera, regula y recuerda.\nAquí se crea un espacio donde tu sistema nervioso puede volver a aprender seguridad.\nNo a través de la teoría, sino a través de la experiencia.",
+      "closing": "Este retreat no es solo un cambio de lugar.\nEs un cambio de perspectiva."
+    },
     "guidance": {
       "title": "Acompañamiento y sostén del espacio",
       "intro": "Este retreat es acompañado conjuntamente por Nina y Corinne.",
-      "body": "Un espacio en el que podés ir más despacio.\nEn el que la percepción, el encuentro y los procesos internos pueden surgir\nsin presión, sin expectativas y sin caminos prefijados.\n\nLa naturaleza de Costa Rica, su calma y su ritmo\nmarcan la cualidad de este retreat:\n\ncon atención, enraizado y sostenido por el momento.",
+      "body": "Un espacio en el que podés ir más despacio.\nEn el que la percepción, el encuentro y los procesos internos reales pueden surgir.\n\nLa naturaleza de Costa Rica, su ritmo y su calma\nmarcan la cualidad de este retreat:\ncon atención, enraizado y profundo.",
       "corinne": {
         "title": "Corinne Vanarelli",
         "body": "Corinne acompaña desde hace muchos años a personas en fases de cambio personal y de reorientación interna.",
@@ -1203,7 +1217,7 @@
         "alt": "Costa Rica",
         "placeholder": "FOTO PLAYA"
       },
-      "placeCaption": "Muchas personas llegan a este retreat porque sienten que su vida por fuera funciona, pero por dentro algo pide más profundidad"
+      "placeCaption": "Quizás este es exactamente el momento en que dejás de solo funcionar – y empezás a escucharte a vos misma otra vez."
     },
     "transformation": {
       "title": "Lo que puede transformarse a través de este retreat",
@@ -1215,7 +1229,7 @@
         "menos presión interna por tener que seguir funcionando",
         "una sensación más profunda de conexión, con una misma y con la vida"
       ],
-      "body": "No porque este retreat “repare” algo.\n\nSino porque se crea un espacio\nen el que tu mundo interno puede reordenarse.",
+      "body": "No porque este retreat repare algo.\n\nSino porque se crea un espacio\nen el que tu mundo interno puede reordenarse.",
       "body2": "Muchas personas no se llevan de este tiempo solo recuerdos,\nsino otra cualidad de claridad, presencia y estabilidad interna.\n\nAlgo que sigue actuando también en la vida cotidiana.",
       "closing": ""
     },
@@ -1250,7 +1264,7 @@
       "closing": {
         "title": "Quizás este espacio también sea para vos",
         "body": "Si sentís\nque estas palabras te tocan,\neste retreat podría ser exactamente el espacio\nque estás buscando ahora.",
-        "cta": "El grupo se mantiene conscientemente pequeño\npara que pueda surgir un marco personal y protegido."
+        "cta": "El grupo se mantiene conscientemente pequeño\nporque el cambio real necesita seguridad.\nY la seguridad necesita espacio."
       }
     },
     "faq": {
@@ -1258,23 +1272,23 @@
       "items": [
         {
           "q": "¿Para quién es este retreat?",
-          "a": "Este retreat está dirigido a personas cuya vida sigue funcionando por fuera, mientras por dentro ya se hicieron visibles la tensión, la presión o el agotamiento."
+          "a": "Para personas cuya vida por fuera sigue funcionando, pero que por dentro sienten que se perdieron a sí mismas en algún punto – y que están listas para cambiar eso de verdad."
         },
         {
           "q": "¿De qué se trata este retreat?",
-          "a": "No se trata de optimización, sino de autoliderazgo. No se trata de retirarte de la vida, sino de una nueva orientación consciente."
+          "a": "No de optimización, sino de autoliderazgo. No de retirarte de la vida, sino de dejar de trabajar contra vos misma."
         },
         {
           "q": "¿Cómo se trabaja dentro del retreat?",
-          "a": "Dentro de un marco sostenido conscientemente, trabajamos con coaching ontológico, comunicación no verbal, trabajo de presencia encarnada y acompañamiento energético."
+          "a": "Con regulación del sistema nervioso, breathwork, coaching ontológico, trabajo con la niña interior, meditación, journaling y trabajo de presencia encarnada."
         },
         {
           "q": "¿Cuál es el objetivo del retreat?",
-          "a": "El objetivo no es una motivación momentánea, sino un cambio sostenible en la percepción, el autoliderazgo y la capacidad de decidir."
+          "a": "No una motivación momentánea, sino un cambio sostenible en la percepción, el autoliderazgo y la capacidad de decidir."
         },
         {
           "q": "¿Qué me espera en el lugar?",
-          "a": "Te esperan alojamiento en la naturaleza, procesos y rituales guiados, acompañamiento personal en un grupo pequeño, tiempo para retiro e integración, y todas las comidas incluidas."
+          "a": "Un grupo conscientemente pequeño, procesos y rituales guiados, acompañamiento personal, tiempo para retiro e integración, y todas las comidas – en medio de la naturaleza de Costa Rica."
         },
         {
           "q": "¿Es para mí si solo busco descanso?",

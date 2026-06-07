@@ -1036,9 +1036,9 @@
     },
     "hero": {
       "kicker": "Retreat · Costa Rica",
-      "title": "Out of survival mode.\nInto self-leadership.",
-      "subtitle": "Costa Rica Retreat",
-      "body": "This retreat is for people\nwhose life seems to work on the outside,\nwhile tension, pressure or exhaustion have become noticeable within.\n\nWithin a consciously held space, we work with:\n\n• ontological coaching\n• nonverbal communication\n• embodied presence work\n• energetic support\n\nThe goal is not short-term motivation,\nbut a lasting shift\nin perception, self-leadership and decision-making.\n\nIn the powerful nature of Costa Rica,\nspace opens up\nfor your nervous system to regulate\nand for new inner clarity to become possible.\n\nTransformation does not happen here through concepts,\nbut through experience.",
+      "title": "At some point, even functioning\nbecomes too exhausting.",
+      "subtitle": "Embodied Truth Retreat · Costa Rica",
+      "body": "Maybe you have long understood\nthat you are not simply tired,\nbut exhausted from always being strong,\nkeeping going and functioning.\n\nAnd maybe you feel it deep inside:\nI don't want to continue like this.\n\nThis retreat is a space\nwhere you are allowed to stop working against yourself.\n\nA reconnection to your body, to your truth.\nHeld by the nature of Costa Rica,\nin a consciously small group.\n\nTransformation here does not happen through concepts,\nbut through lived experience.",
       "ctaPrimary": "Get in touch",
       "ctaSecondary": "View details",
       "badges": [
@@ -1048,16 +1048,16 @@
         "Small group"
       ],
       "image": {
-        "src": "/img/retreats/costa-rica/hero2.png",
+        "src": "/img/retreats/costa-rica/retreat-new.webp",
         "alt": "Costa Rica Retreat",
         "placeholder": "Image coming soon"
       }
     },
     "details": {
-      "title": "When functioning has become a habit",
-      "body": "Many people live in survival mode.\nThey carry a lot, do a lot,\nand lose connection to themselves in the process.",
-      "body2": "This retreat creates a conscious space\nwhere your nervous system is allowed to regulate\nand new inner clarity can emerge.",
-      "body3": "This is not about optimization.\nIt is about self-leadership.\n\nNot about withdrawing from life.\nBut about a conscious realignment.",
+      "title": "You don't see reality.\nYou see your story.",
+      "body": "Many people believe they just need to understand more.\nTo analyze more, achieve more and function more.",
+      "body2": "But the real problem often lies deeper.\nNot in the mind, but in old protective mechanisms.\nIn stories you once took to be your truth.",
+      "body3": "This retreat helps you\nnot only to recognize these patterns,\nbut to truly change them.",
       "image": {
         "src": "/img/retreats/costa-rica/5.webp",
         "alt": "Nature in Costa Rica",
@@ -1067,68 +1067,77 @@
     "process": {
       "title": "The retreat process",
       "subtitle": "From survival mode to self-leadership",
-      "intro": "This retreat is not a program to simply “switch off”,\nbut a clearly guided experiential process.",
+      "processName": "The Embodied Truth Process",
+      "intro": "This retreat is not a program to simply switch off,\nbut a clearly guided experiential process.",
       "intro2": "Step by step, a space unfolds\nin which your nervous system can regulate,\nold patterns become visible,\nand a new inner orientation becomes possible.",
       "steps": [
         {
-          "title": "1. Arrive & regulate",
+          "title": "1. Back into your body",
           "subtitle": "From the mind into the body",
-          "body": "At the beginning, this is not about change,\nbut about safety.",
-          "body2": "Through breathwork, practices and embodied presence,\nyour system begins to move out of chronic survival mode and into regulation.\nOnly when the body feels safe\ncan real clarity emerge."
+          "body": "Most people live in their heads,\nbut change happens in the body.",
+          "body2": "Through nervous system regulation, breathwork and embodied presence work,\nyour system comes back out of chronic survival mode.\n\nBecause only when your body feels safe\ncan real clarity emerge."
         },
         {
-          "title": "2. Recognize patterns",
+          "title": "2. Understanding why you react the way you do",
           "subtitle": "Self-awareness instead of autopilot",
-          "body": "In this phase, inner programs become visible:\nover-adaptation, performance pressure, old roles.",
-          "body2": "Not to analyze them,\nbut to consciously recognize them.\n\nAwareness is the first step out of automatism."
+          "body": "In this phase, inner programs become visible.",
+          "questions": [
+            "Why do you say yes, even though something inside you says no?",
+            "Why do you adapt, even though it takes you further and further away from yourself?",
+            "Why do you return to people, situations or dynamics that exhaust you inside?",
+            "Why do patterns repeat themselves, even though you have long understood that they don't serve you?"
+          ],
+          "body2": ""
         },
         {
-          "title": "3. Let go & clear within",
+          "title": "3. What works beneath the surface",
           "subtitle": "Questioning core beliefs",
-          "body": "What has been driving you until now?\nWhich inner convictions keep you small?",
-          "body2": "Through ontological coaching, process work\nand energetic support,\nwe work at the level where behavior is created.\n\nNot at the level of symptoms,\nbut at the root."
+          "body": "Many reactions arise from old imprints and inner protective strategies.\n\nThrough deep process work, meditation and inner child work,\nwe open a space in which not only symptoms become visible,\nbut their origin.",
+          "body2": "Because real change rarely happens where you simply understand yourself better.\nBut where your system is finally allowed to stop fighting against itself."
         },
         {
-          "title": "4. Self-connection & relationship",
+          "title": "4. Staying with yourself",
           "subtitle": "Real presence instead of adaptation",
-          "body": "As inner pressure begins to soften,\nspace opens for genuine connection,\nwith yourself and with others.",
-          "body2": "In the nature of Costa Rica,\nyou can begin to feel what clarity and spaciousness are like in the body."
+          "body": "Self-leadership does not mean that nothing will ever be difficult again.",
+          "body2": "It means learning not to abandon yourself anymore.\nEven in relationships, in conflict and in uncertainty."
         },
         {
-          "title": "5. Integration & alignment",
+          "title": "5. Going back differently",
           "subtitle": "From experience into action",
-          "body": "In the end, this is not about a beautiful feeling,\nbut about change in everyday life.",
-          "body2": "You leave with:\n\n• clearer decisions\n• a more stable inner posture\n• more self-leadership\n• concrete next steps\n\nNot euphoric, but grounded."
+          "body": "You don't go back as a new person.\nBut as someone who has stopped abandoning themselves.",
+          "body2": "With:\n– more inner calm\n– clearer decisions\n– less over-adaptation\n– more self-leadership\n– a regulated nervous system\n– more trust in your own perception\n\nNot perfect, but more yourself."
         }
       ]
     },
     "forWho": {
       "title": "This retreat is for you if …",
       "items": [
-        "you carry a lot of responsibility – and notice that you are losing yourself in the process",
-        "your outer life still functions while something inside you longs for clarity",
-        "you are ready to look honestly at your patterns – not just talk about them",
-        "you want real change, not just inspiration",
-        "you are willing to consciously give your nervous system time to regulate",
-        "you are looking for space for self-leadership instead of self-optimization"
+        "your outer life still functions but you feel inside that you have lost yourself somewhere",
+        "you want to understand why certain patterns keep coming back",
+        "you want to learn to hold emotions instead of getting lost in them",
+        "you want to lose yourself less in relationships and stay more with yourself",
+        "you are looking for real change, not just inspiration",
+        "you need space for nervous system regulation, self-leadership and deep inner work"
       ],
       "notTitle": "And not for you if …",
       "notItems": [
+        "you are only looking for a holiday or pure relaxation",
         "you expect quick solutions without an inner process",
-        "you are looking for outer change without questioning yourself",
-        "you want to avoid confronting your patterns",
-        "you are only looking for a holiday or relaxation"
-      ]
+        "you are looking for change only on the outside without questioning yourself",
+        "you want to avoid confronting your patterns"
+      ],
+      "closing": "This retreat is not an escape.\nIt is an encounter with yourself."
     },
     "whatToExpect": {
       "title": "What to expect",
       "items": [
-        "Accommodation in the powerful nature of Costa Rica",
-        "Guided processes and rituals that open space for real inner movement",
-        "Personal support in a consciously small group",
+        "A consciously small group for real depth and personal support",
+        "Breathwork, nervous system regulation and embodied presence work",
+        "Ontological coaching and deep inner clarification",
+        "Meditation, journaling and emotional process work",
+        "Honest encounter and nonverbal communication",
         "Time for retreat, stillness and integration",
-        "Shared experiences and rituals in nature",
-        "All meals lovingly prepared and included"
+        "Waterfalls, nature, ceremonies and the power of Costa Rica, plus lovingly prepared meals"
       ],
       "note": "Everything takes place within a protected framework\nthat accompanies you mindfully\nfrom the moment you arrive\nuntil your departure."
     },
@@ -1156,16 +1165,21 @@
           "placeholder": "Image 4"
         },
         {
-          "src": "/img/retreats/costa-rica/6.webp",
+          "src": "/img/retreats/costa-rica/birds.webp",
           "alt": "Costa Rica",
           "placeholder": "Image 5"
         }
       ]
     },
+    "whyCR": {
+      "title": "Why Costa Rica",
+      "body": "Because some changes don't begin where you always are.\n\nBut where your system is finally allowed to stop constantly functioning.\n\nThe nature of Costa Rica slows down, regulates and reminds.\nHere, space is created where your nervous system can learn safety again.\nNot through theory, but through experience.",
+      "closing": "This retreat is not just a change of place.\nIt is a change of perspective."
+    },
     "guidance": {
       "title": "Guidance & space holding",
       "intro": "This retreat is held jointly by Nina and Corinne.",
-      "body": "A space in which you are allowed to slow down.\nA space in which perception, encounter and inner processes can unfold\nwithout pressure, without expectations, without predefined paths.\n\nThe nature of Costa Rica, its quietness and its rhythm\nshape the quality of this retreat:\n\nmindful, grounded and held by the moment.",
+      "body": "A space in which you are allowed to slow down.\nIn which perception, encounter and real inner processes can unfold.\n\nThe nature of Costa Rica, its rhythm and its quietness\nshape the quality of this retreat:\nmindful, grounded and deep.",
       "corinne": {
         "title": "Corinne Vanarelli",
         "body": "For many years, Corinne has been accompanying people through phases of personal change and inner reorientation.",
@@ -1193,7 +1207,7 @@
         "alt": "Costa Rica",
         "placeholder": "BEACH PHOTO"
       },
-      "placeCaption": "Many people come to this retreat because they sense that their outer life still works, while something inside them is calling for more depth"
+      "placeCaption": "Maybe this is exactly the moment when you stop just functioning – and start listening to yourself again."
     },
     "transformation": {
       "title": "What can shift through this retreat",
@@ -1205,7 +1219,7 @@
         "less inner pressure to keep functioning",
         "a deeper sense of connection – to yourself and to life"
       ],
-      "body": "Not because this retreat “fixes” anything.\n\nBut because space is created\nin which your inner world is allowed to reorder itself.",
+      "body": "Not because this retreat fixes anything.\n\nBut because space is created\nin which your inner world is allowed to reorder itself.",
       "body2": "Many people do not leave this time only with memories –\nbut with a different quality of clarity, presence and inner stability.\n\nSomething that continues to work in everyday life.",
       "closing": ""
     },
@@ -1240,7 +1254,7 @@
       "closing": {
         "title": "Maybe this space is for you, too",
         "body": "If you feel\nthat these words touch something in you,\nthis retreat may be exactly the space\nyou are looking for right now.",
-        "cta": "The group is intentionally kept small\nso that a personal and protected setting can emerge."
+        "cta": "The group is intentionally kept small\nbecause real change needs safety.\nAnd safety needs space."
       }
     },
     "faq": {
@@ -1248,23 +1262,23 @@
       "items": [
         {
           "q": "Who is this retreat for?",
-          "a": "This retreat is for people whose life seems to function on the outside while tension, pressure or exhaustion have become noticeable within."
+          "a": "For people whose outer life still functions but who feel inside that they have lost themselves somewhere – and who are ready to truly change that."
         },
         {
           "q": "What is this retreat about?",
-          "a": "This retreat is not about optimization. It is about self-leadership. Not about withdrawing from life, but about a conscious realignment."
+          "a": "Not about optimization, but about self-leadership. Not about withdrawing from life, but about stopping to work against yourself."
         },
         {
           "q": "How do we work in the retreat?",
-          "a": "Within a consciously held space, we work with ontological coaching, nonverbal communication, embodied presence work and energetic support."
+          "a": "With nervous system regulation, breathwork, ontological coaching, inner child work, meditation, journaling and embodied presence work."
         },
         {
           "q": "What is the goal of the retreat?",
-          "a": "The goal is not short-term motivation, but a lasting shift in perception, self-leadership and decision-making."
+          "a": "Not short-term motivation, but a lasting shift in perception, self-leadership and decision-making."
         },
         {
           "q": "What can I expect on site?",
-          "a": "You can expect accommodation in nature, guided processes and rituals, personal support in a small group, time for retreat and integration, and all meals included."
+          "a": "A consciously small group, guided processes and rituals, personal support, time for retreat and integration, and all meals – in the midst of the nature of Costa Rica."
         },
         {
           "q": "Is this retreat for me if I am only looking for relaxation?",

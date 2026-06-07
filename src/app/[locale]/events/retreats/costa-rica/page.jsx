@@ -2,7 +2,7 @@
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getMessages } from "next-intl/server";
 import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -55,6 +55,18 @@ export async function generateMetadata({ params }) {
 export default async function CostaRicaRetreatPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "EventsRetreatCostaRica" });
+  const messages = await getMessages({ locale });
+
+  // Helper: safely get questions array for a step (returns [] if not defined)
+  const getStepQuestions = (stepIdx) => {
+    try {
+      const step = messages?.EventsRetreatCostaRica?.process?.steps?.[stepIdx];
+      const questions = step?.questions;
+      return Array.isArray(questions) ? questions : [];
+    } catch {
+      return [];
+    }
+  };
 
   const h2Class =
     "text-3xl md:text-[2.25rem] font-semibold text-neutral-900 whitespace-pre-line";
@@ -63,6 +75,7 @@ export default async function CostaRicaRetreatPage({ params }) {
 
   return (
     <>
+      {/* ── HERO ── */}
       <Section
         className="bg-white pt-[12rem] pb-14"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -134,6 +147,7 @@ export default async function CostaRicaRetreatPage({ params }) {
         </div>
       </Section>
 
+      {/* ── DETAILS ── */}
       <Section
         id="details"
         className="bg-[#fafafa] py-10 scroll-mt-40"
@@ -182,6 +196,7 @@ export default async function CostaRicaRetreatPage({ params }) {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
+      {/* ── PROCESS ── */}
       <Section
         className="bg-white py-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -190,6 +205,10 @@ export default async function CostaRicaRetreatPage({ params }) {
           <h2 className={h2Class}>{t("process.title")}</h2>
           <p className="mt-2 text-neutral-600 whitespace-pre-line">
             {t("process.subtitle")}
+          </p>
+          {/* NEW: process name / methodology label */}
+          <p className="mt-6 text-sm font-semibold tracking-widest uppercase text-neutral-400">
+            {t("process.processName")}
           </p>
           <p className="mt-4 text-neutral-700 whitespace-pre-line">
             {t("process.intro")}
@@ -215,6 +234,12 @@ export default async function CostaRicaRetreatPage({ params }) {
                 <p className="mt-3 text-sm text-neutral-700 whitespace-pre-line">
                   {t(`process.steps.${idx}.body`)}
                 </p>
+                {/* Optional questions block — only renders if questions exist in JSON */}
+                {getStepQuestions(idx).map((question, qIdx) => (
+                  <p key={qIdx} className="mt-2 text-sm text-neutral-500 italic whitespace-pre-line">
+                    {question}
+                  </p>
+                ))}
                 <p className="mt-3 text-sm text-neutral-700 whitespace-pre-line">
                   {t(`process.steps.${idx}.body2`)}
                 </p>
@@ -246,6 +271,7 @@ export default async function CostaRicaRetreatPage({ params }) {
         </div>
       </Section>
 
+      {/* ── FOR WHO ── */}
       <Section
         className="bg-[#fafafa] pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -269,8 +295,16 @@ export default async function CostaRicaRetreatPage({ params }) {
             </ul>
           </div>
         </div>
+
+        {/* NEW: closing line after both lists */}
+        <div className="mt-10 max-w-2xl mx-auto text-center">
+          <p className="text-neutral-900 font-medium whitespace-pre-line">
+            {t("forWho.closing")}
+          </p>
+        </div>
       </Section>
 
+      {/* ── WHAT TO EXPECT ── */}
       <Section
         className="bg-white pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -279,7 +313,7 @@ export default async function CostaRicaRetreatPage({ params }) {
           <div className="max-w-xl">
             <h3 className={h3Class}>{t("whatToExpect.title")}</h3>
             <ul className="mt-4 space-y-3 list-disc pl-5 text-neutral-700">
-              {[0, 1, 2, 3, 4, 5].map((idx) => (
+              {[0, 1, 2, 3, 4, 5, 6].map((idx) => (
                 <li key={idx}>{t(`whatToExpect.items.${idx}`)}</li>
               ))}
             </ul>
@@ -305,8 +339,29 @@ export default async function CostaRicaRetreatPage({ params }) {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
+      {/* ── NEW: WHY COSTA RICA ── */}
       <Section
-        className="bg-[#fafafa] pt-4 pb-10"
+        className="bg-[#fafafa] py-10"
+        containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className={h2Class}>{t("whyCR.title")}</h2>
+          <p className="mt-6 text-neutral-700 whitespace-pre-line">
+            {t("whyCR.body")}
+          </p>
+          <p className="mt-6 text-neutral-900 font-medium whitespace-pre-line">
+            {t("whyCR.closing")}
+          </p>
+        </div>
+      </Section>
+
+      <div className="my-8 flex justify-center">
+        <span className="block h-px w-80 bg-neutral-200" />
+      </div>
+
+      {/* ── GUIDANCE ── */}
+      <Section
+        className="bg-white pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
       >
         <div className="max-w-3xl mx-auto text-center">
@@ -421,6 +476,7 @@ export default async function CostaRicaRetreatPage({ params }) {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
+      {/* ── TRANSFORMATION ── */}
       <Section
         className="bg-white pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -456,6 +512,7 @@ export default async function CostaRicaRetreatPage({ params }) {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
+      {/* ── BOOKING ── */}
       <Section
         className="bg-[#fafafa] pt-4 pb-10"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -517,6 +574,7 @@ export default async function CostaRicaRetreatPage({ params }) {
         <span className="block h-px w-80 bg-neutral-200" />
       </div>
 
+      {/* ── FAQ ── */}
       <Section
         className="bg-white"
         containerClass="mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 max-w-[1400px]"
@@ -524,38 +582,14 @@ export default async function CostaRicaRetreatPage({ params }) {
         <FAQAccordion
           title={t("faq.title")}
           items={[
-            {
-              q: t("faq.items.0.q"),
-              a: t("faq.items.0.a"),
-            },
-            {
-              q: t("faq.items.1.q"),
-              a: t("faq.items.1.a"),
-            },
-            {
-              q: t("faq.items.2.q"),
-              a: t("faq.items.2.a"),
-            },
-            {
-              q: t("faq.items.3.q"),
-              a: t("faq.items.3.a"),
-            },
-            {
-              q: t("faq.items.4.q"),
-              a: t("faq.items.4.a"),
-            },
-            {
-              q: t("faq.items.5.q"),
-              a: t("faq.items.5.a"),
-            },
-            {
-              q: t("faq.items.6.q"),
-              a: t("faq.items.6.a"),
-            },
-            {
-              q: t("faq.items.7.q"),
-              a: t("faq.items.7.a"),
-            },
+            { q: t("faq.items.0.q"), a: t("faq.items.0.a") },
+            { q: t("faq.items.1.q"), a: t("faq.items.1.a") },
+            { q: t("faq.items.2.q"), a: t("faq.items.2.a") },
+            { q: t("faq.items.3.q"), a: t("faq.items.3.a") },
+            { q: t("faq.items.4.q"), a: t("faq.items.4.a") },
+            { q: t("faq.items.5.q"), a: t("faq.items.5.a") },
+            { q: t("faq.items.6.q"), a: t("faq.items.6.a") },
+            { q: t("faq.items.7.q"), a: t("faq.items.7.a") },
           ]}
         />
       </Section>
